@@ -23,7 +23,7 @@
 		}elseif($_SESSION['role']==1){
 			include( DIR_LAY.'headerAdminPages.php') ;
 		}else{
-			include( DIR_LAY.'headerPages.php') ;
+			include( DIR_LAY.'header.php') ;
 		}
 		?>
 		<section id="inner-headline">
