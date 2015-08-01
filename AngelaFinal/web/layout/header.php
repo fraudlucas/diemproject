@@ -22,21 +22,21 @@
                         <li class="dropdown" >
                             <a href="#" id="dropdownactive" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">About <b class=" icon-angle-down"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="web/pages/aboutUS.php">About US</a></li>
-                                <li><a href="components.html">Our Team</a></li>
-								<li><a href="web/pages/testimonials.php">Testimonials</a></li>
-								<li><a href="pricingbox.html">Privacy Policy</a></li>
+                                <li><a href="./web/pages/aboutUS.php">About US</a></li>
+                                <li><a href="./web/pages/ourTeam.php">Our Team</a></li>
+								<li><a href="./web/pages/testimonials.php">Testimonials</a></li>
+								<li><a href="./web/pages/privacy-policy.php">Privacy Policy</a></li>
                             </ul>
                         </li>
                         <li class="dropdown" >
                             <a href="#" id="dropdownactive" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Collections <b class=" icon-angle-down"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="typography.html">Ready to Wear</a></li>
-                                <li><a href="components.html">Made to Measure</a></li>
+                                <li><a href="./web/pages/readyToWear.php">Ready to Wear</a></li>
+                                <li><a href="./web/pages/madeToMeasure.php">Made to Measure</a></li>
                             </ul>
                         </li>
-                        <li><a href="blog.html" >Blog</a></li>
-                        <li><a href="contact.html" >Contact</a></li>
+                        <li><a href="#" >Blog</a></li>
+                        <li><a href="./web/pages/contact.php" >Contact</a></li>
 						<li>
 							<form class="navbar-form navbar-right"   action="./src/handlers/userHandler.php?a=login" method="post">
 								<div class="form-group" >
