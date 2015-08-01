@@ -15,7 +15,6 @@ class User{
     private $province;
     private $administratorID;
 	private $status;
-    private $hugoteestgit;  //test git
 	
     function getUserName() {
         return $this->userName;

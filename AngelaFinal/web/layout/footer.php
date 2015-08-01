@@ -1,65 +1,92 @@
 <footer>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-3">
-				<div class="widget">
-					<img id="image_canv" src="./web/assets/images/signature.png" class="rotate90 widgetheading">
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="widget">
-					<h5 class="widgetheading">Pages</h5>
-					<ul class="link-list">
-						<li><a href="#">Press release</a></li>
-						<li><a href="#">Terms and conditions</a></li>
-						<li><a href="#">Privacy policy</a></li>
-						<li><a href="#">Career center</a></li>
-						<li><a href="#">Contact us</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="widget">
-					<h5 class="widgetheading">Latest posts</h5>
-					<ul class="link-list">
-						<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-						<li><a href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
-						<li><a href="#">Natus error sit voluptatem accusantium doloremque</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="widget">
-					<h5 class="widgetheading">Flickr photostream</h5>
-					<div class="flickr_badge">
-						<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=8&amp;display=random&amp;size=s&amp;layout=x&amp;source=user&amp;user=34178660@N03"></script>
-					</div>
-					<div class="clear">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="sub-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="copyright">
-						<p>
-							<span>&copy; Angela Mark 2015 All rights reserved. By </span><a target="_blank">Angela Mark</a>
-						</p>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<ul class="social-network">
-						<li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-						<li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
-						<li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+			<div class="col-md-4">
+                    <ul class="page-footer-list text-center">
+                        
+				  <h4 style= " text-transform: uppercase; text-align: center; text-color:#000000;">Our Company</h4>
+				  
+                            <a href="about.php">About Us</a>
+                        <br>
+                            <a href="ourTeam.php">Our team</a>
+                        
+                        <br>
+                            <a href="testimonials.php">Testimonials</a>
+                        <br>
+                            <a href="career.php">Work with us</a>
+                        <br>
+                            <a href="privacy-policy.php">Privacy Policy</a>
+                        <br>
+                    </ul>
+				  </div>
+                  <div class="col-md-4">
+				  <h4 style= "text-transform: uppercase; text-align: center; text-color:#000000;">Contact Info</h4>
+                <address>
+                    <p class="text-center">
+                        <i class="fa fa-home pr-10"></i>Address: 231, King Street</p>
+                    <p class="text-center">
+                        <i class="fa fa-globe pr-10"></i>Peterborough, Ontario / Canada</p>
+                    <p class="text-center">
+                        <i class="fa fa-phone pr-10"></i>Phone: 705.742.7315</p>
+                    <p class="text-center">
+                        <i class="fa fa-envelope pr-10"></i>Email: showroom@angelamark.com</p>
+                </address>
+			<div class="social">
+			<h4 style= "text-transform: uppercase; text-align: center; text-color:#000000;">Social media</h4>
+    <center><ul>
+        <li><a href="https://www.facebook.com/angelamarkfashion?fref=ts"><i class="fa fa-lg fa-facebook"></i></a></li>
+        <li><a href="https://twitter.com/angelammark"><i class="fa fa-lg fa-twitter"></i></a></li>
+        <li><a href="https://ca.linkedin.com/pub/angela-mark/14/724/3aa"><i class="fa fa-lg fa-linkedin"></i></a></li>
+        <li><a href="#"><i class="fa fa-lg fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fa fa-lg fa-youtube-play"></i></a></li>
+    </ul>
+	<style></center>
+.social {
+ margin: 0;
+padding: 0;
+}
+
+.social h1{
+ margin: 0;
+padding: 1px;
+}
+
+.social ul {
+    margin: 0;
+    padding: 1px;
+}
+
+.social ul li {
+    margin: 5px;
+    list-style: none outside none;
+    display: inline-block;
+} </style>
+				  </div>
+				  </div>
+                  <div class="col-md-4">
+				  
+                    <ul class="page-footer-list text-center">
+					<h4 style= " text-transform: uppercase; text-center; text-colour:#000000;">Client Area</h4>
+                        
+                            <a href="appointment.php">Book an appointment</a>
+                        <br>
+                            <a href="login.php">Login</a>
+                        <br>
+                            <a href="registration.php">Register</a>
+                        <br>
+                            <a href="myWardrobe.php">My Wardrobe</a>
+                        <br>
+                    </ul>
+				  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+	 
+	  <hr>
+                <div class="container">
+                    <p class="text-center">© Angela Mark Fashion Designs | 2015</p>
+                </div>
 </footer>
