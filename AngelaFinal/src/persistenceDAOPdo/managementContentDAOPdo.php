@@ -1,0 +1,80 @@
+<?php 
+
+	//require_once('../config.php');
+	require_once DIR_PER.'managementContentDAO.php';
+	require_once DIR_PDO.'connectionDAOPdo.php';
+	require_once DIR_MOD.'managementContent.php';
+
+
+class ManagementContentDAOPdo implements ManagementContentDAO {
+
+	public function addContent($management) {
+
+		$className = 'ConnectionDAOPdo';
+		$con = $className::getConnection();
+
+		$stmt = $con->prepare("INSERT INTO pagecontent (pageId,variable, content)"
+                        . " VALUES (:pageId, :variable, :content)");
+		$stmt->bindParam(':pageId', $management->getPageIdContent());
+                $stmt->bindParam(':variable', $management->getVariable());
+            	$stmt->bindParam(':content',  $management->getContent());
+               
+		$teste = $stmt->execute();
+
+		return 'Sucesso - ' . $teste;
+	}
+	
+	public function updateContent($management) {
+		$className = 'ConnectionDAOPdo';
+			try {		
+				$con = $className::getConnection();
+				$stmt = $con->prepare("UPDATE pagecontent SET 
+					content = :content 				
+					WHERE pageID = :pageid");
+				$stmt->bindParam(':content', $user->getContent());
+				$stmt->bindParam(':pageid', $user->getPageIdContent());
+				
+				
+				$stmt->execute();    // Execute the prepared query.
+				
+				return true;
+			}
+			catch(PDOException $e){
+				echo $e;
+				return false;
+			}
+	}
+	
+	
+	public function searchContent($param,$value,$type){
+		$className = 'ConnectionDAOPdo';
+		
+		$con = $className::getConnection();
+		$query = 'SELECT * FROM pagecontent Where '.$param.' = '.$value;
+		$stmt = $con->prepare($query);
+		$stmt->execute();
+		$result = $stmt->fetchAll();
+
+		$managementsList = new ArrayObject();
+
+		foreach ($result as $row) {
+			
+			$management = new ManagementContent();
+
+			$management->setIdContent($row['id']);
+			$management->setPageIdContent($row['pageID']);
+			$management->setVariable($row['variable']);
+			$management->setContent($row['content']);
+			
+			
+			$managementsList->append($management);
+		}
+		
+		if($type==1){
+			return $management;
+		}elseif($type==2){
+			return $managementsList;
+		}
+	}
+}
+?>
