@@ -19,26 +19,26 @@
 					</div>
 					
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php">Home</a></li>
-						<li><a href="index.php">Profile</a></li>
+                        <li class="active"><a href="../../index.php">Home</a></li>
+						<li><a href="../../web/pages/userHome.php">Profile</a></li>
                         <li class="dropdown" >
                             <a href="#" id="dropdownactive" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">About <b class=" icon-angle-down"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="">About US</a></li>
-                                <li><a href="">Our Team</a></li>
-								<li><a href="">Testimonials</a></li>
-								<li><a href="">Privacy Policy</a></li>
+                                <li><a href="../../web/pages/aboutUs.php">About US</a></li>
+                                <li><a href="../../web/pages/ourTeam.php">Our Team</a></li> <!-- There is no page -->
+								<li><a href="../../web/pages/testimonials.php">Testimonials</a></li>
+								<li><a href="../../web/pages/privacyPolicy.php">Privacy Policy</a></li> <!-- There is no page -->
                             </ul>
                         </li>
                         <li class="dropdown" >
                             <a href="#" id="dropdownactive" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Collections <b class=" icon-angle-down"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="typography.html">Ready to Wear</a></li>
-                                <li><a href="components.html">Made to Measure</a></li>
+                                <li><a href="../../web/pages/readyToWear.php">Ready to Wear</a></li>
+                                <li><a href="../../web/pages/madeToMeasure.php">Made to Measure</a></li>
                             </ul>
                         </li>
-                        <li><a href="blog.html" >Blog</a></li>
-                        <li><a href="contact.html" >Contact</a></li>
+                        <li><a href="../../web/pages/blog.php" >Blog</a></li>
+                        <li><a href="../../web/pages/contact.php" >Contact</a></li>
 						<li>
 							<form class="navbar-form"  action="../../src/handlers/userHandler.php?a=logout" method="post">
 								<div class="form-group">
