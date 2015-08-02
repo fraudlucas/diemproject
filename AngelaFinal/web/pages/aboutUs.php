@@ -42,6 +42,7 @@ p.description_content{
 <?php include( DIR_LAY.'modalBook.php');?>
 	<div id="wrapper">
 		<?php 
+		
 		if ($_SESSION['role']==2){
 			include (DIR_LAY.'headerUserPages.php') ;
 		}elseif($_SESSION['role']==1){

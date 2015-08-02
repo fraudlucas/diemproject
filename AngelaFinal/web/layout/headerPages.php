@@ -18,21 +18,21 @@
 						<button class="btn btn-theme" Style=" transform: rotate(90deg); cursor: pointer; right:-57px; top:0px; margin-top:350px; z-index:999997; position:fixed;" data-direction='left' data-toggle="modal" data-target="#myModal")">Book Appointment</button> 
 					</div>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php">Home</a></li>
+                        <li class="active"><a href="../../index.php">Home</a></li>
                         <li class="dropdown" >
                             <a href="#" id="dropdownactive" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">About <b class=" icon-angle-down"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="../pages/aboutUS.php">About US</a></li>
-                                <li><a href="">Our Team</a></li>
-								<li><a href="">Testimonials</a></li>
-								<li><a href="">Privacy Policy</a></li>
+                                <li><a href="../pages/ourTeam.php">Our Team</a></li>
+								<li><a href="../pages/testimonials.php">Testimonials</a></li>
+								<li><a href="../pages/privacy-policy.php">Privacy Policy</a></li>
                             </ul>
                         </li>
                         <li class="dropdown" >
                             <a href="#" id="dropdownactive" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Collections <b class=" icon-angle-down"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="typography.html">Ready to Wear</a></li>
-                                <li><a href="components.html">Made to Measure</a></li>
+                                <li><a href="../pages/readyToWear.php">Ready to Wear</a></li>
+                                <li><a href="../pages/madeToMeasure.php">Made to Measure</a></li>
                             </ul>
                         </li>
                         <li><a href="blog.html" >Blog</a></li>

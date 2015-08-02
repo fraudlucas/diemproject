@@ -10,20 +10,21 @@
 	$session = new Session();
 ?>
 
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
 	<?php include( DIR_LAY.'headPages.php');?>
 </head>
 <body>
-<?php include( DIR_LAY.'modalBook.php');?>
-	<div id="wrapper">
-		<?php 
+	<?php 
+	echo $_SESSION['role'];
 		if ($_SESSION['role']==2){
 			include (DIR_LAY.'headerUserPages.php') ;
 		}elseif($_SESSION['role']==1){
 			include( DIR_LAY.'headerAdminPages.php') ;
 		}else{
-			include( DIR_LAY.'header.php') ;
+			include( DIR_LAY.'headerPages.php') ;
 		}
 		?>
 		<section id="inner-headline">

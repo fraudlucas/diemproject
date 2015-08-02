@@ -1,35 +1,34 @@
+<?php
+	require_once('../../src/config.php');
+	require_once('../../src/Session.php');
+	require_once (DIR_VIE.'managementPhotosView.php');
+	require_once (DIR_VIE.'managementContentView.php');
+	$manegementPhotosView = new ManagementPhotosView();
+	$managementContentView = new ManagementContentView();
+	$managementPhotos = $manegementPhotosView->searchPhotos('pageId','2','1');
+	$managementContent = $managementContentView->searchContent('pageId','2','1');
+	$session = new Session();
+?>
+
 <!DOCTYPE html>
-<html>
-    
-    <?php
-	include 'partials/header.php'
-	?>
-        <!--header end-->
-        <!--breadcrumbs start-->
-        <div class="breadcrumbs">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-4">
-                        <h1></h1>
-                    </div>
-                    <div class="col-lg-8 col-sm-8">
-                        <ol class="breadcrumb pull-right">
-                            <li>
-                                <a href="index.html">Home</a>
-                            </li>
-                            <li>
-                                <a href="about.html">About</a>
-                            </li>
-                            <li class="active">Privacy</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--breadcrumbs end-->
-        <!--container start-->
+
+<html lang="en">
+<head>
+	<?php include( DIR_LAY.'headPages.php');?>
+</head>
+<body>
+	<?php 
+	 echo $_SESSION['role'];
+		if ($_SESSION['role']==2){
+			include (DIR_LAY.'headerUserPages.php') ;
+		}elseif($_SESSION['role']==1){
+			include( DIR_LAY.'headerAdminPages.php') ;
+		}else{
+			include( DIR_LAY.'headerPages.php') ;
+		}
+		?>
         <!-- privacy -->
-        <div class="container privacy-terms">
+        <div class="container privacy-terms" style="margin-top:130px">
             <div class="row">
                 <div class="col-md-12 text-justify">
                     <div class="container">
@@ -66,11 +65,9 @@
         <!--container end-->
 		
         <!--footer start-->
-       <?php
-	include 'partials/footer.php'
-	?>
-        <!-- footer end -->
-		
+
+       <?php include( DIR_LAY.'footerPages.php') ?>
+	<?php include( DIR_LAY.'jsIncludesPages.php') ?>
         
     </body>
 

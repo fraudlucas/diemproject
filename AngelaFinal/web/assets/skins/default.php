@@ -1,5 +1,5 @@
 <?php header("Content-type: text/css");
-	$color = '#99CCFF';
+	$color = '#6699FF';
  ?>
 /* === color === */
 

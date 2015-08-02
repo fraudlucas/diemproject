@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 	require_once('../../src/config.php');
 	require_once('../../src/Session.php');
@@ -11,11 +10,15 @@
 	$session = new Session();
 ?>
 
-<html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
+	<?php include( DIR_LAY.'headPages.php');?>
+</head>
+<body>
 	<?php 
+	echo $_SESSION['role'];
 		if ($_SESSION['role']==2){
 			include (DIR_LAY.'headerUserPages.php') ;
 		}elseif($_SESSION['role']==1){
@@ -24,34 +27,24 @@
 			include( DIR_LAY.'headerPages.php') ;
 		}
 		?>
-</head>
-<body>
-
     <!--breadcrumbs start-->
-	<div class="breadcrumbs">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-4">
-                        <h1></h1>
-                    </div>
-                    <div class="col-lg-8 col-sm-8">
-                        <ol class="breadcrumb pull-right">
-                            <li>
-                                <a href="index.html">Home</a>
-                            </li>
-                            <li>
-							<a href="about.html">About</a>
-							</li>
-							<li class="active">Our Team</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-    </div>
+	<section id="inner-headline">
+		<div class="container" style="margin-top:100px">
+			<div class="row">
+				<div class="col-lg-12">
+					<ul class="breadcrumb">
+						<li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+						<li><a href="#">About</a><i class="icon-angle-right"></i></li>
+						<li class="active">About US</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
     <!--breadcrumbs end-->
 	
     <!--container start-->
-	<div class="container">
+	<div class="container" style="margin-top:30px; margin-bottom:30px;">
       <div class="row">
         <div class="col-lg-5">
           <div class="about-carousel wow fadeInLeft">
@@ -61,7 +54,7 @@
                 <div class="active item">
 				<!-- <img src="html5.gif" alt="HTML5 Icon" style="width:128px;height:128px;"> -->
 				
-                  <img src="images/angela.png" alt="" style="width:650px;height:510px; height="42" width="42">
+                  <img src="../assets/img/ourTeam/Angela2.png" alt="" style="width:650px;height:510px; height="42" width="42">
                   <div class="carousel-caption">
                     <p>
                       Angela Mark<br>

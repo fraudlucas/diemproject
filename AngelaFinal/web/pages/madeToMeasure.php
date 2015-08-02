@@ -51,28 +51,22 @@ p.description_content{
 ?>
         <!--header end-->
         <!--breadcrumbs start-->
-        <div class="breadcrumbs">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-4">
-                        <h1></h1>
-                    </div>
-                    <div class="col-lg-8 col-sm-8">
-                        <ol class="breadcrumb pull-right">
-                            <li>
-                                <a href="index.html">Home</a>
-                            </li>
-                            <li>
-                                <a href="readyToWear.html">Collections</a>
-                            </li>
-                            <li class="active">Made to measure</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
+		<section id="inner-headline">
+			<div class="container" style="margin-top:100px">
+				<div class="row">
+					<div class="col-lg-12">
+						<ul class="breadcrumb">
+							<li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+							<li><a href="#">About</a><i class="icon-angle-right"></i></li>
+							<li class="active">About US</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+    <!--breadcrumbs end-->
         <!--breadcrumbs end-->
-        <div class="container">
+        <div class="container" style="margin-top:30px">
             <div class="row">
                 <div class="col-md-12">
                     <div class="pf-img">

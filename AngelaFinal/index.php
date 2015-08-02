@@ -19,6 +19,10 @@
 			include( DIR_LAY.'headerUser.php') ;
 		}
 		?>
+		<br><br>
+		<br><br>
+		<br><br>
+		<br>
 		<section id="featured">
 			<div class="container">
 				<div class="row">

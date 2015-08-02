@@ -86,7 +86,11 @@ padding: 1px;
       </div>
 	 
 	  <hr>
+	  <div id="sub-footer">
                 <div class="container">
+				<div class="row">
                     <p class="text-center">© Angela Mark Fashion Designs | 2015</p>
                 </div>
+				 </div>
+		</div>
 </footer>
