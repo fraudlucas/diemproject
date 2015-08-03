@@ -3,7 +3,7 @@
 class ConnectionDAOPdo {
 
 	public static function getConnection() {
-		$dbname = "angelamark";
+		$dbname = "angelamarkfinal";
 		$dbusername = "root";
 		$dbhost = "localhost";
 		$dbpassword = "";

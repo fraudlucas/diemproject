@@ -1,3 +1,4 @@
+
 	
 		<div id="container">
 			<div id="tabbox">
@@ -8,10 +9,10 @@
 				<div id="loginbox"><h3>Login Form</h3>
 					<form>
 						<div class="form-group">
-							<input type="text" class="form-control" name="username" placeholder="Username">
+							<input type="text" class="form-control" name="username" placeholder="Username" >
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" name="password" placeholder="Password">
+							<input type="text" class="form-control" name="password" placeholder="Password" >
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-theme">Sign In</button>

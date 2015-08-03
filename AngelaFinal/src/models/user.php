@@ -15,6 +15,7 @@ class User{
     private $province;
     private $administratorID;
 	private $status;
+    
 	
     function getUserName() {
         return $this->userName;

@@ -1,6 +1,7 @@
 <?php header("Content-type: text/css");
-	$color = '#6699FF';
+	$color = '#FFF000';
  ?>
+
 /* === color === */
 
 a, a:hover,a:focus,a:active, footer a.text-link:hover, strike, .post-meta span a:hover, footer a.text-link, 

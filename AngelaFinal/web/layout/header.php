@@ -22,28 +22,28 @@
                         <li class="dropdown" >
                             <a href="#" id="dropdownactive" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">About <b class=" icon-angle-down"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="./web/pages/aboutUS.php">About US</a></li>
-                                <li><a href="./web/pages/ourTeam.php">Our Team</a></li>
-								<li><a href="./web/pages/testimonials.php">Testimonials</a></li>
-								<li><a href="./web/pages/privacy-policy.php">Privacy Policy</a></li>
+                                <li><a href="web/pages/aboutUS.php">About US</a></li>
+                                <li><a href="components.html">Our Team</a></li>
+								<li><a href="web/pages/testimonials.php">Testimonials</a></li>
+								<li><a href="pricingbox.html">Privacy Policy</a></li>
                             </ul>
                         </li>
                         <li class="dropdown" >
                             <a href="#" id="dropdownactive" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Collections <b class=" icon-angle-down"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="./web/pages/readyToWear.php">Ready to Wear</a></li>
-                                <li><a href="./web/pages/madeToMeasure.php">Made to Measure</a></li>
+                                <li><a href="typography.html">Ready to Wear</a></li>
+                                <li><a href="components.html">Made to Measure</a></li>
                             </ul>
                         </li>
-                        <li><a href="#" >Blog</a></li>
-                        <li><a href="./web/pages/contact.php" >Contact</a></li>
+                        <li><a href="blog.html" >Blog</a></li>
+                        <li><a href="contact.html" >Contact</a></li>
 						<li>
 							<form class="navbar-form navbar-right"   action="./src/handlers/userHandler.php?a=login" method="post">
 								<div class="form-group" >
-									<input type="email" class="form-control" style="width:150px" name="email" placeholder="email">
+                                    <input type="email" class="form-control" style="width:150px" name="email" placeholder="email" required title="Please fill in this field">
 								</div>
 								<div class="form-group">
-									<input type="password" class="form-control" style="width:150px" name="password" placeholder="Password">
+									<input type="password" class="form-control" style="width:150px" name="password" placeholder="Password" required title="Please fill in this field">
 								</div>
 								<div class="form-group">
 									<button type="submit" style="width:80px" class="btn btn-theme">Sign In</button>
@@ -61,6 +61,5 @@
             </div>
         </div>
 		</div>
-		
 	</header>
 	<!-- end header -->
