@@ -79,7 +79,7 @@ class ManagementContentDAOPdo implements ManagementContentDAO {
 
 	//acho que nao precisaria criar  outro PDO so pra mudar  a cor ==> como assim?
 
-	public function selectColor(){
+	public function searchColor(){
 		
 		$className = 'ConnectionDAOPdo';
 
@@ -89,21 +89,22 @@ class ManagementContentDAOPdo implements ManagementContentDAO {
 		$stmt->execute();
 		$result = $stmt->fetchAll();
 
-		return $result->setColor;
+			echo ">>>>>>>>>>>>>>>". $result ."<<<<<<<<<<<<<<<<";
+		return $result;
 
 	}
 	
 	public function updateColor($color){
 		$className = 'ConnectionDAOPdo';
-			
+		
+		echo $color->getColor() . "noDAO";
 		try {		
 			$con = $className::getConnection();
 			$stmt = $con->prepare("UPDATE colors SET 
-				colors = :content 				
+				color = :content 				
 				WHERE idColor = 1");
 			$stmt->bindParam(':content', $color->getColor());
-		//nao sei nem oq  eu to fazendo aqui ==> to percebendo kkk
-		
+	
 			$stmt->execute();    // Execute the prepared query.
 				
 			return true;

@@ -31,6 +31,11 @@ class ManagementContentController {
 		$result = $this->persistenceManagement->searchContent($param,$value,$type);
 		return $result;
 	}
+
+	public function updateColor($color){
+		$result = $this->persistenceManagement->updateColor($color);
+		return $result;
+	}
 	
 }
 

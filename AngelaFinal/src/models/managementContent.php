@@ -6,6 +6,7 @@ class ManagementContent{
 	private $pageIdContent;
 	private $variable;
 	private $content;
+	private $color;
 	
 	function getIdContent(){
 		return $this->idContent;
@@ -38,4 +39,13 @@ class ManagementContent{
 	function setContent($content){
 		$this->content=$content;
 	}
+	
+	function getColor(){
+		return $this->color;
+	}
+	
+	function setColor($color){
+		$this->color=$color;
+	}
+
 }

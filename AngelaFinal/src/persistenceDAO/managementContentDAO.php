@@ -5,7 +5,7 @@ interface ManagementContentDAO {
 	public function updateContent($management);
 	public function searchContent($param,$value,$type);
 	public function updateColor($color);
-	public function selectColor();
+	public function searchColor();
 }
 
 ?>

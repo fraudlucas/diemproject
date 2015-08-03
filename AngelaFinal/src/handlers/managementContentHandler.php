@@ -38,16 +38,22 @@ if (!empty($action)) {
 				$management->setContent($processed);
 				$test = $managementView->updateContent($management);
 			}
-			
+			break;
     	case'changeColor': //me perdi!! pra  onde eh  que  eu vou com isso! 
-    		$color = new color();
+    		
     		if(isset($_POST['color'])){
-				$color->setColor($_POST['color']);
-			}	
-				
-    	break;
+				//$management = new managementContent();
+    			$color = ($_POST['color']);
+    			$upColor = new ManagementContent();
+    			$upColor->setColor($color);
+				echo $color ." in Handler";
+				echo "test here" . $upColor->getColor() . "in HANDLER UP" ;
+				$test = $managementView->updateColor($upColor);
+				echo $test;
+    		}
+		break;
+	}	
 
-    }
 
 }
 
