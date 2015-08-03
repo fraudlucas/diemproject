@@ -39,16 +39,47 @@
 			</div>
 		</div>
 		</section>
-		
+		<!--
 		<section id="featured">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<?php include( DIR_LAY.'slider2.php') ?>					
+										
 					</div>					
 				</div>
 			</div>			
-		</section>	
+		</section>	 -->
+		
+		<!-- Slider has been changed -->
+		<div class="container">
+            <div class="row mar-b-50">
+                <div class="col-md-12">
+                    <div id="carousel-example" data-interval="6000" class="carousel slide"
+                    data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <!-- <img src="images/url.jpg"> -->
+								<?php include( DIR_LAY.'slider2.php') ?>
+                                <div class="carousel-caption">
+                                    <h2>Kathy</h2>
+                                    <p>“Angela,  Just wanted to thank you for my beautiful suit, the wonderful service & an amazing shopping experience.”
+									</p>
+                                </div>
+                            </div>
+						<div class="item">
+                                <?php include( DIR_LAY.'slider2.php') ?>
+                                <div class="carousel-caption">
+                                    <h2>Rhonda Barnet</h2>
+                                    <p> Sent us this image of her looking stunning and professional in her Angela Mark creation!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#carousel-example" data-slide="prev"><i class="icon-prev  fa fa-angle-left"></i></a>
+                        <a class="right carousel-control" href="#carousel-example" data-slide="next"><i class="icon-next fa fa-angle-right"></i></a>
+                    </div>
+				</div>
+            </div>
+        </div>
 		
 	</div>
 	<?php include( DIR_LAY.'footerPages.php') ?>

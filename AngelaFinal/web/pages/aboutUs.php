@@ -107,6 +107,56 @@ p.description_content{
 			</div>  
 		</div>  
 	</div>
+	
+<!--container 2 start-->
+<div class="container">
+    <div class="row">
+		<div class="col-lg-7 about wow fadeInRight">
+			<h3 ALIGN="justify"><b>Why choose us?</b></h3>
+				<h4 ALIGN="justify"><b>The Fit</b></h4>
+					<h5 ALIGN="justify">Our patterns have evolved by fine tuning them by working with individual clients for over 27 years. We are proud that many of our ready to wear pieces look and feel like they were made to measure!</h5><br>			
+					<h4 ALIGN="justify"><b>We Offer Exclusivity</b></h4>
+					<h5 ALIGN="justify">Our designs are only available to be purchased through our Angela Mark Showroom and Boutique, Angela Mark Stylists and our seasonal Angela Mark Trunk Shows.</h5><br>
+					<h5>Current yet classic styling, beautiful fabrics and quality workmanship are distinctive  in each garment. </h5><br><br>
+			
+				<h4 ALIGN="justify"><b>Our Service is Second to None!</b></h4>
+				<h5 ALIGN="justify">Your Angela Mark Stylist provides valuable insights into current and upcoming trends that will be a reflection of your attention to detail and image.</h5><br>
+
+					<h4 ALIGN="justify"><b>We Provide Options</b></h4>
+					<h5 ALIGN="justify">From fabric to style, Angela Mark will help you to choose the options to best suit you. Our website previews a fraction of the collection. To experience all of the options Angela Mark has to offer, please contact your personal Stylist.</h5>
+				
+			<blockquote>
+            <h5>We look forward to getting to know you and working with you for years to come.</h5>
+            <small>
+              Angela Mark's team
+            </small>
+			</blockquote>
+        </div> 
+        <div class="col-lg-5">
+			<div class="about-carousel wow fadeInLeft">
+				<div id="myCarousel" class="carousel slide" data-interval="7000" class="carousel slide"  data-ride="carousel" Style= "width:350px; height:410px; margin-right:-30px; " >
+				<!-- Carousel items -->
+				<div class="carousel-inner">
+					<div class="active item">
+						<!-- <img src="html5.gif" alt="HTML5 Icon" style="width:128px;height:128px;"> -->				
+						<img src="../../web/assets/img/aboutUs/1.jpeg" alt="">
+						<div class="carousel-caption">
+						<p>
+						Exclusivity
+						</p>
+					</div>
+                </div>
+
+            </div>
+              <!-- Carousel nav -->
+			  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="icon-prev  fa fa-angle-left"></i></a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="icon-next fa fa-angle-right"></i></a>
+            </div>
+		</div>
+    </div>
+</div>
+
+	
 	<?php include( DIR_LAY.'footerPages.php') ?>
 	<?php include( DIR_LAY.'jsIncludesPages.php') ?>
 	<script src="../assets/js/editor.js"></script>
