@@ -18,7 +18,7 @@
 						<button class="btn btn-theme" Style=" transform: rotate(90deg); cursor: pointer; right:-57px; top:0px; margin-top:350px; z-index:999997; position:fixed;" data-direction='left' data-toggle="modal" data-target="#myModal")">Book Appointment</button> 
 					</div>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="../../index.php">Home</a></li>
+                        <li class="active"><a href="./index.php">Home</a></li>
                         <li class="dropdown" >
                             <a href="#" id="dropdownactive" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">About <b class=" icon-angle-down"></b></a>
                             <ul class="dropdown-menu">
