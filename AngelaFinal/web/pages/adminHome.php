@@ -40,7 +40,7 @@
 					  <li role="presentation" class="active"><a href="../pages/adminHome.php">Profile</a></li>
 					  <li role="presentation" ><a href="../pages/adminManagement.php">Manage Website</a></li>
 					  <li role="presentation" ><a href="../pages/adminClients.php">Clients</a></li>
-					  <li role="presentation"><a href="../pages/adminClients.php">Clothes</a></li>
+					  <li role="presentation"><a href="../pages/adminClothes.php">Clothes</a></li>
 					  <li role="presentation"><a href="../pages/adminStaff.php">Staff</a></li>
 					</ul>
 				</nav>
