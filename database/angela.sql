@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2015 at 06:24 PM
+-- Generation Time: Aug 03, 2015 at 03:14 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `angelamark`
+-- Database: `angelamark6`
 --
 CREATE DATABASE IF NOT EXISTS `angelamark` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `angelamark`;
@@ -152,18 +152,19 @@ CREATE TABLE IF NOT EXISTS `pagecontent` (
   `pageID` int(11) NOT NULL,
   `variable` varchar(30) NOT NULL,
   `content` longtext NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pagecontent`
 --
 
 INSERT INTO `pagecontent` (`id`, `pageID`, `variable`, `content`) VALUES
-(1, 1, 'test', ''),
-(2, 1, 'test', '<div style="text-align: center;"><span style="color: inherit;">sdadsda</span></div>'),
-(3, 1, 'test', '\r\n					  Go aheadâ€¦\r\n					'),
-(5, 2, 'test', '<h3 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-top: 4px; margin-bottom: 10px; color: rgb(71, 81, 104); text-align: justify;"><b>Angela Mark: A Canadian Fashion Designer</b></h3><h4 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-bottom: 10px; color: rgb(121, 121, 121); text-align: justify;">Angela Mark Fashion Designs is a Canadian Company established in 1987, specializing in high quality clothing for busy professional women.</h4><h4 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-bottom: 10px; color: rgb(121, 121, 121); text-align: justify;">A Canadian fashion designer, originally from Montreal, Angelaâ€™s love for fashion was inspired from a very young age. Being tall posed fitting challenges for Angela, and when her clothing didnâ€™t fit well, she knew she didnâ€™t look her best and also felt awkward and uncomfortable. Angela found it frustrating and difficult to find simple, well cut clothes that fit properly.</h4><h4 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-bottom: 10px; color: rgb(121, 121, 121); text-align: justify;">Her desire to dress well, and ultimately, to look and feel great, evolved into a passion for beautiful fabrics, classic yet current styling, and a keen eye for quality, workmanship and details.</h4><h4 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-bottom: 10px; color: rgb(121, 121, 121); text-align: justify;">The realization that many women faced the same fitting challenges and desires for beautiful, quality clothing resulted in Angelaâ€™s decision to pursue a career in helping women feel great through clothing and styleâ€¦. Angela attended Ryerson Polytechnical Institute in Toronto, and in 1987, at 22 years of age, launched her own label.</h4>'),
-(6, 3, 'content', 'Folow');
+(2, 1, 'content', '<div style="text-align: center;"><span style="color: inherit;">sdadsda</span></div>'),
+(5, 2, 'content', '<h3 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-top: 4px; margin-bottom: 10px; color: rgb(71, 81, 104); text-align: justify;"><b>Angela Mark: A Canadian Fashion Designer</b></h3><h4 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-bottom: 10px; color: rgb(121, 121, 121); text-align: justify;">Angela Mark Fashion Designs is a Canadian Company established in 1987, specializing in high quality clothing for busy professional women.</h4><h4 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-bottom: 10px; color: rgb(121, 121, 121); text-align: justify;">A Canadian fashion designer, originally from Montreal, Angelaâ€™s love for fashion was inspired from a very young age. Being tall posed fitting challenges for Angela, and when her clothing didnâ€™t fit well, she knew she didnâ€™t look her best and also felt awkward and uncomfortable. Angela found it frustrating and difficult to find simple, well cut clothes that fit properly.</h4><h4 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-bottom: 10px; color: rgb(121, 121, 121); text-align: justify;">Her desire to dress well, and ultimately, to look and feel great, evolved into a passion for beautiful fabrics, classic yet current styling, and a keen eye for quality, workmanship and details.</h4><h4 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-bottom: 10px; color: rgb(121, 121, 121); text-align: justify;">The realization that many women faced the same fitting challenges and desires for beautiful, quality clothing resulted in Angelaâ€™s decision to pursue a career in helping women feel great through clothing and styleâ€¦. Angela attended Ryerson Polytechnical Institute in Toronto, and in 1987, at 22 years of age, launched her own label.</h4>'),
+(6, 3, 'content', '\r\n						\r\n						Testimonials a test'),
+(7, 4, 'content', '\r\n						Testing made to measure. changing'),
+(8, 5, 'content', 'test ready to wear'),
+(9, 6, 'content', 'Testing our team');
 
 -- --------------------------------------------------------
 
@@ -202,7 +203,7 @@ INSERT INTO `pagephotos` (`id`, `path`, `pageId`, `date`, `active`, `subtitle`, 
 CREATE TABLE IF NOT EXISTS `pages` (
   `id` int(4) NOT NULL,
   `name` varchar(80) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pages`
@@ -211,7 +212,10 @@ CREATE TABLE IF NOT EXISTS `pages` (
 INSERT INTO `pages` (`id`, `name`) VALUES
 (1, 'index'),
 (2, 'aboutUS'),
-(3, 'testimonials');
+(3, 'testimonials'),
+(4, 'mateToMeasure'),
+(5, 'readyToWear'),
+(6, 'ourTeam');
 
 -- --------------------------------------------------------
 
@@ -245,7 +249,7 @@ INSERT INTO `posts` (`id`, `title`, `content`, `imagePath`, `postDate`, `userID`
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(10) unsigned NOT NULL,
   `roleTitle` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `roles`
@@ -253,7 +257,8 @@ CREATE TABLE IF NOT EXISTS `roles` (
 
 INSERT INTO `roles` (`id`, `roleTitle`) VALUES
 (1, 'Administrator'),
-(2, 'User');
+(2, 'User'),
+(3, 'Staff');
 
 -- --------------------------------------------------------
 
@@ -274,6 +279,25 @@ INSERT INTO `tags` (`id`, `name`) VALUES
 (3, 'Spring'),
 (2, 'Summer'),
 (1, 'Winter');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_roles`
+--
+
+CREATE TABLE IF NOT EXISTS `user_roles` (
+  `id` int(10) unsigned NOT NULL,
+  `userID` int(10) unsigned NOT NULL,
+  `roleID` int(10) unsigned NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_roles`
+--
+
+INSERT INTO `user_roles` (`id`, `userID`, `roleID`) VALUES
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -306,25 +330,6 @@ INSERT INTO `users` (`id`, `username`, `password`, `salt`, `email`, `firstName`,
 (3, NULL, '$2y$07$VA1ZwZA5fZJGOFcELSZhBeuii0NdCP24Npg7QQS.XPD...', 'T\r\nYÁ9}’F8W-&aùR¢Ÿ\r\nt', 'admin@admin.com', 'Thi', 'Evan', NULL, NULL, NULL, NULL, 1, 3),
 (4, NULL, '$2y$07$2e4HSZdMZKLYt41TPPEjHOO0Ys1CAnbL5HU7YWBEFKd.soQgBCs6O', 'ÙîI—Ld¢Ø·S<ñ#–Š=†', 'admin2@admin.com', 'Thiago  ', 'Thiago ', '', '', '', '', 1, 2),
 (5, NULL, '$2y$07$BcfLaap4VH2oXupTJmeb7.Eplx80YY6fHmLsPdA3Dr1RkOS0cEREG', 'ÇËiªxT}¨^êS&g›ìä3Ý…¢', 'ricardo.vcr2@gmail.com', 'ricardo', 'ricardo', NULL, NULL, NULL, NULL, 2, 3);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_roles`
---
-
-CREATE TABLE IF NOT EXISTS `user_roles` (
-  `id` int(10) unsigned NOT NULL,
-  `userID` int(10) unsigned NOT NULL,
-  `roleID` int(10) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_roles`
---
-
-INSERT INTO `user_roles` (`id`, `userID`, `roleID`) VALUES
-(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -448,16 +453,16 @@ ALTER TABLE `tags`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uc_tags` (`name`);
 
 --
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uc_users` (`username`,`email`), ADD KEY `fk_administrators_users` (`administratorID`);
-
---
 -- Indexes for table `user_roles`
 --
 ALTER TABLE `user_roles`
   ADD PRIMARY KEY (`id`), ADD KEY `fk_userRoles_users` (`userID`), ADD KEY `fk_userRoles_roles` (`roleID`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uc_users` (`username`,`email`), ADD KEY `fk_administrators_users` (`administratorID`);
 
 --
 -- Indexes for table `wardrobe`
@@ -509,7 +514,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `pagecontent`
 --
 ALTER TABLE `pagecontent`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `pagephotos`
 --
@@ -519,7 +524,7 @@ ALTER TABLE `pagephotos`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `posts`
 --
@@ -529,22 +534,22 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
 -- AUTO_INCREMENT for table `user_roles`
 --
 ALTER TABLE `user_roles`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `wishlists`
 --
