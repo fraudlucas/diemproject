@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 03, 2015 at 03:14 AM
+-- Generation Time: Aug 03, 2015 at 11:12 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -17,10 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `angelamark6`
+-- Database: `angelamark`
 --
-CREATE DATABASE IF NOT EXISTS `angelamark2` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `angelamark2`;
+CREATE DATABASE IF NOT EXISTS `angelamark` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `angelamark`;
 
 -- --------------------------------------------------------
 
@@ -59,15 +59,16 @@ CREATE TABLE IF NOT EXISTS `clothing` (
   `code` varchar(25) NOT NULL,
   `picture` varchar(100) NOT NULL,
   `price` float DEFAULT NULL,
-  `customized` tinyint(1) DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `customized` tinyint(1) DEFAULT '0',
+  `typeId` int(4) unsigned NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clothing`
 --
 
-INSERT INTO `clothing` (`id`, `code`, `picture`, `price`, `customized`) VALUES
-(1, 'ref1', 'web/assets/img/clothes/1.png', 123, 0);
+INSERT INTO `clothing` (`id`, `code`, `picture`, `price`, `customized`, `typeId`) VALUES
+(2, 'ref1', 'web/assets/img/clothes/1.png', 12, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -80,13 +81,6 @@ CREATE TABLE IF NOT EXISTS `clothinglookpieces` (
   `clothingID` int(10) unsigned NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `clothinglookpieces`
---
-
-INSERT INTO `clothinglookpieces` (`clothingLookID`, `clothingID`) VALUES
-(2, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -98,13 +92,6 @@ CREATE TABLE IF NOT EXISTS `clothinglooks` (
   `addingDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `userID` int(10) unsigned NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `clothinglooks`
---
-
-INSERT INTO `clothinglooks` (`id`, `addingDate`, `userID`) VALUES
-(2, '2015-07-30 01:23:42', 2);
 
 -- --------------------------------------------------------
 
@@ -127,6 +114,45 @@ CREATE TABLE IF NOT EXISTS `clothingtagged` (
   `tagID` int(10) unsigned NOT NULL,
   `clothingID` int(10) unsigned NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `clothingtype`
+--
+
+CREATE TABLE IF NOT EXISTS `clothingtype` (
+  `id` int(4) unsigned NOT NULL,
+  `typeName` varchar(50) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `clothingtype`
+--
+
+INSERT INTO `clothingtype` (`id`, `typeName`) VALUES
+(1, 'Top'),
+(2, 'Bottom'),
+(3, 'Dress'),
+(4, 'Accessories');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `colors`
+--
+
+CREATE TABLE IF NOT EXISTS `colors` (
+  `idColor` int(11) NOT NULL,
+  `color` varchar(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `colors`
+--
+
+INSERT INTO `colors` (`idColor`, `color`) VALUES
+(1, '#99CCFF');
 
 -- --------------------------------------------------------
 
@@ -271,34 +297,6 @@ CREATE TABLE IF NOT EXISTS `tags` (
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tags`
---
-
-INSERT INTO `tags` (`id`, `name`) VALUES
-(3, 'Spring'),
-(2, 'Summer'),
-(1, 'Winter');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_roles`
---
-
-CREATE TABLE IF NOT EXISTS `user_roles` (
-  `id` int(10) unsigned NOT NULL,
-  `userID` int(10) unsigned NOT NULL,
-  `roleID` int(10) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_roles`
---
-
-INSERT INTO `user_roles` (`id`, `userID`, `roleID`) VALUES
-(1, 1, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -330,6 +328,25 @@ INSERT INTO `users` (`id`, `username`, `password`, `salt`, `email`, `firstName`,
 (3, NULL, '$2y$07$VA1ZwZA5fZJGOFcELSZhBeuii0NdCP24Npg7QQS.XPD...', 'T\r\nYÁ9}’F8W-&aùR¢Ÿ\r\nt', 'admin@admin.com', 'Thi', 'Evan', NULL, NULL, NULL, NULL, 1, 3),
 (4, NULL, '$2y$07$2e4HSZdMZKLYt41TPPEjHOO0Ys1CAnbL5HU7YWBEFKd.soQgBCs6O', 'ÙîI—Ld¢Ø·S<ñ#–Š=†', 'admin2@admin.com', 'Thiago  ', 'Thiago ', '', '', '', '', 1, 2),
 (5, NULL, '$2y$07$BcfLaap4VH2oXupTJmeb7.Eplx80YY6fHmLsPdA3Dr1RkOS0cEREG', 'ÇËiªxT}¨^êS&g›ìä3Ý…¢', 'ricardo.vcr2@gmail.com', 'ricardo', 'ricardo', NULL, NULL, NULL, NULL, 2, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_roles`
+--
+
+CREATE TABLE IF NOT EXISTS `user_roles` (
+  `id` int(10) unsigned NOT NULL,
+  `userID` int(10) unsigned NOT NULL,
+  `roleID` int(10) unsigned NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_roles`
+--
+
+INSERT INTO `user_roles` (`id`, `userID`, `roleID`) VALUES
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -384,7 +401,7 @@ ALTER TABLE `bodymeasures`
 -- Indexes for table `clothing`
 --
 ALTER TABLE `clothing`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uc_clothing` (`code`);
+  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uc_clothing` (`code`), ADD KEY `typeId` (`typeId`);
 
 --
 -- Indexes for table `clothinglookpieces`
@@ -409,6 +426,12 @@ ALTER TABLE `clothingmeasures`
 --
 ALTER TABLE `clothingtagged`
   ADD PRIMARY KEY (`tagID`,`clothingID`), ADD KEY `fk_clothingTagged_clothing` (`clothingID`);
+
+--
+-- Indexes for table `clothingtype`
+--
+ALTER TABLE `clothingtype`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `comments`
@@ -453,16 +476,16 @@ ALTER TABLE `tags`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uc_tags` (`name`);
 
 --
--- Indexes for table `user_roles`
---
-ALTER TABLE `user_roles`
-  ADD PRIMARY KEY (`id`), ADD KEY `fk_userRoles_users` (`userID`), ADD KEY `fk_userRoles_roles` (`roleID`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uc_users` (`username`,`email`), ADD KEY `fk_administrators_users` (`administratorID`);
+
+--
+-- Indexes for table `user_roles`
+--
+ALTER TABLE `user_roles`
+  ADD PRIMARY KEY (`id`), ADD KEY `fk_userRoles_users` (`userID`), ADD KEY `fk_userRoles_roles` (`roleID`);
 
 --
 -- Indexes for table `wardrobe`
@@ -494,7 +517,7 @@ ALTER TABLE `bodymeasures`
 -- AUTO_INCREMENT for table `clothing`
 --
 ALTER TABLE `clothing`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `clothinglooks`
 --
@@ -505,6 +528,11 @@ ALTER TABLE `clothinglooks`
 --
 ALTER TABLE `clothingmeasures`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `clothingtype`
+--
+ALTER TABLE `clothingtype`
+  MODIFY `id` int(4) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `comments`
 --
@@ -541,15 +569,15 @@ ALTER TABLE `roles`
 ALTER TABLE `tags`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `user_roles`
---
-ALTER TABLE `user_roles`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `user_roles`
+--
+ALTER TABLE `user_roles`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `wishlists`
 --
@@ -564,6 +592,12 @@ ALTER TABLE `wishlists`
 --
 ALTER TABLE `appointments`
 ADD CONSTRAINT `fk_appointments_wishlists` FOREIGN KEY (`wishlistID`) REFERENCES `wishlists` (`id`);
+
+--
+-- Constraints for table `clothing`
+--
+ALTER TABLE `clothing`
+ADD CONSTRAINT `clothing_ibfk_1` FOREIGN KEY (`typeId`) REFERENCES `clothingtype` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `clothinglookpieces`
@@ -615,20 +649,6 @@ ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`administratorID`) REFERENCES `roles`
 ALTER TABLE `wishlists`
 ADD CONSTRAINT `fk_wishlist_clothingLooks` FOREIGN KEY (`clothingLookID`) REFERENCES `clothinglooks` (`id`);
 
---
--- Table structure for table `colors`
---
-CREATE TABLE IF NOT EXISTS `colors` (
-  `idColor` int(11) NOT NULL,
-  `color` varchar(9) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `colors`
---
-
-INSERT INTO `colors` (`idColor`, `color`) VALUES
-(1, '#99CCFF');
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
