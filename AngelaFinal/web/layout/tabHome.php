@@ -1,11 +1,11 @@
 <?php
 	//require_once(dirname(dirname( dirname( __FILE__ ) )).'/src/config.php');
 	require_once (DIR_VIE.'managementPhotosView.php');
-	$manegementPhotosView = new ManagementPhotosView();
-	$list = $manegementPhotosView->searchPhotos('pageId','1','2');
+	$homeManegementPhotosView = new ManagementPhotosView();
+	$homePhotoslist = $homeManegementPhotosView->searchPhotos('pageId','1','2');
 	$code = '';
 	$count = 0;
-	foreach ($list as $row) {
+	foreach ($homePhotoslist as $row) {
 		$path = $row->getPathPhoto();
 		$id = $row->getIdPhoto();
 		$subtitle = $row->getSubtitle();	

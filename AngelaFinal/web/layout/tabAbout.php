@@ -3,13 +3,13 @@
 	require_once('../../src/Session.php');
 	require_once (DIR_VIE.'managementPhotosView.php');
 	require_once (DIR_VIE.'managementContentView.php');
-	$manegementPhotosView = new ManagementPhotosView();
-	$managementContentView = new ManagementContentView();
-	$list = $manegementPhotosView->searchPhotos('pageId','2','2');
-	$managementContent = $managementContentView->searchContent('pageId','2','1');
+	$aboutManagementPhotosView = new ManagementPhotosView();
+	$aboutManagementContentView = new ManagementContentView();
+	$aboutPhotosList = $aboutManagementPhotosView->searchPhotos('pageId','2','2');
+	$aboutManagementContent = $aboutManagementContentView->searchContent('pageId','2','1');
 	$code = '';
 	$count = 0;
-	foreach ($list as $row) {
+	foreach ($aboutPhotosList as $row) {
 		$path = $row->getPathPhoto();
 		$id = $row->getIdPhoto();
 		$subtitle = $row->getSubtitle();	
@@ -81,7 +81,7 @@
 		<div class="panel-body">
 			<div class="container" style="width:100%">
 			  <div class="hero-unit" >
-					<!---
+					<!--
 					Please read this before copying the toolbar:
 
 					* One of the best things about this widget is that it does not impose any styling on you, and that it allows you 
@@ -89,7 +89,7 @@
 					* is just an example - don't just copy it and force yourself to use the demo styling. Create your own. Read 
 					* this page to understand how to customise it:
 					* https://github.com/mindmup/bootstrap-wysiwyg/blob/master/README.md#customising-
-					--->
+					-->
 					<div id="alerts"></div>
 					<form action="../../src/handlers/managementContentHandler.php?a=updateContent&b=2" method="post">
 						<div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
@@ -143,18 +143,18 @@
 							<a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
 						  </div>
 						  <input type="text"  data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
-						  <input type="hidden" name="content" id="dash_new_shout_textarea_hidden" />
+						  <input type="hidden" name="content" id="about_dash_new_shout_textarea_hidden" />
 							<script type="text/javascript">
 							setInterval(function () {
-							  document.getElementById("dash_new_shout_textarea_hidden").value = document.getElementById("editor").innerHTML;
+							  document.getElementById("about_dash_new_shout_textarea_hidden").value = document.getElementById("aboutflag").nextElementSibling.innerHTML;
 							}, 5);
 							</script>
-						  <button type="submit" class="btn">Button</button>
+						  <button type="submit" class="btn">Save</button>
 						</div>
 					</form>
-					<div id="editor">
-						<?php echo $managementContent->getContent();?>
-					</div>
+
+					<div id="aboutflag"></div>
+					<div id="editor" contenteditable="true"><?php echo $aboutManagementContent->getContent();?></div>
 				</div>
 		  </div>
 		  
