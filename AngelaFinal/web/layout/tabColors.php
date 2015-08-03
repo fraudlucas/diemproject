@@ -11,9 +11,6 @@
 <script type="text/javascript" src="../assets/js/jscolor/jscolor.js"></script><!-- End of Color Picker Script --> 
 
 <div class="colorr">
-
-Select a bacground color: <input class="color {hash:true}" value="#917E7E">
-
 <form name="colorSelec" action="./src/handlers/mangementContentHandler.php?a=changeColor" method="post">
 Select a bacground color: <input class="color {hash:true}" value="#917E7E">
 <br>
