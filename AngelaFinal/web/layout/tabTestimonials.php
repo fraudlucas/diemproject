@@ -3,13 +3,13 @@
 	require_once('../../src/Session.php');
 	require_once (DIR_VIE.'managementPhotosView.php');
 	require_once (DIR_VIE.'managementContentView.php');
-	$testimonialsManagementPhotosView = new ManagementPhotosView();
-	$testimonialsManagementContentView = new ManagementContentView();
-	$testimonialsPhotosList = $testimonialsManagementPhotosView->searchPhotos('pageId','3','2');
-	$testimonialsManagementContent = $testimonialsManagementContentView->searchContent('pageId','3','1');
+	$manegementPhotosView = new ManagementPhotosView();
+	$managementContentView = new ManagementContentView();
+	$list = $manegementPhotosView->searchPhotos('pageId','3','2');
+	$managementContent = $managementContentView->searchContent('pageId','3','1');
 	$code = '';
 	$count = 0;
-	foreach ($testimonialsPhotosList as $row) {
+	foreach ($list as $row) {
 		$path = $row->getPathPhoto();
 		$id = $row->getIdPhoto();
 		$subtitle = $row->getSubtitle();	
@@ -17,18 +17,16 @@
 		
 		if($status == 1){
 			$code .='<div class="col-md-4">
-						<div class="radio">
-						<label><input type="radio"  id="'.$id.'" name="opt"></label>
+						<input type="checkbox"  id="'.$id.'" name="'.$id.'" style="margin-left: 70px;" value="Yes" checked>
 						<a href="#" class="thumbnail">
 							<label for="'.$id.'"><img class="img-responsive" src="../../'.$path.'" style="width:150px;height:150px"></label>
 						</a>
-						</div>
 					</div>';
 		}elseif($status==0){
 			$code .='<div class="col-md-4">
-						<input type="checkbox"  id="'.$id.'" name="opt" style="margin-left: 70px; " value="Yes" checked>
+						<input type="checkbox"  id="'.$id.'" name="'.$id.'" style="margin-left: 70px;" value="Yes" checked>
 						<a href="#" class="thumbnail">
-							<label for="'.$id.'"><img class="img-responsive" src="../../'.$path.'" style="width:150px;height:150px; opacity: 0.4;"></label>
+							<label for="'.$id.'"><img class="img-responsive" src="../../'.$path.'" style="width:150px;height:150px"></label>
 						</a>
 					</div>';
 		}
@@ -46,7 +44,7 @@
 				<div class="main-box no-header clearfix">
 					<div class="main-box-body clearfix">
 						<div class="table-responsive">
-							<form  role="form" action="../../src/handlers/managementPhotosHandler.php?a=updatePhoto&b=3" method="post" enctype="multipart/form-data">
+							<form  role="form" action="../../src/handlers/managementPhotosHandler.php?a=addPhoto&b=3" method="post" enctype="multipart/form-data">
 								<div class="form-group">
 									<label for="file">File</label>
 									<input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
@@ -55,7 +53,7 @@
 									<label for="text">Subtitle</label>
 									<input type="text" name="photoSubtitle" id="photoSubtitle" class="form-control">
 								</div>
-								<input type="hidden" name="target_dir" id="target_dir" class="form-control" value="web/assets/img/testimonialsUs/">
+								<input type="hidden" name="target_dir" id="target_dir" class="form-control" value="web/assets/img/aboutUs/">
 								<button class="btn btn-info" name="submit" type="submit">Upload Image</button>
 							</form>
 						</div>
@@ -81,7 +79,7 @@
 		<div class="panel-body">
 			<div class="container" style="width:100%">
 			  <div class="hero-unit" >
-					<!--
+					<!---
 					Please read this before copying the toolbar:
 
 					* One of the best things about this widget is that it does not impose any styling on you, and that it allows you 
@@ -89,7 +87,7 @@
 					* is just an example - don't just copy it and force yourself to use the demo styling. Create your own. Read 
 					* this page to understand how to customise it:
 					* https://github.com/mindmup/bootstrap-wysiwyg/blob/master/README.md#customising-
-					-->
+					--->
 					<div id="alerts"></div>
 					<form action="../../src/handlers/managementContentHandler.php?a=updateContent&b=3" method="post">
 						<div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
@@ -143,18 +141,18 @@
 							<a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
 						  </div>
 						  <input type="text"  data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
-						  <input type="hidden" name="content" id="testimonials_dash_new_shout_textarea_hidden" />
+						  <input type="hidden" name="content" id="dash_new_shout_textarea_hidden" />
 							<script type="text/javascript">
 							setInterval(function () {
-							  document.getElementById("testimonials_dash_new_shout_textarea_hidden").value = document.getElementById("testimonialsflag").nextElementSibling.innerHTML;
+							  document.getElementById("dash_new_shout_textarea_hidden").value = document.getElementById("editor").innerHTML;
 							}, 5);
 							</script>
-						  <button type="submit" class="btn">Save</button>
+						  <button type="submit" class="btn">Button</button>
 						</div>
 					</form>
-
-					<div id="testimonialsflag"></div>
-					<div id="editor" contenteditable="true"><?php echo $testimonialsManagementContent->getContent();?></div>
+					<div id="editor" contenteditable="true">
+						<?php echo $managementContent->getContent();?>
+					</div>
 				</div>
 		  </div>
 		  

@@ -13,10 +13,14 @@
 <?php include( DIR_LAY.'modalBook.php');?>
 	<div id="wrapper">
 		<?php 
-		if ($_SESSION['role']==2){
+		if(isset($_SESSION['role'])){
+			if ($_SESSION['role']==2){
+				header('Location: ../../index.php') ;
+			}elseif($_SESSION['role']==1){
+				include( DIR_LAY.'headerAdminPages.php') ;
+			}
+		}else{
 			header('Location: ../../index.php') ;
-		}elseif($_SESSION['role']==1){
-			include( DIR_LAY.'headerAdminPages.php') ;
 		}
 		?>
 		<section id="inner-headline">

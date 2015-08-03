@@ -12,8 +12,10 @@
 	<link href="../assets/css/loginForm.css" rel="stylesheet" />
 	<link href="../assets/css/prettify.css" rel="stylesheet" />
 	<link href="../assets/css/index.css" rel="stylesheet">
+	
 	<!-- Theme skin -->
-	<link href="../assets/skins/default.css" rel="stylesheet" />
+	<link rel='stylesheet' type='text/css' href='../assets/skins/default.php' />
+	<!-- <link href="web/assets/skins/default.css" rel="stylesheet" />-->
 
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>

@@ -13,7 +13,7 @@
 			session_start();
 			$this->checkLogin();
 			$this->loginCount =  $_SESSION['loginCount'] = 0;
-			$this->role =  $_SESSION['role'] = 0;
+			
 		}
 		
 		public function isLoggedIn(){

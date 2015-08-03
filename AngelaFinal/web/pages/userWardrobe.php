@@ -11,10 +11,14 @@
 <?php include( DIR_LAY.'modalBook.php');?>
 	<div id="wrapper">
 		<?php 
-		if (!$session->isLoggedIn()){
-			header('Location: ../../index.php') ;
+		if(isset($_SESSION['role'])){
+			if ($_SESSION['role']==1){
+				header('Location: ../../index.php') ;
+			}elseif($_SESSION['role']==2){
+				include( DIR_LAY.'headerUserPages.php') ;
+			}
 		}else{
-			include( DIR_LAY.'headerUserPages.php') ;
+			header('Location: ../../index.php') ;
 		}
 		?>
 		<div class="row" style="margin-top:30px">
