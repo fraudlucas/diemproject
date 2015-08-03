@@ -1,8 +1,8 @@
 
 	<meta charset="utf-8">
-	<title>Moderna - Bootstrap 3 flat corporate template</title>
+	<title> Angela Mark Fashion Designs </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="description" content="" />
+	<meta name="description" content="Good clothes to business woman." />
 	<meta name="author" content="http://bootstraptaste.com" />
 	<!-- css -->
 	<link href="web/assets/css/bootstrap.min.css" rel="stylesheet" />

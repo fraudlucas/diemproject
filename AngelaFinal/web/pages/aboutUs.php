@@ -9,7 +9,6 @@
 	$managementContent = $managementContentView->searchContent('pageId','2','1');
 	$session = new Session();
 ?>
-
 <html lang="en">
 <head>
 	<?php include( DIR_LAY.'headPages.php');?>
@@ -42,29 +41,42 @@ p.description_content{
 <?php include( DIR_LAY.'modalBook.php');?>
 	<div id="wrapper">
 		<?php 
-		if(isset($_SESSION['role'])){
-			if ($_SESSION['role']==2){
-				include (DIR_LAY.'headerUserPages.php') ;
-			}elseif($_SESSION['role']==1){
-				include( DIR_LAY.'headerAdminPages.php') ;
-			}
+		if ($_SESSION['role']==2){
+			include (DIR_LAY.'headerUserPages.php') ;
+		}elseif($_SESSION['role']==1){
+			include( DIR_LAY.'headerAdminPages.php') ;
 		}else{
 			include( DIR_LAY.'headerPages.php') ;
 		}
-		?>
-		<section id="inner-headline">
-		<div class="container" style="margin-top:100px">
-			<div class="row">
-				<div class="col-lg-12">
-					<ul class="breadcrumb">
-						<li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-						<li><a href="#">About</a><i class="icon-angle-right"></i></li>
-						<li class="active">About US</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		</section>
+?>
+<br>
+<br>
+<br>
+<br>
+<br>
+        <!--breadcrumbs start-->
+        <div class="breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-4">
+                        <h1></h1>
+                    </div>
+                    <div class="col-lg-8 col-sm-8">
+                        <ol class="breadcrumb pull-right">
+                            <li>
+                                <a href="../../index.php">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">About</a>
+                            </li>
+                            <li class="./web/pages/aboutUS.php">About us</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--breadcrumbs end-->
+		
 		<div class="row" style="margin-top:30px; margin-bottom:30px;">
 			<div class="container">	
 			
@@ -76,7 +88,7 @@ p.description_content{
 							<!-- description div -->  
 							<div class="description">  
 								<!-- description content -->  
-								<p class="description_content">The pack, the basic...</p>  
+								<center><p class="description_content">Angela Mark, CEO.</p></center>
 								<!-- end description content -->  
 							</div>  
 							<!-- end description div -->  

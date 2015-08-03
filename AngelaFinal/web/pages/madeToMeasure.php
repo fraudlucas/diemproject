@@ -41,38 +41,48 @@ p.description_content{
 <?php include( DIR_LAY.'modalBook.php');?>
 	<div id="wrapper">
 		<?php 
-		if(isset($_SESSION['role'])){
-			if ($_SESSION['role']==2){
-				include (DIR_LAY.'headerUserPages.php') ;
-			}elseif($_SESSION['role']==1){
-				include( DIR_LAY.'headerAdminPages.php') ;
-			}
+		if ($_SESSION['role']==2){
+			include (DIR_LAY.'headerUserPages.php') ;
+		}elseif($_SESSION['role']==1){
+			include( DIR_LAY.'headerAdminPages.php') ;
 		}else{
 			include( DIR_LAY.'headerPages.php') ;
 		}
-		?>
+?>
         <!--header end-->
+<br>
+<br>
+<br>
+<br>
+<br>
         <!--breadcrumbs start-->
-		<section id="inner-headline">
-			<div class="container" style="margin-top:100px">
-				<div class="row">
-					<div class="col-lg-12">
-						<ul class="breadcrumb">
-							<li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-							<li><a href="#">About</a><i class="icon-angle-right"></i></li>
-							<li class="active">About US</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</section>
-    <!--breadcrumbs end-->
+        <div class="breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-4">
+                        <h1></h1>
+                    </div>
+                    <div class="col-lg-8 col-sm-8">
+                        <ol class="breadcrumb pull-right">
+                            <li>
+                                <a href="../../index.php">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">Collections</a>
+                            </li>
+                            <li class="./web/pages/madeToMeasure.php">Made to measure</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--breadcrumbs end-->
-        <div class="container" style="margin-top:30px">
+        <!--breadcrumbs end-->
+        <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="pf-img">
-                        <img src="../../../assets/images/business.jpg" alt="" height="500">
+                        <img src="./web/assets/images/business.jpg" >
                     </div>
                 </div>
             </div>
@@ -83,13 +93,13 @@ p.description_content{
                 <!--portfolio-single start-->
                 <div class="col-lg-9 ">
                     <div class="title">
-                        <h3 class="text-center">Made to Measure:</h3>
+                        <h4 class="text-center">Made to Measure:</h4>
                         <hr>
                     </div>
                     <div class="pf-detail">
-                        <H4 ALIGN="justify"><SIZE="2">The valuable experience of working directly with her loyal and repeat clientele for many years as a personal stylist and designer of made to measure clothing, Angela has continually evolved, modified and improved
-                            her patterns and styling each season.</h4>
-                        <H4 ALIGN="justify"><SIZE="2">Angela purchases beautiful fabrics and interprets her designs as reflections of her clientele’s beauty, personalities and expectations for that feeling that they get when they wear her designs. <br><br>To meet with an Angela Mark Stylist or learn more about our Made to Measure services, please book an appointment.</h4>
+                        <p ALIGN="justify"><SIZE="2">The valuable experience of working directly with her loyal and repeat clientele for many years as a personal stylist and designer of made to measure clothing, Angela has continually evolved, modified and improved
+                            her patterns and styling each season.</p>
+                        <p ALIGN="justify"><SIZE="2">Angela purchases beautiful fabrics and interprets her designs as reflections of her clientele’s beauty, personalities and expectations for that feeling that they get when they wear her designs. <br><br>To meet with an Angela Mark Stylist or learn more about our Made to Measure services, please book an appointment.</p>
                     </div>
                     <p>
                         
@@ -97,12 +107,12 @@ p.description_content{
                 </div>
                 <div class="col-lg-3">
                     <div class="title">
-                        <h3 class="text-center">How it works:</h3>
+                        <h4 class="text-center">How it works:</h4>
                         <hr>
                     </div>
                     <ul class="lead list-unstyled pf-list">
                         <li>
-                            <i class="fa fa-arrow-circle-right pr-10"></i>
+                            <i class="fa fa-arrow-circle-right pr-5"></i>
                             <b>Consultation</b>
                         </li>
                         <li>

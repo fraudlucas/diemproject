@@ -41,17 +41,20 @@ p.description_content{
 <?php include( DIR_LAY.'modalBook.php');?>
 	<div id="wrapper">
 		<?php 
-		if(isset($_SESSION['role'])){
-			if ($_SESSION['role']==2){
-				include (DIR_LAY.'headerUserPages.php') ;
-			}elseif($_SESSION['role']==1){
-				include( DIR_LAY.'headerAdminPages.php') ;
-			}
+		if ($_SESSION['role']==2){
+			include (DIR_LAY.'headerUserPages.php') ;
+		}elseif($_SESSION['role']==1){
+			include( DIR_LAY.'headerAdminPages.php') ;
 		}else{
 			include( DIR_LAY.'headerPages.php') ;
 		}
-		?>
-    
+?>
+    <br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
         <!--breadcrumbs start-->
         <div class="breadcrumbs">
             <div class="container">
@@ -146,43 +149,9 @@ p.description_content{
             </script>
         </center> <!--Google maps end-->
 		
-        <!-- Carousel Slides / Quotes -->
-        <div class="carousel-inner">
-            <!-- Quote 1 -->
-            <div class="item active"></div>
-            <!-- Quote 2 -->
-            <div class="item">
-                <blockquote>
-                    <div class="row">
-                        <div class="col-sm-3 text-center">
-                            <img class="img-circle" src="img/person_2.png" style="width: 100px;height:100px;"
-                            alt="">
-                        </div>
-                        <div class="col-sm-9">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor
-                                nec lacus ut tempor. Mauris.</p>
-                            <small>Someone famous</small>
-                        </div>
-                    </div>
-                </blockquote>
-            </div>
-            <!-- Quote 3 -->
-            <div class="item">
-                <blockquote>
-                    <div class="row">
-                        <div class="col-sm-3 text-center">
-                            <img class="img-circle" src="img/person_3.png" style="width: 100px;height:100px;"
-                            alt="">
-                        </div>
-                        <div class="col-sm-9">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor
-                                nec lacus ut tempor. Mauris.</p>
-                            <small>Someone famous</small>
-                        </div>
-                    </div>
-                </blockquote>
-            </div>
-        </div>
+        <br>
+		<br>
+		<br>
         
         <!--footer starts-->
      

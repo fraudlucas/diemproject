@@ -6,16 +6,16 @@
                         
 				  <h4 style= " text-transform: uppercase; text-align: center; text-color:#000000;">Our Company</h4>
 				  
-                            <a href="about.php">About Us</a>
+                            <a href="./web/pages/aboutUs.php">About Us</a>
                         <br>
-                            <a href="ourTeam.php">Our team</a>
+                            <a href="./web/pages/ourTeam.php">Our team</a>
                         
                         <br>
-                            <a href="testimonials.php">Testimonials</a>
+                            <a href="./web/pages/testimonials.php">Testimonials</a>
                         <br>
-                            <a href="career.php">Work with us</a>
+                            <a href="./web/pages/career.php">Work with us</a>
                         <br>
-                            <a href="privacy-policy.php">Privacy Policy</a>
+                            <a href="./web/pages/privacy-policy.php">Privacy Policy</a>
                         <br>
                     </ul>
 				  </div>
@@ -68,13 +68,13 @@ padding: 1px;
                     <ul class="page-footer-list text-center">
 					<h4 style= " text-transform: uppercase; text-center; text-colour:#000000;">Client Area</h4>
                         
-                            <a href="appointment.php">Book an appointment</a>
+                            <a href="#">Book an appointment</a>
                         <br>
-                            <a href="login.php">Login</a>
+                             <action="#">Sign in</a></a>
                         <br>
-                            <a href="registration.php">Register</a>
+                            <a href="#">Register</a>
                         <br>
-                            <a href="myWardrobe.php">My Wardrobe</a>
+                            <a href="./web/pages/userWardrobe.php">My Wardrobe</a>
                         <br>
                     </ul>
 				  </div>

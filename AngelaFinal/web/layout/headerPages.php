@@ -35,8 +35,8 @@
                                 <li><a href="../pages/madeToMeasure.php">Made to Measure</a></li>
                             </ul>
                         </li>
-                        <li><a href="blog.html" >Blog</a></li>
-                        <li><a href="contact.html" >Contact</a></li>
+                        <li><a href="#" >Blog</a></li>
+                        <li><a href="./web/pages/contact.php" >Contact</a></li>
 						<li>
 							<form class="navbar-form navbar-right"   action="../../src/handlers/userHandler.php?a=login" method="post">
 								<div class="form-group" >
