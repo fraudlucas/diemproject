@@ -16,9 +16,9 @@
                 <div class="navbar-collapse collapse " id="navbar-main">
 					
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php">Home</a></li>
-                        <li><a href="blog.html" >Blog</a></li>
-                        <li><a href="contact.html" >Contact</a></li>
+                        <li class="active"><a href="../../index.php">Home</a></li>
+                        <li><a href="#" >Blog</a></li>
+                        <li><a href="./web/pages/contact.php" >Contact</a></li>
 						<li>
 							<form class="navbar-form"  action="../../src/handlers/userHandler.php?a=logout" method="post">
 								<div class="form-group">
