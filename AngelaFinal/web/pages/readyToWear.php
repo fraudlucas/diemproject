@@ -41,14 +41,16 @@ p.description_content{
 <?php include( DIR_LAY.'modalBook.php');?>
 	<div id="wrapper">
 		<?php 
-		if ($_SESSION['role']==2){
-			include (DIR_LAY.'headerUserPages.php') ;
-		}elseif($_SESSION['role']==1){
-			include( DIR_LAY.'headerAdminPages.php') ;
+		if($session->isLoggedIn()){
+			if ($_SESSION['role']==2){
+				include (DIR_LAY.'headerUserPages.php') ;
+			}elseif($_SESSION['role']==1){
+				include( DIR_LAY.'headerAdminPages.php') ;
+			}
 		}else{
 			include( DIR_LAY.'headerPages.php') ;
 		}
-?>
+		?>
 
 <br>
 <br>

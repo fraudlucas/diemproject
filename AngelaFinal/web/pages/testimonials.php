@@ -18,7 +18,7 @@
 <?php include( DIR_LAY.'modalBook.php');?>
 	<div id="wrapper">
 		<?php 
-		if(isset($_SESSION['role'])){
+		if($session->isLoggedIn()){
 			if ($_SESSION['role']==2){
 				include (DIR_LAY.'headerUserPages.php') ;
 			}elseif($_SESSION['role']==1){
