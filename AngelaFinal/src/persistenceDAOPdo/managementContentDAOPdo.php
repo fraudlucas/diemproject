@@ -75,43 +75,42 @@ class ManagementContentDAOPdo implements ManagementContentDAO {
 		}elseif($type==2){
 			return $managementsList;
 		}
-
-		//acho que nao precisaria criar  outro PDO so pra mudar  a cor 
-
-		public function selectColor(){
-			
-			$className = 'ConnectionDAOPdo';
-
-			$con = $className::getConnection();
-			$query = 'SELECT * FROM color Where idColor = 1';
-			$stmt = $con->prepare($query);
-			$stmt->execute();
-			$result = $stmt->fetchAll();
-
-			return $result->setColor;
-
-		}
-
-		public function updateColor($color){
-			$className = 'ConnectionDAOPdo';
-			
-			try {		
-				$con = $className::getConnection();
-				$stmt = $con->prepare("UPDATE colors SET 
-					colors = :content 				
-					WHERE idColor = 1");
-				$stmt->bindParam(':content', $color->getColor());
-		//nao sei nem oq  eu to fazendo aqui 
-		
-				$stmt->execute();    // Execute the prepared query.
-				
-				return true;
-			}
-			catch(PDOException $e){
-				echo $e;
-				return false;
-			}
 	}
+
+	//acho que nao precisaria criar  outro PDO so pra mudar  a cor ==> como assim?
+
+	public function selectColor(){
+		
+		$className = 'ConnectionDAOPdo';
+
+		$con = $className::getConnection();
+		$query = 'SELECT * FROM color Where idColor = 1';
+		$stmt = $con->prepare($query);
+		$stmt->execute();
+		$result = $stmt->fetchAll();
+
+		return $result->setColor;
+
+	}
+	
+	public function updateColor($color){
+		$className = 'ConnectionDAOPdo';
+			
+		try {		
+			$con = $className::getConnection();
+			$stmt = $con->prepare("UPDATE colors SET 
+				colors = :content 				
+				WHERE idColor = 1");
+			$stmt->bindParam(':content', $color->getColor());
+		//nao sei nem oq  eu to fazendo aqui ==> to percebendo kkk
+		
+			$stmt->execute();    // Execute the prepared query.
+				
+			return true;
+		}
+		catch(PDOException $e){
+			echo $e;
+			return false;
 		}
 	}
 }
