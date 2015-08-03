@@ -27,7 +27,7 @@
                                 <li><a href="../../web/pages/aboutUs.php">About US</a></li>
                                 <li><a href="../../web/pages/ourTeam.php">Our Team</a></li> <!-- There is no page -->
 								<li><a href="../../web/pages/testimonials.php">Testimonials</a></li>
-								<li><a href="../../web/pages/privacyPolicy.php">Privacy Policy</a></li> <!-- There is no page -->
+								<li><a href="../../web/pages/privacy-policy.php">Privacy Policy</a></li> <!-- There is no page -->
                             </ul>
                         </li>
                         <li class="dropdown" >
