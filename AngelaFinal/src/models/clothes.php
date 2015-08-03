@@ -5,6 +5,7 @@ class Clothes{
 	private $code;
 	private $picture;
 	private $price;
+	private $typeid;
 	private $customized;
 	
 	public function getId(){
@@ -37,6 +38,14 @@ class Clothes{
 	
 	public function setPrice($price){
 		$this->price = $price;
+	}	
+	
+	public function getTypeId(){
+		return $this->typeid;
+	}
+	
+	public function setTypeId($typeid){
+		$this->typeid = $typeid;
 	}	
 	
 	public function getCustomized(){

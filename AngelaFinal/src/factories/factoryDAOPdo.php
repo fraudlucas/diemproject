@@ -6,6 +6,7 @@
 	require_once DIR_PDO.'managementContentDAOPdo.php';
 	require_once DIR_PDO.'clothesDAOPdo.php';
 	require_once DIR_PDO.'tagsDAOPdo.php';
+	require_once DIR_PDO.'wardrobeDAOPdo.php';
 	
 class FactoryDAOPdo implements FactoryDAO {
 	
@@ -30,6 +31,10 @@ class FactoryDAOPdo implements FactoryDAO {
 	
 	public function createTagsPersistence() {
 		return new TagsDAOPdo();
+	}
+	
+	public function createWardrobePersistence() {
+		return new WardrobeDAOPdo();
 	}
 	
 	public function createManagementPhotosPersistence() {

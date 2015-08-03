@@ -58,6 +58,7 @@ if (!empty($action)) {
     		$clothes->setPicture($str);
     		$clothes->setCode($_POST['code']);
 			$clothes->setPrice($_POST['price']);
+			$clothes->setTypeId($_POST['type']);
 			$clothes->setCustomized($_POST['customized']);
 			
     		$test = $clothesView->add($clothes);

@@ -1,22 +1,21 @@
 <?php 
-	require_once DIR_PER.'clothesDAO.php';
+	require_once DIR_PER.'wardrobeDAO.php';
 	require_once DIR_PDO.'connectionDAOPdo.php';
-	require_once DIR_MOD.'clothes.php';
+	require_once DIR_MOD.'wardrobe.php';
 
-class ClothesDAOPdo implements ClothesDAO {
+class WardrobeDAOPdo implements WardrobeDAO {
 
-	public function add($clothes) {
+	public function add($wardrobe) {
 
 		$className = 'ConnectionDAOPdo';
 		$con = $className::getConnection();
 
-		$stmt = $con->prepare("INSERT INTO clothing(code,picture,price,customized,typeId) values (:code,:picture,:price,:customized,:typeId)");
+		$stmt = $con->prepare("INSERT INTO wardrobe(userId,clothesId,date) values (:userId,:clothesId,:date)");
 		
-		$stmt->bindParam(':code', $clothes->getCode());
-		$stmt->bindParam(':picture', $clothes->getPicture());
-		$stmt->bindParam(':price', $clothes->getPrice());
-		$stmt->bindParam(':customized', $clothes->getCustomized());
-		$stmt->bindParam(':typeId', $clothes->getTypeId());
+		$stmt->bindParam(':userId', $wardrobe->getUserId());
+		$stmt->bindParam(':clothesId', $wardrobe->getClothesId());
+		$stmt->bindParam(':date', $wardrobe->getDates());
+		
 		
 		$teste = $stmt->execute();
 
@@ -34,13 +33,12 @@ class ClothesDAOPdo implements ClothesDAO {
 		$clothesList = new ArrayObject();
 
 		foreach ($result as $row) {
-			$clothes = new Clothes();
+			$wardrobe = new Wardrobe();
 			$clothes->setId($row['id']);
 			$clothes->setCode($row['code']);
 			$clothes->setPicture($row['picture']);
 			$clothes->setPrice($row['price']);
 			$clothes->setCustomized($row['customized']);
-			$clothes->setTypeId($row['typeId']);
 
 			$clothesList->append($clothes);
 		}
