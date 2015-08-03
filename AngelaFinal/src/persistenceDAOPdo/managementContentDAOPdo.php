@@ -31,8 +31,8 @@ class ManagementContentDAOPdo implements ManagementContentDAO {
 				$stmt = $con->prepare("UPDATE pagecontent SET 
 					content = :content 				
 					WHERE pageID = :pageid");
-				$stmt->bindParam(':content', $user->getContent());
-				$stmt->bindParam(':pageid', $user->getPageIdContent());
+				$stmt->bindParam(':content', $management->getContent());
+				$stmt->bindParam(':pageid', $management->getPageIdContent());
 				
 				
 				$stmt->execute();    // Execute the prepared query.
