@@ -9,13 +9,13 @@ class Color{
        function getIdColor() {
         return $this->color;
     }
-       function setIdColor() {
+       function setIdColor($idColor) {
         return $this->color;
     }
        function getColor() {
         return $this->color;
     }
-       function setColor() {
+       function setColor($color) {
         return $this->color;
     }
 

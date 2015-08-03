@@ -3,12 +3,14 @@
 	require_once('../Session.php');	
 	require_once DIR_SRC.'htmLawed.php';
 	require_once DIR_MOD.'managementContent.php';
-	require_once DIR_MOD.'color.php'
+	require_once DIR_MOD.'color.php';
 	require_once DIR_VIE.'managementContentView.php';
 //require_once dirname(dirname(__FILE__)).'\..\registration.php';
 
 $action = $_GET['a'];
-$page = $_GET['b'];
+if(isset($_GET['b'])){
+	$page = $_GET['b'];
+}
 
 if (!empty($action)) {
 	$managementView = new ManagementContentView();
@@ -36,10 +38,13 @@ if (!empty($action)) {
 				$management->setContent($processed);
 				$test = $managementView->updateContent($management);
 			}
+			
     	case'changeColor': //me perdi!! pra  onde eh  que  eu vou com isso! 
     		$color = new color();
-    		if(isset($_POST['color']);
-    		$color->setColor() = ($_POST['color'];
+    		if(isset($_POST['color'])){
+				$color->setColor($_POST['color']);
+			}	
+				
     	break;
 
     }
