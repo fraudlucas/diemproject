@@ -44,7 +44,7 @@
 					  <li role="presentation" class="active"><a href="../pages/adminManagement.php">Manage Website</a></li>
 					  <li role="presentation" ><a href="../pages/adminClients.php">Clients</a></li>
 					  <li role="presentation"><a href="../pages/adminClients.php">Clothes</a></li>
-					  <li role="presentation"><a href="#">Staff</a></li>
+					  <li role="presentation"><a href="../pages/adminStaff.php">Staff</a></li>
 					</ul>
 				</nav>
 			</div>		
@@ -55,6 +55,7 @@
 						<ul class="nav nav-tabs">
 							<li class="active"><a href="#home" data-toggle="tab"><i class="icon-briefcase"></i>Home</a></li>
 							<li><a href="#about" data-toggle="tab">About Us</a></li>
+							<li><a href="#ourteam" data-toggle="tab">Our Team</a></li>
 							<li><a href="#testimonials" data-toggle="tab">Testimonials</a></li>
 							<li><a href="#rdytowear" data-toggle="tab">Ready To Wear</a></li>
 							<li><a href="#mdtomeasure" data-toggle="tab">Made To Measure</a></li>
@@ -69,10 +70,19 @@
 							</div>	
 							<div class="tab-pane" id="testimonials">
 								<?php include( DIR_LAY.'tabTestimonials.php') ;?>
-							</div>	
+							</div>
 							<div class="tab-pane" id="colors">
 								<?php include( DIR_LAY.'tabColors.php') ;?>
-							</div>	
+							</div>
+							<div class="tab-pane" id="ourteam">
+								<?php include( DIR_LAY.'tabOurTeam.php') ;?>
+							</div>
+							<div class="tab-pane" id="mdtomeasure">
+								<?php include( DIR_LAY.'tabMadeToMeasure.php') ;?>
+							</div>
+							<div class="tab-pane" id="rdytowear">
+								<?php include( DIR_LAY.'tabReadyToWear.php') ;?>
+							</div>
 						</div>
 					</div>
 				</div>			

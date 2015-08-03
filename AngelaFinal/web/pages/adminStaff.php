@@ -37,10 +37,10 @@
 					  <li>
 						<img src="../assets/images/profilepicture.jpg" class="img-responsive" width="300px" height="400px"> 
 					  <li role="presentation"><a href="../pages/adminHome.php">Profile</a></li>
-					  <li role="presentation" ><a href="../pages/adminManagement.php">Manage Website</a></li>
-					  <li role="presentation" class="active"><a href="../pages/adminClients.php">Clients</a></li>
+					  <li role="presentation"><a href="../pages/adminManagement.php">Manage Website</a></li>
+					  <li role="presentation"><a href="../pages/adminClients.php">Clients</a></li>
 					  <li role="presentation"><a href="../pages/adminClothes.php">Clothes</a></li>
-					  <li role="presentation"><a href="#">Staff</a></li>
+					  <li role="presentation" class="active"><a href="../pages/adminStaff.php">Staff</a></li>
 					</ul>
 				</nav>
 			</div>		
