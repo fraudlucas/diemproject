@@ -30,7 +30,15 @@ class ManagementContentView{
 		return $result;
 	}
 	
-
+	public function updateColor($color){
+		$result = $this->managementContentController->updateColor($color);
+		return $result;
+	}
+	
+	public function searchColor($color){
+		$result = $this->managementContentController->searchColor($color);
+		return $result;
+	}
 }
 
  ?>
