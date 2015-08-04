@@ -25,6 +25,21 @@ class MessageView
 		$result = $this->messageController->searchByFromUser($userID);
 		return $result;
 	}
+
+	public function listByToUserID($userID) {
+		$result = $this->messageController->searchByToUser($userID);
+		return $result;
+	}
+
+	public function searchMessageById($messageID) {
+		$result = $this->messageController->searchByID($messageID);
+		return $result;
+	}
+
+	public function read($messageID, $wasRead) {
+		$test = $this->messageController->read($messageID, $wasRead);
+		return $test;
+	}
 }
 
  ?>

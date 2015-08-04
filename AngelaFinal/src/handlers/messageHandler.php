@@ -10,6 +10,7 @@ $session = new Session();
 $action = $_GET['a'];
 $pageToReturn = $_GET['p'];
 
+
 if (!empty($action)) {
 	$userView = new UserView();
 	$messageView = new MessageView();
@@ -18,7 +19,7 @@ if (!empty($action)) {
     switch ($action) {
 		case 'send':
 
-			$fromUserId = 4; // admin2@test.com
+			$fromUserId = $_SESSION['userID']; // getting the fromUserID from the Session.
 			$toUserId = $_POST['to'];
 			$topic = $_POST['topic'];
 			$content = $_POST['content'];
@@ -38,15 +39,20 @@ if (!empty($action)) {
 
 			echo $test;
 
-			header("Location:  ../../web/pages/". $pageToReturn .".php");
-			die();
-
 		break;
 
 		case 'read':
-			# code...
+			
+			$messageID = $_GET['m'];
+			$wasRead = $_GET['r']; // 1 is read and 0 is not read
+
+			$messageView->read($messageID, $wasRead);
+
 			break;
 	}
+
+	header("Location:  ../../web/pages/". $pageToReturn .".php");
+	die();
 }
 
  ?>
