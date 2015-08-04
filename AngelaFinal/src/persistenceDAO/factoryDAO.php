@@ -6,6 +6,7 @@ interface FactoryDAO {
 	public function createManagementPhotosPersistence();
 	public function createManagementContentPersistence();
 	public function createTagsPersistence();
+	public function createMessagePersistence();
 }
 
 ?>
