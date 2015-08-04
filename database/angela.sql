@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2015 at 05:16 PM
+-- Generation Time: Aug 03, 2015 at 11:12 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `clothinglooks` (
   `id` int(10) unsigned NOT NULL,
   `addingDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `userID` int(10) unsigned NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -166,33 +166,6 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `userID` int(10) unsigned NOT NULL,
   `content` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `messages`
---
-
-CREATE TABLE IF NOT EXISTS `messages` (
-  `id` int(10) unsigned NOT NULL,
-  `fromUserID` int(10) unsigned NOT NULL,
-  `toUserID` int(10) unsigned NOT NULL,
-  `topic` varchar(50) NOT NULL,
-  `content` varchar(250) NOT NULL,
-  `messageDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `read` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `messages`
---
-
-INSERT INTO `messages` (`id`, `fromUserID`, `toUserID`, `topic`, `content`, `messageDate`, `read`) VALUES
-(1, 2, 4, 'test', 'maybe it works', '2015-08-04 17:57:30', 0),
-(2, 2, 4, 'testing', 'testing', '2015-08-04 18:16:51', 0),
-(3, 5, 2, 'testing modal ', 'maybe it works on adminClient', '2015-08-04 19:03:36', 0),
-(4, 2, 4, 'testing 2', 'maybe', '2015-08-04 19:00:33', 0),
-(5, 4, 2, 'asdas', 'dasdasd', '2015-08-04 19:03:05', 0);
 
 -- --------------------------------------------------------
 
@@ -322,26 +295,7 @@ INSERT INTO `roles` (`id`, `roleTitle`) VALUES
 CREATE TABLE IF NOT EXISTS `tags` (
   `id` int(10) unsigned NOT NULL,
   `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_roles`
---
-
-CREATE TABLE IF NOT EXISTS `user_roles` (
-  `id` int(10) unsigned NOT NULL,
-  `userID` int(10) unsigned NOT NULL,
-  `roleID` int(10) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_roles`
---
-
-INSERT INTO `user_roles` (`id`, `userID`, `roleID`) VALUES
-(1, 1, 1);
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -374,6 +328,25 @@ INSERT INTO `users` (`id`, `username`, `password`, `salt`, `email`, `firstName`,
 (3, NULL, '$2y$07$VA1ZwZA5fZJGOFcELSZhBeuii0NdCP24Npg7QQS.XPD...', 'T\r\nYÁ9}’F8W-&aùR¢Ÿ\r\nt', 'admin@admin.com', 'Thi', 'Evan', NULL, NULL, NULL, NULL, 1, 3),
 (4, NULL, '$2y$07$2e4HSZdMZKLYt41TPPEjHOO0Ys1CAnbL5HU7YWBEFKd.soQgBCs6O', 'ÙîI—Ld¢Ø·S<ñ#–Š=†', 'admin2@admin.com', 'Thiago  ', 'Thiago ', '', '', '', '', 1, 2),
 (5, NULL, '$2y$07$BcfLaap4VH2oXupTJmeb7.Eplx80YY6fHmLsPdA3Dr1RkOS0cEREG', 'ÇËiªxT}¨^êS&g›ìä3Ý…¢', 'ricardo.vcr2@gmail.com', 'ricardo', 'ricardo', NULL, NULL, NULL, NULL, 2, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_roles`
+--
+
+CREATE TABLE IF NOT EXISTS `user_roles` (
+  `id` int(10) unsigned NOT NULL,
+  `userID` int(10) unsigned NOT NULL,
+  `roleID` int(10) unsigned NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_roles`
+--
+
+INSERT INTO `user_roles` (`id`, `userID`, `roleID`) VALUES
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -467,12 +440,6 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`), ADD KEY `fk_comments_posts` (`postID`), ADD KEY `fk_comments_users` (`userID`);
 
 --
--- Indexes for table `messages`
---
-ALTER TABLE `messages`
-  ADD PRIMARY KEY (`id`), ADD KEY `fk_messages_fromUsers` (`fromUserID`), ADD KEY `fk_messages_toUsers` (`toUserID`);
-
---
 -- Indexes for table `pagecontent`
 --
 ALTER TABLE `pagecontent`
@@ -509,16 +476,16 @@ ALTER TABLE `tags`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uc_tags` (`name`);
 
 --
--- Indexes for table `user_roles`
---
-ALTER TABLE `user_roles`
-  ADD PRIMARY KEY (`id`), ADD KEY `fk_userRoles_users` (`userID`), ADD KEY `fk_userRoles_roles` (`roleID`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uc_users` (`username`,`email`), ADD KEY `fk_administrators_users` (`administratorID`);
+
+--
+-- Indexes for table `user_roles`
+--
+ALTER TABLE `user_roles`
+  ADD PRIMARY KEY (`id`), ADD KEY `fk_userRoles_users` (`userID`), ADD KEY `fk_userRoles_roles` (`roleID`);
 
 --
 -- Indexes for table `wardrobe`
@@ -555,7 +522,7 @@ ALTER TABLE `clothing`
 -- AUTO_INCREMENT for table `clothinglooks`
 --
 ALTER TABLE `clothinglooks`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `clothingmeasures`
 --
@@ -571,11 +538,6 @@ ALTER TABLE `clothingtype`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `messages`
---
-ALTER TABLE `messages`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `pagecontent`
 --
@@ -605,17 +567,17 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `user_roles`
---
-ALTER TABLE `user_roles`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `user_roles`
+--
+ALTER TABLE `user_roles`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `wishlists`
 --
@@ -662,13 +624,6 @@ ADD CONSTRAINT `fk_clothingTagged_tags` FOREIGN KEY (`tagID`) REFERENCES `tags` 
 --
 ALTER TABLE `comments`
 ADD CONSTRAINT `fk_comments_posts` FOREIGN KEY (`postID`) REFERENCES `posts` (`id`);
-
---
--- Constraints for table `messages`
---
-ALTER TABLE `messages`
-ADD CONSTRAINT `fk_messages_fromUsers` FOREIGN KEY (`fromUserID`) REFERENCES `users` (`id`),
-ADD CONSTRAINT `fk_messages_toUsers` FOREIGN KEY (`toUserID`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `pagecontent`
