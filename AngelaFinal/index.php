@@ -13,10 +13,14 @@
 	<?php include( DIR_LAY.'modalBook.php');?>
 	<div id="wrapper">
 		<?php 
-		if (!$session->isLoggedIn()){
-			include( DIR_LAY.'header.php') ;
+		if($session->isLoggedIn()){
+			if ($_SESSION['role']==2){
+				include (DIR_LAY.'headerUser.php') ;
+			}elseif($_SESSION['role']==1){
+				include( DIR_LAY.'headerAdmin.php') ;
+			}
 		}else{
-			include( DIR_LAY.'headerUser.php') ;
+			include( DIR_LAY.'header.php') ;
 		}
 		?>
 		<br><br>
