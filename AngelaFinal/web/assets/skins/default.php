@@ -1,9 +1,13 @@
- <?php header("Content-type: text/css");
+<?php header("Content-type: text/css");
 	require_once('../../../src/config.php');
 	require_once (DIR_VIE.'managementContentView.php');
-	$managementcolor = new ManagementContentView();
-	$color = $managementcolor->searchColor();
+	require_once (DIR_MOD.'managementContent.php');
 	
+	$managementcolor = new ManagementContentView();
+	$result = $managementcolor->searchColor();
+	$color = $result->getColor();
+	echo $color;
+	//$color = "#141091";
  ?>
 
 /* === color === */

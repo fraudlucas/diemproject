@@ -37,6 +37,12 @@ class ManagementContentController {
 		return $result;
 	}
 	
+	public function searchColor(){
+		$result = $this->persistenceManagement->searchColor();
+		return $result;
+	}
+
+	
 }
 
  ?>

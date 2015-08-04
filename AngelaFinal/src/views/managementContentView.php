@@ -35,8 +35,8 @@ class ManagementContentView{
 		return $result;
 	}
 	
-	public function searchColor($color){
-		$result = $this->managementContentController->searchColor($color);
+	public function searchColor(){
+		$result = $this->managementContentController->searchColor();
 		return $result;
 	}
 }

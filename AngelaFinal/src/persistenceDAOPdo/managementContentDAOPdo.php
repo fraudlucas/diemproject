@@ -84,13 +84,18 @@ class ManagementContentDAOPdo implements ManagementContentDAO {
 		$className = 'ConnectionDAOPdo';
 
 		$con = $className::getConnection();
-		$query = 'SELECT * FROM color Where idColor = 1';
+		$query = 'SELECT * FROM colors Where idColor = 1';
 		$stmt = $con->prepare($query);
 		$stmt->execute();
 		$result = $stmt->fetchAll();
 
-			echo ">>>>>>>>>>>>>>>". $result ."<<<<<<<<<<<<<<<<";
-		return $result;
+		foreach ($result as $row) {			
+			$management = new ManagementContent();
+			$management->setIdColor($row['idColor']);
+			$management->setColor($row['color']);
+		}
+			
+		return $management;
 
 	}
 	
