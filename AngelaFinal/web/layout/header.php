@@ -15,7 +15,7 @@
                 </div>
                 <div class="navbar-collapse collapse " id="navbar-main">
 					<div>
-						<button class="btn btn-theme" Style=" transform: rotate(90deg); cursor: pointer; right:-57px; top:0px; margin-top:350px; z-index:999997; position:fixed;" data-direction='left' data-toggle="modal" data-target="#myModal")">Book Appointment</button> 
+						<button class="btn btn-theme" Style=" transform: rotate(90deg); cursor: pointer; right:-57px; top:0px; margin-top:350px; z-index:999997; position:fixed;" data-direction='left' data-toggle="modal" data-target="#myBook")">Book Appointment</button> 
 					</div>
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="./index.php">Home</a></li>
@@ -46,7 +46,7 @@
 									<input type="password" class="form-control" style="width:150px" name="password" placeholder="Password">
 								</div>
 								<div class="form-group">
-									<button type="submit" style="width:80px" class="btn btn-theme">Sign In</button>
+									<button type="submit" style="width:80px" class="btn btn-theme">Log In</button>
 								</div>
 								<div class="form-group">
 									<div data-toggle="modal" data-target="#myModal">
