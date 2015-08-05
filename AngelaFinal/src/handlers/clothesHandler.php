@@ -9,7 +9,7 @@ if (!empty($action)) {
 
     switch ($action) {
     	case 'clothesAdd':
-			$target_dir = "web/assets/img/clothes/";
+			$target_dir = $_POST['target_dir'];
 			$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 			$uploadOk = 1;
 			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -53,16 +53,20 @@ if (!empty($action)) {
 			}
 			
 			$str = ltrim ($target_file, '/');
-			
+			echo '<br>'.$str;
     		$clothes = new Clothes();
     		$clothes->setPicture($str);
-    		$clothes->setCode($_POST['code']);
+			$clothes->setCode($_POST['code']);
 			$clothes->setPrice($_POST['price']);
-			$clothes->setTypeId($_POST['type']);
-			$clothes->setCustomized($_POST['customized']);
-			
-    		$test = $clothesView->add($clothes);
-
+			$clothes->setType($_POST['type']);
+			if($_POST['customized']=='Yes'){
+				$clothes->setCustomized(1);
+			}else{
+				$clothes->setCustomized(0);
+			}
+			$clothes->setSubtitle($_POST['photoSubtitle']);
+					
+    		$test = $clothesView->addPhotos($clothes);
     		break;
 		case 'list':
     		$list = $clothesView->listClothes();

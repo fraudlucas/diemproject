@@ -30,6 +30,14 @@ class ClothesController {
 
 		return $clothesList;
 	}
+	
+	public function searchClothes($param,$value,$type){
+		// $persistencePost = $this->factory->createPostPersistence();
+		
+		$clothesList = $this->persistenceClothes->searchClothes($param,$value,$type);
+
+		return $clothesList;
+	}
 
 }
 

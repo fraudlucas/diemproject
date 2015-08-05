@@ -30,6 +30,12 @@ class ClothesView
 		return $clothesLists;
 	}
 	
+	public function searchClothes($param,$value,$type) {
+		$clothesLists = $this->clothesController->searchClothes($param,$value,$type);
+
+		return $clothesLists;
+	}
+	
 
 }
 

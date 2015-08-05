@@ -16,18 +16,20 @@ class WardrobeController {
 	}
 
 	public function add($wardrobe) {
-		// $persistencePost = $this->factory->createPostPersistence();
-		
+		// $persistencePost = $this->factory->createPostPersistence();		
 		$test = $this->persistenceWardrobe->add($wardrobe);
-
 		return $test;
 	}
 	
 	public function listAll() {
-		// $persistencePost = $this->factory->createPostPersistence();
-		
+		// $persistencePost = $this->factory->createPostPersistence();		
 		$wardrobeList = $this->persistenceWardrobe->listAll();
-
+		return $wardrobeList;
+	}
+	
+	public function searchWardrobe($param,$value,$type) {
+		// $persistencePost = $this->factory->createPostPersistence();		
+		$wardrobeList = $this->persistenceWardrobe->searchWardrobe();
 		return $wardrobeList;
 	}
 

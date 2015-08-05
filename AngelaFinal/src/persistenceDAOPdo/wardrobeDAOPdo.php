@@ -15,8 +15,7 @@ class WardrobeDAOPdo implements WardrobeDAO {
 		$stmt->bindParam(':userId', $wardrobe->getUserId());
 		$stmt->bindParam(':clothesId', $wardrobe->getClothesId());
 		$stmt->bindParam(':date', $wardrobe->getDates());
-		
-		
+			
 		$teste = $stmt->execute();
 
 		return 'Sucesso - ' . $teste;
@@ -44,7 +43,34 @@ class WardrobeDAOPdo implements WardrobeDAO {
 		}
 
 		return $clothesList;
-	}   
+	}  
+
+	public function searchWardrobe($param,$value,$type) {
+		$className = 'ConnectionDAOPdo';
+		$con = $className::getConnection();
+		$query = 'SELECT * FROM wardrobe Where '.$param.' = "'.$value.'"';
+		$stmt = $con->prepare($query);
+		$stmt->execute();
+		$result = $stmt->fetchAll();
+
+		$wardrobeList = new ArrayObject();
+
+		foreach ($result as $row) {				
+			$wardrobe = new Wardrobe();
+			$wardrobe->setId($row['id']);
+			$wardrobe->setUserId($row['username']);
+			$wardrobe->setClothesId($row['firstName']);
+			$wardrobe->setDates($row['lastName']);
+			
+			$wardrobeList->append($user);
+		}
+		
+		if($type==1){
+			return $wardrobe;
+		}elseif($type==2){
+			return $wardrobeList;
+		}
+	}	
 }
 
 ?>
