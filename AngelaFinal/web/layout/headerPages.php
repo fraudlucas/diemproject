@@ -35,7 +35,7 @@
                                 <li><a href="../pages/madeToMeasure.php">Made to Measure</a></li>
                             </ul>
                         </li>
-                        <li><a href="#" >Blog</a></li>
+                        <li><a href="http://projectblog.byethost12.com/wp/" >Blog</a></li>
                         <li><a href="../pages/contact.php" >Contact</a></li>
 						<li>
 							<form class="navbar-form navbar-right"   action="../../src/handlers/userHandler.php?a=login" method="post">
