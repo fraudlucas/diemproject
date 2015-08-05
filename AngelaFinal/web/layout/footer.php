@@ -45,9 +45,9 @@
  margin: 0;
 padding: 0;
 }
-
-.social h1{
+{
  margin: 0;
+.social h1
 padding: 1px;
 }
 
@@ -68,11 +68,11 @@ padding: 1px;
                     <ul class="page-footer-list text-center">
 					<h4 style= " text-transform: uppercase; text-center; text-colour:#000000;">Client Area</h4>
                         
-                            <a href="#">Book an appointment</a>
+                            <a href="#" data-toggle="modal" data-target="#myBook">Book an appointment</a>
                         <br>
-                             <action="#">Sign in</a></a>
+                            <a href="#" data-toggle="modal" data-target="#loginmodal">Log in</a>
                         <br>
-                            <a href="#">Register</a>
+                            <a href="#" data-toggle="modal" data-target="#myModal">Register</a>
                         <br>
                             <a href="./web/pages/userWardrobe.php">My Wardrobe</a>
                         <br>
