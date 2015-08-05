@@ -39,17 +39,15 @@ if (!empty($action)) {
 				$test = $managementView->updateContent($management);
 			}
 			break;
-    	case'changeColor': //me perdi!! pra  onde eh  que  eu vou com isso! 
+    	case'changeColor': 
     		
     		if(isset($_POST['color'])){
-				//$management = new managementContent();
+				/
     			$color = ($_POST['color']);
     			$upColor = new ManagementContent();
     			$upColor->setColor($color);
-				echo $color ." in Handler";
-				echo "test here" . $upColor->getColor() . "in HANDLER UP" ;
 				$test = $managementView->updateColor($upColor);
-				echo $test;
+				header('Location: ../../web/pages/adminManagement.php');
     		}
 		break;
 	}	

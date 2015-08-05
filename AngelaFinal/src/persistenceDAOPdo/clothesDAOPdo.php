@@ -10,13 +10,13 @@ class ClothesDAOPdo implements ClothesDAO {
 		$className = 'ConnectionDAOPdo';
 		$con = $className::getConnection();
 
-		$stmt = $con->prepare("INSERT INTO clothing(code,picture,price,customized,typeId) values (:code,:picture,:price,:customized,:typeId)");
+		$stmt = $con->prepare("INSERT INTO clothing(code,picture,price,customized) values (:code,:picture,:price,:customized)");
 		
 		$stmt->bindParam(':code', $clothes->getCode());
 		$stmt->bindParam(':picture', $clothes->getPicture());
 		$stmt->bindParam(':price', $clothes->getPrice());
 		$stmt->bindParam(':customized', $clothes->getCustomized());
-		$stmt->bindParam(':typeId', $clothes->getTypeId());
+		//$stmt->bindParam(':typeId', $clothes->getTypeId());
 		
 		$teste = $stmt->execute();
 
@@ -40,7 +40,7 @@ class ClothesDAOPdo implements ClothesDAO {
 			$clothes->setPicture($row['picture']);
 			$clothes->setPrice($row['price']);
 			$clothes->setCustomized($row['customized']);
-			$clothes->setTypeId($row['typeId']);
+			//$clothes->setTypeId($row['typeId']);
 
 			$clothesList->append($clothes);
 		}
