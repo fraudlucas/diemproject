@@ -42,7 +42,6 @@ if (!empty($action)) {
     	case'changeColor': 
     		
     		if(isset($_POST['color'])){
-				/
     			$color = ($_POST['color']);
     			$upColor = new ManagementContent();
     			$upColor->setColor($color);
