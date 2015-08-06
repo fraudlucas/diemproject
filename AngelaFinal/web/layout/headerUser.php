@@ -9,7 +9,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="index.php">
 						<img src="web/assets/images/logo2.png">
 					</a>
                 </div>
@@ -37,7 +37,7 @@
                                 <li><a href="web/pages/madeToMeasure.php">Made to Measure</a></li>
                             </ul>
                         </li>
-                        <li><a href="web/pages/blog.php" >Blog</a></li>
+                        <li><a href="http://projectblog.byethost12.com/wp/" >Blog</a></li>
                         <li><a href="web/pages/contact.php" >Contact</a></li>
 						<li>
 							<form class="navbar-form"  action="src/handlers/userHandler.php?a=logout" method="post">
