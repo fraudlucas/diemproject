@@ -4,10 +4,17 @@
 	require_once (DIR_VIE.'messageView.php');
 	$session = new Session();
 
+	/*
+	 * This block of code is important for the message feature to work. 
+	*/
+	$pageTargetMoreMessages = 'adminMessages.php';
+	$inboxParamTargetMoreMessages = '?t=2';
+	$outboxParamTargetMoreMessages = '?t=3';
+
 	$currentUser = $_SESSION['userID'];
 
 	$limitMessages = true;
-	$amountToShow = 5;
+	$amountToShow = 10;
 
 	$messageView = new MessageView();
 	$amountUnreadMessages = $messageView->amountUnreadMessagesByToUserID($currentUser);
@@ -29,6 +36,9 @@
 			$activeClass1 = 'active';
 			break;
 	}
+	/*
+	*
+	*/
 ?>
 <html lang="en">
 <head>
