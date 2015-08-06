@@ -33,23 +33,19 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div id="carousel-example" data-interval="6000" class="carousel slide"
-                    data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <!-- <img src="images/url.jpg"> -->
-								<?php include( DIR_LAY.'slider.php') ?>
-                            </div>
-						<div class="item">
-                                <?php include( DIR_LAY.'slider.php') ?>
-                            </div>
-                        </div>
-                        <a class="left carousel-control" href="#carousel-example" data-slide="prev"><i class="icon-prev  fa fa-angle-left"></i></a>
-                        <a class="right carousel-control" href="#carousel-example" data-slide="next"><i class="icon-next fa fa-angle-right"></i></a>
-                    </div>
-				</div>			
-			</div>					
-				</div>
-			</div>			
+						data-ride="carousel">
+							<div class="carousel-inner">
+								<div class="item active">
+									<!-- <img src="images/url.jpg"> -->
+									<?php include( DIR_LAY.'slider.php') ?>
+								</div>
+							
+							</div>
+						</div>
+					</div>			
+				</div>					
+			</div>
+					
 		</section>		
 	</div>		
 	<?php include( DIR_LAY.'footer.php') ?>
