@@ -3,14 +3,13 @@
 require_once('../../src/config.php');
 require_once (DIR_VIE.'messageView.php');
 
-
 $inboxUser = $_SESSION['userID'];
 
 $inboxMessageView = new MessageView();
 $inboxList = $inboxMessageView->listByToUserID($inboxUser);
 $inboxTBody = '';
 
-$inboxCount = 0;
+$count = 0;
 
 foreach ($inboxList as $msg) {
 	$inSendFromUser = $msg->getFromUser()->getFirstName() . " " . $msg->getFromUser()->getLastName();
@@ -54,20 +53,19 @@ foreach ($inboxList as $msg) {
 		</tr>
 		';
 
-	$inboxCount++;
-	if ($limitMessages && $inboxCount == $amountToShow) break;
+	$count++;
+	if ($limitMessages && $count == $amountToShow) break;
 }
 
-if ($limitMessages && $inboxCount == $amountToShow) {
-	$inboxTBody = $inboxTBody . '<tr>
+if ($limitMessages)
+$inboxTBody = $inboxTBody . '<tr>
 			<td></td>
 			<td></td>
-			<td><a href="'.$pageTargetMoreMessages.''.$inboxParamTargetMoreMessages.'" class="btn btn-default">More Messages</a></td>
+			<td><a href="adminMessages.php" class="btn btn-default">More Messages</a></td>
 			<td></td>
 			<td></td>
 		</tr>
 		';
-}
 
 ?>
 

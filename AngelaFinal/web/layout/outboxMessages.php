@@ -10,8 +10,6 @@ $outboxMessageView = new MessageView();
 $outboxList = $outboxMessageView->listByFromUserID($outboxUser);
 $outboxTBody = '';
 
-$inboxCount = 0;
-
 foreach ($outboxList as $msg) {
 	$outSendFromUser = $msg->getFromUser()->getFirstName() . " " . $msg->getFromUser()->getLastName();
 	$outSendToUser = $msg->getToUser()->getFirstName() . " " . $msg->getToUser()->getLastName();
@@ -40,21 +38,8 @@ foreach ($outboxList as $msg) {
 			<input type="hidden"  id="sendFromUser'.$outId.'" value="'.$outSendFromUser.'">
 		</tr>
 		';
-
-	$inboxCount++;
-	if ($limitMessages && $inboxCount == $amountToShow) break;
 }
 
-if ($limitMessages && $inboxCount == $amountToShow) {
-	$outboxTBody = $outboxTBody . '<tr>
-			<td></td>
-			<td></td>
-			<td><a href="'.$pageTargetMoreMessages.''.$outboxParamTargetMoreMessages.'" class="btn btn-default">More Messages</a></td>
-			<td></td>
-			<td></td>
-		</tr>
-		';
-}
 
 ?>
 
