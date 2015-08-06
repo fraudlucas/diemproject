@@ -9,7 +9,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="index.php">
 						<img src="web/assets/images/logo2.png">
 					</a>
                 </div>
@@ -17,7 +17,7 @@
 					
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.php">Home</a></li>
-                        <li><a href="#" >Blog</a></li>
+                        <li><a href="http://projectblog.byethost12.com/wp/" >Blog</a></li>
                         <li><a href="web/pages/contact.php" >Contact</a></li>
 						<li>
 							<form class="navbar-form"  action="src/handlers/userHandler.php?a=logout" method="post">
