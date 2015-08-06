@@ -6,15 +6,15 @@
                         
 				  <h4 style= " text-transform: uppercase; text-align: center; text-color:#000000;">Our Company</h4>
 				  
-                            <a href="./web/pages/aboutUs.php">About Us</a>
+                            <a href="../pages/aboutUs.php">About Us</a>
                         <br>
-                            <a href="./web/pages/ourTeam.php">Our team</a>
+                            <a href="../pages/ourTeam.php">Our team</a>
                         <br>
-                            <a href="./web/pages/testimonials.php">Testimonials</a>
+                            <a href="../pages/testimonials.php">Testimonials</a>
                         <br>
-                            <a href="./web/pages/career.php">Work with us</a>
+                            <a href="../pages/career.php">Work with us</a>
                         <br>
-                            <a href="./web/pages/privacy-policy.php">Privacy Policy</a>
+                            <a href="../pages/privacy-policy.php">Privacy Policy</a>
                         <br>
                     </ul>
 				  </div>
@@ -39,7 +39,7 @@
                         
                             <a href="#" data-toggle="modal" data-target="#myBook">Book an appointment</a>
                         <br>
-                            <a href="./web/pages/userWardrobe.php">My Wardrobe</a>
+                            <a href="../pages/userWardrobe.php">My Wardrobe</a>
                         <br>
                    
 					<div class="social">
