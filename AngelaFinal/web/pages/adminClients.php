@@ -6,7 +6,6 @@
 <html lang="en">
 <head>
 	<?php include( DIR_LAY.'headPages.php');?>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 <body>
 <?php include( DIR_LAY.'modalBook.php');?>

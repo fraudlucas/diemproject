@@ -10,6 +10,10 @@ $session = new Session();
 $action = $_GET['a'];
 $pageToReturn = $_GET['p'];
 
+$param = $_GET['param'];
+$param_value = $_GET[$param];
+$param = $param . '=' . $param_value;
+
 
 if (!empty($action)) {
 	$userView = new UserView();
@@ -51,8 +55,19 @@ if (!empty($action)) {
 			break;
 	}
 
-	header("Location:  ../../web/pages/". $pageToReturn .".php");
-	die();
+	if (!empty($pageToReturn)) {
+		$header = "Location:  ../../web/pages/". $pageToReturn .".php";
+
+		var_dump($param);
+
+		if (isset($param)) {
+			$header = $header . '?' . $param;
+			var_dump($header);
+		}
+
+		header($header);
+		die();
+	}
 }
 
  ?>

@@ -2,6 +2,7 @@
 
 require_once DIR_FAC.'factoryDAOPdo.php';
 require_once DIR_PER.'messageDAO.php';
+require_once DIR_MOD.'message.php';
 
 /**
 * 
@@ -33,7 +34,7 @@ class MessageController
 	}
 
 	public function searchByID($id) {
-		$result = $this->persistenceMessage->search('id', $id);
+		$result = $this->persistenceMessage->search('id', $id)[0];
 		return $result;
 	}
 

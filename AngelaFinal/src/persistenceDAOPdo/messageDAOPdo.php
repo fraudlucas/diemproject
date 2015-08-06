@@ -39,31 +39,12 @@ class MessageDAOPdo implements MessageDAO {
 
 		$userDAOPdo = new UserDAOPdo();
 
-		if (is_array($results)) {
-			$messagesList = new ArrayObject();
+		$messagesList = new ArrayObject();
 
-			foreach ($results as $row) {
+		foreach ($results as $row) {
 
-				$message = new Message();
+			$message = new Message();
 				
-				$message->setId($row['id']);
-				$message->setTopic($row['topic']);
-				$message->setContent($row['content']);
-				$message->setMessageDate($row['messageDate']);
-				$message->setRead($row['read']);
-
-				$fromUser = $userDAOPdo->searchUsers('id', $row['fromUserID'], 1);
-				$toUser = $userDAOPdo->searchUsers('id', $row['toUserID'], 1);
-
-				$message->setFromUser($fromUser);
-				$message->setToUser($toUser);
-
-				$messagesList->append($message);
-			}
-
-			return $messagesList;
-
-		} else {
 			$message->setId($row['id']);
 			$message->setTopic($row['topic']);
 			$message->setContent($row['content']);
@@ -76,15 +57,30 @@ class MessageDAOPdo implements MessageDAO {
 			$message->setFromUser($fromUser);
 			$message->setToUser($toUser);
 
-			return $message;
+			$messagesList->append($message);
 		}
+
+		return $messagesList;
+
 	}
 
 	public function read($messageID, $wasRead){
 		$className = 'ConnectionDAOPdo';
 		$con = $className::getConnection();
-		$stmt = $con->prepare("UPDATE messages SET read = ". $wasRead ." WHERE id = :id");
-		$stmt->bindParam(':id', $messageId);
+		// $bool = $wasRead ? 'FALSE' : 'TRUE';
+		$bool = $wasRead ? 0 : 1;
+		// $sql = 'UPDATE messages SET read = FALSE WHERE id = :id';
+		$sql = 'UPDATE messages SET read = FALSE WHERE id = '.$messageID;
+		$sql = "UPDATE `messages` SET `read` = '0' WHERE `messages`.`id` = ".$messageID;
+
+		if ($bool) {
+			// $sql = 'UPDATE messages SET read = TRUE WHERE id = '.$messageID;
+			$sql = "UPDATE `messages` SET `read` = '1' WHERE `messages`.`id` = ".$messageID;
+		}
+
+		$stmt = $con->prepare($sql);
+		// $stmt->bindParam(':bool', $bool, PDO::PARAM_BOOL);
+		// $stmt->bindParam(':id', $messageID);
 		$res = $stmt->execute();
 		
 		if($res == false){
