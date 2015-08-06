@@ -1,6 +1,6 @@
 <?php 
 
-interface clothesTyprDAO {
+interface clothesTypeDAO {
 	public function add($clothingType);
 	public function listAll();
 }

@@ -1,6 +1,7 @@
 <?php
 
-class Tags{
+class clothingType{
+	
 	private $idType;
 	private $type;
 	

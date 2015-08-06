@@ -2,23 +2,23 @@
 
 	require_once DIR_PER.'factoryDAO.php';
 	require_once DIR_FAC.'factoryDAOPdo.php';
-	require_once DIR_PER.'clothingTypeDAO.php';
+	require_once DIR_PER.'clothingDAO.php';
 
 
-class ClothingTypeController {
+class ClothingLookController {
 
 	private $factory;
 	private $persistenceClothes;
 
 	public function __construct() {
 		$this->factory = FactoryDAOPdo::getInstance();
-		$this->persistenceClothes = $this->factory->createTagsPersistence();
+		$this->persistenceClothes = $this->factory->createClothingLookPersistence();
 	}
 
-	public function add($clothingType) {
+	public function add($clothingLooks) {
 		// $persistencePost = $this->factory->createPostPersistence();
 		
-		$test = $this->persistenceClothes->add($clothingType);
+		$test = $this->persistenceClothes->add($clothingLooks);
 
 		return $test;
 	}
@@ -26,9 +26,9 @@ class ClothingTypeController {
 	public function listAll() {
 		// $persistencePost = $this->factory->createPostPersistence();
 		
-		$clothingTypeList = $this->persistenceClothes->listAll();
+		$clothesLooksList = $this->persistenceClothes->listAll();
 
-		return $clothingTypeList;
+		return $clothesLooksList;
 	}
 
 }
