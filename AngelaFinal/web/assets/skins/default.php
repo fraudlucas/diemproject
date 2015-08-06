@@ -89,7 +89,7 @@ header .nav li.active ul.dropdown-menu li.active a{
 }
 
 
-.breadcrumb {
+#inner-headline {
   background-color: <?=$color?>;
 }
 
