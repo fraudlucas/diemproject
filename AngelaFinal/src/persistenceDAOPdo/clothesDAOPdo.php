@@ -58,7 +58,8 @@ class ClothesDAOPdo implements ClothesDAO {
 
 		$clothesList = new ArrayObject();
 
-		foreach ($result as $row) {				
+		foreach ($result as $row) {		
+			
 			$clothes = new Clothes();
 			$clothes->setId($row['id']);
 			$clothes->setCode($row['code']);
@@ -66,7 +67,6 @@ class ClothesDAOPdo implements ClothesDAO {
 			$clothes->setPrice($row['price']);
 			$clothes->setCustomized($row['customized']);
 			$clothes->setTypeId($row['typeId']);
-
 			$clothesList->append($clothes);
 		}
 		

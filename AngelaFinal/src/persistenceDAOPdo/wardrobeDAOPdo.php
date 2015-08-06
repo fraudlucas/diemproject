@@ -58,11 +58,11 @@ class WardrobeDAOPdo implements WardrobeDAO {
 		foreach ($result as $row) {				
 			$wardrobe = new Wardrobe();
 			$wardrobe->setId($row['id']);
-			$wardrobe->setUserId($row['username']);
-			$wardrobe->setClothesId($row['firstName']);
-			$wardrobe->setDates($row['lastName']);
+			$wardrobe->setUserId($row['userId']);
+			$wardrobe->setClothesId($row['clothesId']);
+			$wardrobe->setDates($row['date']);
 			
-			$wardrobeList->append($user);
+			$wardrobeList->append($wardrobe);
 		}
 		
 		if($type==1){

@@ -7,28 +7,7 @@
 <head>
 	<?php include( DIR_LAY.'headPages.php');?>
 	<style>
-div.wrapper{  
-    float:left; /* important */  
-    position:relative; /* important(so we can absolutely position the description div */ 
-	
-}  
-div.description{  
-    position:absolute; /* absolute position (so we can position it where we want)*/  
-    bottombottom:0px; /* position will be on bottom */  
-    left:0px;  
-    width:100%;  
-    /* styling bellow */  
-    background-color:black;  
-    font-family: 'tahoma';  
-    font-size:15px;  
-    color:white;  
-    opacity:0.6; /* transparency */  
-    filter:alpha(opacity=60); /* IE transparency */  
-}  
-p.description_content{  
-    padding:10px;  
-    margin:0px;  
-}  
+
 </style>
 </head>
 <?php include( DIR_LAY.'modalBook.php');?>
@@ -44,16 +23,33 @@ p.description_content{
 			header('Location: ../../index.php') ;
 		}
 		?>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+		<section id="inner-headline">
+		<div class="container" style="margin-top:100px">
+			<div class="row">
+				<div class="col-lg-12">
+					<ul class="breadcrumb">
+						<li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+						<li><a href="#">User Area</a><i class="icon-angle-right"></i></li>
+						<li class="active">Home</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		</section>
 	
 		<div class="row" style="margin-top:30px">
-			<?php include( DIR_LAY.'userDash.php') ;?>
+			<div class="col-xs-3 col-md-2">
+				<nav class="navbar-default"  role="navigation">
+					<ul class="nav nav-pills nav-stacked">
+					  <li>
+						<img src="../assets/images/profilepicture.jpg" class="img-responsive" width="300px" height="400px"> 
+					  <li role="presentation" class="active"><a href="#">Profile</a></li>
+					  <li role="presentation"><a href="../pages/userWardrobe.php">Wardrobe</a></li>
+					  <li role="presentation"><a href="#">Create Looks</a></li>
+					  <li role="presentation"><a href="#">My Wish List</a></li>
+					</ul>
+				</nav>
+			</div>	
 			<div class="row">
 				<div class="container">
 					<div class="col-xs-18 col-md-12">

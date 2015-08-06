@@ -29,7 +29,7 @@ class WardrobeController {
 	
 	public function searchWardrobe($param,$value,$type) {
 		// $persistencePost = $this->factory->createPostPersistence();		
-		$wardrobeList = $this->persistenceWardrobe->searchWardrobe();
+		$wardrobeList = $this->persistenceWardrobe->searchWardrobe($param,$value,$type);
 		return $wardrobeList;
 	}
 
