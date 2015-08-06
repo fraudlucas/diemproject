@@ -14,7 +14,7 @@
 							. " email, password, address, city, province, postalCode, administratorID, status)"
 							. " VALUES (:firstName,:lastName,:userName, :email, :password, :address, :city, :province, :postalCode, 1,:status,3 )");
 			$stmt->bindParam(':firstName', $user->getFirstName());
-					$stmt->bindParam(':lastName', $user->getFirstName());
+					$stmt->bindParam(':lastName', $user->getLastName());
 					$stmt->bindParam(':userName', $user->getUserName());
 					$stmt->bindParam(':email', $user->getEmail());
 					$stmt->bindParam(':password',  sha1($user->getPassword()));
