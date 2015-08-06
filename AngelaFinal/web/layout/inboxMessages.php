@@ -39,13 +39,13 @@ foreach ($inboxList as $msg) {
 		$inReadOp = true;
 	}
 
-	$inboxTBody = $inboxTBody . '<tr '.$inClass.'>
+	$inboxTBody = $inboxTBody . '<tr id="inTr'.$inId.'" '.$inClass.'>
 			<td><a href="#" id="sendFromUser'.$inId.'" data-toggle="modal" data-target="#inboxReadMessageModal" data-value="'.$inId.'">'.$inSendFromUser.'</a></td>
 			<td><a href="#" id="role'.$inId.'" data-toggle="modal" data-target="#inboxReadMessageModal" data-value="'.$inId.'">'.$inRole.'</a></td>
 			<td><a href="#" id="topic'.$inId.'" data-toggle="modal" data-target="#inboxReadMessageModal" data-value="'.$inId.'">'.$inTopic.'</a></td>
 			<td><a href="#" id="messageDate'.$inId.'" data-toggle="modal" data-target="#inboxReadMessageModal" data-value="'.$inId.'">'.$inMessageDate.'</a></td>
 			<td>
-				<a href="../../src/handlers/messageHandler.php?a=read&m='.$inId.'&r='.$inRead.'&p='.$pageToReturn.'&param=t&t=2">
+				<a id="inGlyph'.$inId.'" href="../../src/handlers/messageHandler.php?a=read&m='.$inId.'&r='.$inRead.'&p='.$pageToReturn.'&param=t&t=2">
 					<span class="glyphicon glyphicon-ok-'.$inGlyphRead.'"></span>
 				</a>
 			</td>
@@ -96,6 +96,24 @@ foreach ($inboxList as $msg) {
 			modal.find('#readTopic').val(t)
 			modal.find('#readContent').text(c)
 			modal.find('#readMessageDate').text(md)
+
+			// $.get("../../src/handlers/messageHandler.php?a=read&m="+id+"r=0")
+			// .get( "../../src/handlers/messageHandler.php", { m: id, r: 0 })
+			// .done(function() {
+			$.ajax({
+				type: 'GET',
+				url: '../../src/handlers/messageHandler.php',
+				data: 'a=read&m=' + id + "&r=0",
+				success: function(msg){
+					$('#inGlyph'+id).html('<span class="glyphicon glyphicon-ok-circle"></span>')
+					$('#inTr'+id).attr('class','')
+				}
+			})
+			// })
+		})
+		
+		$('#inboxReadMessageModal').on('hidden.bs.modal', function (event) {
+			location.reload()
 		})
 	});
 </script>
