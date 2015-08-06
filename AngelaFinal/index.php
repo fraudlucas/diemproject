@@ -12,7 +12,6 @@
 	
 	<?php include( DIR_LAY.'modalBook.php');?>
 	<?php include( DIR_LAY.'modalRegister.php');?>
-	<?php include( DIR_LAY.'modalLogin.php');?>
 	<div id="wrapper">
 		<?php 
 		if($session->isLoggedIn()){
