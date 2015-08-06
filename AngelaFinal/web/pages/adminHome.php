@@ -3,6 +3,8 @@
 	require_once('../../src/Session.php');
 	$session = new Session();
 
+	$pageToReturn = 'adminHome'; // Will be used by the inboxMessages
+
 	$activeTab = isset($_GET['t']) ? $_GET['t'] : 0; // Indicate which tab must be activated
 	$activeClass1 = '';
 	$activeClass2 = '';
@@ -62,6 +64,7 @@
 					  <li role="presentation" ><a href="../pages/adminClients.php">Clients</a></li>
 					  <li role="presentation"><a href="../pages/adminClothes.php">Clothes</a></li>
 					  <li role="presentation"><a href="../pages/adminStaff.php">Staff</a></li>
+					  <li role="presentation"><a href="../pages/adminMessages.php">Messages</a></li>
 					</ul>
 				</nav>
 			</div>		
@@ -71,7 +74,7 @@
 						<h4>Tab</h4>
 						<ul class="nav nav-tabs">
 							<li class="<?php echo $activeClass1; ?>"><a href="#one" data-toggle="tab"><i class="icon-briefcase"></i>News</a></li>
-							<li class="<?php echo $activeClass2; ?>"><a href="#inbox" data-toggle="tab">InBox</a></li>
+							<li class="<?php echo $activeClass2; ?>"><a href="#inbox" data-toggle="tab">InBox<!-- <span class="badge"><?php echo $amountUnread; ?> --></span></a></li>
 							<li class="<?php echo $activeClass3; ?>"><a href="#outbox" data-toggle="tab">Outbox</a></li>
 						</ul>
 						<div class="tab-content">

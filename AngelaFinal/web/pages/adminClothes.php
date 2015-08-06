@@ -45,6 +45,7 @@
 					  <li role="presentation" ><a href="../pages/adminClients.php">Clients</a></li>
 					  <li role="presentation" class="active"><a href="../pages/adminClothes.php">Clothes</a></li>
 					  <li role="presentation"><a href="../pages/adminStaff.php">Staff</a></li>
+					  <li role="presentation"><a href="../pages/adminMessages.php">Messages</a></li>
 					</ul>
 				</nav>
 			</div>		

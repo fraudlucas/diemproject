@@ -45,7 +45,7 @@ foreach ($inboxList as $msg) {
 			<td><a href="#" id="topic'.$inId.'" data-toggle="modal" data-target="#inboxReadMessageModal" data-value="'.$inId.'">'.$inTopic.'</a></td>
 			<td><a href="#" id="messageDate'.$inId.'" data-toggle="modal" data-target="#inboxReadMessageModal" data-value="'.$inId.'">'.$inMessageDate.'</a></td>
 			<td>
-				<a href="../../src/handlers/messageHandler.php?a=read&m='.$inId.'&r='.$inRead.'&p=adminHome&param=t&t=2">
+				<a href="../../src/handlers/messageHandler.php?a=read&m='.$inId.'&r='.$inRead.'&p='.$pageToReturn.'&param=t&t=2">
 					<span class="glyphicon glyphicon-ok-'.$inGlyphRead.'"></span>
 				</a>
 			</td>
