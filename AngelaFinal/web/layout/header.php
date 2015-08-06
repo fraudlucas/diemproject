@@ -40,13 +40,13 @@
 						<li>
 							<form class="navbar-form navbar-right"   action="./src/handlers/userHandler.php?a=login" method="post">
 								<div class="form-group" >
-									<input type="email" class="form-control" style="width:150px" name="email" placeholder="email">
+									<input type="email" class="form-control" style="width:150px" name="email" required placeholder="email">
 								</div>
 								<div class="form-group">
-									<input type="password" class="form-control" style="width:150px" name="password" placeholder="Password">
+									<input type="password" class="form-control" style="width:150px" name="password" required placeholder="Password">
 								</div>
 								<div class="form-group">
-									<button type="submit" style="width:80px" class="btn btn-theme">Log In</button>
+									<button type="submit" style="width:80px" class="btn btn-theme" >Log In</button>
 								</div>
 								<div class="form-group">
 									<div data-toggle="modal" data-target="#myModal">
