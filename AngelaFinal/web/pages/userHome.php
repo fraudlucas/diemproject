@@ -6,8 +6,31 @@
 <html lang="en">
 <head>
 	<?php include( DIR_LAY.'headPages.php');?>
+	<style>
+div.wrapper{  
+    float:left; /* important */  
+    position:relative; /* important(so we can absolutely position the description div */ 
+	
+}  
+div.description{  
+    position:absolute; /* absolute position (so we can position it where we want)*/  
+    bottombottom:0px; /* position will be on bottom */  
+    left:0px;  
+    width:100%;  
+    /* styling bellow */  
+    background-color:black;  
+    font-family: 'tahoma';  
+    font-size:15px;  
+    color:white;  
+    opacity:0.6; /* transparency */  
+    filter:alpha(opacity=60); /* IE transparency */  
+}  
+p.description_content{  
+    padding:10px;  
+    margin:0px;  
+}  
+</style>
 </head>
-<body>
 <?php include( DIR_LAY.'modalBook.php');?>
 	<div id="wrapper">
 		<?php 
@@ -21,6 +44,13 @@
 			header('Location: ../../index.php') ;
 		}
 		?>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 	
 		<div class="row" style="margin-top:30px">
 			<?php include( DIR_LAY.'userDash.php') ;?>
