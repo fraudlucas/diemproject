@@ -12,11 +12,9 @@
 		
 		if($status == 1){
 			$code .='<li>
-						<img src="../../'.$path.'"  alt="" />
-						<div class="flex-caption">
-							<h3>Modern Design</h3> 
-							<p>'.$subtitle.'</p> 
-							<a href="#" class="btn btn-theme">Learn More</a>
+						<img src="../../'.$path.'"  alt="'.$subtitle.'" />
+						<div class="flex-caption">							
+							<p>'.$subtitle.'</p> 							
 						</div>
 					  </li>';
 		}
