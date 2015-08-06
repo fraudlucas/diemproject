@@ -1,7 +1,13 @@
 <?php
 	require_once('../../src/config.php');
 	require_once('../../src/Session.php');
+	require_once (DIR_VIE.'messageView.php');
 	$session = new Session();
+
+	$currentUser = $_SESSION['userID'];
+
+	$messageView = new MessageView();
+	$amountUnreadMessages = $messageView->amountUnreadMessagesByToUserID($currentUser);
 ?>
 <html lang="en">
 <head>
@@ -45,7 +51,7 @@
 					  <li role="presentation"><a href="../pages/adminClients.php">Clients</a></li>
 					  <li role="presentation"><a href="../pages/adminClothes.php">Clothes</a></li>
 					  <li role="presentation" class="active"><a href="../pages/adminStaff.php">Staff</a></li>
-					  <li role="presentation"><a href="../pages/adminMessages.php">Messages</a></li>
+					  <li role="presentation"><a href="../pages/adminMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></a></li>
 					</ul>
 				</nav>
 			</div>		

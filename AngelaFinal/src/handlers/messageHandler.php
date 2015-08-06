@@ -37,11 +37,23 @@ if (!empty($action)) {
 			$message->setContent($content);
 
 
-			var_dump($message);
+			// var_dump($message);
 
 			$test = $messageView->send($message);
 
-			echo $test;
+			// echo $test;
+
+			// $to      = 'marcus_lucas12@outlook.com';
+			// $subject = 'the subject';
+			// $message = 'hello';
+			// $headers = 'From: webmaster@example.com' . "\r\n" .
+			//     'Reply-To: webmaster@example.com' . "\r\n" .
+			//     'X-Mailer: PHP/' . phpversion();
+
+			// if (!mail($to, $subject, $message, $headers))
+			// 	{ echo "Failure"; }
+
+			
 
 		break;
 

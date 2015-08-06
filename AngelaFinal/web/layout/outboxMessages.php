@@ -1,10 +1,8 @@
 <?php 
 
-require_once('../../src/config.php');
-// require_once('../../src/Session.php');
+require_once('../../src/config.php');;
 require_once (DIR_VIE.'messageView.php');
 
-// $outboxSession = new Session();
 
 $outboxUser = $_SESSION['userID'];
 
@@ -28,22 +26,7 @@ foreach ($outboxList as $msg) {
 	$outTopic = $msg->getTopic();
 	$outContent = $msg->getContent();
 	$outMessageDate = $msg->getMessageDate();
-	// $outRead = $msg->getRead();
-	// $outReadOp = false;
 	$outClass = '';
-	// $outGlyphRead = 'circle';
-
-	/*if (!$outRead) {
-		$outClass = 'class="active"';
-		$outGlyphRead = 'sign';
-		$outReadOp = true;
-	}*/
-
-	/*<td>
-		<a href="../../src/handlers/messageHandler.php?a=read&m='.$outId.'&r='.$outRead.'&p=adminHome">
-			<span class="glyphicon glyphicon-ok-'.$outGlyphRead.'"></span>
-		</a>
-	</td>*/
 
 	$outboxTBody = $outboxTBody . '<tr '.$outClass.'>
 			<td><a href="#" id="sendToUser'.$outId.'" data-toggle="modal" data-target="#outboxReadMessageModal" data-value="'.$outId.'">'.$outSendToUser.'</a></td>

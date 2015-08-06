@@ -8,6 +8,8 @@ interface MessageDAO {
 
 	public function read($messageID, $wasRead);
 
+	public function unreadByToUserID($userID);
+
 }
  
  ?>

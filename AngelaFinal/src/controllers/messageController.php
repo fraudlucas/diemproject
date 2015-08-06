@@ -42,6 +42,11 @@ class MessageController
 		$result = $this->persistenceMessage->read($id, $wasRead);
 		return $result;
 	}
+
+	public function unreadByToUserID($userID) {
+		$result = $this->persistenceMessage->unreadByToUserID($userID);
+		return $result;
+	}
 }
 
  ?>

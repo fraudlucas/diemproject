@@ -31,7 +31,7 @@ class MessageDAOPdo implements MessageDAO {
 	public function search($param, $value) {
 		$className = 'ConnectionDAOPdo';
 		$con = $className::getConnection();
-		$query = 'SELECT * FROM messages Where '.$param.' = :value';
+		$query = 'SELECT * FROM messages WHERE '.$param.' = :value ORDER BY messageDate DESC';
 		$stmt = $con->prepare($query);
 		$stmt->bindParam(':value', $value);
 		$stmt->execute();
@@ -88,6 +88,19 @@ class MessageDAOPdo implements MessageDAO {
 		}else{
 			return true;
 		}
+	}
+
+	public function unreadByToUserID($userID) {
+		$className = 'ConnectionDAOPdo';
+		$con = $className::getConnection();
+		$query = 'SELECT COUNT(*) AS unread FROM messages WHERE toUserID = :userID AND messages.read = 0';
+		$stmt = $con->prepare($query);
+		$stmt->bindParam(':userID', $userID);
+		$stmt->execute();
+
+		$row = $stmt->fetch();
+
+		return $row['unread'];
 	}
 
 }

@@ -1,7 +1,16 @@
 <?php
 	require_once('../../src/config.php');
 	require_once('../../src/Session.php');
+	require_once (DIR_VIE.'messageView.php');
 	$session = new Session();
+
+	$currentUser = $_SESSION['userID'];
+
+	$limitMessages = true;
+	$amountToShow = 5;
+
+	$messageView = new MessageView();
+	$amountUnreadMessages = $messageView->amountUnreadMessagesByToUserID($currentUser);
 
 	$pageToReturn = 'adminHome'; // Will be used by the inboxMessages
 
@@ -64,7 +73,7 @@
 					  <li role="presentation" ><a href="../pages/adminClients.php">Clients</a></li>
 					  <li role="presentation"><a href="../pages/adminClothes.php">Clothes</a></li>
 					  <li role="presentation"><a href="../pages/adminStaff.php">Staff</a></li>
-					  <li role="presentation"><a href="../pages/adminMessages.php">Messages</a></li>
+					  <li role="presentation"><a href="../pages/adminMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></span></a></li>
 					</ul>
 				</nav>
 			</div>		
@@ -74,7 +83,7 @@
 						<h4>Tab</h4>
 						<ul class="nav nav-tabs">
 							<li class="<?php echo $activeClass1; ?>"><a href="#one" data-toggle="tab"><i class="icon-briefcase"></i>News</a></li>
-							<li class="<?php echo $activeClass2; ?>"><a href="#inbox" data-toggle="tab">InBox<!-- <span class="badge"><?php echo $amountUnread; ?> --></span></a></li>
+							<li class="<?php echo $activeClass2; ?>"><a href="#inbox" data-toggle="tab">InBox <span class="badge"><?php echo $amountUnreadMessages; ?></span></a></li>
 							<li class="<?php echo $activeClass3; ?>"><a href="#outbox" data-toggle="tab">Outbox</a></li>
 						</ul>
 						<div class="tab-content">

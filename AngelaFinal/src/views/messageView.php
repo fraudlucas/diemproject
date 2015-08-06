@@ -40,6 +40,11 @@ class MessageView
 		$test = $this->messageController->read($messageID, $wasRead);
 		return $test;
 	}
+
+	public function amountUnreadMessagesByToUserID($userID) {
+		$result = $this->messageController->unreadByToUserID($userID);
+		return $result;
+	}
 }
 
  ?>

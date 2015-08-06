@@ -1,16 +1,15 @@
 <?php 
 
 require_once('../../src/config.php');
-// require_once('../../src/Session.php');
 require_once (DIR_VIE.'messageView.php');
-
-// $inboxSession = new Session();
 
 $inboxUser = $_SESSION['userID'];
 
 $inboxMessageView = new MessageView();
 $inboxList = $inboxMessageView->listByToUserID($inboxUser);
 $inboxTBody = '';
+
+$count = 0;
 
 foreach ($inboxList as $msg) {
 	$inSendFromUser = $msg->getFromUser()->getFirstName() . " " . $msg->getFromUser()->getLastName();
@@ -53,8 +52,20 @@ foreach ($inboxList as $msg) {
 			<input type="hidden"  id="sendToUser'.$inId.'" value="'.$inSendToUser.'">
 		</tr>
 		';
+
+	$count++;
+	if ($limitMessages && $count == $amountToShow) break;
 }
 
+if ($limitMessages)
+$inboxTBody = $inboxTBody . '<tr>
+			<td></td>
+			<td></td>
+			<td><a href="adminMessages.php" class="btn btn-default">More Messages</a></td>
+			<td></td>
+			<td></td>
+		</tr>
+		';
 
 ?>
 
@@ -70,6 +81,7 @@ foreach ($inboxList as $msg) {
 	</thead>
 	<tbody>
 		<?php echo $inboxTBody; ?>
+
 	</tbody>
 </table>
 
