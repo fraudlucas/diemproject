@@ -128,6 +128,7 @@
 				$user->setProvince($row['province']);
 				$user->setAdministratorID($row['administratorID']);
 				$user->setStatus($row['status']);
+				$user->setSalt($row['salt']);
 				$usersList->append($user);
 			}
 
@@ -143,6 +144,8 @@
 			$result = $stmt->fetchAll();
 
 			$usersList = new ArrayObject();
+
+			$user = "";
 
 			foreach ($result as $row) {				
 				$user = new User();

@@ -35,10 +35,11 @@ if (!empty($action)) {
 				$result = $userView->registration($user);
 				
 				if($result){
-				    header('Location: ../../web/pages/userHome.php'); 	
+					header('Location: ../../web/pages/userHome.php'); 
 				}else{
 					header ('Location: ../../index.php');
 				}
+				
 			}
 			break;
 			
@@ -65,7 +66,7 @@ if (!empty($action)) {
 				if($result){
 					header('Location: ../../web/pages/userHome.php'); 	
 				}else{
-					echo "registration failed" . $pageToReturn ."../../index.php";;
+					echo "registration failed";
 				}
 			}
     		break;
@@ -113,11 +114,14 @@ if (!empty($action)) {
 				$password = filter_var ($_POST['password'],FILTER_SANITIZE_STRING);
 				
 				$user = $userView->searchUsers("email",$email,'1');
+
+				var_dump($user);
+				echo count($user);
 				
-				if (count($user)==0){
+				if(empty($user)) {
 					echo 'email nao existe na base de dados';
-				}else{
-					$options = ['cost' => 7,'salt' => $user->getSalt(),];	
+				} else {
+					$options = ['cost' => 7,'salt' => $user->getSalt()];	
 					$password =  password_hash($password,PASSWORD_BCRYPT, $options);				
 					if($password == $user->getPassword()){
 						$session->login($user);
