@@ -19,7 +19,7 @@
 					</div>
 					
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php">Home</a></li>
+                        <li class="active"><a href="../../index.php">Home</a></li>
 						<li><a href="web/pages/userHome.php">Profile</a></li>
                         <li class="dropdown" >
                             <a href="#" id="dropdownactive" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">About <b class=" icon-angle-down"></b></a>
