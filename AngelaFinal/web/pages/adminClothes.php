@@ -77,7 +77,7 @@
 							<div class="tab-pane" id="add">
 								<div class="row">
 									<div class="col-xs-18 col-md-12">
-										<form role="form" action="../../src/handlers/userHandler.php?a=updateUser" method="post">
+										<form role="form" action="../../src/handlers/clothesHandler.php?a=clothesAdd" method="post" enctype="multipart/form-data">
 											<div class="row">
 												<div class="col-xs-6 col-md-4">
 													<div class="form-group">
@@ -111,13 +111,15 @@
 												<div class="col-xs-6 col-md-4">
 													<div class="form-group">
 														<label for="customized">Customized:</label>
-														<select class="form-control" id="customized">
-															<option>Yes</option>
-															<option>No</option>
+														<select class="form-control" name="customized" id="customized">
+															<option value="1">Yes</option>
+															<option value="2">No</option>
 														</select>
+
 													</div>
 												</div>
 												<div class="col-xs-2 col-md-2">
+												<!-- 	<input type="hidden" name="target_dir" id="target_dir" class="form-control" value="web/assets/img/clothes/"> -->
 													<button type="submit"  style="margin-top: 30px;"class="btn btn-theme pull-right" id="customized">Add</button>
 												</div>
 											</div>

@@ -9,8 +9,11 @@ if (!empty($action)) {
 
     switch ($action) {
     	case 'clothesAdd':
-			$target_dir = $_POST['target_dir'];
+			//$target_dir = $_POST['target_dir'];
+			$target_dir = '/web/assets/img/clothes/';
+			var_dump($target_dir);
 			$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+			var_dump($target_file);
 			$uploadOk = 1;
 			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 			// Check if image file is a actual image or fake image
@@ -58,15 +61,19 @@ if (!empty($action)) {
     		$clothes->setPicture($str);
 			$clothes->setCode($_POST['code']);
 			$clothes->setPrice($_POST['price']);
-			$clothes->setType($_POST['type']);
-			if($_POST['customized']=='Yes'){
+			// $clothes->setType($_POST['type']);
+			$clothes->setTypeId(2);
+			/*if($_POST['customized']=='Yes'){
 				$clothes->setCustomized(1);
 			}else{
 				$clothes->setCustomized(0);
-			}
-			$clothes->setSubtitle($_POST['photoSubtitle']);
-					
-    		$test = $clothesView->addPhotos($clothes);
+			}*/
+			$clothes->setCustomized($_POST['customized']);
+								
+    		$test = $clothesView->add($clothes);
+
+    		echo $test;
+
     		break;
 		case 'list':
     		$list = $clothesView->listClothes();
