@@ -91,7 +91,8 @@ if (!empty($action)) {
 		case 'userdelete':
 			$id = $_GET['id'];
 			$res = $userView->deleteUser($id);
-			header('Location: ../clientsList.php');
+			header('Location: ../../web/pages/adminClients.php');
+			die();
     		break;
 			
 		case 'edit':

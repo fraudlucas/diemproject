@@ -47,10 +47,10 @@ foreach ($list as $key) {
 	</select> <br>
 	
 	<label id="lb_topic" for="topic">Topic</label>
-	<input type="text" id="topic" maxlength="50" name="topic" class="form-control" placeholder="Topic"> <br>
+	<input type="text" id="topic" maxlength="50" name="topic" class="form-control" placeholder="Topic" required="true"> <br>
 
 	<label id="lb_topic" for="content">Message</label> <br>
-	<textarea name="content" class="form-control" rows="4" maxlength="250"></textarea> <br>
+	<textarea name="content" class="form-control" rows="4" maxlength="250" required="true"></textarea> <br>
 
 	<input type="submit" name="send" value="Send" class="btn btn-info pull-right">
 

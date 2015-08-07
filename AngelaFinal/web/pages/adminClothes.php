@@ -8,6 +8,29 @@
 
 	$messageView = new MessageView();
 	$amountUnreadMessages = $messageView->amountUnreadMessagesByToUserID($currentUser);
+
+	$activeTab = isset($_GET['t']) ? $_GET['t'] : 0; // Indicate which tab must be activated
+	$activeClass1 = '';
+	$activeClass2 = '';
+	$activeClass3 = '';
+	$activeClass4 = '';
+	switch ($activeTab) {
+		case 2:
+			$activeClass2 = 'active';
+			break;
+		case 3:
+			$activeClass3 = 'active';
+			break;
+		case 4:
+			$activeClass4 = 'active';
+			break;
+		default:
+			$activeClass1 = 'active';
+			break;
+	}
+	/*
+	*
+	*/
 ?>
 <html lang="en">
 <head>
@@ -60,13 +83,13 @@
 					<div class="col-xs-18 col-md-12">
 						<h4>Clothes</h4>
 						<ul class="nav nav-tabs">
-							<li class="active"><a href="#list" data-toggle="tab"><i class="icon-briefcase"></i>Clothes List</a></li>
-							<li><a href="#add" data-toggle="tab">Add Clothes</a></li>
-							<li><a href="#listTag" data-toggle="tab">List Tags</a></li>
-							<li><a href="#addTag" data-toggle="tab">Add Tags</a></li>
+							<li class="<?php echo $activeClass1; ?>"><a href="#list" data-toggle="tab"><i class="icon-briefcase"></i>Clothes List</a></li>
+							<li class="<?php echo $activeClass2; ?>"><a href="#add" data-toggle="tab">Add Clothes</a></li>
+							<li class="<?php echo $activeClass3; ?>"><a href="#listTag" data-toggle="tab">List Tags</a></li>
+							<li class="<?php echo $activeClass4; ?>"><a href="#addTag" data-toggle="tab">Add Tags</a></li>
 						</ul>
 						<div class="tab-content" >
-							<div class="tab-pane fade in active" id="list">
+							<div class="tab-pane fade in <?php echo $activeClass1; ?>" id="list">
 								<div class="col-xs-18 col-md-12" style="height:100% overflow-y:auto">
 									<div class="row">
 										<?php include( DIR_LAY.'listClothes.php') ;?>
@@ -74,27 +97,27 @@
 								</div>
 							</div>
 							
-							<div class="tab-pane" id="add">
+							<div class="tab-pane <?php echo $activeClass2; ?>" id="add">
 								<div class="row">
 									<div class="col-xs-18 col-md-12">
-										<form role="form" action="../../src/handlers/clothesHandler.php?a=clothesAdd" method="post" enctype="multipart/form-data">
+										<form role="form" action="../../src/handlers/clothesHandler.php?a=clothesAdd&p=adminClothes&param=t&t=2" method="post" enctype="multipart/form-data">
 											<div class="row">
 												<div class="col-xs-6 col-md-4">
 													<div class="form-group">
 													  <label for="code">Code:</label>
-													  <input type="text" class="form-control" id="code" name="code">
+													  <input type="text" class="form-control" id="code" name="code" required>
 													</div>
 												</div>
 												<div class="col-xs-6 col-md-4">
 													<div class="form-group">
 													  <label for="price">Price:</label>
-													  <input type="text" class="form-control" id="price" name="price">
+													  <input type="text" class="form-control" id="price" name="price" required>
 													</div>
 												</div>
 												<div class="col-xs-6 col-md-4">
 													<div class="form-group">
 													  <label for="fileToUpload">File:</label>
-													  <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
+													  <input type="file" name="fileToUpload" id="fileToUpload" class="form-control" required>
 													</div>
 												</div>
 												
@@ -118,16 +141,27 @@
 
 													</div>
 												</div>
-												<div class="col-xs-2 col-md-2">
+												<div class="col-xs-6 col-md-3">
+													<div class="form-group">
+														<label for="type">Type:</label>
+														<select class="form-control" name="type" id="type">
+															<option value="1">Top</option>
+															<option value="2">Bottom</option>
+															<option value="3">Dress</option>
+														</select>
+
+													</div>
+												</div>
+												<div class="col-xs-2 col-md-1">
 												<!-- 	<input type="hidden" name="target_dir" id="target_dir" class="form-control" value="web/assets/img/clothes/"> -->
-													<button type="submit"  style="margin-top: 30px;"class="btn btn-theme pull-right" id="customized">Add</button>
+													<button type="submit"  style="margin-top: 30px;"class="btn btn-theme pull-right" id="upload">Upload</button>
 												</div>
 											</div>
 										</form>
 									</div>
 								</div>
 							</div>	
-							<div class="tab-pane" id="listTag">
+							<div class="tab-pane <?php echo $activeClass3; ?>" id="listTag">
 								<table class="table user-list">
 									<thead>
 										<tr>
@@ -140,10 +174,10 @@
 									</tbody>
 								</table>
 							</div>
-							<div class="tab-pane" id="addTag">
+							<div class="tab-pane <?php echo $activeClass4; ?>" id="addTag">
 								<div class="row">
 									<div class="col-xs-18 col-md-12">
-										<form role="form" action="../../src/handlers/tagsHandler.php?a=tagsAdd" method="post">
+										<form role="form" action="../../src/handlers/tagsHandler.php?a=tagsAdd&p=adminClothes&param=t&t=2" method="post">
 											<div class="row">
 												<div class="col-xs-6 col-md-4">
 													<div class="form-group">

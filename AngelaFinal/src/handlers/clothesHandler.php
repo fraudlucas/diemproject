@@ -1,9 +1,16 @@
 <?php
-	require_once('../config.php');
-	require_once('../Session.php');	
-	require_once DIR_MOD.'clothes.php';
-	require_once DIR_VIE.'clothesView.php';
+require_once('../config.php');
+require_once('../Session.php');	
+require_once DIR_MOD.'clothes.php';
+require_once DIR_VIE.'clothesView.php';
+
 $action = $_GET['a'];
+$pageToReturn = $_GET['p'];
+
+$param = $_GET['param'];
+$param_value = $_GET[$param];
+$param = $param . '=' . $param_value;
+
 if (!empty($action)) {
 	$clothesView = new ClothesView();
 
@@ -80,6 +87,20 @@ if (!empty($action)) {
 			header('Location: ../test.php');
     		break;
     }
+
+    if (!empty($pageToReturn)) {
+		$header = "Location:  ../../web/pages/". $pageToReturn .".php";
+
+		var_dump($param);
+
+		if (isset($param)) {
+			$header = $header . '?' . $param;
+			var_dump($header);
+		}
+
+		header($header);
+		die();
+	}
 }
 
 ?>
