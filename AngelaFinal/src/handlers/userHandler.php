@@ -35,11 +35,10 @@ if (!empty($action)) {
 				$result = $userView->registration($user);
 				
 				if($result){
-					echo "registration sucess";
+				    header('Location: ../../web/pages/userHome.php'); 	
 				}else{
-					echo "registration failed";
+					header ('Location: ../../index.php');
 				}
-				
 			}
 			break;
 			
@@ -66,7 +65,7 @@ if (!empty($action)) {
 				if($result){
 					header('Location: ../../web/pages/userHome.php'); 	
 				}else{
-					echo "registration failed";
+					echo "registration failed" . $pageToReturn ."../../index.php";;
 				}
 			}
     		break;
