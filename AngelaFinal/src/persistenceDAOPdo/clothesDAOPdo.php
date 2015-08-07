@@ -58,6 +58,8 @@ class ClothesDAOPdo implements ClothesDAO {
 
 		$clothesList = new ArrayObject();
 
+		$clothes = "";
+
 		foreach ($result as $row) {		
 			
 			$clothes = new Clothes();
