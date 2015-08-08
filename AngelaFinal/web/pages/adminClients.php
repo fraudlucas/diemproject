@@ -121,19 +121,31 @@
 		});
 	</script>
 
+	<script>
+		$(document).ready(function() {
+			$('#modalUserView').on('show.bs.modal', function (event) {
+				var button = $(event.relatedTarget) // Button that triggered the modal
+				var value = button.data('value')
+
+				$.get('../layout/adminContentUserView.php', {a: value}, function(data) {
+					$('#modalBodyUserView').html(data)
+				})
+			})
+		});
+	</script>
+
 	<!-- Modal -->
-	<div id="sendMessageModal" class="modal fade" role="dialog">
+	<div id="modalUserView" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Modal Header</h4>
+					<h4 class="modal-title">Client Profile</h4>
 				</div>
-				<div class="modal-body">
-					<?php include( DIR_LAY.'formSendMessage.php');?>
-					
+				<div id="modalBodyUserView" class="modal-body">
+										
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -141,7 +153,7 @@
 			</div>
 
 		</div>
-	</div> 	
+	</div>
 
 
 	<?php include( DIR_LAY.'footerPages.php') ?>

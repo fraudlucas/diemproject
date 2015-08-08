@@ -54,8 +54,7 @@
 		$code .='
 		<tr>
 			<td>
-				<a href="../pages/adminUserView.php?a='.$id.'"  onclick="window.open(this.href, \'mywin\',
-\'left=20,top=20,width=500,height=600,toolbar=1,resizable=0\'); return false;" class="user-link">'.$fname.' '.$lname.'</a>
+					<a href="#" data-toggle="modal" data-target="#modalUserView" data-value="'.$id.'" class="user-link">'.$fname.' '.$lname.'</a>
 			</td>
 			<td>2013/08/12</td>'
 			.$code2.'
@@ -87,6 +86,12 @@
 		 unset($code2);
 	}
 	echo $code;
+
+// 	<a href="../pages/adminUserView.php?a='.$id.'"  onclick="window.open(this.href, \'mywin\',
+// \'left=20,top=20,width=500,height=600,toolbar=1,resizable=0\'); return false;" class="user-link">'.$fname.' '.$lname.'</a>
+
+
+// <a href="#" data-toggle="modal" data-target="#modalUserView" data-value="'.$id.'" class="user-link">'.$fname.' '.$lname.'</a>
  ?>
 
                                
