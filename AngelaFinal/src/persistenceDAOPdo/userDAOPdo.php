@@ -128,7 +128,6 @@
 				$user->setProvince($row['province']);
 				$user->setAdministratorID($row['administratorID']);
 				$user->setStatus($row['status']);
-				$user->setSalt($row['salt']);
 				$usersList->append($user);
 			}
 
@@ -144,8 +143,6 @@
 			$result = $stmt->fetchAll();
 
 			$usersList = new ArrayObject();
-
-			$user = "";
 
 			foreach ($result as $row) {				
 				$user = new User();
@@ -187,6 +184,31 @@
 				
 		}
 	
+		public function recoveryPassword($email){// gera  a hash
+			$className = 'ConnectionDAOPdo';
+			$con = $className::getConnection();
+
+			$key = sha1(uniqid(mt_rand(),true));
+
+			$stmt = $con->prepare("INSERT INTO  passwordRecovery (userMail, confirmation) VALUES (:userMail, :confirmation)");
+			$stmt->bindParam(':userMail', $email);
+			$stmt->bindParam(':confirmation', $key);
+			
+			$res = $stmt->execute();
+			
+			return 'sucess' . $re;
+
+		}
+
+		public function changePassword($user, $linkHash){
+			$className = 'ConnectionDAOPdo';
+			$con = $className::getConnection();
+
+			// terminar esse metodo pra torocar  password 
+
+
+		}
+
 	}
 
 ?>

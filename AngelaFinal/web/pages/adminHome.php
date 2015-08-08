@@ -92,18 +92,13 @@
 					<div class="col-xs-18 col-md-12">
 						<h4>Tab</h4>
 						<ul class="nav nav-tabs">
-							<li class="<?php echo $activeClass1; ?>"><a href="#one" data-toggle="tab"><i class="icon-briefcase"></i>News</a></li>
+							<li class="<?php echo $activeClass1; ?>"><a href="#tabProfile" data-toggle="tab"><i class="icon-briefcase"></i>Profile</a></li>
 							<li class="<?php echo $activeClass2; ?>"><a href="#inbox" data-toggle="tab">InBox <span class="badge"><?php echo $amountUnreadMessages; ?></span></a></li>
 							<li class="<?php echo $activeClass3; ?>"><a href="#outbox" data-toggle="tab">Outbox</a></li>
 						</ul>
 						<div class="tab-content">
-							<div class="tab-pane <?php echo $activeClass1; ?>" id="one">
-								<p>
-									<strong>Augue iriure</strong> dolorum per ex, ne iisque ornatus veritus duo. Ex nobis integre lucilius sit, pri ea falli ludus appareat. Eum quodsi fuisset id, nostro patrioque qui id. Nominati eloquentiam in mea.
-								</p>
-								<p>
-									 No eum sanctus vituperata reformidans, dicant abhorreant ut pro. Duo id enim iisque praesent, amet intellegat per et, solet referrentur eum et.
-								</p>
+							<div class="tab-pane <?php echo $activeClass1; ?>" id="tabProfile">
+								<?php include( DIR_LAY.'tabProfile.php');?>
 							</div>
 							<div class="tab-pane <?php echo $activeClass2; ?>" id="inbox">
 								<?php include( DIR_LAY.'inboxMessages.php');?>
