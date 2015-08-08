@@ -46,6 +46,10 @@ class UserController {
 		return $deleteUser;
 	}
 
+	public function activateUser($id) {
+		$activateUser = $this->persistenceUser->activateUser($id);
+		return $activateUser;
+	}
 
 }
 

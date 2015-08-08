@@ -4,6 +4,12 @@
 	require_once DIR_MOD.'tags.php';
 	require_once DIR_VIE.'tagsView.php';
 $action = $_GET['a'];
+$pageToReturn = $_GET['p'];
+
+$param = $_GET['param'];
+$param_value = $_GET[$param];
+$param = $param . '=' . $param_value;
+
 if (!empty($action)) {
 	$tagsView = new TagsView();
 
@@ -22,6 +28,20 @@ if (!empty($action)) {
 			header('Location: ../test.php');
     		break;
     }
+    
+    if (!empty($pageToReturn)) {
+		$header = "Location:  ../../web/pages/". $pageToReturn .".php";
+
+		var_dump($param);
+
+		if (isset($param)) {
+			$header = $header . '?' . $param;
+			var_dump($header);
+		}
+
+		header($header);
+		die();
+	}
 }
 
 ?>

@@ -5,7 +5,12 @@
 	require_once DIR_VIE.'userView.php';
 
 $session = new Session();
-$action = $_GET['a'];
+$action = isset($_GET['a']) ? $_GET['a'] : '';
+$pageToReturn = isset($_GET['p']) ? $_GET['p'] : '';
+
+$param = isset($_GET['param']) ? $_GET['param'] : '';
+$param_value = isset($_GET[$param]) ? $_GET[$param] : '';
+$param = $param . '=' . $param_value;
 
 if (!empty($action)) {
 	$userView = new UserView();
@@ -32,6 +37,7 @@ if (!empty($action)) {
 				$user->setEmail($email);
 				$user->setPassword($password);
 				$user->setSalt($salt);
+				$user->setAdministratorID(2);
 				$result = $userView->registration($user);
 				
 				if($result){
@@ -71,17 +77,40 @@ if (!empty($action)) {
 			}
     		break;
 			
-    	case 'useradd':
-    		$user = new User();
-    		$user->setFirstName($_POST['firstName']);
-			$user->setLastName($_POST['lastName']);
-			$user->setAddress($_POST['address']);
-			$user->setEmail($_POST['email']);
-			$user->setCity($_POST['city']);
-			$user->setUserName($_POST['username']);
-			$user->setEmail($_POST['email']);
-    		$user->setPassword($_POST['password']);			
-    		$test = $userView->user($user);
+    	case 'addStaff':
+    		if(isset($_POST['firstName'],$_POST['lastName'],$_POST['email'],$_POST['password'])){
+				
+				//Verify if the input
+				$fname = filter_var ($_POST['firstName'],FILTER_SANITIZE_STRING);
+				$lname = filter_var ($_POST['lastName'],FILTER_SANITIZE_STRING);
+				$email = filter_var ($_POST['email'],FILTER_SANITIZE_EMAIL);
+				$password = filter_var ($_POST['password'],FILTER_SANITIZE_STRING);
+				
+				//Hash the password
+				$options = ['cost' => 7,'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),];				
+				$password =  password_hash($password,PASSWORD_BCRYPT, $options);
+				$salt = $options['salt'];
+				
+				//Creates new Object User				
+				$user = new User();			
+				$user->setFirstName($fname);
+				$user->setLastName($lname);
+				$user->setEmail($email);
+				$user->setPassword($password);
+				$user->setSalt($salt);
+				$user->setAdministratorID(3);
+				$result = $userView->registration($user);
+
+				var_dump($user); echo '<br><br>';
+				var_dump($result);
+				
+				// if($result){
+				// 	header('Location: ../../web/pages/adminStaff.php'); 
+				// }else{
+				// 	header ('Location: ../../index.php');
+				// }
+				
+			}
     		break;
 			
 		case 'list':
@@ -91,8 +120,15 @@ if (!empty($action)) {
 		case 'userdelete':
 			$id = $_GET['id'];
 			$res = $userView->deleteUser($id);
-			header('Location: ../../web/pages/adminClients.php');
-			die();
+			// header('Location: ../../web/pages/adminClients.php');
+			// die();
+    		break;
+
+    	case 'userundelete':
+			$id = $_GET['id'];
+			$res = $userView->undeleteUser($id);
+			// header('Location: ../../web/pages/adminClients.php');
+			// die();
     		break;
 			
 		case 'edit':
@@ -146,6 +182,19 @@ if (!empty($action)) {
 			}
     		break;
     }
+    if (!empty($pageToReturn)) {
+		$header = "Location:  ../../web/pages/". $pageToReturn .".php";
+
+		var_dump($param);
+
+		if (isset($param)) {
+			$header = $header . '?' . $param;
+			var_dump($header);
+		}
+
+		header($header);
+		die();
+	}    
 }
 
 ?>

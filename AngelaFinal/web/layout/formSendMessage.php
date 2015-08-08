@@ -9,7 +9,7 @@ require_once (DIR_VIE.'userView.php');
 $messagesList = $messageView->listByFromUser();*/
 $userView = new UserView();
 
-$list = $userView->searchUsers('administratorID', '2','2');
+$list = $userView->searchUsers('administratorID', $users_type,'2');
 
 $options = "";
 foreach ($list as $key) {
@@ -37,7 +37,7 @@ foreach ($list as $key) {
 
 
 
-<form action="../../src/handlers/messageHandler.php?a=send&p=adminClients" method="post" class="form-horizontal">
+<form action="../../src/handlers/messageHandler.php?a=send&p=<?php echo $pageToReturn; ?>" method="post" class="form-horizontal">
 
 	<!-- <label id="lb_toUser" for="to">Email to:</label>
 	<input type="text" id="to" maxlength="50" name="to" class="to"> -->

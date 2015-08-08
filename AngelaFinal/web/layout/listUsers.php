@@ -1,9 +1,12 @@
  <?php
 	require_once (DIR_VIE.'userView.php');
 	$userView = new UserView();
-	$list = $userView->searchUsers('administratorID','2','2');
+	$list = $userView->searchUsers('administratorID',$users_type,'2');
 	$code ='';
 	$code2 = '';
+	$activate = '';
+	$activate_action = '';
+
 	foreach ($list as $row) {
 		$id = $row->getIdUser();
 		$fname = $row->getFirstName();
@@ -14,8 +17,14 @@
 		if ($status == 3 ){
 			$code2 = '<td class="text-center">
 			
-				<span class="label label-default">pending</span>
+				<span class="label label-default">Pending</span>
 			</td>';
+
+			$activate = '<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+				';
+
+			$activate_action = '';
 		}
 		
 		if ($status == 2){
@@ -23,12 +32,23 @@
 			
 				 <span class="label label-success">Active</span>
 			</td>';
+			$activate = '<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+				';
+			
+			$activate_action = '';
 		}
 		
 		if ($status == 1){
 			$code2 = '<td class="text-center">		
-				<span class="label label-danger">inactive</span>
+				<span class="label label-danger">Inactive</span>
 			</td>';
+
+			$activate = '<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-check-square fa-stack-1x fa-inverse"></i>
+				';
+
+			$activate_action = 'un';
 		}
 		
 		$code .='
@@ -51,17 +71,16 @@
 					</span>
 				</a>
 				
-				<a href="handlers/userHandler.php?a=edit&id='.urlencode($id).'" class="table-link">
+				<a href="../../src/handlers/userHandler.php?a=edit&id='.urlencode($id).'" class="table-link">
 					<span class="fa-stack">
 						<i class="fa fa-square fa-stack-2x"></i>
 						<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 					</span>
 				</a>
-				<a href="handlers/userHandler.php?a=userdelete&id='.urlencode($id).'" class="table-link danger">
+				<a href="../../src/handlers/userHandler.php?a=user'.$activate_action.'delete&id='.urlencode($id).'&p='.$pageToReturn.'" class="table-link danger">
 					<span class="fa-stack">
-						<i class="fa fa-square fa-stack-2x"></i>
-						<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-					</span>
+						'.$activate.
+					'</span>
 				</a>
 			</td>
 		</tr>';

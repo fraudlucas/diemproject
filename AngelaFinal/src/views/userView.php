@@ -49,7 +49,10 @@ class UserView
 		return $deleteUser;
 	}
 
-	
+	public function undeleteUser($id) {
+		$activateUser = $this->userController->activateUser($id);
+		return $activateUser;
+	}	
 
 }
 

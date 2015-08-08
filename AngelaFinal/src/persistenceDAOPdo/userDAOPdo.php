@@ -11,8 +11,8 @@
 			$con = $className::getConnection();
 
 			$stmt = $con->prepare("INSERT INTO USERS (firstName, lastName, userName,"
-							. " email, password, address, city, province, postalCode, administratorID, status)"
-							. " VALUES (:firstName,:lastName,:userName, :email, :password, :address, :city, :province, :postalCode, 1,:status,3 )");
+							. " email, password, address, city, province, postalCode, administratorID)"
+							. " VALUES (:firstName,:lastName,:userName, :email, :password, :address, :city, :province, :postalCode, :administratorID)");
 			$stmt->bindParam(':firstName', $user->getFirstName());
 					$stmt->bindParam(':lastName', $user->getLastName());
 					$stmt->bindParam(':userName', $user->getUserName());
@@ -22,7 +22,7 @@
 					$stmt->bindParam(':city', $user->getCity());
 					$stmt->bindParam(':province', $user->getProvince());
 					$stmt->bindParam(':postalCode', $user->getPostalCode());
-				   // $stmt->bindParam(':administratorID', 1  );
+				    $stmt->bindParam(':administratorID', $user->getAdministratorID());
 					
 			$teste = $stmt->execute();
 
@@ -33,15 +33,16 @@
 			$className = 'ConnectionDAOPdo';
 			$con = $className::getConnection();
 
-			$query = "INSERT INTO users (firstName, lastName, email, password,salt)"
-						."VALUES (:firstName,:lastName, :email, :password,:salt)";
+			$query = "INSERT INTO users (firstName, lastName, email, password,salt, administratorID)"
+						."VALUES (:firstName,:lastName, :email, :password,:salt, :administratorID)";
 						
 			$stmt = $con->prepare($query);			
 			$stmt->bindParam(':firstName', $user->getFirstName());
-			$stmt->bindParam(':lastName', $user->getFirstName());
+			$stmt->bindParam(':lastName', $user->getLastName());
 			$stmt->bindParam(':email', $user->getEmail());
 			$stmt->bindParam(':password',$user->getPassword());
 			$stmt->bindParam(':salt',$user->getSalt());
+			$stmt->bindParam(':administratorID', $user->getAdministratorID());
 			
 			return $stmt->execute();
 		}
@@ -173,6 +174,21 @@
 			$className = 'ConnectionDAOPdo';
 			$con = $className::getConnection();
 			$stmt = $con->prepare("UPDATE users SET status = 1 WHERE id = :id");
+			$stmt->bindParam(':id', $id);   // Bind "$email" to parameter.
+			$res = $stmt->execute();    // Execute the prepared query.
+			
+			if($res == false){
+				return false;
+			}else{
+				return true;
+			}
+				
+		}
+
+		public function activateUser($id) {
+			$className = 'ConnectionDAOPdo';
+			$con = $className::getConnection();
+			$stmt = $con->prepare("UPDATE users SET status = 2 WHERE id = :id");
 			$stmt->bindParam(':id', $id);   // Bind "$email" to parameter.
 			$res = $stmt->execute();    // Execute the prepared query.
 			

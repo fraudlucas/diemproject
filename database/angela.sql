@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2015 at 05:35 PM
+-- Generation Time: Aug 08, 2015 at 05:25 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -61,14 +61,19 @@ CREATE TABLE IF NOT EXISTS `clothing` (
   `price` float DEFAULT NULL,
   `customized` tinyint(1) DEFAULT '0',
   `typeId` int(4) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clothing`
 --
 
 INSERT INTO `clothing` (`id`, `code`, `picture`, `price`, `customized`, `typeId`) VALUES
-(2, 'ref1', 'web/assets/img/clothes/1.png', 12, 0, 1);
+(2, 'ref1', 'web/assets/img/clothes/1.png', 12, 0, 1),
+(3, '123', 'web/assets/img/clothes/20150804114947.jpg', 123, 1, 2),
+(4, 'ref2', 'web/assets/img/clothes/20150804114947.jpg', 12, 1, 2),
+(5, 'ref3', 'web/assets/img/clothes/1.png', 123, 2, 2),
+(6, 'ref4', 'web/assets/img/clothes/1.png', 123, 1, 2),
+(7, 'ref5', 'web/assets/img/clothes/1.png', 123, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -91,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `clothinglooks` (
   `id` int(10) unsigned NOT NULL,
   `addingDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `userID` int(10) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -114,6 +119,13 @@ CREATE TABLE IF NOT EXISTS `clothingtagged` (
   `tagID` int(10) unsigned NOT NULL,
   `clothingID` int(10) unsigned NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `clothingtagged`
+--
+
+INSERT INTO `clothingtagged` (`tagID`, `clothingID`) VALUES
+(1, 2);
 
 -- --------------------------------------------------------
 
@@ -152,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `colors` (
 --
 
 INSERT INTO `colors` (`idColor`, `color`) VALUES
-(1, '#99CCFF');
+(1, '#B3672D');
 
 -- --------------------------------------------------------
 
@@ -179,20 +191,27 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `toUserID` int(10) unsigned NOT NULL,
   `topic` varchar(50) NOT NULL,
   `content` varchar(250) NOT NULL,
-  `messageDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `messageDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `read` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `messages`
 --
 
 INSERT INTO `messages` (`id`, `fromUserID`, `toUserID`, `topic`, `content`, `messageDate`, `read`) VALUES
-(1, 2, 4, 'test', 'maybe it works', '2015-08-04 21:57:30', 0),
-(2, 2, 4, 'testing', 'testing', '2015-08-04 22:16:51', 0),
+(1, 2, 4, 'test', 'maybe it works', '2015-08-06 15:09:31', 1),
+(2, 5, 4, 'testing', 'testing', '2015-08-06 15:11:10', 0),
 (3, 5, 2, 'testing modal ', 'maybe it works on adminClient', '2015-08-04 23:03:36', 0),
-(4, 2, 4, 'testing 2', 'maybe', '2015-08-04 23:00:33', 0),
-(5, 4, 2, 'asdas', 'dasdasd', '2015-08-04 23:03:05', 0);
+(4, 2, 4, 'testing 2', 'maybe', '2015-08-06 14:21:43', 0),
+(5, 4, 2, 'asdas', 'dasdasd', '2015-08-04 23:03:05', 0),
+(6, 4, 5, 'asdhaoisdh', 'asdaspj', '2015-08-06 00:59:23', 1),
+(7, 2, 4, '', 'Testing sending email to an external email.', '2015-08-06 15:11:15', 1),
+(8, 2, 4, '', 'testing email', '2015-08-06 14:46:08', 0),
+(9, 2, 4, '', 'testing email', '2015-08-06 14:46:34', 1),
+(10, 2, 4, '', 'testing email', '2015-08-06 14:47:02', 0),
+(11, 4, 7, 'Sending test to Test Staff', 'Testing this message.', '2015-08-08 14:36:38', 0),
+(12, 4, 6, 'Sending test to Testing Staff', 'Testing messages', '2015-08-08 14:38:56', 0);
 
 -- --------------------------------------------------------
 
@@ -310,7 +329,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
 
 INSERT INTO `roles` (`id`, `roleTitle`) VALUES
 (1, 'Administrator'),
-(2, 'User'),
+(2, 'Costumer'),
 (3, 'Staff');
 
 -- --------------------------------------------------------
@@ -322,7 +341,17 @@ INSERT INTO `roles` (`id`, `roleTitle`) VALUES
 CREATE TABLE IF NOT EXISTS `tags` (
   `id` int(10) unsigned NOT NULL,
   `name` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tags`
+--
+
+INSERT INTO `tags` (`id`, `name`) VALUES
+(3, 'fall'),
+(4, 'spring'),
+(1, 'summer'),
+(2, 'winter');
 
 -- --------------------------------------------------------
 
@@ -363,17 +392,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `province` char(2) DEFAULT NULL,
   `administratorID` int(10) unsigned NOT NULL DEFAULT '2',
   `status` int(4) DEFAULT '3'
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `salt`, `email`, `firstName`, `lastName`, `address`, `postalCode`, `city`, `province`, `administratorID`, `status`) VALUES
-(2, NULL, '$2y$07$VA1ZwZA5fZJGOFcELSZhBeuii0NdCP24Npg7QQS.XPDNG2ylUfA8C', 'T\rYÁ9}’F8W-&aùR¢Ÿ', 'thiago.evangelista@test.com', 'Thiago ', 'Thiago ', '836 Talwood Drive', 'K9J7G8', 'Peterborough', 'ON', 2, 2),
+(2, NULL, '$2y$07$VA1ZwZA5fZJGOFcELSZhBeuii0NdCP24Npg7QQS.XPDNG2ylUfA8C', 'T\rYÁ9}’F8W-&aùR¢Ÿ', 'thiago.evangelista@test.com', 'Thiago ', 'Evangelista', '836 Talwood Drive', 'K9J7G8', 'Peterborough', 'ON', 2, 2),
 (3, NULL, '$2y$07$VA1ZwZA5fZJGOFcELSZhBeuii0NdCP24Npg7QQS.XPD...', 'T\r\nYÁ9}’F8W-&aùR¢Ÿ\r\nt', 'admin@admin.com', 'Thi', 'Evan', NULL, NULL, NULL, NULL, 1, 3),
-(4, NULL, '$2y$07$2e4HSZdMZKLYt41TPPEjHOO0Ys1CAnbL5HU7YWBEFKd.soQgBCs6O', 'ÙîI—Ld¢Ø·S<ñ#–Š=†', 'admin2@admin.com', 'Thiago  ', 'Thiago ', '', '', '', '', 1, 2),
-(5, NULL, '$2y$07$BcfLaap4VH2oXupTJmeb7.Eplx80YY6fHmLsPdA3Dr1RkOS0cEREG', 'ÇËiªxT}¨^êS&g›ìä3Ý…¢', 'ricardo.vcr2@gmail.com', 'ricardo', 'ricardo', NULL, NULL, NULL, NULL, 2, 3);
+(4, NULL, '$2y$07$2e4HSZdMZKLYt41TPPEjHOO0Ys1CAnbL5HU7YWBEFKd.soQgBCs6O', 'ÙîI—Ld¢Ø·S<ñ#–Š=†', 'admin2@admin.com', 'Admin ', 'Test ', 'Testing Street', 'T1TT1T', 'Testing', 'ON', 1, 2),
+(5, NULL, '$2y$07$BcfLaap4VH2oXupTJmeb7.Eplx80YY6fHmLsPdA3Dr1RkOS0cEREG', 'ÇËiªxT}¨^êS&g›ìä3Ý…¢', 'ricardo.vcr2@gmail.com', 'Ricardo', 'Remedio', NULL, NULL, NULL, NULL, 2, 2),
+(6, NULL, '$2y$07$MJnjgc/Ql.BbJW4XXJfbw.1C860KjlrOXlsC/CZIl/mM43Nu/sATO', '0™ãÏÐ—à[%n\\—ÛÃøIí‰^<', 'testing@staff.com', 'Testing Staff', 'Stylist', NULL, NULL, NULL, NULL, 3, 2),
+(7, NULL, '$2y$07$LFnIbvmbSt.91vudgFIcpu6w3LOUYfbPFcndMHaRojc/SKTjaBnPm', ',YÈnù›Jß½Öû€R§0ß¸hÛá', 'test@staff.com', 'Test', 'Staff', NULL, NULL, NULL, NULL, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -393,7 +424,7 @@ CREATE TABLE IF NOT EXISTS `wardrobe` (
 --
 
 INSERT INTO `wardrobe` (`id`, `userId`, `clothesId`, `date`) VALUES
-(0, 2, 1, '0000-00-00 00:00:00.0000');
+(0, 2, 2, '2015-08-07 17:57:42.2288');
 
 -- --------------------------------------------------------
 
@@ -550,12 +581,12 @@ ALTER TABLE `bodymeasures`
 -- AUTO_INCREMENT for table `clothing`
 --
 ALTER TABLE `clothing`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `clothinglooks`
 --
 ALTER TABLE `clothinglooks`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `clothingmeasures`
 --
@@ -575,7 +606,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `pagecontent`
 --
@@ -605,7 +636,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `user_roles`
 --
@@ -615,7 +646,7 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `wishlists`
 --

@@ -29,41 +29,40 @@
 			<form role="form" action="../../src/handlers/userHandler.php?a=updateUser" method="post">
 				
 						
-						  <label for="firstName">First Name:</label>
-						  <input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo  $user->getFirstName();?> " required="TRUE">
+				<label for="firstName">First Name:</label>
+				<input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo  $user->getFirstName();?> " required="TRUE">
 					
 					
-						  <label for="lastName">Last Name:</label>
-						  <input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo  $user->getLastName();?> "  required="TRUE">
+				<label for="lastName">Last Name:</label>
+				<input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo  $user->getLastName();?> "  required="TRUE">
 				
-						  <label for="address">Email:</label>
-						  <input type="email" class="form-control" id="email" name="email" value="<?php echo  $user->getEmail();?> " onkeydown="checkPass();" required="TRUE">
+				<label for="address">Email:</label>
+				<input type="email" class="form-control" id="email" name="email" value="<?php echo  $user->getEmail();?> " onkeydown="checkPass();" required="TRUE">
 
-						  <label for="address">Comfirm Email:</label>
-						  <input type="email" class="form-control" id="email2" name="email2" placeholder="Comfirm Email" onkeyup="checkPass(); return false;" value="" required="TRUE">
-						  <span id="confirmMessage" class="confirmMessage"></span>
+				<label for="address">Confirm Email:</label>
+				<input type="email" class="form-control" id="email2" name="email2" placeholder="Confirm Email" onkeyup="checkPass(); return false;" value="" required="TRUE">
+				<span id="confirmMessage" class="confirmMessage"></span>
 
-						  <label for="address">Address:</label>
-						  <input type="text" class="form-control" id="address" name="address" placeholder="<?php echo  $user->getAddress();?> " value="" required="TRUE">
+				<label for="address">Address:</label>
+				<input type="text" class="form-control" id="address" name="address" value="<?php echo  $user->getAddress();?>" required="TRUE">
 						
 			
-						  <label for="pcode">Postal Code:</label>
-						  <input type="text" class="form-control" id="pcode" name="pcode" placeholder="<?php echo  $user->getPostalCode();?> " value="" required="TRUE">
+				<label for="pcode">Postal Code:</label>
+				<input type="text" class="form-control" id="pcode" name="pcode" value="<?php echo  $user->getPostalCode();?>" required="TRUE">
 					
 				
 				
-						  <label for="city">City:</label>
-						  <input type="text" class="form-control" id="city" name="city" placeholder="<?php echo  $user->getCity();?> " value="" required="TRUE">
+				<label for="city">City:</label>
+				<input type="text" class="form-control" id="city" name="city" value="<?php echo  $user->getCity();?>" required="TRUE">
 						
-						  <label for="province">Province:</label>
-						  <input type="text" class="form-control" id="provin" name="province" placeholder="<?php echo  $user->getProvince();?> " value="" required="TRUE">
+				<label for="province">Province:</label>
+				<input type="text" class="form-control" id="provin" name="province" value="<?php echo  $user->getProvince();?>" required="TRUE">
 					
 						
-						 <br>
-						 <input type="submit" id="Update" name="Update" value="Update" class="btn btn-info pull-right disabled ">
-						
-								
-			</form>								
+				<br>
+				<input type="submit" id="Update" name="Update" value="Update" class="btn btn-info pull-right disabled ">
+
+			</form>
 				
 	
 <script>
@@ -81,7 +80,7 @@ function checkPass()
     var badColor = "#ff6666";
     //Compare the values in the password field 
     //and the confirmation field
-    if(email.value == email2.value){
+    if(pass1.value == pass2.value){
         //The passwords match. 
         //Set the color to the good color and inform
         //the user that they have entered the correct password 

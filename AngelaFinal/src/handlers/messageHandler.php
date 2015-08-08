@@ -7,11 +7,11 @@ require_once DIR_MOD.'message.php';
 require_once DIR_VIE.'messageView.php';
 
 $session = new Session();
-$action = $_GET['a'];
-$pageToReturn = $_GET['p'];
+$action = isset($_GET['a']) ? $_GET['a'] : '';
+$pageToReturn = isset($_GET['p']) ? $_GET['p'] : '';
 
-$param = $_GET['param'];
-$param_value = $_GET[$param];
+$param = isset($_GET['param']) ? $_GET['param'] : '';
+$param_value = isset($_GET[$param]) ? $_GET[$param] : '';
 $param = $param . '=' . $param_value;
 
 
@@ -31,8 +31,8 @@ if (!empty($action)) {
 			$fromUser = $userView->searchUsers('id',$fromUserId,'1');
 			$toUser = $userView->searchUsers('id',$toUserId,'1');
 
-			$message->setToUser($fromUser);
-			$message->setFromUser($toUser);
+			$message->setFromUser($fromUser);
+			$message->setToUser($toUser);
 			$message->setTopic($topic);
 			$message->setContent($content);
 

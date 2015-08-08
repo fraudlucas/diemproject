@@ -4,10 +4,26 @@
 	require_once (DIR_VIE.'messageView.php');
 	$session = new Session();
 
+	$users_type = '3';
+
 	$currentUser = $_SESSION['userID'];
 
 	$messageView = new MessageView();
 	$amountUnreadMessages = $messageView->amountUnreadMessagesByToUserID($currentUser);
+
+	$pageToReturn = 'adminStaff';
+
+	$activeTab = isset($_GET['t']) ? $_GET['t'] : 0; // Indicate which tab must be activated
+	$activeClass2 = '';
+	$activeClass3 = '';
+	switch ($activeTab) {
+		case 3:
+			$activeClass3 = 'active';
+			break;
+		default:
+			$activeClass2 = 'active';
+			break;
+	}
 ?>
 <html lang="en">
 <head>
@@ -58,13 +74,22 @@
 			<div class="row">
 				<div class="container">
 					<div class="col-xs-18 col-md-12">
-						<h4>Clients</h4>
+						<h4>Staff</h4>
 						<ul class="nav nav-tabs">
-							<li class="active"><a href="#list" data-toggle="tab"><i class="icon-briefcase"></i>Client List</a></li>
-							<li><a href="#search" data-toggle="tab">Search</a></li>
+							<li class="<?php echo $activeClass2; ?>"><a href="#list" data-toggle="tab"><i class="icon-briefcase"></i>Staff List</a></li>
+							<li class="<?php echo $activeClass3; ?>"><a href="#search" data-toggle="tab">Search</a></li>
 						</ul>
+
 						<div class="tab-content" >
-							<div class="tab-pane fade in active" id="list">
+
+							<div class="tab-pane fade in <?php echo $activeClass2; ?>" id="list">
+								<a href="#" data-toggle="modal" data-target="#addStaffModal" data-value="test">
+									<span class="fa-stack">
+										<i class="fa fa-circle fa-stack-2x"></i>
+										<i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+									</span>
+									<strong>Add</strong>
+								</a>
 								<table class="table user-list">
 									<thead>
 										<tr>
@@ -76,11 +101,11 @@
 										</tr>
 									</thead>
 									<tbody>
-										<?php include( DIR_LAY.'listStaff.php');?>
+										<?php include( DIR_LAY.'listUsers.php');?>
 									</tbody>
 								</table>
 							</div>
-							<div class="tab-pane" id="search">
+							<div class="tab-pane <?php echo $activeClass3; ?>" id="search">
 								
 							</div>							
 						</div>
@@ -89,6 +114,31 @@
 			</div>
 		</div>
 	</div>
+
+	<?php include( DIR_LAY.'modalAddingStaff.php') ?>
+
+	<!-- Modal -->
+	<div id="sendMessageModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Modal Header</h4>
+				</div>
+				<div class="modal-body">
+					<?php include( DIR_LAY.'formSendMessage.php');?>
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div> 
+
 	<?php include( DIR_LAY.'footerPages.php') ?>
 	<?php include( DIR_LAY.'jsIncludesPages.php') ?>
 	<script src="../assets/js/editor.js"></script>

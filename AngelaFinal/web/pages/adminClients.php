@@ -4,10 +4,26 @@
 	require_once (DIR_VIE.'messageView.php');
 	$session = new Session();
 
+	$users_type = '2';
+
 	$currentUser = $_SESSION['userID'];
 
 	$messageView = new MessageView();
 	$amountUnreadMessages = $messageView->amountUnreadMessagesByToUserID($currentUser);
+
+	$pageToReturn = 'adminClients'; // Will be used by the inboxMessages
+
+	$activeTab = isset($_GET['t']) ? $_GET['t'] : 0; // Indicate which tab must be activated
+	$activeClass2 = '';
+	$activeClass3 = '';
+	switch ($activeTab) {
+		case 3:
+			$activeClass3 = 'active';
+			break;
+		default:
+			$activeClass2 = 'active';
+			break;
+	}
 ?>
 <html lang="en">
 <head>
@@ -61,11 +77,11 @@
 					<div class="col-xs-18 col-md-12">
 						<h4>Clients</h4>
 						<ul class="nav nav-tabs">
-							<li class="active"><a href="#list" data-toggle="tab"><i class="icon-briefcase"></i>Client List</a></li>
-							<li><a href="#search" data-toggle="tab">Search</a></li>
+							<li class="<?php echo $activeClass2; ?>"><a href="#list" data-toggle="tab"><i class="icon-briefcase"></i>Client List</a></li>
+							<li class="<?php echo $activeClass3; ?>"><a href="#search" data-toggle="tab">Search</a></li>
 						</ul>
 						<div class="tab-content" >
-							<div class="tab-pane fade in active" id="list">
+							<div class="tab-pane fade in <?php echo $activeClass2; ?>" id="list">
 								<table class="table user-list">
 									<thead>
 										<tr>
@@ -81,7 +97,7 @@
 									</tbody>
 								</table>
 							</div>
-							<div class="tab-pane" id="search">
+							<div class="tab-pane <?php echo $activeClass3; ?>" id="search">
 								
 							</div>							
 						</div>
