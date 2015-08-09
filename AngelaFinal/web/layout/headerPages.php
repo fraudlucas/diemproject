@@ -1,4 +1,3 @@
-
 	<!-- start header -->
 	<header>
         <div class="navbar navbar-default navbar-fixed-top">
@@ -15,7 +14,7 @@
                 </div>
                 <div class="navbar-collapse collapse " id="navbar-main">
 					<div>
-						<button class="btn btn-theme" Style=" transform: rotate(90deg); cursor: pointer; right:-57px; top:0px; margin-top:350px; z-index:999997; position:fixed;" data-direction='left' data-toggle="modal" data-target="#myModal")">Book Appointment</button> 
+						<button class="btn btn-theme" Style=" transform: rotate(90deg); cursor: pointer; right:-57px; top:0px; margin-top:350px; z-index:999997; position:fixed;" data-direction='left' data-toggle="modal" data-target="#myBook")">Book Appointment</button> 
 					</div>
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="../../index.php">Home</a></li>
@@ -36,14 +35,14 @@
                             </ul>
                         </li>
                         <li><a href="http://projectblog.byethost12.com/wp/" >Blog</a></li>
-                        <li><a href="../pages/contact.php" >Contact</a></li>
+                        <li><a href="../pages/contact.php">Contact</a></li>
 						<li>
 							<form class="navbar-form navbar-right"   action="../../src/handlers/userHandler.php?a=login" method="post">
 								<div class="form-group" >
-									<input type="email" class="form-control" style="width:150px" name="email" placeholder="email">
+									<input type="email" class="form-control" style="width:150px" name="email" required placeholder="email">
 								</div>
 								<div class="form-group">
-									<input type="password" class="form-control" style="width:150px" name="password" placeholder="Password">
+									<input type="password" class="form-control" style="width:150px" name="password" required placeholder="Password">
 								</div>
 								<div class="form-group">
 									<button type="submit" style="width:80px" class="btn btn-theme">Sign In</button>
@@ -54,7 +53,6 @@
 									</div>
 								</div>
 							</form>
-							
 						</li>
                     </ul>					
                 </div>

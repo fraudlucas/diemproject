@@ -15,8 +15,7 @@
 	
 	<!-- Theme skin -->
 	<link rel='stylesheet' type='text/css' href='../assets/skins/default.php' />
-	<!-- <link href="web/assets/skins/default.css" rel="stylesheet" />-->
-
+	
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
 		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

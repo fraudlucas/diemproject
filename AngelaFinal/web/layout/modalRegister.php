@@ -1,3 +1,9 @@
+<html>
+
+<head>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+
 <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -33,11 +39,14 @@
 					</div>
 				</div>
 			</div>
+			<center><div class="g-recaptcha" data-sitekey="6Lef-AoTAAAAAGuq8NANMj1uX-T-VcKwvk1k23lb"></div></center><br>
 			<div class="modal-footer form-group">
-			   <button type="submit" class="btn btn-default" >Register</button>
+			   <center><button type="submit" class="btn btn-default" >Register</button></center>
 			</div>
 		</form>
       </div>
       
     </div>
   </div>
+
+  </html>

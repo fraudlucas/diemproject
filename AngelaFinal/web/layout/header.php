@@ -1,5 +1,6 @@
 
 	<!-- start header -->
+	
 	<header>
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -54,7 +55,6 @@
 									</div>
 								</div>
 							</form>
-							
 						</li>
                     </ul>					
                 </div>

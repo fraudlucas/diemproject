@@ -39,6 +39,7 @@ p.description_content{
 </head>
 <body>
 <?php include( DIR_LAY.'modalBook.php');?>
+<?php include( DIR_LAY.'modalRegister.php');?>
 	<div id="wrapper">
 		<?php 
 		if($session->isLoggedIn()){
@@ -86,7 +87,6 @@ p.description_content{
                         please read our privacy policy.</p>
                 </div>
             </div>
-            <div class="row">
                 <div class="col-lg-5 col-sm-5 address">
                     <h3 class="custom-font text-black text-justify title"></h3>
                     <section class="contact-infos">
@@ -109,26 +109,8 @@ p.description_content{
                 </div>
                 <div class="col-lg-7 col-sm-7 address">
                     <h4 class="text-center">Drop us a line so that we can hear from you</h4>
-                    <div class="contact-form">
-                        <form role="form">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" placeholder="" id="name" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" placeholder="" id="email" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="text" id="phone" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Message</label>
-                                <textarea placeholder="" rows="5" class="form-control"></textarea>
-                            </div>
-                            <button class="btn btn-info" type="submit">Submit</button>
-                        </form>
+                    
+					<center><div><?php include ("../../web/layout/html-contact-form.php");?></div></center>
                     </div>
                 </div>
             </div>
