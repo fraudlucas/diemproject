@@ -70,12 +70,14 @@
 					</span>
 				</a>
 				
+				<!--
 				<a href="../../src/handlers/userHandler.php?a=edit&id='.urlencode($id).'" class="table-link">
 					<span class="fa-stack">
 						<i class="fa fa-square fa-stack-2x"></i>
 						<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 					</span>
 				</a>
+				-->
 				<a href="../../src/handlers/userHandler.php?a=user'.$activate_action.'delete&id='.urlencode($id).'&p='.$pageToReturn.'" class="table-link danger">
 					<span class="fa-stack">
 						'.$activate.

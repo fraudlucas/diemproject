@@ -23,13 +23,13 @@ $return = '<div class="row">
 						<div class="col-xs-2 col-md-6">
 							<div class="form-group">
 							 	<label for="firstName">First Name:</label>
-							 	<input type="text" class="form-control" id="firstName" name="firstName" value="'.$user->getFirstName().'">
+							 	<input type="text" class="form-control" id="firstName" name="firstName" value="'.$user->getFirstName().'" readonly>
 							</div>
 						</div>
 						<div class="col-xs-2 col-md-6">
 							<div class="form-group">
 							  <label for="lastName">Last Name:</label>
-							  <input type="text" class="form-control" id="lastName" name="lastName" value="'.$user->getLastName().'">
+							  <input type="text" class="form-control" id="lastName" name="lastName" value="'.$user->getLastName().'" readonly>
 							</div>
 						</div>
 					</div>
@@ -37,13 +37,13 @@ $return = '<div class="row">
 						<div class="col-xs-2 col-md-6">
 							<div class="form-group">
 							  <label for="address">Address:</label>
-							  <input type="text" class="form-control" id="address" name="address" value="'.$user->getAddress().'">
+							  <input type="text" class="form-control" id="address" name="address" value="'.$user->getAddress().'" readonly>
 							</div>
 						</div>
 						<div class="col-xs-2 col-md-6">
 							<div class="form-group">
 							  <label for="pcode">Postal Code:</label>
-							  <input type="text" class="form-control" id="pcode" name="pcode" value="'.$user->getPostalCode().'">
+							  <input type="text" class="form-control" id="pcode" name="pcode" value="'.$user->getPostalCode().'" readonly>
 							</div>
 						</div>
 					</div>
@@ -51,13 +51,13 @@ $return = '<div class="row">
 						<div class="col-xs-2 col-md-6">
 							<div class="form-group">
 							  <label for="city">City:</label>
-							  <input type="text" class="form-control" id="city" name="city" value="'.$user->getCity().'">
+							  <input type="text" class="form-control" id="city" name="city" value="'.$user->getCity().'" readonly>
 							</div>
 						</div>
 						<div class="col-xs-2 col-md-6">
 							<div class="form-group">
 							  <label for="province">Province:</label>
-							  <input type="text" class="form-control" id="province" name="province" value="'.$user->getProvince().'">
+							  <input type="text" class="form-control" id="province" name="province" value="'.$user->getProvince().'" readonly>
 							</div>
 						</div>
 					</div>								

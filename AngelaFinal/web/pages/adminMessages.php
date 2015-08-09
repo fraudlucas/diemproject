@@ -51,7 +51,7 @@
 					<ul class="breadcrumb">
 						<li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
 						<li><a href="#">Administration</a><i class="icon-angle-right"></i></li>
-						<li class="active">Profile</li>
+						<li class="active">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></li>
 					</ul>
 				</div>
 			</div>
