@@ -19,23 +19,23 @@
 				<div class="row">
 				  <div class="col-xs-6 form-group">
 					<label class="control-label" for="firstName">First Name</label>
-					<input type="text" class="form-control" id="firstName" name="firstName" aria-describedby="inputSuccess4Status">				
+					<input type="text" class="form-control" id="firstName" required name="firstName" aria-describedby="inputSuccess4Status">				
 				  </div>				 
 				  <div class="col-xs-6 form-group">
 					<label class="control-label" for="lastName">Last Name</label>
-					<input type="text" class="form-control" id="lastName" name="lastName" aria-describedby="inputSuccess4Status">
+					<input type="text" class="form-control" id="lastName" required name="lastName" aria-describedby="inputSuccess4Status">
 				  </div>
 				</div>
 				<div class="row">
 					<div class="col-xs-12 form-group">
 						<label class="control-label" for="lastName">Email</label>
-						<input type="email" class="form-control" id="email" name="email" aria-describedby="inputSuccess4Status">
+						<input type="email" class="form-control" id="email" required name="email" aria-describedby="inputSuccess4Status">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-12 form-group">
 						<label class="control-label" for="lastName">Password</label>
-						<input type="password" class="form-control" id="password" name="password"aria-describedby="inputSuccess4Status">
+						<input type="password" class="form-control" id="password" required name="password"aria-describedby="inputSuccess4Status">
 					</div>
 				</div>
 			</div>

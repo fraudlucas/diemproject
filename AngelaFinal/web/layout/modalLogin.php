@@ -14,13 +14,13 @@
 				<div class="row">
 					<div class="col-xs-12 form-group">
 						<label class="control-label" for="login">Login</label>
-						<input type="login" class="form-control" id="login" name="login" aria-describedby="inputSuccess4Status">
+						<input type="login" class="form-control" id="login" required name="login" aria-describedby="inputSuccess4Status">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-12 form-group">
 						<label class="control-label" for="password">Password</label>
-						<input type="password" class="form-control" id="password" name="password"aria-describedby="inputSuccess4Status">
+						<input type="password" class="form-control" id="password" required name="password"aria-describedby="inputSuccess4Status">
 					</div>
 				</div>
 			</div>
