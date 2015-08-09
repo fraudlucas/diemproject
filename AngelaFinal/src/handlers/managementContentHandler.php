@@ -11,6 +11,11 @@ $action = $_GET['a'];
 if(isset($_GET['b'])){
 	$page = $_GET['b'];
 }
+$pageToReturn = isset($_GET['p']) ? $_GET['p'] : '';
+
+$param = isset($_GET['param']) ? $_GET['param'] : '';
+$param_value = isset($_GET[$param]) ? $_GET[$param] : '';
+$param = $param . '=' . $param_value;
 
 if (!empty($action)) {
 	$managementView = new ManagementContentView();
@@ -50,8 +55,21 @@ if (!empty($action)) {
 				header('Location: ../../web/pages/adminManagement.php');
     		}
 		break;
-	}	
+	}
 
+	if (!empty($pageToReturn)) {
+		$header = "Location:  ../../web/pages/". $pageToReturn .".php";
+
+		var_dump($param);
+
+		if (isset($param)) {
+			$header = $header . '?' . $param;
+			var_dump($header);
+		}
+
+		header($header);
+		die();
+	}
 
 }
 

@@ -37,7 +37,7 @@
 				<div class="main-box no-header clearfix">
 					<div class="main-box-body clearfix">
 						<div class="table-responsive">
-							<form  role="form" action="../../src/handlers/managementPhotosHandler.php?a=addPhoto&b=1" method="post" enctype="multipart/form-data">
+							<form  role="form" action="../../src/handlers/managementPhotosHandler.php?a=addPhoto&b=1&p=<?php echo $pageToReturn; ?>&param=t&t=0" method="post" enctype="multipart/form-data">
 								<div class="form-group">
 									<label for="file">File</label>
 									<input type="file" name="fileToUpload" id="fileToUpload" class="form-control">

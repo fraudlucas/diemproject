@@ -11,7 +11,7 @@
 
 	$limitMessages = false;
 
-	$pageToReturn = 'adminMessages'; // Will be used by the inboxMessages
+	$pageToReturn = 'adminMessages'; // Will be used by the adminMessages
 
 	$activeTab = isset($_GET['t']) ? $_GET['t'] : 0; // Indicate which tab must be activated
 	$activeClass2 = '';

@@ -8,6 +8,17 @@
 
 	$messageView = new MessageView();
 	$amountUnreadMessages = $messageView->amountUnreadMessagesByToUserID($currentUser);
+
+	$pageToReturn = 'adminManagement'; // Will be used by the adminManagement
+
+	$activeTab = isset($_GET['t']) ? $_GET['t'] : 0; // Indicate which tab must be activated
+	$array = array('active', 'active', 'active', 'active', 'active', 'active', 'active');
+
+	// Now delete every item, but leave the array itself intact:
+	foreach ($array as $i => $value) {
+		if (!($i == $activeTab))
+			$array[$i] = '';
+	}
 ?>
 <html lang="en">
 <head>
@@ -64,35 +75,35 @@
 					<div class="col-xs-18 col-md-12 ">
 						
 						<ul class="nav nav-tabs">
-							<li class="active"><a href="#home" data-toggle="tab"><i class="icon-briefcase"></i>Home</a></li>
-							<li><a href="#about" data-toggle="tab">About Us</a></li>
-							<li><a href="#ourteam" data-toggle="tab">Our Team</a></li>
-							<li><a href="#testimonials" data-toggle="tab">Testimonials</a></li>
-							<li><a href="#rdytowear" data-toggle="tab">Ready To Wear</a></li>
-							<li><a href="#mdtomeasure" data-toggle="tab">Made To Measure</a></li>
-							<li><a href="#colors" data-toggle="tab">Colors</a></li>
+							<li class="<?php echo $array[0] ?>"><a href="#home" data-toggle="tab"><i class="icon-briefcase"></i>Home</a></li>
+							<li class="<?php echo $array[1] ?>"><a href="#about" data-toggle="tab">About Us</a></li>
+							<li class="<?php echo $array[2] ?>"><a href="#ourteam" data-toggle="tab">Our Team</a></li>
+							<li class="<?php echo $array[3] ?>"><a href="#testimonials" data-toggle="tab">Testimonials</a></li>
+							<li class="<?php echo $array[4] ?>"><a href="#rdytowear" data-toggle="tab">Ready To Wear</a></li>
+							<li class="<?php echo $array[5] ?>"><a href="#mdtomeasure" data-toggle="tab">Made To Measure</a></li>
+							<li class="<?php echo $array[6] ?>"><a href="#colors" data-toggle="tab">Colors</a></li>
 						</ul>
 						<div class="tab-content" >
-							<div class="tab-pane fade in active" id="home">						
+							<div class="tab-pane fade in <?php echo $array[0] ?>" id="home">						
 								<?php include( DIR_LAY.'tabHome.php') ;?>												
 							</div>
-							<div class="tab-pane" id="about">
+							<div class="tab-pane <?php echo $array[1] ?>" id="about">
 								<?php include( DIR_LAY.'tabAbout.php') ;?>
-							</div>	
-							<div class="tab-pane" id="testimonials">
-								<?php include( DIR_LAY.'tabTestimonials.php') ;?>
 							</div>
-							<div class="tab-pane" id="colors">
-								<?php include( DIR_LAY.'tabColors.php') ;?>
-							</div>
-							<div class="tab-pane" id="ourteam">
+							<div class="tab-pane <?php echo $array[2] ?>" id="ourteam">
 								<?php include( DIR_LAY.'tabOurTeam.php') ;?>
 							</div>
-							<div class="tab-pane" id="mdtomeasure">
+							<div class="tab-pane <?php echo $array[3] ?>" id="testimonials">
+								<?php include( DIR_LAY.'tabTestimonials.php') ;?>
+							</div>
+							<div class="tab-pane <?php echo $array[4] ?>" id="rdytowear">
+								<?php include( DIR_LAY.'tabReadyToWear.php') ;?>
+							</div>
+							<div class="tab-pane <?php echo $array[5] ?>" id="mdtomeasure">
 								<?php include( DIR_LAY.'tabMadeToMeasure.php') ;?>
 							</div>
-							<div class="tab-pane" id="rdytowear">
-								<?php include( DIR_LAY.'tabReadyToWear.php') ;?>
+							<div class="tab-pane <?php echo $array[6] ?>" id="colors">
+								<?php include( DIR_LAY.'tabColors.php') ;?>
 							</div>
 						</div>
 					</div>

@@ -46,7 +46,7 @@
 				<div class="main-box no-header clearfix">
 					<div class="main-box-body clearfix">
 						<div class="table-responsive">
-							<form  role="form" action="../../src/handlers/managementPhotosHandler.php?a=updatePhoto&b=4" method="post" enctype="multipart/form-data">
+							<form  role="form" action="../../src/handlers/managementPhotosHandler.php?a=updatePhoto&b=4&p=<?php echo $pageToReturn; ?>&param=t&t=5" method="post" enctype="multipart/form-data">
 								<div class="form-group">
 									<label for="file">File</label>
 									<input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
@@ -91,7 +91,7 @@
 					* https://github.com/mindmup/bootstrap-wysiwyg/blob/master/README.md#customising-
 					-->
 					<div id="alerts"></div>
-					<form action="../../src/handlers/managementContentHandler.php?a=updateContent&b=4" method="post">
+					<form action="../../src/handlers/managementContentHandler.php?a=updateContent&b=4&p=<?php echo $pageToReturn; ?>&param=t&t=5" method="post">
 						<div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
 						  <div class="btn-group" >
 							<a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="icon-font" ></i><b class="caret" ></b></a>
