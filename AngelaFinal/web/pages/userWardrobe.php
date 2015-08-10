@@ -42,7 +42,7 @@
 						<img src="../assets/images/profilepicture.jpg" class="img-responsive" width="300px" height="400px"> 
 					  <li role="presentation" ><a href="../pages/userHome.php">Profile</a></li>
 					  <li role="presentation" class="active"><a href="../pages/userWardrobe.php">Wardrobe</a></li>
-					  <li role="presentation"><a href="#">Create Looks</a></li>
+					  <li role="presentation"><a href="../pages/userLooks.php">Create Looks</a></li>
 					  <li role="presentation"><a href="#">My Wish List</a></li>
 					</ul>
 				</nav>
