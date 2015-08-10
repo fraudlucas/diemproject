@@ -9,7 +9,7 @@
 	$user = $userView->searchUsers("id",$value,'1');
 	$status  = $user->getAdministratorID();
 	//var_dump($user);
-	$status =  "1";
+	//$status =  "1";
 	
 	switch ($status) {
 		case '1':
@@ -28,11 +28,11 @@
 <div class="row">
 	<div class="container">
 		<div class="tab-pane fade in active" id="profile">						
-			<form role="form" action="../../src/handlers/userHandler.php?a=updateUser" method="post">
+			<form role="form" action="../../src/handlers/userHandler.php?a=updateUser&p=<?php echo $pageToReturn; ?>&param=t&t=1" method="post">
 				<div class="row">
 					<div class="col-xs-6 col-md-4">
 						<div class="form-group">
-						  	<h3 id="fullName"><?php echo  $user->getFirstName() . $user->getLastName()?></h3>
+						  	<h3 id="fullName"><?php echo $user->getFirstName() . ' ' . $user->getLastName()?></h3>
 						</div>
 					</div>
 				</div>
@@ -40,31 +40,31 @@
 					<div class="col-xs-2 col-md-4">
 						<div class="form-group">
 						  <label for="address">Email:</label>
-						  <p id="adress"><?php echo  $user->getEmail();?></p>
+						  <p id="adress"><?php echo $user->getEmail();?></p>
 						</div>
 					</div>
 					<div class="col-xs-2 col-md-4">
 						<div class="form-group">
 						  <label for="address">Address:</label>
-						  <p id="adress"><?php echo  $user->getAddress();?></p>
+						  <p id="adress"><?php echo $user->getAddress();?></p>
 						</div>
 					</div>
 					<div class="col-xs-2 col-md-4">
 						<div class="form-group">
 						  <label for="pcode">Postal Code:</label>
-						  <p id="postalCode"><?php echo  $user->getPostalCode();?></p>
+						  <p id="postalCode"><?php echo $user->getPostalCode();?></p>
 						</div>
 					</div>
 					<div class="col-xs-2 col-md-2">
 						<div class="form-group">
 						  <label for="city">City:</label>
-						 <p id="city"><?php echo  $user->getCity();?></p>
+						 <p id="city"><?php echo $user->getCity();?></p>
 						</div>
 					</div>
 					<div class="col-xs-2 col-md-2">
 						<div class="form-group">
 						  <label for="province">Province:</label>
-						  <p id="province"><?php echo  $user->getProvince();?></p>
+						  <p id="province"><?php echo $user->getProvince();?></p>
 						</div>
 					</div>
 					<div class="col-xs-2 col-md-2">
@@ -76,7 +76,7 @@
 				</div>
 			</form>								
 			<div>
-				<a href="#" data-toggle="modal" data-target="#editUserProfileModal">
+				<a href="#" title="Edit your information" data-toggle="modal" data-target="#editUserProfileModal">
 					<span class="fa-stack">
 						<i class="fa fa-square fa-stack-2x"></i>
 						<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>

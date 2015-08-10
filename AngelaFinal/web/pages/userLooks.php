@@ -1,7 +1,30 @@
 <?php
 	require_once('../../src/config.php');
 	require_once('../../src/Session.php');
+	require_once (DIR_VIE.'messageView.php');
+	require_once (DIR_VIE.'userView.php');
 	$session = new Session();
+	$userView = new UserView();
+	$user = $userView->searchUsers("id",$_SESSION['userID'],'1');
+
+	$currentUser = $_SESSION['userID'];
+
+	$messageView = new MessageView();
+	$amountUnreadMessages = $messageView->amountUnreadMessagesByToUserID($currentUser);
+
+	$pageToReturn = 'userLooks'; // Will be used by the adminMessages
+
+	$activeTab = isset($_GET['t']) ? $_GET['t'] : 0; // Indicate which tab must be activated
+	$activeClass2 = '';
+	$activeClass3 = '';
+	switch ($activeTab) {
+		case 3:
+			$activeClass3 = 'active';
+			break;
+		default:
+			$activeClass2 = 'active';
+			break;
+	}
 ?>
 <html lang="en">
 <head>
@@ -84,11 +107,13 @@
 				<nav class="navbar-default"  role="navigation">
 					<ul class="nav nav-pills nav-stacked">
 					  <li>
-						<img src="../assets/images/profilepicture.jpg" class="img-responsive" width="300px" height="400px"> 
-					  <li role="presentation" ><a href="../pages/userHome.php">Profile</a></li>
-					  <li role="presentation" ><a href="../pages/userWardrobe.php">Wardrobe</a></li>
-					  <li role="presentation" class="active"><a href="#">Create Looks</a></li>
-					  <li role="presentation"><a href="#">My Wish List</a></li>
+						<img src="../../<?php echo $user->getPicture(); ?>" class="img-responsive" width="300px" height="400px"> 
+						<li role="presentation"><a href="../pages/userHome.php">Profile</a></li>
+						<li role="presentation"><a href="../pages/userWardrobe.php">Wardrobe</a></li>
+						<li role="presentation" class="active"><a href="../pages/userLooks.php">Create Looks</a></li>
+						<li role="presentation"><a href="#">My Wish List</a></li>
+						<li role="presentation"><a href="../pages/userStylists.php">Stylists</a></li>
+						<li role="presentation"><a href="../pages/userMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></a></li>
 					</ul>
 				</nav>
 			</div>	

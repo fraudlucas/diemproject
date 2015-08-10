@@ -8,6 +8,7 @@
 	require_once DIR_PDO.'tagsDAOPdo.php';
 	require_once DIR_PDO.'wardrobeDAOPdo.php';
 	require_once DIR_PDO.'messageDAOPdo.php';
+	require_once DIR_PDO.'clothingLookPiecesDAOPdo.php';
 	
 class FactoryDAOPdo implements FactoryDAO {
 	
@@ -50,6 +51,9 @@ class FactoryDAOPdo implements FactoryDAO {
 		return new MessageDAOPdo();
 	}
 
+	public function createClothingLookPiecePersistence() {
+
+	}
 
 }
 

@@ -8,13 +8,16 @@
 	$activate_action = '';
 
 	foreach ($list as $row) {
+		$status = $row->getStatus();
+		if ($status != '2' && !$flag_button) continue;
 		$id = $row->getIdUser();
 		$fname = $row->getFirstName();
 		$lname = $row->getLastName();
 		$email = $row->getEmail();
-		$status = $row->getStatus();
 		$id = $row->getIdUser();
-		if ($status == 3 ){
+		$code2 = '<td>&nbsp;</td>';
+		$date = date("Y/m/d", strtotime($row->getTimeCreated()));
+		if ($status == 3 && $flag_button){
 			$code2 = '<td class="text-center">
 			
 				<span class="label label-default">Pending</span>
@@ -27,7 +30,7 @@
 			$activate_action = '';
 		}
 		
-		if ($status == 2){
+		if ($status == 2 && $flag_button){
 			$code2 = '<td class="text-center">
 			
 				 <span class="label label-success">Active</span>
@@ -39,7 +42,7 @@
 			$activate_action = '';
 		}
 		
-		if ($status == 1){
+		if ($status == 1 && $flag_button){
 			$code2 = '<td class="text-center">		
 				<span class="label label-danger">Inactive</span>
 			</td>';
@@ -56,7 +59,7 @@
 			<td>
 					<a href="#" title="Open Profile" data-toggle="modal" data-target="#modalUserView" data-value="'.$id.'" class="user-link">'.$fname.' '.$lname.'</a>
 			</td>
-			<td>2013/08/12</td>'
+			<td>'.$date.'</td>'
 			.$code2.'
 			<td>
 				<a href="#" title="Open Profile" data-toggle="modal" data-target="#modalUserView" data-value="'.$id.'" class="user-link">'.$email.'</a>
@@ -69,21 +72,17 @@
 						<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
 					</span>
 				</a>
-				
-				<!--
-				<a href="../../src/handlers/userHandler.php?a=edit&id='.urlencode($id).'" class="table-link">
-					<span class="fa-stack">
-						<i class="fa fa-square fa-stack-2x"></i>
-						<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
-				-->
-				<a href="../../src/handlers/userHandler.php?a=user'.$activate_action.'delete&id='.urlencode($id).'&p='.$pageToReturn.'" title="Deactivate" class="table-link danger">
+				';
+		$delete = '<a href="../../src/handlers/userHandler.php?a=user'.$activate_action.'delete&id='.urlencode($id).'&p='.$pageToReturn.'" title="Deactivate" class="table-link danger">
 					<span class="fa-stack">
 						'.$activate.
 					'</span>
 				</a>
-			</td>
+			';
+				
+		$code = ($flag_button ? $code.$delete : $code);		
+		
+		$code = $code .'</td>
 		</tr>';
 		 unset($code2);
 	}

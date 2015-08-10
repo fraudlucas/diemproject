@@ -14,9 +14,9 @@
 	$messageView = new MessageView();
 	$amountUnreadMessages = $messageView->amountUnreadMessagesByToUserID($currentUser);
 
-	$pageToReturn = 'adminStaff';
+	$pageToReturn = 'userStylists';
 
-	$flag_button = true;
+	$flag_button = false;
 
 	$activeTab = isset($_GET['t']) ? $_GET['t'] : 0; // Indicate which tab must be activated
 	$activeClass2 = '';
@@ -39,10 +39,10 @@
 	<div id="wrapper">
 		<?php 
 		if(isset($_SESSION['role'])){
-			if ($_SESSION['role']==2){
+			if ($_SESSION['role']==1){
 				header('Location: ../../index.php') ;
-			}elseif($_SESSION['role']==1){
-				include( DIR_LAY.'headerAdminPages.php') ;
+			}elseif($_SESSION['role']==2){
+				include( DIR_LAY.'headerUserPages.php') ;
 			}
 		}else{
 			header('Location: ../../index.php') ;
@@ -54,8 +54,8 @@
 				<div class="col-lg-12">
 					<ul class="breadcrumb">
 						<li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-						<li><a href="#">Administration</a><i class="icon-angle-right"></i></li>
-						<li class="active">Staff</li>
+						<li><a href="#">User</a><i class="icon-angle-right"></i></li>
+						<li class="active">Stylists</li>
 					</ul>
 				</div>
 			</div>
@@ -67,12 +67,12 @@
 					<ul class="nav nav-pills nav-stacked">
 					  <li>
 						<img src="../../<?php echo $user->getPicture(); ?>" class="img-responsive" width="300px" height="400px"> 
-					  <li role="presentation"><a href="../pages/adminHome.php">Profile</a></li>
-					  <li role="presentation"><a href="../pages/adminManagement.php">Manage Website</a></li>
-					  <li role="presentation"><a href="../pages/adminClients.php">Clients</a></li>
-					  <li role="presentation"><a href="../pages/adminClothes.php">Clothes</a></li>
-					  <li role="presentation" class="active"><a href="../pages/adminStaff.php">Staff</a></li>
-					  <li role="presentation"><a href="../pages/adminMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></a></li>
+						<li role="presentation"><a href="../pages/userHome.php">Profile</a></li>
+						<li role="presentation"><a href="../pages/userWardrobe.php">Wardrobe</a></li>
+						<li role="presentation"><a href="../pages/userLooks.php">Create Looks</a></li>
+						<li role="presentation"><a href="#">My Wish List</a></li>
+						<li role="presentation" class="active"><a href="../pages/userStylists.php">Stylists</a></li>
+						<li role="presentation"><a href="../pages/userMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></a></li>
 					</ul>
 				</nav>
 			</div>		
@@ -99,8 +99,8 @@
 									<thead>
 										<tr>
 										<th><span> Full name</span></th>
-										<th><span> Created</span></th>
-										<th class="text-center"><span>Status</span></th>
+										<th>&nbsp;</th>
+										<th>&nbsp;</th>
 										<th><span>Email</span></th>
 										<th>&nbsp;</th>
 										</tr>

@@ -2,7 +2,10 @@
 	require_once('../../src/config.php');
 	require_once('../../src/Session.php');
 	require_once (DIR_VIE.'messageView.php');
+	require_once (DIR_VIE.'userView.php');
 	$session = new Session();
+	$userView = new UserView();
+	$user = $userView->searchUsers("id",$_SESSION['userID'],'1');
 
 	/*
 	 * This block of code is important for the message feature to work. 
@@ -77,7 +80,7 @@
 				<nav class="navbar-default"  role="navigation">
 					<ul class="nav nav-pills nav-stacked">
 					  <li>
-						<img src="../assets/images/profilepicture.jpg" class="img-responsive" width="300px" height="400px"> 
+						<img src="../../<?php echo $user->getPicture(); ?>" class="img-responsive" width="300px" height="400px"> 
 					  <li role="presentation" class="active"><a href="../pages/adminHome.php">Profile</a></li>
 					  <li role="presentation" ><a href="../pages/adminManagement.php">Manage Website</a></li>
 					  <li role="presentation" ><a href="../pages/adminClients.php">Clients</a></li>

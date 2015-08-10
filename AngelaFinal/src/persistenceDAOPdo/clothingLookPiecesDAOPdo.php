@@ -3,7 +3,7 @@
 	require_once DIR_PDO.'connectionDAOPdo.php';
 	require_once DIR_MOD.'clothingLookPieces.php';
 
-class clothingLooksDAOPdo implements clothesLookPiecesDAO {
+class clothingLooksDAOPdo implements clothingLookPiecesDAO {
 
 	public function add($clothingLookPieces) {
 

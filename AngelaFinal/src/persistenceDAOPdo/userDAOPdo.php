@@ -58,7 +58,8 @@
 					postalCode = :pcode,
 					city = :city,
 					province = :province,
-					status = '2'
+					status = '2',
+					picture = :picture
 					WHERE id = :id");
 				$stmt->bindParam(':fname', $user->getFirstName());
 				$stmt->bindParam(':lname', $user->getLastName());
@@ -67,6 +68,7 @@
 				$stmt->bindParam(':city', $user->getCity());
 				$stmt->bindParam(':province', $user->getProvince());
 				$stmt->bindParam(':id', $user->getIdUser());   // Bind "$email" to parameter.
+				$stmt->bindParam(':picture', $user->getPicture());
 				
 				$stmt->execute();    // Execute the prepared query.
 				echo var_dump($stmt);
@@ -129,6 +131,9 @@
 				$user->setProvince($row['province']);
 				$user->setAdministratorID($row['administratorID']);
 				$user->setStatus($row['status']);
+				$user->setSalt($row['salt']);
+				$user->setPicture($row['picture']);
+				$user->setTimeCreated($row['timeCreated']);
 				$usersList->append($user);
 			}
 
@@ -160,6 +165,8 @@
 				$user->setAdministratorID($row['administratorID']);
 				$user->setStatus($row['status']);
 				$user->setSalt($row['salt']);
+				$user->setPicture($row['picture']);
+				$user->setTimeCreated($row['timeCreated']);
 				$usersList->append($user);
 			}
 			

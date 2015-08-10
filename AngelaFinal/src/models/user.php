@@ -15,6 +15,8 @@ class User{
     private $province;
     private $administratorID;
 	private $status;
+    private $picture;
+    private $timeCreated;
     
 	
     function getUserName() {
@@ -120,6 +122,22 @@ class User{
 
     function setAdministratorID($administratorID) {
         $this->administratorID = $administratorID;
+    }
+
+    public function getPicture() {
+        return $this->picture;
+    }
+    
+    public function setPicture($picture) {
+        $this->picture = $picture;
+    }
+
+    public function getTimeCreated() {
+        return $this->timeCreated;
+    }
+    
+    public function setTimeCreated($timeCreated) {
+        $this->timeCreated = $timeCreated;
     }
 }
 
