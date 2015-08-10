@@ -152,8 +152,6 @@ if (!empty($action)) {
 				
 				$user = $userView->searchUsers("email",$email,'1');
 
-				var_dump($user);
-				echo count($user);
 				
 				if(empty($user)) {
 					echo 'email nao existe na base de dados';
@@ -175,7 +173,7 @@ if (!empty($action)) {
 						if($_SESSION['loginCount']==3){
 							
 						}else{
-							$_SESSION['loginCOunt']+=1;
+							$_SESSION['loginCount']+=1;
 						}
 					}				
 				}				
