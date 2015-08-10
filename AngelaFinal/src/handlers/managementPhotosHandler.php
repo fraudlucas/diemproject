@@ -14,12 +14,20 @@
 	}elseif(isset($_POST['deletePhoto'])){
 		$action = $_POST['deletePhoto'];
 	}
+
+	$pageToReturn = isset($_GET['p']) ? $_GET['p'] : '';
+
+	$param = isset($_GET['param']) ? $_GET['param'] : '';
+	$param_value = isset($_GET[$param]) ? $_GET[$param] : '';
+	$param = $param . '=' . $param_value;
+
 if (!empty($action)) {
 	$managementView = new ManagementPhotosView();
 
     switch ($action) {
     	case 'addPhoto':
 			$target_dir = $_POST['target_dir'];
+			var_dump($target_dir);
 			$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 			$uploadOk = 1;
 			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -72,9 +80,9 @@ if (!empty($action)) {
     		$test = $managementView->addPhotos($management);
     		break;
 			
-		case 'deletePhoto':
+		case 'delete':
 			$management = new ManagementPhotos();
-			$managementlist = $managementView->searchPhotos('pageId',$_GET['b']);
+			$managementlist = $managementView->searchPhotos('pageId',$_GET['b'], '2');
 			
 			foreach ($managementlist as $row) {
 				$id = $row->getIdPhoto();
@@ -93,9 +101,9 @@ if (!empty($action)) {
 			
 			break;
 			
-		case 'Desactive':	
+		case 'deactivate':	
 			$management = new ManagementPhotos();
-			$managementlist = $managementView->searchPhotos('pageId',$_GET['b']);
+			$managementlist = $managementView->searchPhotos('pageId',$_GET['b'], '2');
 			
 			foreach ($managementlist as $row) {
 				$id = $row->getIdPhoto();
@@ -165,10 +173,10 @@ if (!empty($action)) {
     		$test = $managementView->updatePhotos($management);
 			break;
 			
-		case 'Active':
+		case 'activate':
 			
 			$management = new ManagementPhotos();
-			$managementlist = $managementView->searchPhotos('pageId',$_GET['b']);
+			$managementlist = $managementView->searchPhotos('pageId',$_GET['b'], '2	');
 			
 			foreach ($managementlist as $row) {
 				$id = $row->getIdPhoto();
@@ -184,6 +192,20 @@ if (!empty($action)) {
 			}
 			break;
     }
+
+    if (!empty($pageToReturn)) {
+		$header = "Location:  ../../web/pages/". $pageToReturn .".php";
+
+		var_dump($param);
+
+		if (isset($param)) {
+			$header = $header . '?' . $param;
+			var_dump($header);
+		}
+
+		header($header);
+		die();
+	}
 }
 
 ?>

@@ -17,45 +17,40 @@
 		
 		if($status == 1){
 			$code .='<div class="col-md-4">
-						<div class="radio">
-						<label><input type="radio"  id="'.$id.'" name="opt"></label>
+						<input type="checkbox"  id="'.$id.'" name="'.$id.'" style="margin-left: 70px;" value="Yes">
 						<a href="#" class="thumbnail">
 							<label for="'.$id.'"><img class="img-responsive" src="../../'.$path.'" style="width:150px;height:150px"></label>
 						</a>
-						</div>
 					</div>';
 		}elseif($status==0){
 			$code .='<div class="col-md-4">
-						<input type="checkbox"  id="'.$id.'" name="opt" style="margin-left: 70px; " value="Yes" checked>
+						<input type="checkbox"  id="'.$id.'" name="'.$id.'" style="margin-left: 70px;" value="Yes">
 						<a href="#" class="thumbnail">
-							<label for="'.$id.'"><img class="img-responsive" src="../../'.$path.'" style="width:150px;height:150px; opacity: 0.4;"></label>
+							<label for="'.$id.'"><img class="img-responsive" src="../../'.$path.'" style="width:150px;height:150px"></label>
 						</a>
 					</div>';
 		}
 		
 	}
 ?>
-<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
 <div class="row">
 	<div class="panel panel-default" >
-		<div class="panel-heading">Manage Page Photos
-			<span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
-		</div>
+		<div class="panel-heading">Manage Page Photos </div>
 		<div class="panel-body">
 			<div class="col-xs-9 col-md-6">
 				<div class="main-box no-header clearfix">
 					<div class="main-box-body clearfix">
 						<div class="table-responsive">
-							<form  role="form" action="../../src/handlers/managementPhotosHandler.php?a=updatePhoto&b=4&p=<?php echo $pageToReturn; ?>&param=t&t=5" method="post" enctype="multipart/form-data">
+							<form  role="form" action="../../src/handlers/managementPhotosHandler.php?a=addPhoto&b=4&p=<?php echo $pageToReturn; ?>&param=t&t=5" method="post" enctype="multipart/form-data">
 								<div class="form-group">
 									<label for="file">File</label>
 									<input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
 								</div>
 								<div class="form-group">
 									<label for="text">Subtitle</label>
-									<input type="text" name="photoSubtitle" id="photoSubtitle" class="form-control">
+									<input t type="text" name="photoSubtitle" id="photoSubtitle" class="form-control">
 								</div>
-								<input type="hidden" name="target_dir" id="target_dir" class="form-control" value="web/assets/img/mdtomeasureUs/">
+								<input type="hidden" name="target_dir" id="target_dir" class="form-control" value="web/assets/img/madeToMeasure/">
 								<button class="btn btn-info" name="submit" type="submit">Upload Image</button>
 							</form>
 						</div>
@@ -64,10 +59,11 @@
 			</div>
 			<div class="col-xs-9 col-md-6" style="height:100% overflow-y:auto">
 				<div class="row">
-					<form role="form" method="post">
-						
+					<form role="form" action="../../src/handlers/managementPhotosHandler.php?b=4&p=<?php echo $pageToReturn; ?>&param=t&t=5" method="post">
 						<?php echo $code;?>
-					
+						<input class="btn btn-info" name="deletePhoto" type="submit" value="delete"/>
+						<input class="btn btn-info" name="desactivePhoto" type="submit" value="deactivate"/>
+						<input class="btn btn-info" name="activePhoto" type="submit" value="activate"/>
 					</form>
 				</div>
 			</div>

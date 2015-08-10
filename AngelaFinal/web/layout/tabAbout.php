@@ -9,7 +9,13 @@
 	$aboutManagementContent = $aboutManagementContentView->searchContent('pageId','2','1');
 	$code = '';
 	$count = 0;
+	$aboutAction = 'addPhoto';
+
+	
 	foreach ($aboutPhotosList as $row) {
+		if (!empty($row)) {
+			$aboutAction = 'updatePhoto';
+		}
 		$path = $row->getPathPhoto();
 		$id = $row->getIdPhoto();
 		$subtitle = $row->getSubtitle();	
@@ -46,7 +52,7 @@
 				<div class="main-box no-header clearfix">
 					<div class="main-box-body clearfix">
 						<div class="table-responsive">
-							<form  role="form" action="../../src/handlers/managementPhotosHandler.php?a=updatePhoto&b=2&p=<?php echo $pageToReturn; ?>&param=t&t=1" method="post" enctype="multipart/form-data">
+							<form  role="form" action="../../src/handlers/managementPhotosHandler.php?a=<?php echo $aboutAction; ?>&b=2&p=<?php echo $pageToReturn; ?>&param=t&t=1" method="post" enctype="multipart/form-data">
 								<div class="form-group">
 									<label for="file">File</label>
 									<input type="file" name="fileToUpload" id="fileToUpload" class="form-control">

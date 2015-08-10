@@ -54,16 +54,16 @@
 		$code .='
 		<tr>
 			<td>
-					<a href="#" data-toggle="modal" data-target="#modalUserView" data-value="'.$id.'" class="user-link">'.$fname.' '.$lname.'</a>
+					<a href="#" title="Open Profile" data-toggle="modal" data-target="#modalUserView" data-value="'.$id.'" class="user-link">'.$fname.' '.$lname.'</a>
 			</td>
 			<td>2013/08/12</td>'
 			.$code2.'
 			<td>
-				<a href="#">'.$email.'</a>
+				<a href="#" title="Open Profile" data-toggle="modal" data-target="#modalUserView" data-value="'.$id.'" class="user-link">'.$email.'</a>
 			</td>
 			<td style="width: 20%;">
 
-				<a href="#" data-toggle="modal" data-target="#sendMessageModal" data-value="'.$id.'">
+				<a href="#" title="Message" data-toggle="modal" data-target="#sendMessageModal" data-value="'.$id.'">
 					<span class="fa-stack">
 						<i class="fa fa-square fa-stack-2x"></i>
 						<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
@@ -78,7 +78,7 @@
 					</span>
 				</a>
 				-->
-				<a href="../../src/handlers/userHandler.php?a=user'.$activate_action.'delete&id='.urlencode($id).'&p='.$pageToReturn.'" class="table-link danger">
+				<a href="../../src/handlers/userHandler.php?a=user'.$activate_action.'delete&id='.urlencode($id).'&p='.$pageToReturn.'" title="Deactivate" class="table-link danger">
 					<span class="fa-stack">
 						'.$activate.
 					'</span>

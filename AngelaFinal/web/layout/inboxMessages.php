@@ -32,10 +32,12 @@ foreach ($inboxList as $msg) {
 	$inReadOp = false;
 	$inClass = '';
 	$inGlyphRead = 'circle';
+	$inTitle = 'Mark as unread';
 
 	if (!$inRead) {
 		$inClass = 'class="active"';
 		$inGlyphRead = 'sign';
+		$inTitle = 'Mark as read';
 		$inReadOp = true;
 	}
 
@@ -45,7 +47,7 @@ foreach ($inboxList as $msg) {
 			<td><a href="#" id="topic'.$inId.'" data-toggle="modal" data-target="#inboxReadMessageModal" data-value="'.$inId.'">'.$inTopic.'</a></td>
 			<td><a href="#" id="messageDate'.$inId.'" data-toggle="modal" data-target="#inboxReadMessageModal" data-value="'.$inId.'">'.$inMessageDate.'</a></td>
 			<td>
-				<a id="inGlyph'.$inId.'" href="../../src/handlers/messageHandler.php?a=read&m='.$inId.'&r='.$inRead.'&p='.$pageToReturn.'&param=t&t=2">
+				<a title="'.$inTitle.'" id="inGlyph'.$inId.'" href="../../src/handlers/messageHandler.php?a=read&m='.$inId.'&r='.$inRead.'&p='.$pageToReturn.'&param=t&t=2">
 					<span class="glyphicon glyphicon-ok-'.$inGlyphRead.'"></span>
 				</a>
 			</td>

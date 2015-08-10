@@ -9,7 +9,13 @@
 	$ourteamManagementContent = $ourteamManagementContentView->searchContent('pageId','6','1');
 	$code = '';
 	$count = 0;
+	$ourteamAction = 'addPhoto';
+
+	
 	foreach ($ourteamPhotosList as $row) {
+		if (!empty($row)) {
+			$ourteamAction = 'updatePhoto';
+		}
 		$path = $row->getPathPhoto();
 		$id = $row->getIdPhoto();
 		$subtitle = $row->getSubtitle();	
@@ -17,18 +23,16 @@
 		
 		if($status == 1){
 			$code .='<div class="col-md-4">
-						<div class="radio">
-						<label><input type="radio"  id="'.$id.'" name="opt"></label>
+						<input type="radio"  id="'.$id.'" name="'.$id.'" style="margin-left: 70px;" value="Yes">
 						<a href="#" class="thumbnail">
 							<label for="'.$id.'"><img class="img-responsive" src="../../'.$path.'" style="width:150px;height:150px"></label>
 						</a>
-						</div>
 					</div>';
 		}elseif($status==0){
 			$code .='<div class="col-md-4">
-						<input type="checkbox"  id="'.$id.'" name="opt" style="margin-left: 70px; " value="Yes" checked>
+						<input type="radio"  id="'.$id.'" name="'.$id.'" style="margin-left: 70px;" value="Yes">
 						<a href="#" class="thumbnail">
-							<label for="'.$id.'"><img class="img-responsive" src="../../'.$path.'" style="width:150px;height:150px; opacity: 0.4;"></label>
+							<label for="'.$id.'"><img class="img-responsive" src="../../'.$path.'" style="width:150px;height:150px"></label>
 						</a>
 					</div>';
 		}
@@ -46,7 +50,7 @@
 				<div class="main-box no-header clearfix">
 					<div class="main-box-body clearfix">
 						<div class="table-responsive">
-							<form  role="form" action="../../src/handlers/managementPhotosHandler.php?a=updatePhoto&b=6&p=<?php echo $pageToReturn; ?>&param=t&t=2" method="post" enctype="multipart/form-data">
+							<form  role="form" action="../../src/handlers/managementPhotosHandler.php?a=<?php echo $ourteamAction; ?>&b=6&p=<?php echo $pageToReturn; ?>&param=t&t=2" method="post" enctype="multipart/form-data">
 								<div class="form-group">
 									<label for="file">File</label>
 									<input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
@@ -55,7 +59,7 @@
 									<label for="text">Subtitle</label>
 									<input type="text" name="photoSubtitle" id="photoSubtitle" class="form-control">
 								</div>
-								<input type="hidden" name="target_dir" id="target_dir" class="form-control" value="web/assets/img/ourteamUs/">
+								<input type="hidden" name="target_dir" id="target_dir" class="form-control" value="web/assets/img/ourTeam/">
 								<button class="btn btn-info" name="submit" type="submit">Upload Image</button>
 							</form>
 						</div>

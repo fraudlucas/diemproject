@@ -13,14 +13,14 @@
 		
 		if($status == 1){
 			$code .='<div class="col-md-4">
-						<input type="checkbox"  id="'.$id.'" name="'.$id.'" style="margin-left: 70px;" value="Yes" checked>
+						<input type="checkbox"  id="'.$id.'" name="'.$id.'" style="margin-left: 70px;" value="Yes">
 						<a href="#" class="thumbnail">
 							<label for="'.$id.'"><img class="img-responsive" src="../../'.$path.'" style="width:150px;height:150px"></label>
 						</a>
 					</div>';
 		}elseif($status==0){
 			$code .='<div class="col-md-4">
-						<input type="checkbox"  id="'.$id.'" name="'.$id.'" style="margin-left: 70px;" value="Yes" checked>
+						<input type="checkbox"  id="'.$id.'" name="'.$id.'" style="margin-left: 70px;" value="Yes">
 						<a href="#" class="thumbnail">
 							<label for="'.$id.'"><img class="img-responsive" src="../../'.$path.'" style="width:150px;height:150px"></label>
 						</a>
@@ -54,11 +54,11 @@
 			</div>
 			<div class="col-xs-9 col-md-6" style="height:100% overflow-y:auto">
 				<div class="row">
-					<form role="form" action="../../src/handlers/managementPhotosHandler.php?b=1" method="post">
+					<form role="form" action="../../src/handlers/managementPhotosHandler.php?b=1&p=<?php echo $pageToReturn; ?>&param=t&t=0" method="post">
 						<?php echo $code;?>
-						<input class="btn btn-info" name="deletePhoto" type="submit" value="deletePhoto"/>
-						<input class="btn btn-info" name="desactivePhoto" type="submit" value="Desactive"/>
-						<input class="btn btn-info" name="activePhoto" type="submit" value="Active"/>
+						<input class="btn btn-info" name="deletePhoto" type="submit" value="delete"/>
+						<input class="btn btn-info" name="desactivePhoto" type="submit" value="deactivate"/>
+						<input class="btn btn-info" name="activePhoto" type="submit" value="activate"/>
 					</form>
 				</div>
 			</div>
