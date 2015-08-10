@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2015 at 05:25 PM
+-- Generation Time: Aug 10, 2015 at 02:59 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -164,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `colors` (
 --
 
 INSERT INTO `colors` (`idColor`, `color`) VALUES
-(1, '#B3672D');
+(1, '#BDBDBD');
 
 -- --------------------------------------------------------
 
@@ -193,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `content` varchar(250) NOT NULL,
   `messageDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `read` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `messages`
@@ -201,8 +201,8 @@ CREATE TABLE IF NOT EXISTS `messages` (
 
 INSERT INTO `messages` (`id`, `fromUserID`, `toUserID`, `topic`, `content`, `messageDate`, `read`) VALUES
 (1, 2, 4, 'test', 'maybe it works', '2015-08-06 15:09:31', 1),
-(2, 5, 4, 'testing', 'testing', '2015-08-06 15:11:10', 0),
-(3, 5, 2, 'testing modal ', 'maybe it works on adminClient', '2015-08-04 23:03:36', 0),
+(2, 5, 4, 'testing', 'testing', '2015-08-06 15:11:10', 1),
+(3, 5, 2, 'testing modal ', 'maybe it works on adminClient', '2015-08-04 23:03:36', 1),
 (4, 2, 4, 'testing 2', 'maybe', '2015-08-06 14:21:43', 0),
 (5, 4, 2, 'asdas', 'dasdasd', '2015-08-04 23:03:05', 0),
 (6, 4, 5, 'asdhaoisdh', 'asdaspj', '2015-08-06 00:59:23', 1),
@@ -211,7 +211,8 @@ INSERT INTO `messages` (`id`, `fromUserID`, `toUserID`, `topic`, `content`, `mes
 (9, 2, 4, '', 'testing email', '2015-08-06 14:46:34', 1),
 (10, 2, 4, '', 'testing email', '2015-08-06 14:47:02', 0),
 (11, 4, 7, 'Sending test to Test Staff', 'Testing this message.', '2015-08-08 14:36:38', 0),
-(12, 4, 6, 'Sending test to Testing Staff', 'Testing messages', '2015-08-08 14:38:56', 0);
+(12, 4, 6, 'Sending test to Testing Staff', 'Testing messages', '2015-08-08 14:38:56', 0),
+(13, 2, 7, 'Testing User sending', 'MEssage for test staaff', '2015-08-10 11:21:00', 0);
 
 -- --------------------------------------------------------
 
@@ -232,11 +233,11 @@ CREATE TABLE IF NOT EXISTS `pagecontent` (
 
 INSERT INTO `pagecontent` (`id`, `pageID`, `variable`, `content`) VALUES
 (2, 1, 'content', '<div style="text-align: center;"><span style="color: inherit;">sdadsda</span></div>'),
-(5, 2, 'content', '<h3 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-top: 4px; margin-bottom: 10px; color: rgb(71, 81, 104); text-align: justify;"><b>Angela Mark: A Canadian Fashion Designer</b></h3><h4 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-bottom: 10px; color: rgb(121, 121, 121); text-align: justify;">Angela Mark Fashion Designs is a Canadian Company established in 1987, specializing in high quality clothing for busy professional women.</h4><h4 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-bottom: 10px; color: rgb(121, 121, 121); text-align: justify;">A Canadian fashion designer, originally from Montreal, Angelaâ€™s love for fashion was inspired from a very young age. Being tall posed fitting challenges for Angela, and when her clothing didnâ€™t fit well, she knew she didnâ€™t look her best and also felt awkward and uncomfortable. Angela found it frustrating and difficult to find simple, well cut clothes that fit properly.</h4><h4 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-bottom: 10px; color: rgb(121, 121, 121); text-align: justify;">Her desire to dress well, and ultimately, to look and feel great, evolved into a passion for beautiful fabrics, classic yet current styling, and a keen eye for quality, workmanship and details.</h4><h4 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-bottom: 10px; color: rgb(121, 121, 121); text-align: justify;">The realization that many women faced the same fitting challenges and desires for beautiful, quality clothing resulted in Angelaâ€™s decision to pursue a career in helping women feel great through clothing and styleâ€¦. Angela attended Ryerson Polytechnical Institute in Toronto, and in 1987, at 22 years of age, launched her own label.</h4>'),
-(6, 3, 'content', '\r\n						\r\n						Testimonials a test'),
-(7, 4, 'content', '\r\n						Testing made to measure. changing'),
-(8, 5, 'content', 'test ready to wear'),
-(9, 6, 'content', 'Testing our team');
+(5, 2, 'content', '<h3 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-top: 4px; margin-bottom: 10px; color: rgb(71, 81, 104); text-align: justify;"><b>Angela Mark: A Canadian Fashion Designer</b></h3><div><b><br /></b></div><h4 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-bottom: 10px; color: rgb(121, 121, 121); text-align: justify;">Angela Mark Fashion Designs is a Canadian Companyt established in 1987, specializing in high quality clothing for busy professional women.</h4><div><br /></div><h4 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-bottom: 10px; color: rgb(121, 121, 121); text-align: justify;">A Canadian fashion designer, originally from Montreal, Angelaâ€™s love for fashion was inspired from a very young age. Being tall posed fitting challenges for Angela, and when her clothing didnâ€™t fit well, she knew she didnâ€™t look her best and also felt awkward and uncomfortable. Angela found it frustrating and difficult to find simple, well cut clothes that fit properly.</h4><div><br /></div><h4 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-bottom: 10px; color: rgb(121, 121, 121); text-align: justify;">Her desire to dress well, and ultimately, to look and feel great, evolved into a passion for beautiful fabrics, classic yet current styling, and a keen eye for quality, workmanship and details.</h4><div><br /></div><h4 style="font-family: Lato, sans-serif; font-weight: 500; line-height: 1.1; margin-bottom: 10px; color: rgb(121, 121, 121); text-align: justify;">The realization that many women faced the same fitting challenges and desires for beautiful, quality clothing resulted in Angelaâ€™s decision to pursue a career in helping women feel great through clothing and styleâ€¦. Angela attended Ryerson Polytechnical Institute in Toronto, and in 1987, at 22 years of age, launched her own label.</h4>'),
+(6, 3, 'content', '\r\n						\r\n						Testimonials a test a testandoa'),
+(7, 4, 'content', '<div class="title" style="line-height: 22.3999996185303px;"><h4 class="text-center">Made to Measure:</h4><hr /></div><div class="pf-detail" style="line-height: 22.3999996185303px;"><p style="text-align: justify;">The valuable experience of working directly with her loyal and repeat clientele for many years as a personal stylist and designer of made to measure clothing, Angela has continually evolved, modified and improved her patterns and styling each season.</p><p style="text-align: justify;">Angela purchases beautiful fabrics and interprets her designs as reflections of her clienteleâ€™s beauty, personalities and expectations for that feeling that they get when they wear her designs.&nbsp;<br /><br />To meet with an Angela Mark Stylist or learn more about our Made to Measure services, please book an appointment.</p></div>'),
+(8, 5, 'content', '<h5 style="text-align: justify;">The Ready to Wear Collections that Angela now designs and manufacturers reflects the attention to detail and the fit that has become distinctive of her label. The result is beautiful clothing that can be purchased off the rack and looks and feels like it has been custom made!</h5>'),
+(9, 6, 'content', '<h5 style="text-align: justify;">FAVOURITE QUOTE:</h5><p style="line-height: 22.3999996185303px; text-align: justify;">â€œLorem ipsum dolor sit amet, consectetur adipiscing elit.â€ - Jane Doe</p><br style="line-height: 22.3999996185303px;" /><h5 style="text-align: justify;">THREE CHARACTERISTICS YOUâ€™RE BOUND TO LEARN QUICKLY:</h5><p style="line-height: 22.3999996185303px; text-align: justify;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br style="line-height: 22.3999996185303px;" /><h5 style="text-align: justify;">MY STORY:</h5><p style="line-height: 22.3999996185303px; text-align: justify;">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p><br style="line-height: 22.3999996185303px;" /><h5 style="text-align: justify;">I LOVE:</h5><p style="line-height: 22.3999996185303px; text-align: justify;">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>');
 
 -- --------------------------------------------------------
 
@@ -252,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `pagephotos` (
   `active` int(1) NOT NULL,
   `subtitle` varchar(80) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pagephotos`
@@ -264,7 +265,11 @@ INSERT INTO `pagephotos` (`id`, `path`, `pageId`, `date`, `active`, `subtitle`, 
 (3, 'web/assets/img/slides/3.jpg', 1, '2015-07-29 06:12:51', 1, '', NULL),
 (6, 'web/assets/img/slides/11708039_849061338511264_1481902462559700104_o.jpg', 1, '2015-07-29 07:48:22', 0, '', NULL),
 (8, 'web/assets/img/aboutUs/Angela2.png', 2, '2015-07-31 08:49:43', 1, 'tsasd', NULL),
-(9, 'web/assets/img/testimonials/1.jpg', 3, '2015-07-31 09:10:33', 1, 'Empower', 'photo test');
+(9, 'web/assets/img/testimonials/1.jpg', 3, '2015-07-31 09:10:33', 0, 'Empower', 'photo test'),
+(11, 'web/assets/img/ourTeam/profilepicture.jpg', 6, '2015-08-10 01:09:28', 1, 'sdfsdf sdf sd', NULL),
+(16, 'web/assets/img/readyToWear/3.jpg', 5, '2015-08-10 01:30:18', 1, 'asdasdasdasd', NULL),
+(17, 'web/assets/img/readyToWear/4.jpg', 5, '2015-08-10 01:30:27', 1, 'asdasdasd', NULL),
+(19, 'web/assets/img/madeToMeasure/11708039_849061338511264_1481902462559700104_o.jpg', 4, '2015-08-10 01:35:52', 1, 'sadasd', NULL);
 
 -- --------------------------------------------------------
 
@@ -391,20 +396,23 @@ CREATE TABLE IF NOT EXISTS `users` (
   `city` varchar(25) DEFAULT NULL,
   `province` char(2) DEFAULT NULL,
   `administratorID` int(10) unsigned NOT NULL DEFAULT '2',
-  `status` int(4) DEFAULT '3'
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  `status` int(4) DEFAULT '3',
+  `picture` varchar(200) NOT NULL DEFAULT 'web/assets/images/profilepicture.jpg',
+  `timeCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `salt`, `email`, `firstName`, `lastName`, `address`, `postalCode`, `city`, `province`, `administratorID`, `status`) VALUES
-(2, NULL, '$2y$07$VA1ZwZA5fZJGOFcELSZhBeuii0NdCP24Npg7QQS.XPDNG2ylUfA8C', 'T\rYÁ9}’F8W-&aùR¢Ÿ', 'thiago.evangelista@test.com', 'Thiago ', 'Evangelista', '836 Talwood Drive', 'K9J7G8', 'Peterborough', 'ON', 2, 2),
-(3, NULL, '$2y$07$VA1ZwZA5fZJGOFcELSZhBeuii0NdCP24Npg7QQS.XPD...', 'T\r\nYÁ9}’F8W-&aùR¢Ÿ\r\nt', 'admin@admin.com', 'Thi', 'Evan', NULL, NULL, NULL, NULL, 1, 3),
-(4, NULL, '$2y$07$2e4HSZdMZKLYt41TPPEjHOO0Ys1CAnbL5HU7YWBEFKd.soQgBCs6O', 'ÙîI—Ld¢Ø·S<ñ#–Š=†', 'admin2@admin.com', 'Admin ', 'Test ', 'Testing Street', 'T1TT1T', 'Testing', 'ON', 1, 2),
-(5, NULL, '$2y$07$BcfLaap4VH2oXupTJmeb7.Eplx80YY6fHmLsPdA3Dr1RkOS0cEREG', 'ÇËiªxT}¨^êS&g›ìä3Ý…¢', 'ricardo.vcr2@gmail.com', 'Ricardo', 'Remedio', NULL, NULL, NULL, NULL, 2, 2),
-(6, NULL, '$2y$07$MJnjgc/Ql.BbJW4XXJfbw.1C860KjlrOXlsC/CZIl/mM43Nu/sATO', '0™ãÏÐ—à[%n\\—ÛÃøIí‰^<', 'testing@staff.com', 'Testing Staff', 'Stylist', NULL, NULL, NULL, NULL, 3, 2),
-(7, NULL, '$2y$07$LFnIbvmbSt.91vudgFIcpu6w3LOUYfbPFcndMHaRojc/SKTjaBnPm', ',YÈnù›Jß½Öû€R§0ß¸hÛá', 'test@staff.com', 'Test', 'Staff', NULL, NULL, NULL, NULL, 3, 2);
+INSERT INTO `users` (`id`, `username`, `password`, `salt`, `email`, `firstName`, `lastName`, `address`, `postalCode`, `city`, `province`, `administratorID`, `status`, `picture`, `timeCreated`) VALUES
+(2, NULL, '$2y$07$VA1ZwZA5fZJGOFcELSZhBeuii0NdCP24Npg7QQS.XPDNG2ylUfA8C', 'T\rYÁ9}’F8W-&aùR¢Ÿ', 'thiago.evangelista@test.com', 'Thiago Lucas', 'Evangelista ', '836 Talwood Drive', 'K9J7G8', 'Peterborough', 'ON', 2, 2, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
+(3, NULL, '$2y$07$VA1ZwZA5fZJGOFcELSZhBeuii0NdCP24Npg7QQS.XPD...', 'T\r\nYÁ9}’F8W-&aùR¢Ÿ\r\nt', 'admin@admin.com', 'Thi', 'Evan', NULL, NULL, NULL, NULL, 1, 3, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
+(4, NULL, '$2y$07$2e4HSZdMZKLYt41TPPEjHOO0Ys1CAnbL5HU7YWBEFKd.soQgBCs6O', 'ÙîI—Ld¢Ø·S<ñ#–Š=†', 'admin2@admin.com', 'Admin  ', 'Testing  ', 'Testing Street', 'T1TT1T', 'Testing', 'ON', 1, 2, 'web/assets/img/profiles/4/Angela2.png', '2015-08-10 11:36:49'),
+(5, NULL, '$2y$07$BcfLaap4VH2oXupTJmeb7.Eplx80YY6fHmLsPdA3Dr1RkOS0cEREG', 'ÇËiªxT}¨^êS&g›ìä3Ý…¢', 'ricardo.vcr2@gmail.com', 'Ricardo', 'Remedio', NULL, NULL, NULL, NULL, 2, 2, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
+(6, NULL, '$2y$07$MJnjgc/Ql.BbJW4XXJfbw.1C860KjlrOXlsC/CZIl/mM43Nu/sATO', '0™ãÏÐ—à[%n\\—ÛÃøIí‰^<', 'testing@staff.com', 'Testing Staff', 'Stylist', NULL, NULL, NULL, NULL, 3, 2, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
+(7, NULL, '$2y$07$LFnIbvmbSt.91vudgFIcpu6w3LOUYfbPFcndMHaRojc/SKTjaBnPm', ',YÈnù›Jß½Öû€R§0ß¸hÛá', 'test@staff.com', 'Test', 'Staff', NULL, NULL, NULL, NULL, 3, 2, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
+(8, NULL, '$2y$07$GeuMVj.lEYANlVrSnm6IUOAN/P/dSrtjZ6cN/00/TDTIRgbJapWoW', 'ëŒV?¥€\r•ZÒžnˆP÷ÁÐ}', 'marcus_lucas12@outlook.com', 'Marcus Lucas', 'Falcao', 'Testing Street', 'T1QT2Q', 'Testing', 'ON', 2, 2, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49');
 
 -- --------------------------------------------------------
 
@@ -606,7 +614,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `pagecontent`
 --
@@ -616,7 +624,7 @@ ALTER TABLE `pagecontent`
 -- AUTO_INCREMENT for table `pagephotos`
 --
 ALTER TABLE `pagephotos`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `pages`
 --
@@ -646,7 +654,7 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `wishlists`
 --
