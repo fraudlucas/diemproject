@@ -6,6 +6,8 @@ interface ManagementContentDAO {
 	public function searchContent($param,$value,$type);
 	public function updateColor($color);
 	public function searchColor();
+	public function updateLogo($logo);
+	public function searchLogo();
 }
 
 ?>

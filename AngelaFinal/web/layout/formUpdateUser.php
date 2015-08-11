@@ -48,10 +48,10 @@
 				<span id="confirmMessage" class="confirmMessage"></span>
 
 				<label for="password">Password:</label>
-				<input type="password" class="form-control" id="password" name="password" placeholder="Password" required="TRUE">
+				<input type="password" class="form-control" id="password" name="password" placeholder="Password">
 
 				<label for="password2">Confirm Password:</label>
-				<input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password" onkeyup="checkPassword(); return false;" required="TRUE">
+				<input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password" onkeyup="checkPassword(); return false;">
 				<span id="confirmPasswordMessage" class="confirmMessage"></span>
 
 				<label for="address">Address:</label>

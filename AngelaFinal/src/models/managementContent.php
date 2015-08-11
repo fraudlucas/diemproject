@@ -8,6 +8,8 @@ class ManagementContent{
 	private $content;
 	private $color;
 	private $colorId;
+	private $logo;
+	private $logoId;
 	
 	function getIdContent(){
 		return $this->idContent;
@@ -55,6 +57,22 @@ class ManagementContent{
 	
 	function setIdColor($colorId){
 		$this->colorId=$colorId;
+	}
+
+	function getLogo(){
+		return $this->logo;
+	}
+	
+	function setLogo($logo){
+		$this->logo=$logo;
+	}
+
+	function getIdLogo(){
+		return $this->logoId;
+	}
+	
+	function setIdLogo($logoId){
+		$this->logoId=$logoId;
 	}
 
 }

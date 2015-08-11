@@ -10,6 +10,7 @@
 	$code = '';
 	$count = 0;
 	$ourteamAction = 'addPhoto';
+	$target_dir = 'web/assets/img/ourteam/';
 
 	
 	foreach ($ourteamPhotosList as $row) {

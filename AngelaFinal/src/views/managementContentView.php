@@ -39,6 +39,16 @@ class ManagementContentView{
 		$result = $this->managementContentController->searchColor();
 		return $result;
 	}
+
+	public function updateLogo($logo){
+		$result = $this->persistenceManagement->updateLogo($logo);
+		return $result;
+	}
+	
+	public function searchLogo(){
+		$result = $this->persistenceManagement->searchLogo();
+		return $result;
+	}
 }
 
  ?>

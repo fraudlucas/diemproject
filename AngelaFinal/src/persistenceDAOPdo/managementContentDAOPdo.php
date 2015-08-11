@@ -119,5 +119,44 @@ class ManagementContentDAOPdo implements ManagementContentDAO {
 			return false;
 		}
 	}
+
+	public function updateLogo($logo) {
+		$className = 'ConnectionDAOPdo';
+		
+		echo $color->getColor() . "noDAO";
+		try {		
+			$con = $className::getConnection();
+			$stmt = $con->prepare("UPDATE logos SET 
+				path = :path 				
+				WHERE id = 1");
+			$stmt->bindParam(':path', $logo->getLogo());
+	
+			$stmt->execute();    // Execute the prepared query.
+				
+			return true;
+		}
+		catch(PDOException $e){
+			echo $e;
+			return false;
+		}
+	}
+
+	public function searchLogo() {
+		$className = 'ConnectionDAOPdo';
+
+		$con = $className::getConnection();
+		$query = 'SELECT * FROM logos Where id = 1';
+		$stmt = $con->prepare($query);
+		$stmt->execute();
+		$result = $stmt->fetchAll();
+
+		foreach ($result as $row) {			
+			$management = new ManagementContent();
+			$management->setIdLogo($row['id']);
+			$management->setLogo($row['path']);
+		}
+			
+		return $management;
+	}
 }
 ?>

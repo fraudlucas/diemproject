@@ -10,7 +10,7 @@
 	$code = '';
 	$count = 0;
 	$aboutAction = 'addPhoto';
-
+	$target_dir = 'web/assets/img/about/';
 	
 	foreach ($aboutPhotosList as $row) {
 		if (!empty($row)) {

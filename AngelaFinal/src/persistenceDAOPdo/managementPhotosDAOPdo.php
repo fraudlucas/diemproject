@@ -57,7 +57,7 @@ class ManagementPhotosDAOPdo implements ManagementPhotosDAO {
 		try {
 			$con = $className::getConnection();
 			$stmt = $con->prepare("UPDATE pagephotos SET active = 1 WHERE id = :id");
-			$stmt->bindParam(':id', $id);   // Bind "$email" to parameter.
+			$stmt->bindParam(':id', $id);   
 			$stmt->execute();    // Execute the prepared query.
 			return true;
 		}
@@ -70,9 +70,11 @@ class ManagementPhotosDAOPdo implements ManagementPhotosDAO {
 		$className = 'ConnectionDAOPdo';		
 		try {
 			$con = $className::getConnection();
-			$stmt = $con->prepare("UPDATE pagephotos SET path = :path WHERE pageId = :pageid");
+			$stmt = $con->prepare("UPDATE pagephotos SET path = :path, subtitle = :subtitle, description = :description WHERE id = :id");
 			$stmt->bindParam(':path', $management->getPathPhoto()); 
-			$stmt->bindParam(':pageid', $management->getPageIdPhoto());   // Bind "$email" to parameter.
+			$stmt->bindParam(':subtitle', $management->getSubtitle()); 
+			$stmt->bindParam(':description', $management->getDescription()); 
+			$stmt->bindParam(':id', $management->getIdPhoto());  
 			$stmt->execute();    // Execute the prepared query.
 			return true;
 		}
@@ -89,6 +91,8 @@ class ManagementPhotosDAOPdo implements ManagementPhotosDAO {
 		$stmt = $con->prepare($query);
 		$stmt->execute();
 		$result = $stmt->fetchAll();
+
+		$management = '';
 
 		$managementsList = new ArrayObject();
 
