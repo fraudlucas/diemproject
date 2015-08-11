@@ -49,6 +49,8 @@
 								<div class="form-group">
 									<label for="text">Subtitle</label>
 									<input t type="text" name="photoSubtitle" id="photoSubtitle" class="form-control">
+									<label for="description">Description</label>
+									<textarea class="form-control" id="description" name="description" placeholder="Type the description here" rows="3"></textarea>
 								</div>
 								<input type="hidden" name="target_dir" id="target_dir" class="form-control" value="web/assets/img/madeToMeasure/">
 								<button class="btn btn-info" name="submit" type="submit">Upload Image</button>

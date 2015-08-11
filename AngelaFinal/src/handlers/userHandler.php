@@ -51,9 +51,9 @@ if (!empty($action)) {
 			
 		case 'updateUser':
 			if(isset($_POST['firstName'],$_POST['lastName'],$_POST['address'],$_POST['pcode'],$_POST['city'],$_POST['province'])){
-				$target_dir = $_POST['target_dir'];
+				$target_dir = (!empty($_POST['target_dir']) ? $_POST['target_dir'] : '');
 				$picture = '';
-				$filename = $_FILES["fileToUpload"]["name"];
+				$filename = (!empty($_FILES["fileToUpload"]["name"]) ? $_FILES["fileToUpload"]["name"] : '');
 				if (!empty($filename)) {
 					if (!file_exists(DIR_BASE.$target_dir)) {
 						mkdir(DIR_BASE.$target_dir, 0700, true);

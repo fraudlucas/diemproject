@@ -5,8 +5,8 @@
 	require_once (DIR_VIE.'managementContentView.php');
 	$manegementPhotosView = new ManagementPhotosView();
 	$managementContentView = new ManagementContentView();
-	$managementPhotos = $manegementPhotosView->searchPhotos('pageId','2','1');
-	$managementContent = $managementContentView->searchContent('pageId','2','1');
+	$managementPhotos = $manegementPhotosView->searchPhotos('pageId','6','1');
+	$managementContent = $managementContentView->searchContent('pageId','6','1');
 	$session = new Session();
 ?>
 <html lang="en">
@@ -102,8 +102,10 @@ p.description_content{
 				<div class="row">
 					<div class="container">
 						<div class="col-xs-12 col-md-9" style="float:right;">
+						<?php echo $managementContent->getContent(); ?>
+
 <!-- Quotes, stories and data of 1st person -->
-          <h5 ALIGN="justify"><b>FAVOURITE QUOTE:</b></h5>
+          <!-- <h5 ALIGN="justify"><b>FAVOURITE QUOTE:</b></h5>
 			<p ALIGN="justify">“Lorem ipsum dolor sit amet, consectetur adipiscing elit.” - Jane Doe</p><br>
 			
 			<h5 ALIGN="justify"><b>THREE CHARACTERISTICS YOU’RE BOUND TO LEARN QUICKLY:</b></h5>
@@ -114,7 +116,7 @@ p.description_content{
 
 					<h5 ALIGN="justify"><b>I LOVE:</b></h5>
 					<p ALIGN="justify">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><br>
-				<ul class="list-unstyled"></ul>
+				<ul class="list-unstyled"></ul> -->
 			<!-- End of quotes, stories and data of 1st person -->
         </div> 
       </div>

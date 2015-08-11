@@ -12,11 +12,12 @@ class ManagementPhotosDAOPdo implements ManagementPhotosDAO {
 		$className = 'ConnectionDAOPdo';
 		$con = $className::getConnection();
 
-		$stmt = $con->prepare("INSERT INTO pagephotos (path, pageId,subtitle,active)"
-                        . " VALUES (:path,:pageId, :subtitle, 1)");
+		$stmt = $con->prepare("INSERT INTO pagephotos (path, pageId,subtitle,description,active)"
+                        . " VALUES (:path,:pageId, :subtitle, :description, 1)");
 		$stmt->bindParam(':path', $management->getPathPhoto());
                 $stmt->bindParam(':pageId', $management->getPageIdPhoto());
             	$stmt->bindParam(':subtitle',  $management->getSubtitle());
+            	$stmt->bindParam(':description',  $management->getDescription());
                
 		$teste = $stmt->execute();
 
@@ -101,6 +102,7 @@ class ManagementPhotosDAOPdo implements ManagementPhotosDAO {
 			$management->setDates($row['date']);
 			$management->setActive($row['active']);
 			$management->setSubtitle($row['subtitle']);
+			$management->setDescription($row['description']);
 			
 			$managementsList->append($management);
 		}

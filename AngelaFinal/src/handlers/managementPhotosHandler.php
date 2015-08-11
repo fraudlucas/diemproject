@@ -76,6 +76,8 @@ if (!empty($action)) {
     		$management->setPathPhoto($str);
 			$management->setPageIdPhoto($_GET['b']);
 			$management->setSubtitle($_POST['photoSubtitle']);
+			$description = (!empty($_POST['description']) ? $_POST['description'] : '');
+			$management->setDescription($description);
 					
     		$test = $managementView->addPhotos($management);
     		break;
@@ -169,6 +171,8 @@ if (!empty($action)) {
     		$management->setPathPhoto($str);
 			$management->setPageIdPhoto($_GET['b']);
 			$management->setSubtitle($_POST['photoSubtitle']);
+			$description = (!empty($_POST['description']) ? $_POST['description'] : '');
+			$management->setDescription($description);
 					
     		$test = $managementView->updatePhotos($management);
 			break;

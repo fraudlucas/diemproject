@@ -86,7 +86,7 @@
 						<li role="presentation" class="active"><a href="../pages/userHome.php">Profile</a></li>
 						<li role="presentation"><a href="../pages/userWardrobe.php">Wardrobe</a></li>
 						<li role="presentation"><a href="../pages/userLooks.php">Create Looks</a></li>
-						<li role="presentation"><a href="#">My Wish List</a></li>
+						<!-- <li role="presentation"><a href="#">My Wish List</a></li> -->
 						<li role="presentation"><a href="../pages/userStylists.php">Stylists</a></li>
 						<li role="presentation"><a href="../pages/userMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></a></li>
 					</ul>

@@ -1,7 +1,27 @@
 <?php
 	require_once('../../src/config.php');
 	require_once('../../src/Session.php');
+	require_once (DIR_VIE.'userView.php');
 	$session = new Session();
+	$userView = new UserView();
+	$user = $userView->searchUsers("id",$_SESSION['userID'],'1');
+
+	$user_type = $user->getAdministratorID();
+
+	$pageToReturn = '';
+
+	switch ($user_type) {
+		case 1:
+			$pageToReturn = 'admin';
+			break;
+		case 3:
+			$pageToReturn = 'staff';
+			break;
+		
+		default:
+			$pageToReturn = 'user';
+			break;
+	}
 ?>
 <html lang="en">
 <head>
@@ -22,7 +42,7 @@
 				  <h2>Form control: input</h2>
 				  <p>The form below contains two input elements; one of type text and one of type password:</p>
 				  
-					<form role="form" action="../../src/handlers/userHandler.php?a=updateUser" method="post">
+					<form role="form" action="../../src/handlers/userHandler.php?a=updateUser&p=<?php echo $pageToReturn; ?>Home&param=t&t=1" method="post">
 						<div class="row">
 							<div class="col-xs-9 col-md-6">
 								<div class="form-group">

@@ -5,8 +5,8 @@
 	require_once (DIR_VIE.'managementContentView.php');
 	$manegementPhotosView = new ManagementPhotosView();
 	$managementContentView = new ManagementContentView();
-	$managementPhotos = $manegementPhotosView->searchPhotos('pageId','2','1');
-	$managementContent = $managementContentView->searchContent('pageId','2','1');
+	$managementPhotos = $manegementPhotosView->searchPhotos('pageId','3','2');
+	$managementContent = $managementContentView->searchContent('pageId','3','1');
 	$session = new Session();
 ?>
 <html lang="en">
@@ -104,8 +104,8 @@ p.description_content{
 				</div>
             </div>
         </div>
+
 		
-	</div>
 	<?php include( DIR_LAY.'footerPages.php') ?>
 	<?php include( DIR_LAY.'jsIncludesPages.php') ?>
 	<script src="../assets/js/editor.js"></script>

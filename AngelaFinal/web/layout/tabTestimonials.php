@@ -47,8 +47,10 @@
 									<input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
 								</div>
 								<div class="form-group">
-									<label for="text">Subtitle</label>
-									<input t type="text" name="photoSubtitle" id="photoSubtitle" class="form-control">
+									<label for="text">Client information</label>
+									<input type="text" name="photoSubtitle" id="photoSubtitle" class="form-control" placeholder="Client Information">
+									<label for="description">Testimonial</label>
+									<textarea class="form-control" id="description" name="description" placeholder="Type the testimonial here" rows="3"></textarea>
 								</div>
 								<button class="btn btn-info" name="submit" type="submit">Upload Image</button>
 							</form>

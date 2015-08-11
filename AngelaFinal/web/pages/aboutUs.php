@@ -112,7 +112,7 @@ p.description_content{
 	</div>
 	
 <!--container 2 start-->
-<div class="container">
+<!-- <div class="container">
     <div class="row">
 		<div class="col-lg-7 about wow fadeInRight">
 			<h3 ALIGN="justify"><b>Why choose us?</b></h3>
@@ -134,15 +134,15 @@ p.description_content{
               Angela Mark's team
             </small>
 			</blockquote>
-        </div> 
-        <div class="col-lg-5">
+        </div>  -->
+        <!-- <div class="col-lg-5">
 			<div class="about-carousel wow fadeInLeft">
-				<div id="myCarousel" class="carousel slide" data-interval="7000" class="carousel slide"  data-ride="carousel" Style= "width:350px; height:410px; margin-right:-30px; " >
+				<div id="myCarousel" class="carousel slide" data-interval="7000" class="carousel slide"  data-ride="carousel" Style= "width:350px; height:410px; margin-right:-30px; " > -->
 				<!-- Carousel items -->
-				<div class="carousel-inner">
-					<div class="active item">
+				<!-- <div class="carousel-inner">
+					<div class="active item"> -->
 						<!-- <img src="html5.gif" alt="HTML5 Icon" style="width:128px;height:128px;"> -->				
-						<img src="../../web/assets/img/aboutUs/1.jpeg" alt="">
+						<!-- <img src="../../web/assets/img/aboutUs/1.jpeg" alt="">
 						<div class="carousel-caption">
 						<p>
 						Exclusivity
@@ -150,14 +150,14 @@ p.description_content{
 					</div>
                 </div>
 
-            </div>
+            </div> -->
               <!-- Carousel nav -->
-			  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="icon-prev  fa fa-angle-left"></i></a>
+			  <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="icon-prev  fa fa-angle-left"></i></a>
                         <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="icon-next fa fa-angle-right"></i></a>
-            </div>
-		</div>
+            </div> 
+		</div> 
     </div>
-</div>
+</div>-->
 
 	
 	<?php include( DIR_LAY.'footerPages.php') ?>
