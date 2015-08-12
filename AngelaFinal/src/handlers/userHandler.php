@@ -150,6 +150,8 @@ if (!empty($action)) {
 				$pcode = filter_var ($_POST['pcode'],FILTER_SANITIZE_STRING);
 				$city = filter_var ($_POST['city'],FILTER_SANITIZE_STRING);
 				$province = filter_var ($_POST['province'],FILTER_SANITIZE_STRING);
+				$password = filter_var ($_POST['password'], FILTER_SANITIZE_STRING);
+				$salt = "";
 
 				$user = $userView->searchUsers("id",$_SESSION['userID'],'1');
 
@@ -160,6 +162,18 @@ if (!empty($action)) {
 				$city = (!empty($city) ? $city : $user->getCity());
 				$province = (!empty($province) ? $province : $user->getProvince());
 				$picture = (!empty($picture) ? $picture : $user->getPicture());
+
+				if (!empty($password)) {
+					echo "entrou no if";
+					
+					$options = ['cost' => 7,'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),];				
+					$password =  password_hash($password,PASSWORD_BCRYPT, $options);
+					$salt = $options['salt'];
+				}else{
+					echo "entrou  no else";
+					$password = $user->getPassword();
+					$salt  = $user->getSalt();
+				}
 				
 				$user->setIdUser($_SESSION['userID']);
 				$user->setFirstName($fname);
@@ -169,6 +183,8 @@ if (!empty($action)) {
 				$user->setPostalCode($pcode);
 				$user->setProvince($province);
 				$user->setPicture($picture);
+				$user->setPassword($password);
+				$user->setSalt($salt);
 		
 				$result = $userView->updateUser($user);
 				var_dump($result);

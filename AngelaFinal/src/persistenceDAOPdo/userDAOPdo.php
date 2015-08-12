@@ -59,7 +59,9 @@
 					city = :city,
 					province = :province,
 					status = '2',
-					picture = :picture
+					picture = :picture,
+					password = :password,
+					salt = :salt
 					WHERE id = :id");
 				$stmt->bindParam(':fname', $user->getFirstName());
 				$stmt->bindParam(':lname', $user->getLastName());
@@ -69,6 +71,8 @@
 				$stmt->bindParam(':province', $user->getProvince());
 				$stmt->bindParam(':id', $user->getIdUser());   // Bind "$email" to parameter.
 				$stmt->bindParam(':picture', $user->getPicture());
+				$stmt->bindParam(':password', $user->getPassword());
+				$stmt->bindParam(':salt', $user->getSalt());
 				
 				$stmt->execute();    // Execute the prepared query.
 				echo var_dump($stmt);
