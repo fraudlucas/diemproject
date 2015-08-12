@@ -16,6 +16,45 @@ if (!empty($action)) {
 	$userView = new UserView();
 
     switch ($action) {
+    	case 'recoveryPassword':
+			if(isset($_POST['email'])){
+				$email =  filter_var($_POST['email'],FILTER_SANITIZE_EMAIL);
+
+				$user = $userView->searchUsers("email",$email,'1');
+
+				if(empty($user)) {
+					echo 'email nao existe na base de dados';
+				} else {
+
+					$password = rand(100000,9999999);
+					$key = $password;
+					$options = ['cost' => 7,'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),];				
+					$password =  password_hash($password,PASSWORD_BCRYPT, $options);
+					$salt = $options['salt'];
+					$message = 'Your new password is'. $key ;
+					$test = mail($email, 'password changes', $message);
+					
+					if ($test) {
+						echo 'funfou';
+					}else{
+						echo 'pqp';
+					}
+
+					var_dump($test); 
+					echo $key;
+					
+					$user = new User();
+
+					$user->setEmail($email);
+					$user->setPassword($password);
+					$user->setSalt($salt);
+				var_dump($user);
+
+					$result = $userView->recoveryPassword($user);
+			}
+		}
+			break;
+
 		case 'registration':
 			if(isset($_POST['firstName'],$_POST['lastName'],$_POST['email'],$_POST['password'])){
 				

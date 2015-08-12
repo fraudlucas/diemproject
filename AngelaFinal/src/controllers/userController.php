@@ -50,6 +50,10 @@ class UserController {
 		$activateUser = $this->persistenceUser->activateUser($id);
 		return $activateUser;
 	}
+	public function recoveryPassword($user){
+		$result  = $this->persistenceUser->recoveryPassword($user);
+		return $result;
+	}
 
 }
 

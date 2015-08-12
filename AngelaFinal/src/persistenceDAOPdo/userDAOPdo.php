@@ -207,28 +207,26 @@
 				
 		}
 	
-		public function recoveryPassword($email){// gera  a hash
+		
+
+		public function recoveryPassword($user){
 			$className = 'ConnectionDAOPdo';
 			$con = $className::getConnection();
-
-			$key = sha1(uniqid(mt_rand(),true));
-
-			$stmt = $con->prepare("INSERT INTO  passwordRecovery (userMail, confirmation) VALUES (:userMail, :confirmation)");
-			$stmt->bindParam(':userMail', $email);
-			$stmt->bindParam(':confirmation', $key);
+			try{
+			
+			$stmt = $con->prepare("UPDATE users SET  password  = :password, salt = :salt where email = :email");
+			$stmt->bindParam(':email', $user->getEmail());
+			$stmt->bindParam(':password', $user->getPassword());
+			$stmt->bindParam(':salt', $user->getSalt());
 			
 			$res = $stmt->execute();
+			return 'sucess' . $res;
+			}
+			catch(PDOException $e){
+				echo $e;
+				return false;
+			}
 			
-			return 'sucess' . $re;
-
-		}
-
-		public function changePassword($user, $linkHash){
-			$className = 'ConnectionDAOPdo';
-			$con = $className::getConnection();
-
-			// terminar esse metodo pra torocar  password 
-
 
 		}
 

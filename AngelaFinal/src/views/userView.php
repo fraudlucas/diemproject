@@ -53,7 +53,10 @@ class UserView
 		$activateUser = $this->userController->activateUser($id);
 		return $activateUser;
 	}	
-
+	public function recoveryPassword($user){
+		$result = $this->userController->recoveryPassword($user);
+		return $result;
+	}
 }
 
  ?>

@@ -64,7 +64,8 @@ $logo = $layoutManagementContentView->searchLogo()->getLogo();
 									</div>
 								</div>
 							</form>
-						</li>
+						      <!-- <a href="#" data-toggle="modal" data-target="#myRecovery">Forgot Password?</a> -->
+                        </li>
                     </ul>					
                 </div>
             </div>

@@ -8,7 +8,7 @@ interface UserDAO {
 	public function searchUsers($param,$value,$type);
 	public function deleteUser($id);
 	public function activateUser($id);
-	public function recoveryPassword($email);
+	public function recoveryPassword($user);
 }
 
 ?>
