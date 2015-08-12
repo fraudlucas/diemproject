@@ -1,4 +1,13 @@
+<?php 
 
+require_once('./src/config.php');
+
+require_once (DIR_VIE.'managementContentView.php');
+
+$layoutManagementContentView = new ManagementContentView();
+$logo = $layoutManagementContentView->searchLogo()->getLogo();
+
+?>
 	<!-- start header -->
 	
 	<header>
@@ -11,12 +20,12 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="./index.php">
-						<img src="./web/assets/images/logo2.png">
+						<img src="./<?php echo $logo; ?>">
 					</a>
                 </div>
                 <div class="navbar-collapse collapse " id="navbar-main">
 					<div>
-						<button class="btn btn-theme" Style=" transform: rotate(90deg); cursor: pointer; right:-57px; top:0px; margin-top:350px; z-index:999997; position:fixed;" data-direction='left' data-toggle="modal" data-target="#myBook")">Book Appointment</button> 
+						<button class="btn btn-theme" Style=" transform: rotate(90deg); cursor: pointer; right:-57px; top:0px; margin-top:350px; z-index:999997; position:fixed;" data-direction='left' data-toggle="modal" data-target="#myBook">Book Appointment</button> 
 					</div>
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="./index.php">Home</a></li>

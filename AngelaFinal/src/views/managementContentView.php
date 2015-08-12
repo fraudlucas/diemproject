@@ -41,12 +41,12 @@ class ManagementContentView{
 	}
 
 	public function updateLogo($logo){
-		$result = $this->persistenceManagement->updateLogo($logo);
+		$result = $this->managementContentController->updateLogo($logo);
 		return $result;
 	}
 	
 	public function searchLogo(){
-		$result = $this->persistenceManagement->searchLogo();
+		$result = $this->managementContentController->searchLogo();
 		return $result;
 	}
 }

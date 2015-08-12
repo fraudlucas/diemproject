@@ -84,7 +84,7 @@
 							<li class="<?php echo $array[3] ?>"><a href="#testimonials" data-toggle="tab">Testimonials</a></li>
 							<li class="<?php echo $array[4] ?>"><a href="#rdytowear" data-toggle="tab">Ready To Wear</a></li>
 							<li class="<?php echo $array[5] ?>"><a href="#mdtomeasure" data-toggle="tab">Made To Measure</a></li>
-							<li class="<?php echo $array[6] ?>"><a href="#colors" data-toggle="tab">Colors</a></li>
+							<li class="<?php echo $array[6] ?>"><a href="#layout" data-toggle="tab">Layout</a></li>
 						</ul>
 						<div class="tab-content" >
 							<div class="tab-pane fade in <?php echo $array[0] ?>" id="home">						
@@ -105,7 +105,7 @@
 							<div class="tab-pane <?php echo $array[5] ?>" id="mdtomeasure">
 								<?php include( DIR_LAY.'tabMadeToMeasure.php') ;?>
 							</div>
-							<div class="tab-pane <?php echo $array[6] ?>" id="colors">
+							<div class="tab-pane <?php echo $array[6] ?>" id="layout">
 								<?php include( DIR_LAY.'tabColors.php') ;?>
 							</div>
 						</div>

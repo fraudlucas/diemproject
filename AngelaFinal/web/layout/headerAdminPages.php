@@ -1,4 +1,11 @@
+<?php 
+require_once('../../src/config.php');
+require_once (DIR_VIE.'managementContentView.php');
 
+$layoutManagementContentView = new ManagementContentView();
+$logo = $layoutManagementContentView->searchLogo()->getLogo();
+
+?>
 	<!-- start header -->
 	<header>
         <div class="navbar navbar-default navbar-fixed-top">
@@ -10,7 +17,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="../../index.php">
-						<img src="../../web/assets/images/logo2.png">
+						<img src="../../<?php echo $logo; ?>">
 					</a>
                 </div>
                 <div class="navbar-collapse collapse " id="navbar-main">

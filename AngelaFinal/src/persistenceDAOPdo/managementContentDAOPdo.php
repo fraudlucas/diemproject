@@ -88,6 +88,7 @@ class ManagementContentDAOPdo implements ManagementContentDAO {
 		$stmt = $con->prepare($query);
 		$stmt->execute();
 		$result = $stmt->fetchAll();
+		$management = '';
 
 		foreach ($result as $row) {			
 			$management = new ManagementContent();
@@ -123,7 +124,6 @@ class ManagementContentDAOPdo implements ManagementContentDAO {
 	public function updateLogo($logo) {
 		$className = 'ConnectionDAOPdo';
 		
-		echo $color->getColor() . "noDAO";
 		try {		
 			$con = $className::getConnection();
 			$stmt = $con->prepare("UPDATE logos SET 
@@ -149,6 +149,7 @@ class ManagementContentDAOPdo implements ManagementContentDAO {
 		$stmt = $con->prepare($query);
 		$stmt->execute();
 		$result = $stmt->fetchAll();
+		$management = '';
 
 		foreach ($result as $row) {			
 			$management = new ManagementContent();
