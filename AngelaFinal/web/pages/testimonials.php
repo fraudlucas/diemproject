@@ -5,8 +5,8 @@
 	require_once (DIR_VIE.'managementContentView.php');
 	$manegementPhotosView = new ManagementPhotosView();
 	$managementContentView = new ManagementContentView();
-	$managementPhotos = $manegementPhotosView->searchPhotos('pageId','3','2');
-	$managementContent = $managementContentView->searchContent('pageId','3','1');
+    $pageId = '3';
+	$managementContent = $managementContentView->searchContent('pageId',$pageId,'1');
 	$session = new Session();
 ?>
 <html lang="en">
@@ -36,6 +36,7 @@ p.description_content{
     margin:0px;  
 }  
 </style>
+<link href="<?php echo DIR_AST; ?>css/one-page-wonder.css" rel="stylesheet">
 </head>
 <body>
 <?php include( DIR_LAY.'modalBook.php');?>
@@ -83,26 +84,9 @@ p.description_content{
             </div>
         </div>
  
-		<!-- Slider has been changed -->
-		<div class="container">
-            <div class="row mar-b-50">
-                <div class="col-md-12">
-                    <div id="carousel-example" data-interval="6000" class="carousel slide"
-                    data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <!-- <img src="images/url.jpg"> -->
-								<?php include( DIR_LAY.'slider2.php') ?>                               
-                            </div>
-						<div class="item">
-                                <?php include( DIR_LAY.'slider2.php') ?>                               
-                            </div>
-                        </div>
-                        <a class="left carousel-control" href="#carousel-example" data-slide="prev"><i class="icon-prev  fa fa-angle-left"></i></a>
-                        <a class="right carousel-control" href="#carousel-example" data-slide="next"><i class="icon-next fa fa-angle-right"></i></a>
-                    </div>
-				</div>
-            </div>
+		
+        <div class="container">
+            <?php include(DIR_LAY.'listContent.php'); ?>
         </div>
 
 		

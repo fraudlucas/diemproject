@@ -8,6 +8,7 @@ class ManagementPhotos{
 	private $dates;
 	private $active;
 	private $subtitle;
+	private $description;
 	
 		
 	function getIdPhoto(){
@@ -57,7 +58,14 @@ class ManagementPhotos{
 	function setSubtitle($subtitle){
 		$this->subtitle=$subtitle;
 	}
-		
+	
+	public function getDescription() {
+	    return $this->description;
+	}
+	
+	public function setDescription($description) {
+	    $this->description = $description;
+	}
 }
 
 ?>

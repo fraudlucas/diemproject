@@ -65,9 +65,9 @@
 								</div>
 								<div class="form-group">
 									<label for="text">Subtitle</label>
-									<input t type="text" name="photoSubtitle" id="photoSubtitle" class="form-control">
+									<input t type="text" name="photoSubtitle" id="photoSubtitle" class="form-control" placeholder="Subtitle" maxlength="80">
 									<label for="description">Description</label>
-									<textarea class="form-control" id="description" name="description" placeholder="Type the description here" rows="3"></textarea>
+									<textarea class="form-control" id="description" name="description" placeholder="Type the description here" rows="3" maxlength="200"></textarea>
 								</div>
 								<input type="hidden" name="target_dir" id="target_dir" class="form-control" value="<?php echo $target_dir; ?>">
 								<button class="btn btn-info" name="submit" type="submit">Upload Image</button>
@@ -112,9 +112,9 @@
 					</div>
 					<div class="form-group">
 						<label for="text">Subtitle</label>
-						<input type="text" name="photoSubtitle" id="indexPhotoSubtitle" class="form-control">
+						<input type="text" name="photoSubtitle" id="indexPhotoSubtitle" class="form-control" placeholder="Subtitle" maxlength="80">
 						<label for="description">Description</label>
-						<textarea class="form-control" id="indexDescription" name="description" placeholder="Type the description here" rows="3"></textarea>
+						<textarea class="form-control" id="indexDescription" name="description" placeholder="Type the description here" rows="3" maxlength="200"></textarea>
 					</div>
 					<input type="hidden" name="target_dir" id="indexTarget_dir" class="form-control" value="">
 					<input type="hidden" name="id" id="indexId" class="form-control" value="">

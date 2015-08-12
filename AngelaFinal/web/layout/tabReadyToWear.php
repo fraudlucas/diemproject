@@ -37,12 +37,12 @@
 						<span class="label label-danger">Inactive</span>
 						';
 		}
-		$code .= '<a href="#" title="Edit Picture" data-toggle="modal" data-target="#indexEditPictureModal" data-value="'.$id.'">
+		$code .= '<a href="#" title="Edit Picture" data-toggle="modal" data-target="#readyToWearEditPictureModal" data-value="'.$id.'">
 							<span class="fa-stack">
 								<i class="fa fa-square fa-stack-2x"></i>
 								<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 							</span>
-						</a>
+						</a>	
 					</div>
 					';
 		$code.='<input type="hidden" id="subtitle'.$id.'" name="subtitle'.$id.'" value="'.$subtitle.'">
@@ -70,9 +70,9 @@
 								</div>
 								<div class="form-group">
 									<label for="text">Subtitle</label>
-									<input t type="text" name="photoSubtitle" id="photoSubtitle" class="form-control">
+									<input t type="text" name="photoSubtitle" id="photoSubtitle" class="form-control" placeholder="Subtitle" maxlength="80">
 									<label for="description">Description</label>
-									<textarea class="form-control" id="description" name="description" placeholder="Type the description here" rows="3"></textarea>
+									<textarea class="form-control" id="description" name="description" placeholder="Type the description here" rows="3" maxlength="200"></textarea>
 								</div>
 								<input type="hidden" name="target_dir" id="target_dir" class="form-control" value="web/assets/img/readyToWear/">
 								<button class="btn btn-info" name="submit" type="submit">Upload Image</button>
@@ -157,10 +157,10 @@
 
 						  </div>
 						  
-						  <div class="btn-group">
+						  <!-- <div class="btn-group">
 							<a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="icon-picture"></i></a>
 							<input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
-						  </div>
+						  </div> -->
 						  <div class="btn-group">
 							<a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
 							<a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
@@ -205,9 +205,9 @@
 					</div>
 					<div class="form-group">
 						<label for="text">Subtitle</label>
-						<input type="text" name="photoSubtitle" id="readyToWearPhotoSubtitle" class="form-control">
+						<input type="text" name="photoSubtitle" id="readyToWearPhotoSubtitle" class="form-control" placeholder="Subtitle" maxlength="80">
 						<label for="description">Description</label>
-						<textarea class="form-control" id="readyToWearDescription" name="description" placeholder="Type the description here" rows="3"></textarea>
+						<textarea class="form-control" id="readyToWearDescription" name="description" placeholder="Type the description here" rows="3" maxlength="200"></textarea>
 					</div>
 					<input type="hidden" name="target_dir" id="readyToWearTarget_dir" class="form-control" value="">
 					<input type="hidden" name="id" id="readyToWearId" class="form-control" value="">

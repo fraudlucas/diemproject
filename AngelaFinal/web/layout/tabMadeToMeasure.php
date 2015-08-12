@@ -9,71 +9,56 @@
 	$mdtomeasureManagementContent = $mdtomeasureManagementContentView->searchContent('pageId','4','1');
 	$code = '';
 	$count = 0;
+	$madeToMeasureAction = 'addPhoto';
 	$target_dir = 'web/assets/img/madeToMeasure/';
 
-
+	
 	foreach ($mdtomeasurePhotosList as $row) {
+		if (!empty($row)) {
+			$madeToMeasureAction = 'updatePhoto';
+		}
 		$path = $row->getPathPhoto();
 		$id = $row->getIdPhoto();
-		$subtitle = $row->getSubtitle();
-		$description = $row->getDescription();	
+		$subtitle = $row->getSubtitle();	
 		$status = $row->getActive();
 		
 		if($status == 1){
 			$code .='<div class="col-md-4">
-						<input type="checkbox"  id="'.$id.'" name="'.$id.'" style="margin-left: 70px;" value="Yes">
+						<input type="radio"  id="'.$id.'" name="'.$id.'" style="margin-left: 70px;" value="Yes">
 						<a href="#" class="thumbnail">
 							<label for="'.$id.'"><img class="img-responsive" src="../../'.$path.'" style="width:150px;height:150px"></label>
-							
 						</a>
-						<span class="label label-success">Active</span>
-						';
+					</div>';
 		}elseif($status==0){
 			$code .='<div class="col-md-4">
-						<input type="checkbox"  id="'.$id.'" name="'.$id.'" style="margin-left: 70px;" value="Yes">
+						<input type="radio"  id="'.$id.'" name="'.$id.'" style="margin-left: 70px;" value="Yes">
 						<a href="#" class="thumbnail">
 							<label for="'.$id.'"><img class="img-responsive" src="../../'.$path.'" style="width:150px;height:150px"></label>
-							
 						</a>
-						<span class="label label-danger">Inactive</span>
-						';
+					</div>';
 		}
-		$code .= '<a href="#" title="Edit Picture" data-toggle="modal" data-target="#madeToMeasureEditPictureModal" data-value="'.$id.'">
-							<span class="fa-stack">
-								<i class="fa fa-square fa-stack-2x"></i>
-								<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-							</span>
-						</a>
-					</div>
-					';
-		$code.='<input type="hidden" id="subtitle'.$id.'" name="subtitle'.$id.'" value="'.$subtitle.'">
-					<input type="hidden" id="description'.$id.'" name="description'.$id.'" value="'.$description.'">
-					<input type="hidden" id="status'.$id.'" name="status'.$id.'" value="'.$status.'">
-					<input type="hidden" id="path'.$id.'" name="path'.$id.'" value="../../'.$path.'">
-					<input type="hidden" id="id'.$id.'" name="id'.$id.'" value="../../'.$path.'">
-					<input type="hidden" name="target_dir'.$id.'" id="target_dir'.$id.'" value="'.$target_dir.'">
-					';
 		
 	}
 ?>
+<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
 <div class="row">
 	<div class="panel panel-default" >
-		<div class="panel-heading">Manage Page Photos </div>
+		<div class="panel-heading">Manage Page Photos
+			<span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+		</div>
 		<div class="panel-body">
 			<div class="col-xs-9 col-md-6">
 				<div class="main-box no-header clearfix">
 					<div class="main-box-body clearfix">
 						<div class="table-responsive">
-							<form  role="form" action="../../src/handlers/managementPhotosHandler.php?a=addPhoto&b=4&p=<?php echo $pageToReturn; ?>&param=t&t=5" method="post" enctype="multipart/form-data">
+							<form  role="form" action="../../src/handlers/managementPhotosHandler.php?a=<?php echo $madeToMeasureAction; ?>&b=4&p=<?php echo $pageToReturn; ?>&param=t&t=2" method="post" enctype="multipart/form-data">
 								<div class="form-group">
 									<label for="file">File</label>
 									<input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
 								</div>
 								<div class="form-group">
 									<label for="text">Subtitle</label>
-									<input t type="text" name="photoSubtitle" id="photoSubtitle" class="form-control">
-									<label for="description">Description</label>
-									<textarea class="form-control" id="description" name="description" placeholder="Type the description here" rows="3"></textarea>
+									<input type="text" name="photoSubtitle" id="photoSubtitle" class="form-control" placeholder="Subtitle" maxlength="80">
 								</div>
 								<input type="hidden" name="target_dir" id="target_dir" class="form-control" value="web/assets/img/madeToMeasure/">
 								<button class="btn btn-info" name="submit" type="submit">Upload Image</button>
@@ -83,17 +68,13 @@
 				</div>
 			</div>
 			<div class="col-xs-9 col-md-6" style="height:100% overflow-y:auto">
-				<form role="form" action="../../src/handlers/managementPhotosHandler.php?b=4&p=<?php echo $pageToReturn; ?>&param=t&t=5" method="post">
-					<div class="row">
-						<?php echo $code;?>
-					</div>
+				<div class="row">
+					<form role="form" method="post">
 						
-					<div class="row">
-						<input class="btn btn-info" name="deletePhoto" type="submit" value="delete"/>
-						<input class="btn btn-info" name="desactivePhoto" type="submit" value="deactivate"/>
-						<input class="btn btn-info" name="activePhoto" type="submit" value="activate"/>
-					</div>
-				</form>
+						<?php echo $code;?>
+					
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -158,10 +139,10 @@
 
 						  </div>
 						  
-						  <div class="btn-group">
+						  <!-- <div class="btn-group">
 							<a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="icon-picture"></i></a>
 							<input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
-						  </div>
+						  </div> -->
 						  <div class="btn-group">
 							<a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
 							<a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
@@ -206,9 +187,9 @@
 					</div>
 					<div class="form-group">
 						<label for="text">Subtitle</label>
-						<input type="text" name="photoSubtitle" id="madeToMeasurePhotoSubtitle" class="form-control">
+						<input type="text" name="photoSubtitle" id="madeToMeasurePhotoSubtitle" class="form-control" placeholder="Subtitle" maxlength="80">
 						<label for="description">Description</label>
-						<textarea class="form-control" id="madeToMeasureDescription" name="description" placeholder="Type the description here" rows="3"></textarea>
+						<textarea class="form-control" id="madeToMeasureDescription" name="description" placeholder="Type the description here" rows="3" maxlength="200"></textarea>
 					</div>
 					<input type="hidden" name="target_dir" id="madeToMeasureTarget_dir" class="form-control" value="">
 					<input type="hidden" name="id" id="madeToMeasureId" class="form-control" value="">

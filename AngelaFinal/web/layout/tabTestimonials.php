@@ -70,9 +70,9 @@
 								</div>
 								<div class="form-group">
 									<label for="text">Client information</label>
-									<input type="text" name="photoSubtitle" id="photoSubtitle" class="form-control" placeholder="Client Information">
+									<input type="text" name="photoSubtitle" id="photoSubtitle" class="form-control" placeholder="Client Information" maxlength="80">
 									<label for="description">Testimonial</label>
-									<textarea class="form-control" id="description" name="description" placeholder="Type the testimonial here" rows="3"></textarea>
+									<textarea class="form-control" id="description" name="description" placeholder="Type the testimonial here" rows="3" maxlength="200"></textarea>
 								</div>
 								<input type="hidden" name="target_dir" id="target_dir" class="form-control" value="web/assets/img/testimonials/">
 								<button class="btn btn-info" name="submit" type="submit">Upload Image</button>
@@ -118,9 +118,9 @@
 					</div>
 					<div class="form-group">
 						<label for="text">Subtitle</label>
-						<input type="text" name="photoSubtitle" id="testimonialsPhotoSubtitle" class="form-control">
+						<input type="text" name="photoSubtitle" id="testimonialsPhotoSubtitle" class="form-control" placeholder="Client Information" maxlength="80">
 						<label for="description">Description</label>
-						<textarea class="form-control" id="testimonialsDescription" name="description" placeholder="Type the description here" rows="3"></textarea>
+						<textarea class="form-control" id="testimonialsDescription" name="description" placeholder="Type the description here" rows="3" maxlength="200"></textarea>
 					</div>
 					<input type="hidden" name="target_dir" id="testimonialsTarget_dir" class="form-control" value="">
 					<input type="hidden" name="id" id="testimonialsId" class="form-control" value="">

@@ -118,7 +118,7 @@ p.description_content{
         <!--container end-->
 		
         <!--Google maps start-->
-        <center>
+        <center class="responsive">
             <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
             <div style="overflow:hidden;height:350px;width:970px;">
                 <div id="gmap_canvas" style="height:350px;width:800px;"></div>

@@ -19,6 +19,8 @@
 				include (DIR_LAY.'headerUser.php') ;
 			}elseif($_SESSION['role']==1){
 				include( DIR_LAY.'headerAdmin.php') ;
+			}elseif($_SESSION['role']==3){
+				include( DIR_LAY.'headerStaff.php') ;
 			}
 		}else{
 			include( DIR_LAY.'header.php') ;

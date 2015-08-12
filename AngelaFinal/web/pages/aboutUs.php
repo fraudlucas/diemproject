@@ -5,8 +5,9 @@
 	require_once (DIR_VIE.'managementContentView.php');
 	$manegementPhotosView = new ManagementPhotosView();
 	$managementContentView = new ManagementContentView();
-	$managementPhotos = $manegementPhotosView->searchPhotos('pageId','2','1');
-	$managementContent = $managementContentView->searchContent('pageId','2','1');
+	$pageId = '2';
+	$managementPhotos = $manegementPhotosView->searchPhotos('pageId',$pageId,'1');
+	$managementContent = $managementContentView->searchContent('pageId',$pageId,'1');
 	$session = new Session();
 ?>
 <html lang="en">
@@ -87,7 +88,7 @@ p.description_content{
 						<!-- wrapper div -->  
 						<div class="wrapper">  
 							<!-- image -->  
-							<img src="<?php echo '../../'.$managementPhotos->getPathPhoto();?>" style="width:246px;height:463px;"/>  
+							<img class="img-responsive" src="<?php echo '../../'.$managementPhotos->getPathPhoto();?>" style="width:350px;height:463px;"/>  
 							<!-- description div -->  
 							<div class="description">  
 								<!-- description content -->  

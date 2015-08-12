@@ -5,8 +5,9 @@
 	require_once (DIR_VIE.'managementContentView.php');
 	$manegementPhotosView = new ManagementPhotosView();
 	$managementContentView = new ManagementContentView();
-	$managementPhotos = $manegementPhotosView->searchPhotos('pageId','2','1');
-	$managementContent = $managementContentView->searchContent('pageId','2','1');
+    $pageId = '4';
+	$managementPhotos = $manegementPhotosView->searchPhotos('pageId',$pageId,'1');
+	$managementContent = $managementContentView->searchContent('pageId',$pageId,'1');
 	$session = new Session();
 ?>
 <html lang="en">
@@ -36,6 +37,7 @@ p.description_content{
     margin:0px;  
 }  
 </style>
+<link href="<?php echo DIR_AST; ?>css/one-page-wonder.css" rel="stylesheet">
 </head>
 <body>
 <?php include( DIR_LAY.'modalBook.php');?>
@@ -85,7 +87,7 @@ p.description_content{
             <div class="row">
                 <div class="col-md-12">
                     <div class="pf-img">
-                        <img src="./web/assets/images/business.jpg" >
+                        <img class="img-responsive" src="../../<?php echo $managementPhotos->getPathPhoto(); ?>" >
                     </div>
                 </div>
             </div>
@@ -95,18 +97,7 @@ p.description_content{
             <div class="row">
                 <!--portfolio-single start-->
                 <div class="col-lg-9 ">
-                    <div class="title">
-                        <h4 class="text-center">Made to Measure:</h4>
-                        <hr>
-                    </div>
-                    <div class="pf-detail">
-                        <p ALIGN="justify"><SIZE="2">The valuable experience of working directly with her loyal and repeat clientele for many years as a personal stylist and designer of made to measure clothing, Angela has continually evolved, modified and improved
-                            her patterns and styling each season.</p>
-                        <p ALIGN="justify"><SIZE="2">Angela purchases beautiful fabrics and interprets her designs as reflections of her clientele’s beauty, personalities and expectations for that feeling that they get when they wear her designs. <br><br>To meet with an Angela Mark Stylist or learn more about our Made to Measure services, please book an appointment.</p>
-                    </div>
-                    <p>
-                        
-                    </p>
+                    <?php echo $managementContent->getContent(); ?>
                 </div>
                 <div class="col-lg-3">
                     <div class="title">

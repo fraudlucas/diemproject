@@ -58,7 +58,7 @@
 								</div>
 								<div class="form-group">
 									<label for="text">Subtitle</label>
-									<input type="text" name="photoSubtitle" id="photoSubtitle" class="form-control">
+									<input type="text" name="photoSubtitle" id="photoSubtitle" class="form-control" placeholder="Subtitle" maxlength="80">
 								</div>
 								<input type="hidden" name="target_dir" id="target_dir" class="form-control" value="web/assets/img/ourTeam/">
 								<button class="btn btn-info" name="submit" type="submit">Upload Image</button>

@@ -59,7 +59,7 @@
 								</div>
 								<div class="form-group">
 									<label for="text">Subtitle</label>
-									<input type="text" name="photoSubtitle" id="photoSubtitle" class="form-control">
+									<input type="text" name="photoSubtitle" id="photoSubtitle" class="form-control" placeholder="Subtitle" maxlength="80">
 								</div>
 								<input type="hidden" name="target_dir" id="target_dir" class="form-control" value="web/assets/img/aboutUs/">
 								<button class="btn btn-info" name="submit" type="submit">Upload Image</button>
@@ -140,10 +140,10 @@
 
 						  </div>
 						  
-						  <div class="btn-group">
+						 <!--  <div class="btn-group">
 							<a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="icon-picture"></i></a>
 							<input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
-						  </div>
+						  </div> -->
 						  <div class="btn-group">
 							<a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
 							<a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>

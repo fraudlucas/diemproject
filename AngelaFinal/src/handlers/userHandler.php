@@ -271,6 +271,12 @@ if (!empty($action)) {
 							}else{
 								header('Location: ../../web/pages/userHome.php');
 							}
+						} elseif($_SESSION['role'] == 3){
+							if($_SESSION['status'] == 3){
+								header('Location: ../../web/pages/firstLogin.php');
+							}else{
+								header('Location: ../../web/pages/staffHome.php');
+							}
 						}						
 					}else{
 						if($_SESSION['loginCount']==3){

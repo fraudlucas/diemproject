@@ -1,5 +1,5 @@
 <?php 
-require_once('../../src/config.php');
+//require_once('../../src/config.php');
 require_once (DIR_VIE.'managementContentView.php');
 
 $layoutManagementContentView = new ManagementContentView();

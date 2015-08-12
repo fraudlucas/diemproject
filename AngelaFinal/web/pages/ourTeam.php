@@ -55,9 +55,10 @@ p.description_content{
 <br>
 <br>
 <br>
-
-    <!--breadcrumbs start-->
-	<div class="breadcrumbs">
+<br>
+<br>
+        <!--breadcrumbs start-->
+        <div class="breadcrumbs">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-sm-4">
@@ -66,18 +67,18 @@ p.description_content{
                     <div class="col-lg-8 col-sm-8">
                         <ol class="breadcrumb pull-right">
                             <li>
-                                <a href="index.html">Home</a>
+                                <a href="../../index.php">Home</a>
                             </li>
                             <li>
-							<a href="about.html">About</a>
-							</li>
-							<li class="active">Our Team</li>
+                                <a href="#">About</a>
+                            </li>
+                            <li class="./web/pages/ourTeam.php">Our Team</li>
                         </ol>
                     </div>
                 </div>
             </div>
-    </div>
-    <!--breadcrumbs end-->
+        </div>
+        <!--breadcrumbs end-->
 	
     <!--container start-->
 	<div class="container">
@@ -86,7 +87,7 @@ p.description_content{
 						<!-- wrapper div -->  
 						<div class="wrapper">  
 							<!-- image -->  
-							<img src="<?php echo '../../'.$managementPhotos->getPathPhoto();?>" style="width:246px;height:463px;"/>  
+							<img class="img-responsive" src="<?php echo '../../'.$managementPhotos->getPathPhoto();?>" style="width:46px;height:463px;"/>  
 							<!-- description div -->  
 							<div class="description">  
 								<!-- description content -->  
