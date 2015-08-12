@@ -22,7 +22,7 @@ $logo = $layoutManagementContentView->searchLogo()->getLogo();
                 </div>
                 <div class="navbar-collapse collapse " id="navbar-main">
 					<div>
-						<button class="btn btn-theme" Style=" transform: rotate(90deg); cursor: pointer; right:-57px; top:0px; margin-top:350px; z-index:999997; position:fixed;" data-direction='left' data-toggle="modal" data-target="#myBook")">Book Appointment</button> 
+						<button class="btn btn-theme" Style=" transform: rotate(90deg); cursor: pointer; right:-57px; top:0px; margin-top:350px; z-index:999997; position:fixed;" data-direction='left' data-toggle="modal" data-target="#myBook")>Book Appointment</button> 
 					</div>
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="../../index.php">Home</a></li>
@@ -62,6 +62,17 @@ $logo = $layoutManagementContentView->searchLogo()->getLogo();
 								</div>
 							</form>
 						</li>
+                        <li class="dropdown" >
+                            <a href="#" title="Forgot your password?" data-toggle="modal" data-target="#myRecovery">
+                                <span class="fa-stack">
+                                    <i class="fa fa-square fa-stack-2x"></i>
+                                    <i class="fa fa-question fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="" href="#" data-toggle="modal" data-target="#myRecovery">Forgot your Password?</a></li>
+                            </ul>
+                        </li>
                     </ul>					
                 </div>
             </div>
@@ -69,3 +80,6 @@ $logo = $layoutManagementContentView->searchLogo()->getLogo();
 		</div>
 	</header>
 	<!-- end header -->
+
+
+<?php include (DIR_LAY.'modalRecoveryPassword.php'); ?>

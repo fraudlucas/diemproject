@@ -1,40 +1,51 @@
 <?php
 	//require_once('src/config.php');
 	//require_once('src/Session.php');
-	require_once DIR_MOD.'user.php';
-	require_once DIR_VIE.'userView.php';
+	//require_once DIR_MOD.'user.php';
+	//require_once DIR_VIE.'userView.php';
 	
 
 ?>
 
-<div class="modal fade" id="myRecovery" role="dialog">
-    <div class="modal-dialog">		
-			<form role="form" action="../../src/handlers/userHandler.php?a=recoveryPassword" method="post">
-				
-				<label for="address">Email:</label>
-				<input type="email" class="form-control" id="email" name="email" value="<?php echo  $user->getEmail();?> " onkeydown="checkPass();" required="TRUE">
+<div id="myRecovery" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Password Recovery</h4>
+            </div>
+            <div class="modal-body">
+    			<form role="form" action="../../src/handlers/userHandler.php?a=recoveryPassword" method="post">
+    				
+    				<label for="address">Email:</label>
+    				<input type="email" class="form-control" id="emailReco" name="email" value="" onkeydown="checkPassReco();" required="TRUE">
 
-				<label for="address">Confirm Email:</label>
-				<input type="email" class="form-control" id="email2" name="email2" placeholder="Confirm Email" onkeyup="checkPass(); return false;" value="" required="TRUE">
-				<span id="confirmMessage" class="confirmMessage"></span>		
-						
-				<br>
-				<input type="submit" id="Update" name="Update" value="Send Email" class="btn btn-info pull-right disabled ">
+    				<label for="address">Confirm Email:</label>
+    				<input type="email" class="form-control" id="email2Reco" name="email2" placeholder="Confirm Email" onkeyup="checkPassReco(); return false;" value="" required="TRUE">
+    				<span id="confirmMessageReco" class="confirmMessage"></span>		
+    						
+    				<br>
+    				<input type="submit" id="Update" name="Update" value="Send Email" class="btn btn-info pull-right disabled ">
 
-			</form>
+    			</form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
 	</div>
 </div>			
 	
 <script>
-function checkPass()
+function checkPassReco()
 {
     
 	var button =  document.getElementById('Update');
     //Store the password field objects into variables ...
-    var pass1 = document.getElementById('email');
-    var pass2 = document.getElementById('email2');
+    var pass1 = document.getElementById('emailReco');
+    var pass2 = document.getElementById('email2Reco');
     //Store the Confimation Message Object ...
-    var message = document.getElementById('confirmMessage');
+    var message = document.getElementById('confirmMessageReco');
     //Set the colors we will be using ...
     var goodColor = "#66cc66";
     var badColor = "#ff6666";

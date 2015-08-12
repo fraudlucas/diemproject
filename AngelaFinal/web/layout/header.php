@@ -57,19 +57,34 @@ $logo = $layoutManagementContentView->searchLogo()->getLogo();
 								</div>
 								<div class="form-group">
 									<button type="submit" style="width:80px" class="btn btn-theme" >Log In</button>
+
 								</div>
 								<div class="form-group">
 									<div data-toggle="modal" data-target="#myModal">
 										<button type="button" style="width:80px" class="btn btn-theme">Register</button>
 									</div>
 								</div>
+
 							</form>
-						      <!-- <a href="#" data-toggle="modal" data-target="#myRecovery">Forgot Password?</a> -->
                         </li>
-                    </ul>					
+                        <li class="dropdown" >
+                            <a href="#" title="Forgot your password?" data-toggle="modal" data-target="#myRecovery">
+                                <span class="fa-stack">
+                                    <i class="fa fa-square fa-stack-2x"></i>
+                                    <i class="fa fa-question fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="" href="#" data-toggle="modal" data-target="#myRecovery">Forgot your Password?</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
                 </div>
             </div>
         </div>
 		</div>
 	</header>
 	<!-- end header -->
+
+<?php include (DIR_LAY.'modalRecoveryPassword.php'); ?>
