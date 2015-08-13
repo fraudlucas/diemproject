@@ -82,6 +82,9 @@ if (!empty($action)) {
 				if($result){
 					header('Location: ../../web/pages/userHome.php'); 
 				}else{
+					$subject = "Registration Agela Mark";
+					$message = "Hi " . $fname . "you were successfully registered";
+					mail($email, $subject, $message);
 					header ('Location: ../../index.php');
 				}
 				
@@ -299,6 +302,7 @@ if (!empty($action)) {
 							
 						}else{
 							$_SESSION['loginCount']+=1;
+							echo '<script src="javascript.js"> alert("Wrong password")</script>';
 						}
 					}				
 				}				
