@@ -20,7 +20,7 @@
 					<h4 class="modal-title">Add Staff</h4>
 				</div>
 				<div class="modal-body">
-					<form action="../../src/handlers/userHandler.php?a=addStaff" method="post" class="form-horizontal">
+					<form action="../../src/handlers/userHandler.php?a=addStaff&p=<?php echo $pageToReturn; ?>" method="post" class="form-horizontal">
 
 						<label for="firstName">First Name:</label>
 						<input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required="TRUE">

@@ -7,6 +7,7 @@ class Clothes{
 	private $price;
 	private $typeid;
 	private $customized;
+	private $tagId;
 	
 	public function getId(){
 		return $this->id;
@@ -54,7 +55,15 @@ class Clothes{
 	
 	public function setCustomized($customized){
 		$this->customized = $customized;
-	}	
+	}
+
+	public function getTagId() {
+	    return $this->tagId;
+	}
+	
+	public function setTagId($tagId) {
+	    $this->tagId = $tagId;
+	}
 }
 
 ?>

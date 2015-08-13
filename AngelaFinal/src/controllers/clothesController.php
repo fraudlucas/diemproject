@@ -39,6 +39,12 @@ class ClothesController {
 		return $clothesList;
 	}
 
+	public function updateClothes($clothes) {
+		$test = $this->persistenceClothes->updateClothes($clothes);
+
+		return $test;
+	}
+
 }
 
  ?>

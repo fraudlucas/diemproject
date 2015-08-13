@@ -8,17 +8,17 @@
 class TagsController {
 
 	private $factory;
-	private $persistenceClothes;
+	private $persistenceTag;
 
 	public function __construct() {
 		$this->factory = FactoryDAOPdo::getInstance();
-		$this->persistenceClothes = $this->factory->createTagsPersistence();
+		$this->persistenceTag = $this->factory->createTagsPersistence();
 	}
 
 	public function add($tags) {
 		// $persistencePost = $this->factory->createPostPersistence();
 		
-		$test = $this->persistenceClothes->add($tags);
+		$test = $this->persistenceTag->add($tags);
 
 		return $test;
 	}
@@ -26,9 +26,15 @@ class TagsController {
 	public function listAll() {
 		// $persistencePost = $this->factory->createPostPersistence();
 		
-		$clothesList = $this->persistenceClothes->listAll();
+		$clothesList = $this->persistenceTag->listAll();
 
 		return $clothesList;
+	}
+
+	public function searchTag($tagID) {
+		$result = $this->persistenceTag->searchTag($tagID);
+
+		return $result;
 	}
 
 }

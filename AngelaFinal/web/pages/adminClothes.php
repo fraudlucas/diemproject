@@ -12,6 +12,8 @@
 	$messageView = new MessageView();
 	$amountUnreadMessages = $messageView->amountUnreadMessagesByToUserID($currentUser);
 
+	$pageToReturn = 'adminClothes';
+
 	$activeTab = isset($_GET['t']) ? $_GET['t'] : 0; // Indicate which tab must be activated
 	$activeClass1 = '';
 	$activeClass2 = '';
@@ -95,6 +97,12 @@
 							<div class="tab-pane fade in <?php echo $activeClass1; ?>" id="list">
 								<div class="col-xs-18 col-md-12" style="height:100% overflow-y:auto">
 									<div class="row">
+										<select name="filter" id="filter" class="form-control pull-right">
+											<option value="0">All</option>}
+											<?php include( DIR_LAY.'listTags.php') ;?>
+										</select>
+									</div>
+									<div class="row">
 										<?php include( DIR_LAY.'listClothes.php') ;?>
 									</div>
 								</div>
@@ -129,7 +137,7 @@
 												<div class="col-xs-6 col-md-4">
 													<div class="form-group">
 														<label for="tag">Tags:</label>
-														<select class="form-control" id="tag">
+														<select class="form-control" id="tag" name="tag">
 															<?php include( DIR_LAY.'listTags.php') ;?>
 														</select>
 													</div>

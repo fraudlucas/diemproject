@@ -38,6 +38,23 @@ class TagsDAOPdo implements TagsDAO {
 		}
 
 		return $tagsList;
+	}
+
+	public function searchTag($tagID) {
+		$className = 'ConnectionDAOPdo';
+		$con = $className::getConnection();
+
+		$stmt = $con->prepare("SELECT * FROM tags WHERE id = :id");
+		$stmt->bindParam(':id', $tagID);
+		$stmt->execute();
+		$result = $stmt->fetch();
+
+		$tag = new Tags();
+		$tag->setId($result['id']);
+		$tag->setName($result['name']);
+			
+
+		return $tag;
 	}   
 }
 

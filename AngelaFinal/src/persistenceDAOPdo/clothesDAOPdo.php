@@ -10,13 +10,14 @@ class ClothesDAOPdo implements ClothesDAO {
 		$className = 'ConnectionDAOPdo';
 		$con = $className::getConnection();
 
-		$stmt = $con->prepare("INSERT INTO clothing(code,picture,price,customized,typeId) values (:code,:picture,:price,:customized,:typeId)");
+		$stmt = $con->prepare("INSERT INTO clothing(code,picture,price,customized,typeId, tagID) values (:code,:picture,:price,:customized,:typeId, :tagID)");
 		
 		$stmt->bindParam(':code', $clothes->getCode());
 		$stmt->bindParam(':picture', $clothes->getPicture());
 		$stmt->bindParam(':price', $clothes->getPrice());
 		$stmt->bindParam(':customized', $clothes->getCustomized());
 		$stmt->bindParam(':typeId', $clothes->getTypeId());
+		$stmt->bindParam(':tagID', $clothes->getTagId());
 		
 		$teste = $stmt->execute();
 
@@ -41,6 +42,7 @@ class ClothesDAOPdo implements ClothesDAO {
 			$clothes->setPrice($row['price']);
 			$clothes->setCustomized($row['customized']);
 			$clothes->setTypeId($row['typeId']);
+			$clothes->setTagId($row['tagID']);
 
 			$clothesList->append($clothes);
 		}
@@ -69,6 +71,7 @@ class ClothesDAOPdo implements ClothesDAO {
 			$clothes->setPrice($row['price']);
 			$clothes->setCustomized($row['customized']);
 			$clothes->setTypeId($row['typeId']);
+			$clothes->setTagId($row['tagID']);
 			$clothesList->append($clothes);
 		}
 		
@@ -78,5 +81,38 @@ class ClothesDAOPdo implements ClothesDAO {
 			return $clothesList;
 		}
 	}
+
+	public function updateClothes($clothes) {
+		$className = 'ConnectionDAOPdo';
+		try {		
+			$con = $className::getConnection();
+			$stmt = $con->prepare("UPDATE clothing SET 
+				code = :code, 
+				picture = :picture,
+				price = :price,
+				customized = :customized,
+				typeId = :typeId,
+				tagID = :tagID
+				WHERE id = :id");
+			$stmt->bindParam(':code', $clothes->getCode());
+			$stmt->bindParam(':picture', $clothes->getPicture());
+			$stmt->bindParam(':price', $clothes->getPrice());
+			$stmt->bindParam(':customized', $clothes->getCustomized());
+			$stmt->bindParam(':typeId', $clothes->getTypeId());
+			$stmt->bindParam(':tagID', $clothes->getTagId());
+			$stmt->bindParam(':id', $clothes->getId());
+			
+			$stmt->execute();    // Execute the prepared query.
+			echo var_dump($stmt);
+			return true;
+		}
+		catch(PDOException $e){
+			echo $e;
+			return false;
+		}
+		
+	}
+
+
 }
 ?>

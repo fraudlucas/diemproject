@@ -36,6 +36,11 @@ class ClothesView
 		return $clothesLists;
 	}
 	
+	public function updateClothes($clothes) {
+		$test = $this->clothesController->updateClothes($clothes);
+
+		return $test;
+	}
 
 }
 

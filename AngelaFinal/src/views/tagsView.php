@@ -27,6 +27,12 @@ class TagsView{
 
 		return $tagsLists;
 	}
+
+	public function searchTag($tagID) {
+		$result = $this->tagsController->searchTag($tagID);
+
+		return $result;
+	}
 	
 
 }

@@ -76,12 +76,17 @@
 				<div class="container">
 					<div class="col-xs-18 col-md-12">
 						<div class="row">
-
 							<div class="col-lg-12">
 								<h1 class="page-header">Wardrobe</h1>
 							</div>
+						
+							<select name="filter" id="filter" class="form-control">
+								<option value="0">All</option>}
+								<?php include( DIR_LAY.'listTags.php') ;?>
+							</select>
+						</div>
+						<div class="row">
 							<?php include( DIR_LAY.'tabWardrobe.php') ?>
-           
 						</div>
 					</div>
 				</div>
