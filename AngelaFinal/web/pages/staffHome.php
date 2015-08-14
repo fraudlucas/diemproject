@@ -84,6 +84,7 @@
 						<img src="../../<?php echo $user->getPicture(); ?>" class="img-responsive" width="300px" height="400px"> 
 						<li role="presentation" class="active"><a href="../pages/staffHome.php">Profile</a></li>
 						<li role="presentation"><a href="../pages/staffWardrobe.php">Wardrobe</a></li>
+						<li role="presentation"><a href="../pages/staffCollections.php">Collections</a></li>
 						<li role="presentation"><a href="../pages/staffLooks.php">Create Looks</a></li>
 						<!-- <li role="presentation"><a href="#">My Wish List</a></li> -->
 						<li role="presentation"><a href="../pages/staffStylists.php">Stylists</a></li>

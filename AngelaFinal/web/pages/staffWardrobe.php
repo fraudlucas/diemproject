@@ -12,9 +12,7 @@
 	$messageView = new MessageView();
 	$amountUnreadMessages = $messageView->amountUnreadMessagesByToUserID($currentUser);
 
-	$limitMessages = false;
-
-	$pageToReturn = 'staffMessages'; // Will be used by the adminMessages
+	$pageToReturn = 'staffWardrobe'; // Will be used by the adminMessages
 
 	$activeTab = isset($_GET['t']) ? $_GET['t'] : 0; // Indicate which tab must be activated
 	$activeClass2 = '';
@@ -33,6 +31,7 @@
 	<?php include( DIR_LAY.'headPages.php');?>
 </head>
 <body>
+<?php include( DIR_LAY.'modalBook.php');?>
 	<div id="wrapper">
 		<?php 
 		if(isset($_SESSION['role'])){
@@ -46,14 +45,13 @@
 		}
 		?>
 		<section id="inner-headline">
-
 		<div class="container" style="margin-top:100px">
 			<div class="row">
 				<div class="col-lg-12">
 					<ul class="breadcrumb">
 						<li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
 						<li><a href="#">Staff</a><i class="icon-angle-right"></i></li>
-						<li class="active">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></li>
+						<li class="active">Wardrobe</li>
 					</ul>
 				</div>
 			</div>
@@ -65,37 +63,36 @@
 					<ul class="nav nav-pills nav-stacked">
 					  <li>
 						<img src="../../<?php echo $user->getPicture(); ?>" class="img-responsive" width="300px" height="400px"> 
-						<li role="presentation"><a href="../pages/staffHome.php">Profile</a></li>
-						<li role="presentation"><a href="../pages/staffWardrobe.php">Wardrobe</a></li>
+						<li role="presentation" ><a href="../pages/staffHome.php">Profile</a></li>
+						<li role="presentation" class="active"><a href="../pages/staffWardrobe.php">Wardrobe</a></li>
 						<li role="presentation"><a href="../pages/staffCollections.php">Collections</a></li>
 						<li role="presentation"><a href="../pages/staffLooks.php">Create Looks</a></li>
 						<!-- <li role="presentation"><a href="#">My Wish List</a></li> -->
 						<li role="presentation"><a href="../pages/staffStylists.php">Stylists</a></li>
-						<li role="presentation" class="active"><a href="../pages/staffMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></a></li>
+						<li role="presentation"><a href="../pages/staffMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></a></li>
 					</ul>
 				</nav>
-			</div>		
+			</div>	
 			<div class="row">
 				<div class="container">
 					<div class="col-xs-18 col-md-12">
-						<h4>Tab</h4>
-						<ul class="nav nav-tabs">
-							<li class="<?php echo $activeClass2; ?>"><a href="#inbox" data-toggle="tab">InBox <span class="badge"><?php echo $amountUnreadMessages; ?></a></li>
-							<li class="<?php echo $activeClass3; ?>"><a href="#outbox" data-toggle="tab">Outbox</a></li>
-						</ul>
-						<div class="tab-content">
-							<div class="tab-pane <?php echo $activeClass2; ?>" id="inbox">
-								<?php include( DIR_LAY.'inboxMessages.php');?>
+						<div class="row">
+							<div class="col-lg-12">
+								<h1 class="page-header">Wardrobe</h1>
 							</div>
-							<div class="tab-pane <?php echo $activeClass3; ?>" id="outbox">
-								<?php include( DIR_LAY.'outboxMessages.php');?>
-							</div>
+						
+							<select name="filter" id="filter" class="form-control">
+								<option value="0">All</option>}
+								<?php include( DIR_LAY.'listTags.php') ;?>
+							</select>
+						</div>
+						<div class="row">
+							<?php include( DIR_LAY.'tabWardrobe.php') ?>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>		
+		</div>		
 	<?php include( DIR_LAY.'footerPages.php') ?>
 	<?php include( DIR_LAY.'jsIncludesPages.php') ?>
 </body>

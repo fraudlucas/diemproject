@@ -14,7 +14,7 @@
 	$messageView = new MessageView();
 	$amountUnreadMessages = $messageView->amountUnreadMessagesByToUserID($currentUser);
 
-	$pageToReturn = 'userStylists';
+	$pageToReturn = 'staffStylists';
 
 	$flag_button = false;
 
@@ -39,10 +39,10 @@
 	<div id="wrapper">
 		<?php 
 		if(isset($_SESSION['role'])){
-			if ($_SESSION['role']==1){
+			if ($_SESSION['role']==3){
+				include( DIR_LAY.'headerStaffPages.php') ;
+			}else{
 				header('Location: ../../index.php') ;
-			}elseif($_SESSION['role']==2){
-				include( DIR_LAY.'headerUserPages.php') ;
 			}
 		}else{
 			header('Location: ../../index.php') ;
@@ -54,7 +54,7 @@
 				<div class="col-lg-12">
 					<ul class="breadcrumb">
 						<li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-						<li><a href="#">User</a><i class="icon-angle-right"></i></li>
+						<li><a href="#">Staff</a><i class="icon-angle-right"></i></li>
 						<li class="active">Stylists</li>
 					</ul>
 				</div>
@@ -67,13 +67,13 @@
 					<ul class="nav nav-pills nav-stacked">
 					  <li>
 						<img src="../../<?php echo $user->getPicture(); ?>" class="img-responsive" width="300px" height="400px"> 
-						<li role="presentation"><a href="../pages/userHome.php">Profile</a></li>
-						<li role="presentation"><a href="../pages/userWardrobe.php">Wardrobe</a></li>
-						<li role="presentation"><a href="../pages/userCollections.php">Collections</a></li>
-						<li role="presentation"><a href="../pages/userLooks.php">Create Looks</a></li>
+						<li role="presentation"><a href="../pages/staffHome.php">Profile</a></li>
+						<li role="presentation"><a href="../pages/staffWardrobe.php">Wardrobe</a></li>
+						<li role="presentation"><a href="../pages/staffCollections.php">Collections</a></li>
+						<li role="presentation"><a href="../pages/staffLooks.php">Create Looks</a></li>
 						<!-- <li role="presentation"><a href="#">My Wish List</a></li> -->
-						<li role="presentation" class="active"><a href="../pages/userStylists.php">Stylists</a></li>
-						<li role="presentation"><a href="../pages/userMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></a></li>
+						<li role="presentation" class="active"><a href="../pages/staffStylists.php">Stylists</a></li>
+						<li role="presentation"><a href="../pages/staffMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></a></li>
 					</ul>
 				</nav>
 			</div>		

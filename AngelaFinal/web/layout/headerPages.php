@@ -4,6 +4,7 @@ require_once (DIR_VIE.'managementContentView.php');
 
 $layoutManagementContentView = new ManagementContentView();
 $logo = $layoutManagementContentView->searchLogo()->getLogo();
+$flag_header_action = true;
 
 ?>
 	<!-- start header -->

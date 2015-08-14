@@ -22,8 +22,21 @@ if (!empty($action)) {
 
 				$user = $userView->searchUsers("email",$email,'1');
 
+				/*
+				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
+				*/
+				if (is_null($user)) {
+					echo 'There is no account registered using this email.';
+					var_dump($user);
+					// header('Location: ../../web/pages/userHome.php');
+					break;
+				}
+
+				/*
+				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
+				*/
 				if(empty($user)) {
-					echo 'email nao existe na base de dados';
+					echo 'There is no account registered using this email.';
 				} else {
 
 					$password = rand(100000,9999999);
@@ -48,7 +61,7 @@ if (!empty($action)) {
 					$user->setEmail($email);
 					$user->setPassword($password);
 					$user->setSalt($salt);
-				var_dump($user);
+					var_dump($user);
 
 					$result = $userView->recoveryPassword($user);
 			}
@@ -63,6 +76,17 @@ if (!empty($action)) {
 				$lname = filter_var ($_POST['lastName'],FILTER_SANITIZE_STRING);
 				$email = filter_var ($_POST['email'],FILTER_SANITIZE_EMAIL);
 				$password = filter_var ($_POST['password'],FILTER_SANITIZE_STRING);
+
+				$user = $userView->searchUsers("email",$email,'1');
+
+				/*
+				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
+				*/
+				if ($user->getEmail() == $email) {
+					echo 'There is already an account registered using this email.'; 
+					header('Location: ../../web/pages/userHome.php');
+					break;
+				}
 				
 				//Hash the password
 				$options = ['cost' => 7,'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),];				
@@ -79,12 +103,16 @@ if (!empty($action)) {
 				$user->setAdministratorID(2);
 				$result = $userView->registration($user);
 				
+				/*
+				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
+				*/
 				if($result){
-					header('Location: ../../web/pages/userHome.php'); 
-				}else{
+					echo 'You are now registered!';
 					$subject = "Registration Agela Mark";
 					$message = "Hi " . $fname . "you were successfully registered";
 					mail($email, $subject, $message);
+					header('Location: ../../web/pages/userHome.php'); 
+				}else{
 					header ('Location: ../../index.php');
 				}
 				
@@ -96,6 +124,7 @@ if (!empty($action)) {
 				$target_dir = (!empty($_POST['target_dir']) ? $_POST['target_dir'] : '');
 				$picture = '';
 				$filename = (!empty($_FILES["fileToUpload"]["name"]) ? $_FILES["fileToUpload"]["name"] : '');
+
 				if (!empty($filename)) {
 					if (!file_exists(DIR_BASE.$target_dir)) {
 						mkdir(DIR_BASE.$target_dir, 0700, true);
@@ -191,6 +220,8 @@ if (!empty($action)) {
 		
 				$result = $userView->updateUser($user);
 				var_dump($result);
+
+				if ($user->getStatus() == 3) $userView->undeleteUser($id);
 				// if($result){
 				// 	header('Location: ../../web/pages/userHome.php'); 	
 				// }else{
@@ -207,6 +238,17 @@ if (!empty($action)) {
 				$lname = filter_var ($_POST['lastName'],FILTER_SANITIZE_STRING);
 				$email = filter_var ($_POST['email'],FILTER_SANITIZE_EMAIL);
 				$password = filter_var ($_POST['password'],FILTER_SANITIZE_STRING);
+
+				$user = $userView->searchUsers("email",$email,'1');
+
+				/*
+				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
+				*/
+				if ($user->getEmail() == $email) {
+					echo 'There is already an account registered using this email.'; 
+					header('Location: ../../web/pages/userHome.php');
+					break;
+				}
 				
 				//Hash the password
 				$options = ['cost' => 7,'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),];				
@@ -274,9 +316,29 @@ if (!empty($action)) {
 				
 				$user = $userView->searchUsers("email",$email,'1');
 
-				
+				/*
+				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
+				*/
+				if (is_null($user)) {
+					echo 'There is no account registered using this email.';
+					header('Location: ../../web/pages/userHome.php');
+					break;
+				}
+
+				/*
+				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
+				*/
+				if ($user->getStatus() == 1) {
+					echo 'Your account has been deactivated. You must contact the Administrator.';
+					header('Location: ../../web/pages/userHome.php');
+					break; // If the user is inactive, cannot perform login.
+				}
+
+				/*
+				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
+				*/
 				if(empty($user)) {
-					echo 'email nao existe na base de dados';
+					echo 'There is no account registered using this email.';
 				} else {
 					$options = ['cost' => 7,'salt' => $user->getSalt()];	
 					$password =  password_hash($password,PASSWORD_BCRYPT, $options);				
@@ -301,8 +363,12 @@ if (!empty($action)) {
 						if($_SESSION['loginCount']==3){
 							
 						}else{
+							/*
+							* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
+							*/
 							$_SESSION['loginCount']+=1;
-							echo '<script src="javascript.js"> alert("Wrong password")</script>';
+							echo 'Your password is not correct.';
+							header('Location: ../../web/pages/userHome.php');
 						}
 					}				
 				}				

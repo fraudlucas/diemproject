@@ -4,6 +4,7 @@
 	//require_once DIR_MOD.'user.php';
 	//require_once DIR_VIE.'userView.php';
 	
+    $recoveryAction = ($flag_header_action ? '../../' : '');
 
 ?>
 
@@ -15,7 +16,7 @@
                 <h4 class="modal-title">Password Recovery</h4>
             </div>
             <div class="modal-body">
-    			<form role="form" action="../../src/handlers/userHandler.php?a=recoveryPassword" method="post">
+    			<form role="form" action="<?php echo $recoveryAction; ?>src/handlers/userHandler.php?a=recoveryPassword" method="post">
     				
     				<label for="address">Email:</label>
     				<input type="email" class="form-control" id="emailReco" name="email" value="" onkeydown="checkPassReco();" required="TRUE">

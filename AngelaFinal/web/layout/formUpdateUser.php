@@ -47,11 +47,11 @@
 				<input type="email" class="form-control" id="email2" name="email2" placeholder="Confirm Email" onkeyup="checkPass(); return false;" value="" required="TRUE">
 				<span id="confirmMessage" class="confirmMessage"></span>
 
-				<label for="password">Password:</label>
-				<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+				<label for="password">New Password:</label>
+				<input type="password" class="form-control" id="password" name="password" placeholder="NEW Password">
 
-				<label for="password2">Confirm Password:</label>
-				<input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password" onkeyup="checkPassword(); return false;">
+				<label for="password2">Confirm New Password:</label>
+				<input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm NEW Password" onkeyup="checkPassword(); return false;">
 				<span id="confirmPasswordMessage" class="confirmMessage"></span>
 
 				<label for="address">Address:</label>

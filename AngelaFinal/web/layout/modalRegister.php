@@ -29,14 +29,14 @@
 					<label class="control-label" for="password">Password</label>
 					<input type="password" class="form-control" id="password" name="password"aria-describedby="inputSuccess4Status" onkeydown="checkPass();" required="TRUE">
 
-					<label class="control-label" for="password2">Comfirm password</label>
+					<label class="control-label" for="password2">Confirm password</label>
 					<input type="password" class="form-control" id="password2" name="password2"aria-describedby="inputSuccess4Status" onkeyup="checkPass(); return false;" value="" required="TRUE">
 			
 			</div>
 			<center><div class="g-recaptcha" data-sitekey="6Lef-AoTAAAAAGuq8NANMj1uX-T-VcKwvk1k23lb"></div></center><br>
 			<div class="modal-footer form-group">
 			   <center>
-			   		<button type="submit" class="btn btn-default">Register</button>
+			   		<button type="submit" class="btn btn-info">Register</button>
 			   </center>
 			</div>
 		</form>

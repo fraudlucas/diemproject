@@ -44,14 +44,15 @@ if (!empty($wardrobe)) {
 				$price = $clothes->getPrice();
 				$customizedId = $clothes->getCustomized();
 				$customized = ($customizedId == 2 ? 'No' : 'Yes');
+				$tag2 = $tagView->searchTag($row->getTagId());
 
 				
 				$code .='<div class="col-lg-3 col-md-4 col-xs-6 thumb">
 								<a class="thumbnail" href="#" data-toggle="modal" data-target="#showClothesModal" data-value="'.$clothesId.'">
 									<img class="img-responsive" src="../../'.$clothes->getPicture().'" alt="" style="height:200px; weight:400px" >
 								</a>
-								<input type="hidden" id="tag'.$clothesId.'" value="'.$tag->getName().'">
-								<input type="hidden" id="tagId'.$clothesId.'" value="'.$tag->getId().'">
+								<input type="hidden" id="tag'.$clothesId.'" value="'.$tag2->getName().'">
+								<input type="hidden" id="tagId'.$clothesId.'" value="'.$tag2->getId().'">
 								<input type="hidden" id="typeId'.$clothesId.'" value="'.$typeID.'">
 								<input type="hidden" id="type'.$clothesId.'" value="'.$type.'">
 								<input type="hidden" id="price'.$clothesId.'" value="'.$price.'">
@@ -82,6 +83,7 @@ if (!empty($wardrobe)) {
 				$price = $row->getPrice();
 				$customizedId = $row->getCustomized();
 				$customized = ($customizedId == 2 ? 'No' : 'Yes');
+				$tag2 = $tagView->searchTag($row->getTagId());
 				
 						
 				$code .='<div class="col-md-2">				
@@ -89,8 +91,8 @@ if (!empty($wardrobe)) {
 										<img class="img-responsive img-thumbnail" src="../../'.$picture.'" alt="Pulpit Rock" style="width:150px;height:150px">
 									</a>
 
-									<input type="hidden" id="tag'.$id.'" value="'.$tag->getName().'">
-									<input type="hidden" id="tagId'.$id.'" value="'.$tag->getId().'">
+									<input type="hidden" id="tag'.$id.'" value="'.$tag2->getName().'">
+									<input type="hidden" id="tagId'.$id.'" value="'.$tag2->getId().'">
 									<input type="hidden" id="typeId'.$id.'" value="'.$typeID.'">
 									<input type="hidden" id="type'.$id.'" value="'.$type.'">
 									<input type="hidden" id="price'.$id.'" value="'.$price.'">
