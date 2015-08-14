@@ -4,9 +4,18 @@ require_once('./src/config.php');
 
 require_once (DIR_VIE.'managementContentView.php');
 
+$session = new Session();
+$action = isset($_SESSION['msgUser']) ? $_SESSION['msgUser'] : '';
+$msg =  "";
+if (!empty($action)) {
+  //  $msg = $action;
+    $msg = '<div class="alert alert-danger"><strong>'. $action .'</strong></div>  ';
+}
+
 $layoutManagementContentView = new ManagementContentView();
 $logo = $layoutManagementContentView->searchLogo()->getLogo();
 $flag_header_action = false;
+
 
 ?>
 	<!-- start header -->
@@ -79,9 +88,9 @@ $flag_header_action = false;
                                 <li><a class="" href="#" data-toggle="modal" data-target="#myRecovery">Forgot your Password?</a></li>
                             </ul>
                         </li>
-                    </ul>
-                    
+                    </ul>           
                 </div>
+                  <?php echo $msg; $_SESSION['msgUser'] = ""; ?>
             </div>
         </div>
 		</div>

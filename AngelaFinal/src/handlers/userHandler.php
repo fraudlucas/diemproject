@@ -26,9 +26,10 @@ if (!empty($action)) {
 				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
 				*/
 				if (is_null($user)) {
-					echo 'There is no account registered using this email.';
+					$message  = 'There is no account registered using this email.';
+					$_SESSION['msgUser'] =  $message;
 					var_dump($user);
-					// header('Location: ../../web/pages/userHome.php');
+					header('Location: ../../web/pages/userHome.php');
 					break;
 				}
 
@@ -83,7 +84,9 @@ if (!empty($action)) {
 				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
 				*/
 				if ($user->getEmail() == $email) {
-					echo 'There is already an account registered using this email.'; 
+					//echo 'There is already an account registered using this email.'; 
+					$message  = 'There is already an account registered using this email.';
+					$_SESSION['msgUser'] =  $message;
 					header('Location: ../../web/pages/userHome.php');
 					break;
 				}
@@ -245,7 +248,9 @@ if (!empty($action)) {
 				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
 				*/
 				if ($user->getEmail() == $email) {
-					echo 'There is already an account registered using this email.'; 
+					
+					$message  = 'There is already an account registered using this email.';
+					$_SESSION['msgUser'] =  $message;
 					header('Location: ../../web/pages/userHome.php');
 					break;
 				}
@@ -320,7 +325,9 @@ if (!empty($action)) {
 				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
 				*/
 				if (is_null($user)) {
-					echo 'There is no account registered using this email.';
+					//echo 'There is no account registered using this email.';
+					$message  = 'There is no account registered using this email.';
+					$_SESSION['msgUser'] =  $message;
 					header('Location: ../../web/pages/userHome.php');
 					break;
 				}
@@ -329,7 +336,9 @@ if (!empty($action)) {
 				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
 				*/
 				if ($user->getStatus() == 1) {
-					echo 'Your account has been deactivated. You must contact the Administrator.';
+					//echo 'Your account has been deactivated. You must contact the Administrator.';
+					$message  = 'Your account has been deactivated. You must contact the Administrator.';
+					$_SESSION['msgUser'] =  $message;
 					header('Location: ../../web/pages/userHome.php');
 					break; // If the user is inactive, cannot perform login.
 				}
@@ -338,7 +347,10 @@ if (!empty($action)) {
 				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
 				*/
 				if(empty($user)) {
-					echo 'There is no account registered using this email.';
+					
+					$message  = 'There is no account registered using this email.';
+					$_SESSION['msgUser'] =  $message;
+					header('Location: ../../web/pages/userHome.php');
 				} else {
 					$options = ['cost' => 7,'salt' => $user->getSalt()];	
 					$password =  password_hash($password,PASSWORD_BCRYPT, $options);				
@@ -367,7 +379,8 @@ if (!empty($action)) {
 							* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
 							*/
 							$_SESSION['loginCount']+=1;
-							echo 'Your password is not correct.';
+							$message = 'Your password is not correct.';
+							$_SESSION['msgUser'] =  $message;
 							header('Location: ../../web/pages/userHome.php');
 						}
 					}				
