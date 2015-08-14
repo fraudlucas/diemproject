@@ -33,7 +33,7 @@ if (!empty($wardrobe)) {
 				$dates = $row->getDates();
 				$clothes = $clothesView->searchClothes('id',$clothesId, '1');
 
-				if ($clothes->getTagId() != 0 && $clothes->getTagId() != $filter) {
+				if ($clothes->getTagId() != 0 && $clothes->getTagId() != $filter && $filter != 0) {
 					# code...
 					continue;
 				}
@@ -44,7 +44,7 @@ if (!empty($wardrobe)) {
 				$price = $clothes->getPrice();
 				$customizedId = $clothes->getCustomized();
 				$customized = ($customizedId == 2 ? 'No' : 'Yes');
-				$tag2 = $tagView->searchTag($row->getTagId());
+				$tag2 = $tagView->searchTag($clothes->getTagId());
 
 				
 				$code .='<div class="col-lg-3 col-md-4 col-xs-6 thumb">
@@ -84,13 +84,28 @@ if (!empty($wardrobe)) {
 				$customizedId = $row->getCustomized();
 				$customized = ($customizedId == 2 ? 'No' : 'Yes');
 				$tag2 = $tagView->searchTag($row->getTagId());
-				
+
+				$icon = '<a href="#" title="Add to your Wardrobe" data-toggle="modal" data-target="#addToWardrobeModal" data-value="'.$id.'">
+										<span class="fa-stack">
+											<i class="fa fa-square fa-stack-2x"></i>
+											<i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+										</span>
+									</a>';
+
+				if ($wardrobeView->checkClothesInWardrobe($id,$_SESSION['userID'])) {
+					$icon = '<a href="#" title="It is already added!">
+										<span class="fa-stack">
+											<i class="fa fa-square fa-stack-2x fa-inverse"></i>
+											<i class="fa fa-check fa-stack-1x"></i>
+										</span>
+									</a>';
+				}
 						
 				$code .='<div class="col-md-2">				
 									<a href="#" class="thumbnail" data-toggle="modal" data-target="#showClothesModal" data-value="'.$id.'">
 										<img class="img-responsive img-thumbnail" src="../../'.$picture.'" alt="Pulpit Rock" style="width:150px;height:150px">
 									</a>
-
+									<center>'.$icon.'</center>
 									<input type="hidden" id="tag'.$id.'" value="'.$tag2->getName().'">
 									<input type="hidden" id="tagId'.$id.'" value="'.$tag2->getId().'">
 									<input type="hidden" id="typeId'.$id.'" value="'.$typeID.'">

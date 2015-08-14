@@ -101,7 +101,7 @@
 										</select>
 									</div>
 									<div class="row">
-										<?php include( DIR_LAY.'listClothes.php') ;?>
+										<?php include( DIR_LAY.'listClothesStaffAndUser.php') ;?>
 									</div>
 								</div>
 							</div>		

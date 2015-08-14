@@ -154,6 +154,8 @@
 
 			$usersList = new ArrayObject();
 
+			$user = '';
+
 			foreach ($result as $row) {				
 				$user = new User();
 				$user->setIdUser($row['id']);

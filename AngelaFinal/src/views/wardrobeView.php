@@ -32,6 +32,10 @@ class WardrobeView
 		return $wardrobeList;
 	}
 	
+	public function checkClothesInWardrobe($clothesId,$userId) {
+		$result = $this->wardrobeController->checkClothesInWardrobe($clothesId,$userId);
+		return $result;
+	}
 
 }
 

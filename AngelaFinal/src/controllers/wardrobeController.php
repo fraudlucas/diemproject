@@ -33,6 +33,16 @@ class WardrobeController {
 		return $wardrobeList;
 	}
 
+	public function checkClothesInWardrobe($clothesId,$userId) {
+		// $persistencePost = $this->factory->createPostPersistence();
+		$param = 'userId = ' . $userId . ' AND clothesId';
+		$wardrobeList = $this->persistenceWardrobe->searchWardrobe($param,$clothesId,'1');
+		if (empty($wardrobeList)) {
+			return false;
+		}
+		return true;
+	}
+
 }
 
  ?>

@@ -37,7 +37,11 @@ if (!empty($action)) {
 				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
 				*/
 				if(empty($user)) {
-					echo 'There is no account registered using this email.';
+					$message  = 'There is no account registered using this email.';
+					$_SESSION['msgUser'] =  $message;
+					var_dump($user);
+					header('Location: ../../web/pages/userHome.php');
+					break;
 				} else {
 
 					$password = rand(100000,9999999);
@@ -79,11 +83,12 @@ if (!empty($action)) {
 				$password = filter_var ($_POST['password'],FILTER_SANITIZE_STRING);
 
 				$user = $userView->searchUsers("email",$email,'1');
+				$emailTocheck = (empty($user) ? '' : $user->getEmail());				
 
 				/*
 				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
 				*/
-				if ($user->getEmail() == $email) {
+				if ($emailTocheck == $email) {
 					//echo 'There is already an account registered using this email.'; 
 					$message  = 'There is already an account registered using this email.';
 					$_SESSION['msgUser'] =  $message;
@@ -325,6 +330,14 @@ if (!empty($action)) {
 				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
 				*/
 				if (is_null($user)) {
+					//echo 'There is no account registered using this email.';
+					$message  = 'There is no account registered using this email.';
+					$_SESSION['msgUser'] =  $message;
+					header('Location: ../../web/pages/userHome.php');
+					break;
+				}
+
+				if (empty($user)) {
 					//echo 'There is no account registered using this email.';
 					$message  = 'There is no account registered using this email.';
 					$_SESSION['msgUser'] =  $message;

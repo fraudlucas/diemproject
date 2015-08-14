@@ -54,6 +54,7 @@ class WardrobeDAOPdo implements WardrobeDAO {
 		$result = $stmt->fetchAll();
 
 		$wardrobeList = new ArrayObject();
+		$wardrobe = '';
 
 		foreach ($result as $row) {				
 			$wardrobe = new Wardrobe();

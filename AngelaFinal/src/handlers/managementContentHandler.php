@@ -4,7 +4,7 @@
 	require_once DIR_SRC.'htmLawed.php';
 	require_once DIR_MOD.'managementContent.php';
 	require_once DIR_MOD.'color.php';
-	require_once DIR_MOD.'logo.php';
+	// require_once DIR_MOD.'logo.php';
 	require_once DIR_VIE.'managementContentView.php';
 //require_once dirname(dirname(__FILE__)).'\..\registration.php';
 
@@ -24,7 +24,7 @@ if (!empty($action)) {
     switch ($action) {
 
 		case 'addContent':	
-			if(isset($_POST['content'])){				
+			if(isset($_POST['content'])){
 				$content = $_POST['content'];
 				$processed = htmLawed($content); 
 				$management = new ManagementContent();
@@ -36,7 +36,7 @@ if (!empty($action)) {
 			break;
 			
 		case 'updateContent':
-			if(isset($_POST['content'])){	
+			if(isset($_POST['content'])){
 				$content = $_POST['content'];
 				$processed = htmLawed($content); 
 				$management = new ManagementContent();
