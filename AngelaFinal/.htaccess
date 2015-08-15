@@ -1,0 +1,3 @@
+# Habilitar o PHP 5.4
+AddHandler application/x-httpd-php54 .php
+AddHandler application/x-httpd-php55 .php

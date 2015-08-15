@@ -103,7 +103,7 @@ class ClothesDAOPdo implements ClothesDAO {
 			$stmt->bindParam(':id', $clothes->getId());
 			
 			$stmt->execute();    // Execute the prepared query.
-			echo var_dump($stmt);
+			echo // var_dump($stmt);
 			return true;
 		}
 		catch(PDOException $e){

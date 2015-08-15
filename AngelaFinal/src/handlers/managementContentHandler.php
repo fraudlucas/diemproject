@@ -6,6 +6,7 @@
 	require_once DIR_MOD.'color.php';
 	// require_once DIR_MOD.'logo.php';
 	require_once DIR_VIE.'managementContentView.php';
+	error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE);
 //require_once dirname(dirname(__FILE__)).'\..\registration.php';
 
 $action = $_GET['a'];
@@ -125,11 +126,11 @@ if (!empty($action)) {
 	if (!empty($pageToReturn)) {
 		$header = "Location:  ../../web/pages/". $pageToReturn .".php";
 
-		var_dump($param);
+		// var_dump($param);
 
 		if (isset($param)) {
 			$header = $header . '?' . $param;
-			var_dump($header);
+			// var_dump($header);
 		}
 
 		header($header);

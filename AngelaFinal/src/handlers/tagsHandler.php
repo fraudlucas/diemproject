@@ -3,6 +3,7 @@
 	require_once('../Session.php');	
 	require_once DIR_MOD.'tags.php';
 	require_once DIR_VIE.'tagsView.php';
+	error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE);
 $action = $_GET['a'];
 $pageToReturn = $_GET['p'];
 
@@ -27,16 +28,21 @@ if (!empty($action)) {
     		$list = $clothesView->listClothes();
 			header('Location: ../test.php');
     		break;
+    	
+    	case 'deleteTag':
+    		
+    		break;
+
     }
     
     if (!empty($pageToReturn)) {
 		$header = "Location:  ../../web/pages/". $pageToReturn .".php";
 
-		var_dump($param);
+		// var_dump($param);
 
 		if (isset($param)) {
 			$header = $header . '?' . $param;
-			var_dump($header);
+			// var_dump($header);
 		}
 
 		header($header);

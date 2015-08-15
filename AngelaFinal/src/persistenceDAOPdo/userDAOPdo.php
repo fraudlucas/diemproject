@@ -36,7 +36,8 @@
 			$query = "INSERT INTO users (firstName, lastName, email, password,salt, administratorID)"
 						."VALUES (:firstName,:lastName, :email, :password,:salt, :administratorID)";
 						
-			$stmt = $con->prepare($query);			
+			$stmt = $con->prepare($query);
+			// var_dump($user);		
 			$stmt->bindParam(':firstName', $user->getFirstName());
 			$stmt->bindParam(':lastName', $user->getLastName());
 			$stmt->bindParam(':email', $user->getEmail());

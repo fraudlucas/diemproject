@@ -3,6 +3,7 @@ require_once('../config.php');
 require_once('../Session.php');	
 require_once DIR_MOD.'clothes.php';
 require_once DIR_VIE.'clothesView.php';
+error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE);
 
 $action = isset($_GET['a']) ? $_GET['a'] : '';
 $pageToReturn = isset($_GET['p']) ? $_GET['p'] : '';
@@ -18,9 +19,9 @@ if (!empty($action)) {
     	case 'clothesAdd':
 			//$target_dir = $_POST['target_dir'];
 			$target_dir = '/web/assets/img/clothes/';
-			var_dump($target_dir);
+			// // var_dump($target_dir);
 			$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-			var_dump($target_file);
+			// // var_dump($target_file);
 			$uploadOk = 1;
 			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 			// Check if image file is a actual image or fake image
@@ -140,7 +141,7 @@ if (!empty($action)) {
 
 
 			$clothes = $clothesView->searchClothes('id',$_POST['id'], '1');
-			var_dump($clothes);
+			// var_dump($clothes);
 			$picture = (!empty($picture) ? $picture : $clothes->getPicture());
 			
 			$clothes->setPicture($picture);
@@ -150,10 +151,10 @@ if (!empty($action)) {
 			$clothes->setCustomized($_POST['customized']);
 			$clothes->setTagId($_POST['tag']);
 
-			var_dump($clothes);
+			// var_dump($clothes);
 	
 			$result = $clothesView->updateClothes($clothes);
-			var_dump($result);
+			// var_dump($result);
 			// if($result){
 			// 	header('Location: ../../web/pages/userHome.php'); 	
 			// }else{
@@ -166,11 +167,11 @@ if (!empty($action)) {
     if (!empty($pageToReturn)) {
 		$header = "Location:  ../../web/pages/". $pageToReturn .".php";
 
-		var_dump($param);
+		// var_dump($param);
 
 		if (isset($param)) {
 			$header = $header . '?' . $param;
-			var_dump($header);
+			// var_dump($header);
 		}
 
 		header($header);

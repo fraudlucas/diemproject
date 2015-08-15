@@ -1,9 +1,10 @@
 <?php
-	require_once('../config.php');
-	require_once('../Session.php');	
-	require_once DIR_MOD.'wardrobe.php';
-	require_once DIR_VIE.'wardrobeView.php';
-	$session = new Session();
+require_once('../config.php');
+require_once('../Session.php');	
+require_once DIR_MOD.'wardrobe.php';
+require_once DIR_VIE.'wardrobeView.php';
+error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE);
+$session = new Session();
 	
 $action = $_GET['a'];
 
@@ -36,11 +37,11 @@ if (!empty($action)) {
     if (!empty($pageToReturn)) {
 		$header = "Location:  ../../web/pages/". $pageToReturn .".php";
 
-		var_dump($param);
+		// var_dump($param);
 
 		if (isset($param)) {
 			$header = $header . '?' . $param;
-			var_dump($header);
+			// var_dump($header);
 		}
 
 		header($header);

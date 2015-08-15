@@ -1,8 +1,10 @@
 <?php
-	require_once('../config.php');
-	require_once('../Session.php');	
-	require_once DIR_MOD.'user.php';
-	require_once DIR_VIE.'userView.php';
+require_once('../config.php');
+require_once('../Session.php');	
+require_once DIR_MOD.'user.php';
+require_once DIR_VIE.'userView.php';
+error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE);
+
 
 $session = new Session();
 $action = isset($_GET['a']) ? $_GET['a'] : '';
@@ -29,7 +31,7 @@ if (!empty($action)) {
 					$message  = 'There is no account registered using this email.';
 					$_SESSION['msgUser'] =  $message;
 					var_dump($user);
-					header('Location: ../../web/pages/userHome.php');
+					header('Location: ../../index.php');
 					break;
 				}
 
@@ -40,7 +42,7 @@ if (!empty($action)) {
 					$message  = 'There is no account registered using this email.';
 					$_SESSION['msgUser'] =  $message;
 					var_dump($user);
-					header('Location: ../../web/pages/userHome.php');
+					header('Location: ../../index.php');
 					break;
 				} else {
 
@@ -52,14 +54,14 @@ if (!empty($action)) {
 					$message = 'Your new password is'. $key ;
 					$test = mail($email, 'password changes', $message);
 					
-					if ($test) {
-						echo 'funfou';
-					}else{
-						echo 'pqp';
-					}
+					// if ($test) {
+					// 	echo 'funfou';
+					// }else{
+					// 	echo 'pqp';
+					// }
 
-					var_dump($test); 
-					echo $key;
+					// var_dump($test); 
+					// echo $key;
 					
 					$user = new User();
 
@@ -92,7 +94,7 @@ if (!empty($action)) {
 					//echo 'There is already an account registered using this email.'; 
 					$message  = 'There is already an account registered using this email.';
 					$_SESSION['msgUser'] =  $message;
-					header('Location: ../../web/pages/userHome.php');
+					header('Location: ../../index.php');
 					break;
 				}
 				
@@ -115,11 +117,11 @@ if (!empty($action)) {
 				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
 				*/
 				if($result){
-					echo 'You are now registered!';
+					// echo 'You are now registered!';
 					$subject = "Registration Agela Mark";
 					$message = "Hi " . $fname . "you were successfully registered";
 					mail($email, $subject, $message);
-					header('Location: ../../web/pages/userHome.php'); 
+					header('Location: ../../index.php'); 
 				}else{
 					header ('Location: ../../index.php');
 				}
@@ -180,7 +182,7 @@ if (!empty($action)) {
 					}
 					
 					$filename = ltrim ($target_file, '/');
-					echo '<br>'.$filename;
+					// echo '<br>'.$filename;
 					$picture = $filename;
 				}
 
@@ -204,13 +206,13 @@ if (!empty($action)) {
 				$picture = (!empty($picture) ? $picture : $user->getPicture());
 
 				if (!empty($password)) {
-					echo "entrou no if";
+					// echo "entrou no if";
 					
 					$options = ['cost' => 7,'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),];				
 					$password =  password_hash($password,PASSWORD_BCRYPT, $options);
 					$salt = $options['salt'];
 				}else{
-					echo "entrou  no else";
+					// echo "entrou  no else";
 					$password = $user->getPassword();
 					$salt  = $user->getSalt();
 				}
@@ -227,7 +229,7 @@ if (!empty($action)) {
 				$user->setSalt($salt);
 		
 				$result = $userView->updateUser($user);
-				var_dump($result);
+				// var_dump($result);
 
 				if ($user->getStatus() == 3) $userView->undeleteUser($id);
 				// if($result){
@@ -256,7 +258,7 @@ if (!empty($action)) {
 					
 					$message  = 'There is already an account registered using this email.';
 					$_SESSION['msgUser'] =  $message;
-					header('Location: ../../web/pages/userHome.php');
+					header('Location: ../../index.php');
 					break;
 				}
 				
@@ -275,8 +277,8 @@ if (!empty($action)) {
 				$user->setAdministratorID(3);
 				$result = $userView->registration($user);
 
-				var_dump($user); echo '<br><br>';
-				var_dump($result);
+				// var_dump($user); echo '<br><br>';
+				// var_dump($result);
 				
 				// if($result){
 				// 	header('Location: ../../web/pages/adminStaff.php'); 
@@ -320,28 +322,33 @@ if (!empty($action)) {
 			break;
 			
 		case 'login':
+			//echo " --- passou no case p login";
 			if(isset($_POST['email'],$_POST['password'])){
 				$email = filter_var ($_POST['email'],FILTER_SANITIZE_EMAIL);
 				$password = filter_var ($_POST['password'],FILTER_SANITIZE_STRING);
 				
 				$user = $userView->searchUsers("email",$email,'1');
 
+				//var_dump($user);
+
 				/*
 				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
 				*/
 				if (is_null($user)) {
-					//echo 'There is no account registered using this email.';
+					echo 'There is no account registered using this email.';
 					$message  = 'There is no account registered using this email.';
 					$_SESSION['msgUser'] =  $message;
-					header('Location: ../../web/pages/userHome.php');
+					header('Location: ../../index.php');
 					break;
 				}
+
+				// var_dump($user);
 
 				if (empty($user)) {
 					//echo 'There is no account registered using this email.';
 					$message  = 'There is no account registered using this email.';
 					$_SESSION['msgUser'] =  $message;
-					header('Location: ../../web/pages/userHome.php');
+					header('Location: ../../index.php');
 					break;
 				}
 
@@ -352,24 +359,36 @@ if (!empty($action)) {
 					//echo 'Your account has been deactivated. You must contact the Administrator.';
 					$message  = 'Your account has been deactivated. You must contact the Administrator.';
 					$_SESSION['msgUser'] =  $message;
-					header('Location: ../../web/pages/userHome.php');
+					header('Location: ../../index.php');
 					break; // If the user is inactive, cannot perform login.
 				}
 
 				/*
 				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
 				*/
+				// echo "<br> to aqui antes d ver a senha"; 
 				if(empty($user)) {
-					
+					// echo "<br> entrei no empty(var)";
 					$message  = 'There is no account registered using this email.';
 					$_SESSION['msgUser'] =  $message;
-					header('Location: ../../web/pages/userHome.php');
+					header('Location: ../../index.php');
 				} else {
-					$options = ['cost' => 7,'salt' => $user->getSalt()];	
-					$password =  password_hash($password,PASSWORD_BCRYPT, $options);				
+					// echo "<br> to aqui antes d testar a senha";
+					// var_dump($password);
+					// echo "<br>";
+					$options = ['cost' => 7,'salt' => $user->getSalt()];
+					// var_dump($options);
+					// var_dump($password);
+					// echo "<br> ------";
+					// echo password_hash($password,PASSWORD_BCRYPT, $options);
+					$password =  password_hash($password,PASSWORD_BCRYPT, $options);
+					// var_dump($password);	
+					// echo "<br> to aqui antes d testar a senha";		
 					if($password == $user->getPassword()){
 						$session->login($user);
+						// echo "<br><br>Joguei na sessao";
 						if($_SESSION['role'] == 1){
+							// echo " ---- cheguei p redirecionar";
 							header('Location: ../../web/pages/adminHome.php');
 						}elseif($_SESSION['role'] == 2){
 							if($_SESSION['status'] == 3){
@@ -386,7 +405,7 @@ if (!empty($action)) {
 						}						
 					}else{
 						if($_SESSION['loginCount']==3){
-							
+							// echo " --- aqui quase";
 						}else{
 							/*
 							* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
@@ -394,7 +413,7 @@ if (!empty($action)) {
 							$_SESSION['loginCount']+=1;
 							$message = 'Your password is not correct.';
 							$_SESSION['msgUser'] =  $message;
-							header('Location: ../../web/pages/userHome.php');
+							header('Location: ../../index.php');
 						}
 					}				
 				}				
@@ -404,11 +423,11 @@ if (!empty($action)) {
     if (!empty($pageToReturn)) {
 		$header = "Location:  ../../web/pages/". $pageToReturn .".php";
 
-		var_dump($param);
+		// var_dump($param);
 
 		if (isset($param)) {
 			$header = $header . '?' . $param;
-			var_dump($header);
+			// var_dump($header);
 		}
 
 		header($header);

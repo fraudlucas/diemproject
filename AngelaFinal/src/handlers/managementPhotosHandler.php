@@ -4,6 +4,7 @@
 	require_once DIR_SRC.'htmLawed.php';
 	require_once DIR_MOD.'managementPhotos.php';
 	require_once DIR_VIE.'managementPhotosView.php';
+	error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE);
 
 	if (isset($_GET['a'])){
 		$action = $_GET['a'];
@@ -184,10 +185,10 @@ if (!empty($action)) {
 			}
 
 			$id = (!empty($_GET['b']) ? $_GET['b'] : $_POST['id']);
-			var_dump($id);
+			// var_dump($id);
 
 			$management = $managementView->searchPhotos('id',$id,'1');
-			var_dump($management);
+			// var_dump($management);
 			$picture = (!empty($picture) ? $picture : $management->getPathPhoto());
 			$subtitle = $_POST['photoSubtitle'];
 			$description = $_POST['description'];
@@ -198,7 +199,7 @@ if (!empty($action)) {
 					
     		$test = $managementView->updatePhotos($management);
 
-    		var_dump($test);
+    		// var_dump($test);
 			break;
 			
 		case 'activate':
@@ -224,11 +225,11 @@ if (!empty($action)) {
     if (!empty($pageToReturn)) {
 		$header = "Location:  ../../web/pages/". $pageToReturn .".php";
 
-		var_dump($param);
+		// var_dump($param);
 
 		if (isset($param)) {
 			$header = $header . '?' . $param;
-			var_dump($header);
+			// var_dump($header);
 		}
 
 		header($header);
