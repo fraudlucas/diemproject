@@ -45,14 +45,16 @@ p.description_content{
 	<div id="wrapper">
 		<?php 
 		if($session->isLoggedIn()){
-			if ($_SESSION['role']==2){
-				include (DIR_LAY.'headerUserPages.php') ;
-			}elseif($_SESSION['role']==1){
-				include( DIR_LAY.'headerAdminPages.php') ;
-			}
-		}else{
-			include( DIR_LAY.'headerPages.php') ;
-		}
+            if ($_SESSION['role']==2){
+                include (DIR_LAY.'headerUserPages.php') ;
+            }elseif($_SESSION['role']==1){
+                include( DIR_LAY.'headerAdminPages.php') ;
+            }elseif($_SESSION['role']==3){
+                include( DIR_LAY.'headerStaffPages.php') ;
+            }
+        }else{
+            include( DIR_LAY.'headerPages.php') ;
+        }
 		?>
         <!--header end-->
 <br>

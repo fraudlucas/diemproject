@@ -66,14 +66,14 @@
 				<nav class="navbar-default"  role="navigation">
 					<ul class="nav nav-pills nav-stacked">
 					  <li>
-						<img src="../../<?php echo $user->getPicture(); ?>" class="img-responsive" width="300px" height="400px"> 
+						<img src="../../<?php echo $user->getPicture(); ?>" class="img-responsive" width="300px" height="400px"> </li>
 						<li role="presentation"><a href="../pages/staffHome.php">Profile</a></li>
 						<li role="presentation"><a href="../pages/staffWardrobe.php">Wardrobe</a></li>
 						<li role="presentation"><a href="../pages/staffCollections.php">Collections</a></li>
 						<li role="presentation"><a href="../pages/staffLooks.php">Create Looks</a></li>
 						<!-- <li role="presentation"><a href="#">My Wish List</a></li> -->
 						<li role="presentation" class="active"><a href="../pages/staffStylists.php">Stylists</a></li>
-						<li role="presentation"><a href="../pages/staffMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></a></li>
+						<li role="presentation"><a href="../pages/staffMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></span></a></li>
 					</ul>
 				</nav>
 			</div>		

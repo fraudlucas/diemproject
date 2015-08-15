@@ -37,6 +37,12 @@ class TagsController {
 		return $result;
 	}
 
+	public function removeTag($tagID) {
+		$result = $this->persistenceTag->remove($tagID);
+
+		return $result;
+	}
+
 }
 
  ?>

@@ -37,7 +37,7 @@
 						."VALUES (:firstName,:lastName, :email, :password,:salt, :administratorID)";
 						
 			$stmt = $con->prepare($query);
-			// var_dump($user);		
+			// // var_dump($user);		
 			$stmt->bindParam(':firstName', $user->getFirstName());
 			$stmt->bindParam(':lastName', $user->getLastName());
 			$stmt->bindParam(':email', $user->getEmail());
@@ -76,11 +76,11 @@
 				$stmt->bindParam(':salt', $user->getSalt());
 				
 				$stmt->execute();    // Execute the prepared query.
-				echo var_dump($stmt);
+				// echo var_dump($stmt);
 				return true;
 			}
 			catch(PDOException $e){
-				echo $e;
+				// echo $e;
 				return false;
 			}
 			
@@ -230,7 +230,7 @@
 			return 'sucess' . $res;
 			}
 			catch(PDOException $e){
-				echo $e;
+				// echo $e;
 				return false;
 			}
 			

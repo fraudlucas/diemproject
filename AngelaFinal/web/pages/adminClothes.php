@@ -73,13 +73,13 @@
 				<nav class="navbar-default"  role="navigation">
 					<ul class="nav nav-pills nav-stacked">
 					  <li>
-						<img src="../../<?php echo $user->getPicture(); ?>" class="img-responsive" width="300px" height="400px"> 
+						<img src="../../<?php echo $user->getPicture(); ?>" class="img-responsive" width="300px" height="400px"> </li>
 					  <li role="presentation"><a href="../pages/adminHome.php">Profile</a></li>
 					  <li role="presentation" ><a href="../pages/adminManagement.php">Manage Website</a></li>
 					  <li role="presentation" ><a href="../pages/adminClients.php">Clients</a></li>
 					  <li role="presentation" class="active"><a href="../pages/adminClothes.php">Clothes</a></li>
 					  <li role="presentation"><a href="../pages/adminStaff.php">Staff</a></li>
-					  <li role="presentation"><a href="../pages/adminMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></a></li>
+					  <li role="presentation"><a href="../pages/adminMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></span></a></li>
 					</ul>
 				</nav>
 			</div>		
@@ -111,7 +111,7 @@
 							<div class="tab-pane <?php echo $activeClass2; ?>" id="add">
 								<div class="row">
 									<div class="col-xs-18 col-md-12">
-										<form role="form" action="../../src/handlers/clothesHandler.php?a=clothesAdd&p=adminClothes&param=t&t=2" method="post" enctype="multipart/form-data">
+										<form role="form" action="../../src/handlers/clothesHandler.php?a=clothesAdd&p=<?php echo $pageToReturn; ?>&param=t&t=2" method="post" enctype="multipart/form-data">
 											<div class="row">
 												<div class="col-xs-6 col-md-4">
 													<div class="form-group">
@@ -188,7 +188,7 @@
 							<div class="tab-pane <?php echo $activeClass4; ?>" id="addTag">
 								<div class="row">
 									<div class="col-xs-18 col-md-12">
-										<form role="form" action="../../src/handlers/tagsHandler.php?a=tagsAdd&p=adminClothes&param=t&t=2" method="post">
+										<form role="form" action="../../src/handlers/tagsHandler.php?a=tagsAdd&p=<?php echo $pageToReturn; ?>&param=t&t=4" method="post">
 											<div class="row">
 												<div class="col-xs-6 col-md-4">
 													<div class="form-group">

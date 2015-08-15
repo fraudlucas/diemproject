@@ -25,8 +25,8 @@ if (!empty($action)) {
 			$wardrobe = new Wardrobe();
 			$wardrobe->setUserId($userID);
 			$wardrobe->setClothesId($clothesID);
-
-			echo $wardrobeView->add($wardrobe);
+			// var_dump($wardrobe);
+			$wardrobeView->add($wardrobe);
 
     		break;
 		case 'list':

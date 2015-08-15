@@ -34,14 +34,14 @@
 				<input type="hidden" name="target_dir" value="web/assets/img/profiles/<?php echo $value; ?>/">
 
 				<label for="firstName">First Name:</label>
-				<input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo  $user->getFirstName();?> " required="TRUE">
+				<input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo  $user->getFirstName();?>" required="TRUE">
 					
 					
 				<label for="lastName">Last Name:</label>
-				<input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo  $user->getLastName();?> "  required="TRUE">
+				<input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo  $user->getLastName();?>"  required="TRUE">
 				
 				<label for="address">Email:</label>
-				<input type="email" class="form-control" id="email" name="email" value="<?php echo  $user->getEmail();?> " onkeydown="checkPass();" required="TRUE">
+				<input type="email" class="form-control" id="email" name="email" value="<?php echo  $user->getEmail();?>" onkeydown="checkPass();" required="TRUE">
 
 				<label for="address">Confirm Email:</label>
 				<input type="email" class="form-control" id="email2" name="email2" placeholder="Confirm Email" onkeyup="checkPass(); return false;" value="" required="TRUE">

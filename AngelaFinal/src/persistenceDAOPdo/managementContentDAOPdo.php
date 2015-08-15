@@ -40,7 +40,7 @@ class ManagementContentDAOPdo implements ManagementContentDAO {
 				return true;
 			}
 			catch(PDOException $e){
-				echo $e;
+				// echo $e;
 				return false;
 			}
 	}
@@ -103,7 +103,7 @@ class ManagementContentDAOPdo implements ManagementContentDAO {
 	public function updateColor($color){
 		$className = 'ConnectionDAOPdo';
 		
-		echo $color->getColor() . "noDAO";
+		// echo $color->getColor() . "noDAO";
 		try {		
 			$con = $className::getConnection();
 			$stmt = $con->prepare("UPDATE colors SET 
@@ -116,7 +116,7 @@ class ManagementContentDAOPdo implements ManagementContentDAO {
 			return true;
 		}
 		catch(PDOException $e){
-			echo $e;
+			// echo $e;
 			return false;
 		}
 	}
@@ -136,7 +136,7 @@ class ManagementContentDAOPdo implements ManagementContentDAO {
 			return true;
 		}
 		catch(PDOException $e){
-			echo $e;
+			// echo $e;
 			return false;
 		}
 	}

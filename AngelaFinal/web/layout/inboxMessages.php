@@ -85,6 +85,7 @@ if ($limitMessages && $inboxCount == $amountToShow) {
 	</thead>
 	<tbody>
 		<?php echo $inboxTBody; ?>
+		<input type="hidden" id="pageToReload" value="<?php echo $pageToReturn; ?>.php?t=2">
 
 	</tbody>
 </table>
@@ -129,7 +130,9 @@ if ($limitMessages && $inboxCount == $amountToShow) {
 		})
 		
 		$('#inboxReadMessageModal').on('hidden.bs.modal', function (event) {
-			location.reload()
+			// location.reload()
+			var redirecTo = $('#pageToReload').val();
+			window.location.replace(redirecTo);
 		})
 	});
 </script>

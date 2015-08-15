@@ -20,7 +20,7 @@
 						<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 					</span>
 				</a>
-				<a href="handlers/userHandler.php?a=userdelete&id='.urlencode($id).'" class="table-link danger">
+				<a href="../../src/handlers/tagsHandler.php?a=deleteTag&p='.$pageToReturn.'&id='.urlencode($id).'&param=t&t=3" class="table-link danger">
 					<span class="fa-stack">
 						<i class="fa fa-square fa-stack-2x"></i>
 						<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>

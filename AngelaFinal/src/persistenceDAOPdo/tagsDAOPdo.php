@@ -55,7 +55,23 @@ class TagsDAOPdo implements TagsDAO {
 			
 
 		return $tag;
-	}   
+	}
+
+
+	public function remove($tagID) {
+
+		$className = 'ConnectionDAOPdo';
+		$con = $className::getConnection();
+
+		$stmt = $con->prepare("DELETE FROM tags WHERE id = :id");
+		
+		$stmt->bindParam(':id', $tagID);
+		
+		
+		$teste = $stmt->execute();
+
+		return 'Sucesso - ' . $teste;
+	}
 }
 
 ?>

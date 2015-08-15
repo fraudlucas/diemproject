@@ -34,6 +34,11 @@ class TagsView{
 		return $result;
 	}
 	
+	public function removeTag($tagID) {
+		$result = $this->tagsController->removeTag($tagID);
+
+		return $result;
+	}
 
 }
 

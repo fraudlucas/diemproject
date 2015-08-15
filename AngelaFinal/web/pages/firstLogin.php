@@ -32,7 +32,9 @@
 		<?php 
 			if (!$session->isLoggedIn()){
 				header('Location: ../../index.php') ;
-			}else{
+			}else if ($_SESSION['role']==3){
+				include( DIR_LAY.'headerStaffPages.php') ;
+			} else {
 				include( DIR_LAY.'headerUserPages.php') ;
 			}
 		?>
@@ -47,13 +49,13 @@
 							<div class="col-xs-9 col-md-6">
 								<div class="form-group">
 								  <label for="firstName">First Name:</label>
-								  <input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo $_SESSION['fname'];?> ">
+								  <input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo $_SESSION['fname'];?>">
 								</div>
 							</div>
 							<div class="col-xs-9 col-md-6">
 								<div class="form-group">
 								  <label for="lastName">Last Name:</label>
-								  <input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo $_SESSION['lname'];?> ">
+								  <input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo $_SESSION['lname'];?>">
 								</div>
 							</div>
 						</div>

@@ -30,7 +30,10 @@ if (!empty($action)) {
     		break;
     	
     	case 'deleteTag':
-    		
+    		if(isset($_GET['id'])){
+				$tagID = $_GET['id'];
+				$test = $tagsView->removeTag($tagID);
+			}
     		break;
 
     }
