@@ -41,7 +41,6 @@ p.description_content{
 </head>
 <body>
 <?php include( DIR_LAY.'modalBook.php');?>
-<?php include( DIR_LAY.'modalRegister.php');?>
 	<div id="wrapper">
 		<?php 
 		if($session->isLoggedIn()){

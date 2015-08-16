@@ -39,20 +39,17 @@ p.description_content{
 </head>
 <body>
 <?php include( DIR_LAY.'modalBook.php');?>
-<?php include( DIR_LAY.'modalRegister.php');?>
 	<div id="wrapper">
 		<?php 
 		if($session->isLoggedIn()){
-            if ($_SESSION['role']==2){
-                include (DIR_LAY.'headerUserPages.php') ;
-            }elseif($_SESSION['role']==1){
-                include( DIR_LAY.'headerAdminPages.php') ;
-            }elseif($_SESSION['role']==3){
-                include( DIR_LAY.'headerStaffPages.php') ;
-            }
-        }else{
-            include( DIR_LAY.'headerPages.php') ;
-        }
+			if ($_SESSION['role']==2){
+				include (DIR_LAY.'headerUserPages.php') ;
+			}elseif($_SESSION['role']==1){
+				include( DIR_LAY.'headerAdminPages.php') ;
+			}
+		}else{
+			include( DIR_LAY.'headerPages.php') ;
+		}
 		?>
     <br>
 	<br>
@@ -70,7 +67,7 @@ p.description_content{
                     <div class="col-lg-8 col-sm-8">
                         <ol class="breadcrumb pull-right">
                             <li>
-                                <a href="index.html">Home</a></li>
+                                <a href="../../index.php">Home</a></li>
                             
                             <li class="active">Contact</li>
                         </ol>
@@ -83,7 +80,7 @@ p.description_content{
         <!--container start-->
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="">
                     <p class="lead text-justify">To contact Angela Mark Fashion Designs, please call us using the information
                         below, or you can use our convenient online form. Before using the form,
                         please read our privacy policy.</p>
@@ -93,13 +90,11 @@ p.description_content{
                     <h3 class="custom-font text-black text-justify title"></h3>
                     <section class="contact-infos">
                         <h4>TELEPHONE</h4>
-                        <p>
-                            <i class="icon-phone"></i>+1 705.742.7315</p>
+                        <p><i class="icon-phone"></i>+1 705.742.7315</p>
                     </section>
                     <section class="contact-infos">
                         <h4>Email</h4>
-                        <p>
-                            <i class=""></i>showroom@angelamark.com</p>
+                        <p><i class=""></i>showroom@angelamark.com</p>
                     </section>
                     <section class="contact-infos">
                         <h4 class="title custom-font text-black">BUSINESS HOURS</h4>
@@ -112,7 +107,80 @@ p.description_content{
                 <div class="col-lg-7 col-sm-7 address">
                     <h4 class="text-center">Drop us a line so that we can hear from you</h4>
                     
-					<center><div><?php include ("../../web/layout/html-contact-form.php");?></div></center>
+					<center><div>
+					<?php
+					// If user press SUBMIT check bellow functions
+					if(isset($_POST['submit'])) {
+						
+						// Check if all fields were complete.
+						if(!empty($_POST['nome']) && !empty($_POST['email']) && !empty($_POST['mensagem']) && !empty($_POST['codigo'])) {
+							
+							if($_POST['codigo'] == $_SESSION['rand_code']) {
+							
+								// Sends message confirming.
+								$ok = "Thanks by your message! We will reply it soon.";
+							// Error message
+							} else {
+							
+								$erro = "Sorry, the code is incorrect.";
+							
+							}
+						// Error in case something is missing
+						} else {
+						
+							$erro = "Please, fill all the form fields.";
+						
+						}
+
+					}
+
+					?>
+					<style type="text/css">
+					form {
+						margin:0;
+						padding:0;
+					}
+					input {
+						padding:2px;
+						width:350px;
+					}
+					textarea {
+						padding:2px 130px 2px 2px;
+						width:400px;
+						height:100px;
+					}
+					.button {
+						width:60px;
+					}
+					p {
+						margin:0 0 5px 0;
+						padding:0;
+					}
+					.erro {
+						color:#FF0000;
+						margin:0 0 10px 0;
+					}
+					.ok {
+						color:#339966;
+						margin:0 0 10px 0;
+					}
+					</style>
+
+					<?php if(!empty($erro)) echo '<div class="erro">'.$erro.'</div>'; ?>
+					<?php if(!empty($ok)) echo '<div class="ok">'.$ok.'</div>'; ?>
+
+					<!-- Contact form itself-->
+					<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
+						<p><b>Name: </b> <input class="form-control" type="text" name="nome" required> </p>
+						<p><b>E-mail: </b><input class="form-control" type="email" name="email" required></p>
+						<p><b>Message: </b><textarea class="form-control" name="mensagem" required style="padding: 20px 130px 50px 2px;"></textarea></p>						 
+						<img src="../../web/layout/captcha.php">
+						<p><b>Please, type the code:</b><br><input class="form-control" type="text" name="codigo" required style="width:150px;"></p>
+						<input type="submit" name="submit" value="Send" class="btn btn-info" style="width:150px" />
+						<br>
+						<br>
+					</form>
+					</div></center>
                     </div>
                 </div>
             </div>

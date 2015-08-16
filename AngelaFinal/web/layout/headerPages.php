@@ -84,3 +84,4 @@ $flag_header_action = true;
 
 
 <?php include (DIR_LAY.'modalRecoveryPassword.php'); ?>
+<?php include( DIR_LAY.'modalRegister.php');?>

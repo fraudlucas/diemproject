@@ -1,9 +1,10 @@
-<html>
 
-<head>
-<script src='https://www.google.com/recaptcha/api.js'></script>
-</head>
-<body>
+<?php 
+
+$recoveryAction = ($flag_header_action ? '../../' : '');
+
+?>
+
 <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -14,7 +15,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Register</h4>
         </div>
-		<form class="" action="./src/handlers/userHandler.php?a=registration" method="post">
+		<form class="" action="<?php echo $recoveryAction; ?>src/handlers/userHandler.php?a=registration" method="post">
 			<div class="modal-body">					
 				
 					<label class="control-label" for="firstName">First Name</label>
@@ -33,11 +34,13 @@
 					<input type="password" class="form-control" id="password2" name="password2"aria-describedby="inputSuccess4Status" onkeyup="checkPass(); return false;" value="" required="TRUE">
 			
 			</div>
-			<center><div class="g-recaptcha" data-sitekey="6Lef-AoTAAAAAGuq8NANMj1uX-T-VcKwvk1k23lb"></div></center><br>
-			<div class="modal-footer form-group">
-			   <center>
-			   		<button type="submit" class="btn btn-info">Register</button>
-			   </center>
+			
+			<center><p><b>Captcha:</b></p></center>
+			<center><img src="<?php echo $recoveryAction; ?>web/layout/captcha.php" /></center>
+			<center><p><b>Please, type the code:</b><br><input type="text" name="codigo" required ></p></center>
+			<br>
+			   		<center><button type="submit" class="btn btn-info">Register</button></center>
+			   <br>
 			</div>
 		</form>
       </div>
@@ -85,5 +88,3 @@ function checkPass()
 </script>
 
 
-</body>
-  </html>

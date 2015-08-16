@@ -44,7 +44,6 @@ p.description_content{
 </head>
 <body>
 <?php include( DIR_LAY.'modalBook.php');?>
-<?php include( DIR_LAY.'modalRegister.php');?>
 	<div id="wrapper">
 		<?php 
 		if($session->isLoggedIn()){
@@ -135,8 +134,82 @@ p.description_content{
 		<br>
         <div class="col-lg-7 col-sm-7 address">
           <center><h4>Work with us</h4></center>
-					<center><div><?php include ("../../web/layout/html-contact-form.php");?></div></center>
+		  
+		  
+					<center><div>
+					
+					<?php
+					if(isset($_POST['submit'])) {
+	
+						// Check if everything was filled.
+						if(!empty($_POST['nome']) && !empty($_POST['email']) && !empty($_POST['mensagem']) && !empty($_POST['codigo'])) {
+							
+							if($_POST['codigo'] == $_SESSION['rand_code']) {
+							
+								$ok = "Thanks by your message! We will reply it soon.";
+							
+							} else {
+							
+								$erro = "Sorry, the code is incorrect.";
+							
+							}
+						} else {
+						
+							$erro = "Please, fill all the form fields.";
+						
+						}
 
+					}
+
+					?>
+					<style type="text/css">
+					form {
+						margin:0;
+						padding:0;
+					}
+					input {
+						padding:2px;
+						width:350px;
+					}
+					textarea {
+						padding:2px 130px 2px 2px;
+						width:400px;
+						height:100px;
+					}
+					.button {
+						width:60px;
+					}
+					p {
+						margin:0 0 5px 0;
+						padding:0;
+					}
+					.erro {
+						color:#FF0000;
+						margin:0 0 10px 0;
+					}
+					.ok {
+						color:#339966;
+						margin:0 0 10px 0;
+					}
+					</style>
+
+					<!-- Check if we had mistakes -->
+					<?php if(!empty($erro)) echo '<div class="erro">'.$erro.'</div>'; ?>
+					<?php if(!empty($ok)) echo '<div class="ok">'.$ok.'</div>'; ?>
+
+					<!-- Contact form itself-->
+					<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
+						<p><b>Name: </b> <input class="form-control" type="text" name="nome" required> </p>
+						<p><b>E-mail: </b><input class="form-control" type="email" name="email" required></p>
+						<p><b>Message: </b><textarea class="form-control" name="mensagem" required style="padding: 20px 130px 50px 2px;"></textarea></p>						 
+						<img src="../../web/layout/captcha.php">
+						<p><b>Please, type the code:</b><br><input class="form-control" type="text" name="codigo" required style="width:150px;"></p>
+						<input type="submit" name="submit" value="Send" class="btn btn-info" style="width:150px" />
+						<br>
+						<br>
+					</form>	
+					</div>
+				</center>
           </div>
         </div>
       </div>
