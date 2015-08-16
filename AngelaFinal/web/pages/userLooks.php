@@ -133,7 +133,7 @@
                 <div class="row">
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#create" data-toggle="tab"><i class=""></i>Create Looks</a></li>
-						<li class=""><a href="#Collections" data-toggle="tab">Looks List</a></li>
+						<li class=""><a href="#list" data-toggle="tab">Looks List</a></li>
 					</ul>
 					<div class="tab-content" >
 						<div class="tab-pane fade in active" id="create">					
@@ -227,6 +227,11 @@
 										</div>
 									</div>
 								</div>
+							</div>
+						</div>
+						<div class="tab-pane" id="list">	
+							<div>
+								<?php include( DIR_LAY.'tabLooksList.php');?>
 							</div>
 						</div>
 					</div>
