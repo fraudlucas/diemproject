@@ -2,29 +2,50 @@
 
 class clothingLookPieces{
 
-	private $clothingLookId;
-	private $clothingId;
-
-	public function getClothingLookPieces()
+	private $id;
+	private $clothing1Id;
+	private $clothing2Id;
+	private $userId;
+	
+	public function getId()
 	{
-	    return $this->clothingLookPieces;
+	    return $this->id;
 	}
 	
-	public function setClothingLookPieces($clothingLookPieces)
+	public function setId($id)
 	{
-	    return $this->clothingLookPieces = $clothingLookPieces;
+	     $this->id = $id;
 	}
 
-	public function getClothingId()
+	public function getClothing1Id()
 	{
-	    return $this->clothingId;
+	    return $this->clothing1Id;
 	}
 
-	public function setClothingId($clothingId)
+	public function setClothing1Id($clothing1Id)
 	{
-	    return $this->clothingId = $clothingId;
+	     $this->clothing1Id = $clothing1Id;
+	}
+	
+	public function getClothing2Id()
+	{
+	    return $this->clothing2Id;
 	}
 
+	public function setClothing2Id($clothing2Id)
+	{
+	     $this->clothing2Id = $clothing2Id;
+	}
+
+	public function getUserId()
+	{
+	    return $this->userId;
+	}
+
+	public function setUserId($userId)
+	{
+	     $this->userId = $userId;
+	}
 
 
 }

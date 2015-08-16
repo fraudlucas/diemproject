@@ -7,7 +7,7 @@
 /**
 * 
 */
-class clothingTypeView{
+class ClothingLookPiecesView{
 	private $clothingLookPiecesController;
 
 	function __construct() {
@@ -17,7 +17,7 @@ class clothingTypeView{
 	public function add($clothingLooks) {
 		//$postController = new PostController();
 
-		$test = $this->clothingLookPiecessController->add($clothingLookPieces);
+		$test = $this->clothingLookPiecesController->add($clothingLooks);
 
 		return $test;
 	}
@@ -28,7 +28,11 @@ class clothingTypeView{
 		return $clothingLooksLists;
 	}
 	
+	public function search($param,$value,$type) {
+		$clothingLooksLists = $this->clothingLookPiecesController->search($param,$value,$type);
 
+		return $clothingLooksLists;
+	}
 }
 
  ?>

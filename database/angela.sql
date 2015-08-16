@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.12
+-- version 4.3.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2015 at 12:58 AM
--- Server version: 5.6.25
--- PHP Version: 5.6.11
+-- Generation Time: Aug 16, 2015 at 03:34 AM
+-- Server version: 5.6.24
+-- PHP Version: 5.6.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `angelamark`
@@ -150,6 +150,26 @@ CREATE TABLE IF NOT EXISTS `logos` (
 
 INSERT INTO `logos` (`id`, `path`) VALUES
 (1, 'web/assets/img/logo/logo2.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `looks`
+--
+
+CREATE TABLE IF NOT EXISTS `looks` (
+  `id` int(10) unsigned NOT NULL,
+  `clothing1id` int(10) unsigned DEFAULT NULL,
+  `clothing2id` int(10) unsigned DEFAULT NULL,
+  `userId` int(10) unsigned NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `looks`
+--
+
+INSERT INTO `looks` (`id`, `clothing1id`, `clothing2id`, `userId`) VALUES
+(3, 2, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -310,25 +330,6 @@ INSERT INTO `tags` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_roles`
---
-
-CREATE TABLE IF NOT EXISTS `user_roles` (
-  `id` int(10) unsigned NOT NULL,
-  `userID` int(10) unsigned NOT NULL,
-  `roleID` int(10) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_roles`
---
-
-INSERT INTO `user_roles` (`id`, `userID`, `roleID`) VALUES
-(1, 1, 1);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -365,6 +366,25 @@ INSERT INTO `users` (`id`, `username`, `password`, `salt`, `email`, `firstName`,
 (9, NULL, '$2y$07$wpaX3HTE14VmwKZYOhNpF.K5xBQ96WUxwfXyiQsusWF9MxhNQA19O', 'Â–—ÜtÄ×…fÀ¦X:i©¤Xÿœ‡', 'user@test.com', 'Test   sadasd  ', 'Testing     ', 'asdasda', '1h1g1h1', 'test', 'ON', 2, 2, 'web/assets/images/profilepicture.jpg', '2015-08-12 22:15:39'),
 (10, NULL, '$2y$07$DbCB8BuEbgCMfmZk0bo1H.OZ0SlmH2JcZKIEUVpJQNz4wF6i6VqiC', '\r°ð„n\0Œ~fdÑº5]Y°å1', 'notuser@test.com', 'not user ', 'n ', 'asdas ds', 'as dsa ', 'asds as das d', 'as', 2, 2, 'web/assets/images/profilepicture.jpg', '2015-08-12 22:38:25'),
 (12, NULL, '$2y$07$A/sSwsPN7sznl0tH567spOsa/Oxade.dTz/6dPqAPFVXjvk1jOML6', 'ûÂÃÍîÌç—KGç®ì¥&œ ¿', 'test2@staff.com', 'asd asdnals  ', 'asjd pajso pd ', 'sd a sda s', 'as das ', 'sad asd as', 'ON', 3, 2, 'web/assets/images/profilepicture.jpg', '2015-08-12 23:41:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_roles`
+--
+
+CREATE TABLE IF NOT EXISTS `user_roles` (
+  `id` int(10) unsigned NOT NULL,
+  `userID` int(10) unsigned NOT NULL,
+  `roleID` int(10) unsigned NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_roles`
+--
+
+INSERT INTO `user_roles` (`id`, `userID`, `roleID`) VALUES
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -409,30 +429,25 @@ CREATE TABLE IF NOT EXISTS `wishlists` (
 -- Indexes for table `clothing`
 --
 ALTER TABLE `clothing`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uc_clothing` (`code`),
-  ADD KEY `typeId` (`typeId`);
+  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uc_clothing` (`code`), ADD KEY `typeId` (`typeId`);
 
 --
 -- Indexes for table `clothinglookpieces`
 --
 ALTER TABLE `clothinglookpieces`
-  ADD PRIMARY KEY (`clothingLookID`,`clothingID`),
-  ADD KEY `fk_clothingLookPieces_clothing` (`clothingID`);
+  ADD PRIMARY KEY (`clothingLookID`,`clothingID`), ADD KEY `fk_clothingLookPieces_clothing` (`clothingID`);
 
 --
 -- Indexes for table `clothinglooks`
 --
 ALTER TABLE `clothinglooks`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `userID` (`userID`);
+  ADD PRIMARY KEY (`id`), ADD KEY `userID` (`userID`);
 
 --
 -- Indexes for table `clothingtagged`
 --
 ALTER TABLE `clothingtagged`
-  ADD PRIMARY KEY (`tagID`,`clothingID`),
-  ADD KEY `fk_clothingTagged_clothing` (`clothingID`);
+  ADD PRIMARY KEY (`tagID`,`clothingID`), ADD KEY `fk_clothingTagged_clothing` (`clothingID`);
 
 --
 -- Indexes for table `clothingtype`
@@ -447,26 +462,28 @@ ALTER TABLE `logos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `looks`
+--
+ALTER TABLE `looks`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_messages_fromUsers` (`fromUserID`),
-  ADD KEY `fk_messages_toUsers` (`toUserID`);
+  ADD PRIMARY KEY (`id`), ADD KEY `fk_messages_fromUsers` (`fromUserID`), ADD KEY `fk_messages_toUsers` (`toUserID`);
 
 --
 -- Indexes for table `pagecontent`
 --
 ALTER TABLE `pagecontent`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_pagecontent_pages` (`pageID`);
+  ADD PRIMARY KEY (`id`), ADD KEY `fk_pagecontent_pages` (`pageID`);
 
 --
 -- Indexes for table `pagephotos`
 --
 ALTER TABLE `pagephotos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `pageId` (`pageId`);
+  ADD PRIMARY KEY (`id`), ADD KEY `pageId` (`pageId`);
 
 --
 -- Indexes for table `pages`
@@ -484,24 +501,19 @@ ALTER TABLE `roles`
 -- Indexes for table `tags`
 --
 ALTER TABLE `tags`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uc_tags` (`name`);
-
---
--- Indexes for table `user_roles`
---
-ALTER TABLE `user_roles`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_userRoles_users` (`userID`),
-  ADD KEY `fk_userRoles_roles` (`roleID`);
+  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uc_tags` (`name`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uc_users` (`username`,`email`),
-  ADD KEY `fk_administrators_users` (`administratorID`);
+  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uc_users` (`username`,`email`), ADD KEY `fk_administrators_users` (`administratorID`);
+
+--
+-- Indexes for table `user_roles`
+--
+ALTER TABLE `user_roles`
+  ADD PRIMARY KEY (`id`), ADD KEY `fk_userRoles_users` (`userID`), ADD KEY `fk_userRoles_roles` (`roleID`);
 
 --
 -- Indexes for table `wardrobe`
@@ -513,9 +525,7 @@ ALTER TABLE `wardrobe`
 -- Indexes for table `wishlists`
 --
 ALTER TABLE `wishlists`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_wishlist_costumers` (`costumerID`),
-  ADD KEY `fk_wishlist_clothingLooks` (`clothingLookID`);
+  ADD PRIMARY KEY (`id`), ADD KEY `fk_wishlist_costumers` (`costumerID`), ADD KEY `fk_wishlist_clothingLooks` (`clothingLookID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -541,6 +551,11 @@ ALTER TABLE `clothingtype`
 --
 ALTER TABLE `logos`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `looks`
+--
+ALTER TABLE `looks`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `messages`
 --
@@ -572,15 +587,15 @@ ALTER TABLE `roles`
 ALTER TABLE `tags`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT for table `user_roles`
---
-ALTER TABLE `user_roles`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `user_roles`
+--
+ALTER TABLE `user_roles`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `wardrobe`
 --
@@ -599,58 +614,58 @@ ALTER TABLE `wishlists`
 -- Constraints for table `clothing`
 --
 ALTER TABLE `clothing`
-  ADD CONSTRAINT `clothing_ibfk_1` FOREIGN KEY (`typeId`) REFERENCES `clothingtype` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `clothing_ibfk_1` FOREIGN KEY (`typeId`) REFERENCES `clothingtype` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `clothinglookpieces`
 --
 ALTER TABLE `clothinglookpieces`
-  ADD CONSTRAINT `fk_clothingLookPieces_clothing` FOREIGN KEY (`clothingID`) REFERENCES `clothing` (`id`),
-  ADD CONSTRAINT `fk_clothingLookPieces_clothingLooks` FOREIGN KEY (`clothingLookID`) REFERENCES `clothinglooks` (`id`);
+ADD CONSTRAINT `fk_clothingLookPieces_clothing` FOREIGN KEY (`clothingID`) REFERENCES `clothing` (`id`),
+ADD CONSTRAINT `fk_clothingLookPieces_clothingLooks` FOREIGN KEY (`clothingLookID`) REFERENCES `clothinglooks` (`id`);
 
 --
 -- Constraints for table `clothinglooks`
 --
 ALTER TABLE `clothinglooks`
-  ADD CONSTRAINT `clothinglooks_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `clothinglooks_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `clothingtagged`
 --
 ALTER TABLE `clothingtagged`
-  ADD CONSTRAINT `fk_clothingTagged_clothing` FOREIGN KEY (`clothingID`) REFERENCES `clothing` (`id`),
-  ADD CONSTRAINT `fk_clothingTagged_tags` FOREIGN KEY (`tagID`) REFERENCES `tags` (`id`);
+ADD CONSTRAINT `fk_clothingTagged_clothing` FOREIGN KEY (`clothingID`) REFERENCES `clothing` (`id`),
+ADD CONSTRAINT `fk_clothingTagged_tags` FOREIGN KEY (`tagID`) REFERENCES `tags` (`id`);
 
 --
 -- Constraints for table `messages`
 --
 ALTER TABLE `messages`
-  ADD CONSTRAINT `fk_messages_fromUsers` FOREIGN KEY (`fromUserID`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `fk_messages_toUsers` FOREIGN KEY (`toUserID`) REFERENCES `users` (`id`);
+ADD CONSTRAINT `fk_messages_fromUsers` FOREIGN KEY (`fromUserID`) REFERENCES `users` (`id`),
+ADD CONSTRAINT `fk_messages_toUsers` FOREIGN KEY (`toUserID`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `pagecontent`
 --
 ALTER TABLE `pagecontent`
-  ADD CONSTRAINT `fk_pagecontent_pages` FOREIGN KEY (`pageID`) REFERENCES `pages` (`id`);
+ADD CONSTRAINT `fk_pagecontent_pages` FOREIGN KEY (`pageID`) REFERENCES `pages` (`id`);
 
 --
 -- Constraints for table `pagephotos`
 --
 ALTER TABLE `pagephotos`
-  ADD CONSTRAINT `pagephotos_ibfk_1` FOREIGN KEY (`pageId`) REFERENCES `pages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `pagephotos_ibfk_1` FOREIGN KEY (`pageId`) REFERENCES `pages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`administratorID`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`administratorID`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `wishlists`
 --
 ALTER TABLE `wishlists`
-  ADD CONSTRAINT `fk_wishlist_clothingLooks` FOREIGN KEY (`clothingLookID`) REFERENCES `clothinglooks` (`id`);
+ADD CONSTRAINT `fk_wishlist_clothingLooks` FOREIGN KEY (`clothingLookID`) REFERENCES `clothinglooks` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -52,7 +52,7 @@ class FactoryDAOPdo implements FactoryDAO {
 	}
 
 	public function createClothingLookPiecePersistence() {
-
+		return new clothingLooksDAOPdo();
 	}
 
 }

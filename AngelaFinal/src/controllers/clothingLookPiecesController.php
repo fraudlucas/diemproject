@@ -30,7 +30,12 @@ class ClothingLookPiecesController {
 
 		return $clothingLookPieces;
 	}
+	
+	public function search($param,$value,$type) {
+		$clothingLookPiecesList = $this->persistenceClothes->search($param,$value,$type);
 
+		return $clothingLookPiecesList;
+	}
 }
 
  ?>

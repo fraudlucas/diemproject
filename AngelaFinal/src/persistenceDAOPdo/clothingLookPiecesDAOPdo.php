@@ -10,11 +10,11 @@ class clothingLooksDAOPdo implements clothingLookPiecesDAO {
 		$className = 'ConnectionDAOPdo';
 		$con = $className::getConnection();
 
-		$stmt = $con->prepare("INSERT INTO clothinglookpieces (clothingLookID, clothingID) values (:clothingLookID, :clothingID)");
+		$stmt = $con->prepare("INSERT INTO looks (clothing1id, clothing2id,userId) values (:clothing1id, :clothing2id,:userId)");
 		
-		$stmt->bindParam(':clothingLookID', $clothinglooks->getClothingLookID());
-		$stmt->bindParam(':clothingID', $clothinglooks->getClothingID());
-		
+		$stmt->bindParam(':clothing1id', $clothingLookPieces->getClothing1Id());
+		$stmt->bindParam(':clothing2id', $clothingLookPieces->getClothing2Id());
+		$stmt->bindParam(':userId', $clothingLookPieces->getUserId());
 		
 		
 		$teste = $stmt->execute();
@@ -26,7 +26,7 @@ class clothingLooksDAOPdo implements clothingLookPiecesDAO {
 		$className = 'ConnectionDAOPdo';
 		$con = $className::getConnection();
 
-		$stmt = $con->prepare("SELECT * FROM clothinglookpieces");
+		$stmt = $con->prepare("SELECT * FROM looks");
 		$stmt->execute();
 		$result = $stmt->fetchAll();
 
@@ -42,6 +42,34 @@ class clothingLooksDAOPdo implements clothingLookPiecesDAO {
 
 		return $clothinglooksList;
 	}   
+	
+	public function search($param,$value,$type) {
+			$className = 'ConnectionDAOPdo';
+			$con = $className::getConnection();
+			$query = 'SELECT * FROM looks Where '.$param.' = "'.$value.'"';
+			$stmt = $con->prepare($query);
+			$stmt->execute();
+			$result = $stmt->fetchAll();
+
+			$lookslist = new ArrayObject();
+
+			$looks = '';
+
+			foreach ($result as $row) {				
+				$looks = new clothingLookPieces();
+				$looks->setId($row['id']);
+				$looks->setClothing1Id($row['clothing1id']);
+				$looks->setClothing2Id($row['clothing2id']);
+				$looks->setUserId($row['userId']);
+				$lookslist->append($looks);
+			}
+			
+			if($type==1){
+				return $looks;
+			}elseif($type==2){
+				return $lookslist;
+			}
+		} 
 }
 
 ?>

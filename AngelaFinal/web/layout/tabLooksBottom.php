@@ -20,7 +20,7 @@
 		$dates = $row->getDates();
 		$clothes = $clothesView->searchClothes('id',$clothesId, '1'); 
 		if ($clothes->getTypeId()== 2){
-			$code .='<img src="../../'.$clothes->getPicture().'" style="width:200px;height:140px;"id="drag'.$count.'" draggable="true" ondragstart="drag(event)" >';
+			$code .='<img src="../../'.$clothes->getPicture().'" style="width:200px;height:140px;"id="'.$clothesId.'" draggable="true" ondragstart="drag(event)" >';
 		}
 	}
 	
