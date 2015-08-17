@@ -6,8 +6,10 @@
 	$manegementPhotosView = new ManagementPhotosView();
 	$managementContentView = new ManagementContentView();
     $pageId = '4';
+    $pageId2 = '8';
 	$managementPhotos = $manegementPhotosView->searchPhotos('pageId',$pageId,'1');
 	$managementContent = $managementContentView->searchContent('pageId',$pageId,'1');
+    $managementContent2 = $managementContentView->searchContent('pageId',$pageId2,'1');
 	$session = new Session();
 ?>
 <html lang="en">
@@ -101,109 +103,13 @@ p.description_content{
                     <?php echo $managementContent->getContent(); ?>
                 </div>
                 <div class="col-lg-3">
-                    <div class="title">
-                        <h4 class="text-center">How it works:</h4>
-                        <hr>
-                    </div>
-                    <ul class="lead list-unstyled pf-list">
-                        <li>
-                            <i class="fa fa-arrow-circle-right pr-5"></i>
-                            <b>Consultation</b>
-                        </li>
-                        <li>
-                            <i class="fa fa-arrow-circle-right pr-10"></i>
-                            <b>Selection of Fabric and Details</b>
-                        </li>
-                        <li>
-                            <i class="fa fa-arrow-circle-right pr-10"></i>
-                            <b>Measurement</b>
-                        </li>
-                        <li>
-                            <i class="fa fa-arrow-circle-right pr-10"></i>
-                            <b>Fitting</b>
-                        </li>
-                    </ul>
+                    <?php echo $managementContent2->getContent(); ?>
                 </div>
             </div>
         </div>
-        <!--<div class="container">
-            <!--recent work start-->
-            <!--<div class="row">
-                <div class="col-lg-12 recent">
-                    <h3>Related Work</h3>
-                    <p>Some of our work we have done earlier</p>
-                    <div id="owl-demo" class="owl-carousel owl-theme wow fadeIn">
-                        <div class="item view view-tenth">
-                            <img src="img/works/img8.jpg" alt="work Image">
-                            <div class="mask">
-                                <a href="portfolio-single-image.html" class="info" data-toggle="tooltip"
-                                data-placement="top" title="Details">
-
-                        <i class="fa fa-link"></i>
-
-                        </a>
-                            </div>
-                        </div>
-                        <div class="item view view-tenth">
-                            <img src="img/works/img9.jpg" alt="work Image">
-                            <div class="mask">
-                                <a href="portfolio-single-image.html" class="info" data-toggle="tooltip"
-                                data-placement="top" title="Details">
-
-                        <i class="fa fa-link"></i>
-
-                        </a>
-                            </div>
-                        </div>
-                        <div class="item view view-tenth">
-                            <img src="img/works/img10.jpg" alt="work Image">
-                            <div class="mask">
-                                <a href="portfolio-single-image.html" class="info" data-toggle="tooltip"
-                                data-placement="top" title="Details">
-
-                        <i class="fa fa-link"></i>
-
-                        </a>
-                            </div>
-                        </div>
-                        <div class="item view view-tenth">
-                            <img src="img/works/img11.jpg" alt="work Image">
-                            <div class="mask">
-                                <a href="portfolio-single-image.html" class="info" data-toggle="tooltip"
-                                data-placement="top" title="Details">
-
-                        <i class="fa fa-link"></i>
-
-                        </a>
-                            </div>
-                        </div>
-                        <div class="item view view-tenth">
-                            <img src="img/works/img12.jpg" alt="work Image">
-                            <div class="mask">
-                                <a href="blog_detail.html" class="info" data-toggle="tooltip" data-placement="top"
-                                title="Details">
-
-                        <i class="fa fa-link"></i>
-
-                        </a>
-                            </div>
-                        </div>
-                        <div class="item view view-tenth">
-                            <img src="img/works/img13.jpg" alt="work Image">
-                            <div class="mask">
-                                <a href="blog_detail.html" class="info" data-toggle="tooltip" data-placement="top"
-                                title="Details">
-
-                        <i class="fa fa-link"></i>
-
-                        </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
             <!--recent work end-->
-        </div>
+
+            
         <!--footer start-->
      	<?php include( DIR_LAY.'footerPages.php') ?>
 		<?php include( DIR_LAY.'jsIncludesPages.php') ?>

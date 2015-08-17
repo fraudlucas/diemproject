@@ -9,6 +9,7 @@
 		$path = $row->getPathPhoto();
 		$subtitle = $row->getSubtitle();
 		$status = $row->getActive();
+		$description = $row->getDescription();
 		
 		if($status == 1){
 			$code .='<li>

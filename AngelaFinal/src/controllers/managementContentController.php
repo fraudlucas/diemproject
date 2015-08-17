@@ -51,6 +51,16 @@ class ManagementContentController {
 		$result = $this->persistenceManagement->searchLogo();
 		return $result;
 	}
+
+	public function updateEmail($email, $emailID) {
+		$result = $this->persistenceManagement->updateEmail($email, $emailID);
+		return $result;
+	}
+
+	public function searchEmail($emailID) {
+		$result = $this->persistenceManagement->searchEmail($emailID);
+		return $result;
+	}
 	
 }
 

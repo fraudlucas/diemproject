@@ -49,6 +49,16 @@ class ManagementContentView{
 		$result = $this->managementContentController->searchLogo();
 		return $result;
 	}
+
+	public function updateEmail($email, $emailID) {
+		$result = $this->managementContentController->updateEmail($email, $emailID);
+		return $result;
+	}
+
+	public function searchEmail($emailID) {
+		$result = $this->managementContentController->searchEmail($emailID);
+		return $result;
+	}
 }
 
  ?>

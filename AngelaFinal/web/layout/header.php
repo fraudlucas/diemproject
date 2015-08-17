@@ -1,6 +1,6 @@
 <?php 
 
-require_once('./src/config.php');
+require_once('src/config.php');
 
 require_once (DIR_VIE.'managementContentView.php');
 
@@ -16,6 +16,7 @@ $layoutManagementContentView = new ManagementContentView();
 $logo = $layoutManagementContentView->searchLogo()->getLogo();
 $flag_header_action = false;
 
+$blog = $layoutManagementContentView->searchContent('pageId','11','1')->getContent();
 
 ?>
 	<!-- start header -->
@@ -55,7 +56,7 @@ $flag_header_action = false;
                                 <li><a href="./web/pages/madeToMeasure.php">Made to Measure</a></li>
                             </ul>
                         </li>
-                        <li><a href="http://projectblog.byethost12.com/wp/" >Blog</a></li>
+                        <li><a href="<?php echo $blog; ?>" >Blog</a></li>
                         <li><a href="./web/pages/contact.php" >Contact</a></li>
 						<li>
 							<form class="navbar-form navbar-right"   action="./src/handlers/userHandler.php?a=login" method="post">

@@ -94,22 +94,22 @@
 				</nav>
 			</div>	
 			<div class="row">
-				<div class="container">
+				<div class="container responsive">
 					<div class="col-xs-18 col-md-12">
-						<h4>Tab</h4>
-						<ul class="nav nav-tabs">
+						<h4>Profile</h4>
+						<ul class="nav nav-tabs responsive">
 							<li class="<?php echo $activeClass1; ?>"><a href="#tabProfile" data-toggle="tab"><i class="icon-briefcase"></i>Profile</a></li>
 							<li class="<?php echo $activeClass2; ?>"><a href="#inbox" data-toggle="tab">InBox <span class="badge"><?php echo $amountUnreadMessages; ?></span></a></li>
 							<li class="<?php echo $activeClass3; ?>"><a href="#outbox" data-toggle="tab">Outbox</a></li>
 						</ul>
-						<div class="tab-content">
-							<div class="tab-pane <?php echo $activeClass1; ?>" id="tabProfile">
+						<div class="tab-content responsive">
+							<div class="tab-pane responsive <?php echo $activeClass1; ?>" id="tabProfile">
 								<?php include( DIR_LAY.'tabProfile.php');?>
 							</div>
-							<div class="tab-pane <?php echo $activeClass2; ?>" id="inbox">
+							<div class="tab-pane responsive <?php echo $activeClass2; ?>" id="inbox">
 								<?php include( DIR_LAY.'inboxMessages.php');?>
 							</div>
-							<div class="tab-pane <?php echo $activeClass3; ?>" id="outbox">
+							<div class="tab-pane responsive <?php echo $activeClass3; ?>" id="outbox">
 								<?php include( DIR_LAY.'outboxMessages.php');?>
 							</div>
 						</div>

@@ -5,7 +5,7 @@ require_once DIR_MOD.'user.php';
 require_once DIR_VIE.'userView.php';
 require_once DIR_MOD.'message.php';
 require_once DIR_VIE.'messageView.php';
-error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE);
+error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE & ~E_WARNING);
 
 $session = new Session();
 $action = isset($_GET['a']) ? $_GET['a'] : '';

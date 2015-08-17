@@ -3,7 +3,8 @@ require_once('../config.php');
 require_once('../Session.php');	
 require_once DIR_MOD.'user.php';
 require_once DIR_VIE.'userView.php';
-error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE);
+require_once DIR_VIE.'managementContentView.php';
+error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE & ~E_WARNING);
 
 
 $session = new Session();
@@ -16,6 +17,7 @@ $param = $param . '=' . $param_value;
 
 if (!empty($action)) {
 	$userView = new UserView();
+	$managementContentView = new ManagementContentView();
 
     switch ($action) {
     	case 'recoveryPassword':
@@ -52,7 +54,9 @@ if (!empty($action)) {
 					$password =  password_hash($password,PASSWORD_BCRYPT, $options);
 					$salt = $options['salt'];
 					$message = 'Your new password is'. $key ;
-					$test = mail($email, 'password changes', $message);
+					$from = $managementContentView->searchEmail(1);
+					$headers = "From: ". $from . "\r\n";
+					$test = mail($email, 'Password recovery', $message, $headers);
 					
 					// if ($test) {
 					// 	echo 'funfou';
@@ -68,7 +72,7 @@ if (!empty($action)) {
 					$user->setEmail($email);
 					$user->setPassword($password);
 					$user->setSalt($salt);
-					var_dump($user);
+					// var_dump($user);
 
 					$result = $userView->recoveryPassword($user);
 			}
@@ -120,7 +124,9 @@ if (!empty($action)) {
 					// echo 'You are now registered!';
 					$subject = "Registration Agela Mark";
 					$message = "Hi " . $fname . "you were successfully registered";
-					mail($email, $subject, $message);
+					$from = $managementContentView->searchEmail(1);
+					$headers = "From: ". $from . "\r\n";
+					mail($email, $subject, $message, $headers);
 					header('Location: ../../index.php'); 
 				}else{
 					header ('Location: ../../index.php');
@@ -420,6 +426,44 @@ if (!empty($action)) {
 				}				
 			}
     		break;
+
+    	case 'contactMessage':
+			if($_POST && isset($_POST['submit'], $_POST['name'], $_POST['email'], $_POST['message'])) {
+
+				$name = $_POST['name'];
+				$email = $_POST['email'];
+				$message = $_POST['message'];
+
+				$message = 'Name: ' . $name . '\r\n' . 'Email: ' . $email . '\r\n' . 'Message: ' . $message . '\r\n';
+
+				$from = $managementContentView->searchEmail(1);
+				$to = $managementContentView->searchEmail(2);
+				$subject = 'Contact from website (CONTACT FORM)';
+				$headers = "From: ". $from . "\r\n";
+				mail($to, $subject, $message, $headers);
+			 
+			}
+			
+			break;
+
+		case 'careerMessage':
+			if($_POST && isset($_POST['submit'], $_POST['name'], $_POST['email'], $_POST['message'])) {
+
+				$name = $_POST['name'];
+				$email = $_POST['email'];
+				$message = $_POST['message'];
+
+				$message = 'Name: ' . $name . '\r\n' . 'Email: ' . $email . '\r\n' . 'Message: ' . $message . '\r\n';
+
+				$from = $managementContentView->searchEmail(1);
+				$to = $managementContentView->searchEmail(3);
+				$subject = 'Contact from website (CAREER FORM)';
+				$headers = "From: ". $from . "\r\n";
+				mail($to, $subject, $message, $headers);
+			 
+			}
+			
+			break;
     }
     if (!empty($pageToReturn)) {
 		$header = "Location:  ../../web/pages/". $pageToReturn .".php";

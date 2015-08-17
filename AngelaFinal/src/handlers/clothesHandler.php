@@ -3,7 +3,7 @@ require_once('../config.php');
 require_once('../Session.php');	
 require_once DIR_MOD.'clothes.php';
 require_once DIR_VIE.'clothesView.php';
-error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE);
+error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE & ~E_WARNING);
 
 $action = isset($_GET['a']) ? $_GET['a'] : '';
 $pageToReturn = isset($_GET['p']) ? $_GET['p'] : '';

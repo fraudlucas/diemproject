@@ -5,6 +5,8 @@ require_once (DIR_VIE.'managementContentView.php');
 $layoutManagementContentView = new ManagementContentView();
 $logo = $layoutManagementContentView->searchLogo()->getLogo();
 
+$blog = $layoutManagementContentView->searchContent('pageId','11','1')->getContent();
+
 ?>
 	<!-- start header -->
 	<header>
@@ -22,7 +24,7 @@ $logo = $layoutManagementContentView->searchLogo()->getLogo();
                 </div>
                 <div class="navbar-collapse collapse " id="navbar-main">
 					<div>
-						<button class="btn btn-theme" Style=" transform: rotate(90deg); cursor: pointer; right:-57px; top:0px; margin-top:350px; z-index:999997; position:fixed;" data-direction='left' data-toggle="modal" data-target="#myModal")">Book Appointment</button> 
+						<button class="btn btn-theme" Style=" transform: rotate(90deg); cursor: pointer; right:-57px; top:0px; margin-top:350px; z-index:999997; position:fixed;" data-direction='left' data-toggle="modal" data-target="#myModal">Book Appointment</button> 
 					</div>
 					
                     <ul class="nav navbar-nav">
@@ -31,7 +33,7 @@ $logo = $layoutManagementContentView->searchLogo()->getLogo();
                         <li class="dropdown" >
                             <a href="#" id="dropdownactive" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">About <b class=" icon-angle-down"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="../../web/pages/aboutUs.php">About US</a></li>
+                                <li><a href="../../web/pages/aboutUS.php">About US</a></li>
                                 <li><a href="../../web/pages/ourTeam.php">Our Team</a></li> <!-- There is no page -->
 								<li><a href="../../web/pages/testimonials.php">Testimonials</a></li>
 								<li><a href="../../web/pages/privacy-policy.php">Privacy Policy</a></li> <!-- There is no page -->
@@ -44,7 +46,7 @@ $logo = $layoutManagementContentView->searchLogo()->getLogo();
                                 <li><a href="../../web/pages/madeToMeasure.php">Made to Measure</a></li>
                             </ul>
                         </li>
-                        <li><a href="http://projectblog.byethost12.com/wp/" >Blog</a></li>
+                        <li><a href="<?php echo $blog; ?>" >Blog</a></li>
                         <li><a href="../../web/pages/contact.php" >Contact</a></li>
 						<li>
 							<form class="navbar-form"  action="../../src/handlers/userHandler.php?a=logout" method="post">

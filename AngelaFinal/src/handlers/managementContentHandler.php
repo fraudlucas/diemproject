@@ -6,7 +6,7 @@
 	require_once DIR_MOD.'color.php';
 	// require_once DIR_MOD.'logo.php';
 	require_once DIR_VIE.'managementContentView.php';
-	error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE);
+	error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE & ~E_WARNING);
 //require_once dirname(dirname(__FILE__)).'\..\registration.php';
 
 $action = $_GET['a'];
@@ -119,6 +119,32 @@ if (!empty($action)) {
 				//header('Location: ../../web/pages/adminManagement.php');
     		}
 
+		break;
+
+		case 'changeEmail': 
+    			$email1 = ($_POST['email1']);
+    			$email2 = ($_POST['email2']);
+    			$email3 = ($_POST['email3']);
+
+				$managementView->updateEmail($email1, 1);
+				$managementView->updateEmail($email2, 2);
+				$managementView->updateEmail($email3, 3);
+		break;
+
+		case'changeLinks': 
+    		
+    		$link1 = ($_POST['link1']);
+    		$link2 = ($_POST['link2']);
+				
+    		$uplink = new ManagementContent();
+    		$uplink->setContent($link1);
+    		$uplink->setVariable('link');
+    		$uplink->setPageIdContent(11);
+			$test = $managementView->updateContent($uplink);
+
+			$uplink->setContent($link2);
+    		$uplink->setPageIdContent(12);
+			$test = $managementView->updateContent($uplink);
 		break;
 		
 	}

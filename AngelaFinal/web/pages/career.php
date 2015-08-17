@@ -1,17 +1,9 @@
-<html>
-
-<head>
-<script src='https://www.google.com/recaptcha/api.js'></script>
-</head>
 <?php
 	require_once('../../src/config.php');
 	require_once('../../src/Session.php');
-	require_once (DIR_VIE.'managementPhotosView.php');
 	require_once (DIR_VIE.'managementContentView.php');
-	$manegementPhotosView = new ManagementPhotosView();
 	$managementContentView = new ManagementContentView();
-	$managementPhotos = $manegementPhotosView->searchPhotos('pageId','2','1');
-	$managementContent = $managementContentView->searchContent('pageId','2','1');
+	$managementContent = $managementContentView->searchContent('pageId','10','1');
 	$session = new Session();
 ?>
 <html lang="en">
@@ -51,14 +43,20 @@ p.description_content{
 				include (DIR_LAY.'headerUserPages.php') ;
 			}elseif($_SESSION['role']==1){
 				include( DIR_LAY.'headerAdminPages.php') ;
+			}elseif($_SESSION['role']==3){
+				include( DIR_LAY.'headerStaffPages.php') ;
 			}
 		}else{
 			include( DIR_LAY.'headerPages.php') ;
 		}
 		?>
 
-<br>
-<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
         <!--breadcrumbs start-->
         <div class="breadcrumbs">
             <div class="container">
@@ -69,18 +67,15 @@ p.description_content{
                     <div class="col-lg-8 col-sm-8">
                         <ol class="breadcrumb pull-right">
                             <li>
-                                <a href="../../index.php">Home</a>
-                            </li>
-                            <li>
-                                <a href="#">Our Company</a>
-                            </li>
-                            <li class="./web/pages/career.php">Work with us</li>
+                                <a href="../../index.php">Home</a></li>
+                            
+                            <li class="active">Work with us</li>
                         </ol>
                     </div>
                 </div>
             </div>
         </div>
-    <!--breadcrumbs end-->
+        <!--breadcrumbs end-->
 
 
 		
@@ -93,41 +88,7 @@ p.description_content{
         <div class="col-lg-5 col-sm-5 address">
 		<br></br>
           <section class="contact-infos">
-            <h4 class="title custom-font text-black">
-              ADDRESS
-            </h4>
-            <address>
-              231 King Street,
-              <br>
-              Peterborough, CA
-              <br>
-              ON K9J 2R8
-            </address>
-          </section>
-          <section class="contact-infos">
-            <h4 class="title custom-font text-black">
-              BUSINESS HOURS
-            </h4>
-            <p>
-              Monday - Friday 8am to 4pm
-              <br>
-              Saturday - 7am to 6pm
-              <br>
-              Sunday- Closed
-              <br>
-            </p>
-          </section>
-          <section class="contact-infos">
-            <h4>
-              TELEPHONE
-            </h4>
-            <p>
-              <i class="icon-phone">
-              </i>
-              +1 705-742-7315
-            </p>
-         
-
+          	<?php echo $managementContent->getContent(); ?>
           </section>
         </div>
 		<br>
@@ -198,12 +159,12 @@ p.description_content{
 					<?php if(!empty($ok)) echo '<div class="ok">'.$ok.'</div>'; ?>
 
 					<!-- Contact form itself-->
-					<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
-						<p><b>Name: </b> <input class="form-control" type="text" name="nome" required> </p>
+					<form action="../../src/handlers/userHandler.php?a=careerMessage&p=career" method="post" >
+						<p><b>Name: </b> <input class="form-control" type="text" name="name" required> </p>
 						<p><b>E-mail: </b><input class="form-control" type="email" name="email" required></p>
-						<p><b>Message: </b><textarea class="form-control" name="mensagem" required style="padding: 20px 130px 50px 2px;"></textarea></p>						 
+						<p><b>Message: </b><textarea class="form-control" name="message" required rows="4"></textarea></p>						 
 						<img src="../../web/layout/captcha.php">
-						<p><b>Please, type the code:</b><br><input class="form-control" type="text" name="codigo" required style="width:150px;"></p>
+						<p><b>Please, type the code:</b><input class="form-control" type="text" name="code" required style="width:150px;"></p>
 						<input type="submit" name="submit" value="Send" class="btn btn-info" style="width:150px" />
 						<br>
 						<br>

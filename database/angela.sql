@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.4.12
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2015 at 03:34 AM
--- Server version: 5.6.24
--- PHP Version: 5.6.8
+-- Generation Time: Aug 17, 2015 at 03:13 PM
+-- Server version: 5.6.25
+-- PHP Version: 5.6.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `angelamark`
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `clothing` (
 
 INSERT INTO `clothing` (`id`, `code`, `picture`, `price`, `customized`, `typeId`, `tagID`) VALUES
 (2, 'ref1', 'web/assets/img/clothes/1.png', 10, 1, 1, 2),
-(3, 'pant1', 'web/assets/img/clothes/pant1.jpg', 10, 2, 2, 2),
+(3, 'pant1', 'web/assets/img/clothes/pant1.jpg', 10, 1, 2, 2),
 (4, 'pant2', 'web/assets/img/clothes/pant2.jpgpant2.jpgpant2.jpgpant2.jpg', 12, 1, 2, 1),
 (5, 'pant3', 'web/assets/img/clothes/pant3.jpg', 123, 2, 2, 1),
 (6, 'pant4', 'web/assets/img/clothes/pant4.jpg', 23, 2, 2, 1),
@@ -131,7 +131,27 @@ CREATE TABLE IF NOT EXISTS `colors` (
 --
 
 INSERT INTO `colors` (`idColor`, `color`) VALUES
-(1, '#ABC284');
+(1, '#B4C2BE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `emails`
+--
+
+CREATE TABLE IF NOT EXISTS `emails` (
+  `id` int(11) NOT NULL,
+  `email` varchar(80) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `emails`
+--
+
+INSERT INTO `emails` (`id`, `email`) VALUES
+(1, 'no-reply@nodomain.com'),
+(2, 'receivecontact@nodomain.com'),
+(3, 'receivecareer@nodomain.com');
 
 -- --------------------------------------------------------
 
@@ -159,17 +179,22 @@ INSERT INTO `logos` (`id`, `path`) VALUES
 
 CREATE TABLE IF NOT EXISTS `looks` (
   `id` int(10) unsigned NOT NULL,
-  `clothing1id` int(10) unsigned DEFAULT NULL,
-  `clothing2id` int(10) unsigned DEFAULT NULL,
+  `clothing1id` int(10) unsigned NOT NULL,
+  `clothing2id` int(10) unsigned NOT NULL,
   `userId` int(10) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `looks`
 --
 
 INSERT INTO `looks` (`id`, `clothing1id`, `clothing2id`, `userId`) VALUES
-(3, 2, 3, 2);
+(1, 2, 3, 2),
+(2, 7, 4, 2),
+(3, 7, 11, 2),
+(4, 9, 3, 7),
+(5, 2, 5, 2),
+(6, 9, 3, 7);
 
 -- --------------------------------------------------------
 
@@ -185,26 +210,27 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `content` varchar(250) NOT NULL,
   `messageDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `read` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `messages`
 --
 
 INSERT INTO `messages` (`id`, `fromUserID`, `toUserID`, `topic`, `content`, `messageDate`, `read`) VALUES
-(1, 2, 4, 'test', 'maybe it works', '2015-08-06 15:09:31', 1),
+(1, 2, 4, 'test', 'maybe it works', '2015-08-06 15:09:31', 0),
 (2, 5, 4, 'testing', 'testing', '2015-08-06 15:11:10', 1),
 (3, 5, 2, 'testing modal ', 'maybe it works on adminClient', '2015-08-04 23:03:36', 1),
-(4, 2, 4, 'testing 2', 'maybe', '2015-08-06 14:21:43', 0),
+(4, 2, 4, 'testing 2', 'maybe', '2015-08-06 14:21:43', 1),
 (5, 4, 2, 'asdas', 'dasdasd', '2015-08-04 23:03:05', 0),
 (6, 4, 5, 'asdhaoisdh', 'asdaspj', '2015-08-06 00:59:23', 1),
 (7, 2, 4, '', 'Testing sending email to an external email.', '2015-08-06 15:11:15', 1),
-(8, 2, 4, '', 'testing email', '2015-08-06 14:46:08', 0),
-(9, 2, 4, '', 'testing email', '2015-08-06 14:46:34', 1),
+(8, 2, 4, '', 'testing email', '2015-08-06 14:46:08', 1),
+(9, 2, 4, '', 'testing email', '2015-08-06 14:46:34', 0),
 (10, 2, 4, '', 'testing email', '2015-08-06 14:47:02', 0),
 (11, 4, 7, 'Sending test to Test Staff', 'Testing this message.', '2015-08-08 14:36:38', 0),
 (12, 4, 6, 'Sending test to Testing Staff', 'Testing messages', '2015-08-08 14:38:56', 0),
-(13, 2, 7, 'Testing User sending', 'MEssage for test staaff', '2015-08-10 11:21:00', 0);
+(13, 2, 7, 'Testing User sending', 'MEssage for test staaff', '2015-08-10 11:21:00', 0),
+(14, 7, 6, 'asiodn', 'testinasodn ', '2015-08-14 02:42:17', 0);
 
 -- --------------------------------------------------------
 
@@ -217,7 +243,7 @@ CREATE TABLE IF NOT EXISTS `pagecontent` (
   `pageID` int(11) NOT NULL,
   `variable` varchar(30) NOT NULL,
   `content` longtext NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pagecontent`
@@ -229,7 +255,13 @@ INSERT INTO `pagecontent` (`id`, `pageID`, `variable`, `content`) VALUES
 (6, 3, 'content', '\r\n						\r\n						Testimonials a test a testandoa'),
 (7, 4, 'content', '<div class="title" style="line-height: 22.3999996185303px;"><h4 class="text-center">Made to Measure:</h4><hr /></div><div class="pf-detail" style="line-height: 22.3999996185303px;"><p style="text-align: justify;">The valuable experience of working directly with her loyal and repeat clientele for many years as a personal stylist and designer of made to measure clothing, Angela has continually evolved, modified and improved her patterns and styling each season.</p><p style="text-align: justify;">Angela purchases beautiful fabrics and interprets her designs as reflections of her clienteleâ€™s beauty, personalities and expectations for that feeling that they get when they wear her designs.&nbsp;<br /><br />To meet with an Angela Mark Stylist or learn more about our Made to Measure services, please book an appointment.</p></div>'),
 (8, 5, 'content', '<h4 class="text-center" style="box-sizing: border-box; font-family: ''Open Sans'', Arial, sans-serif; font-weight: 700; line-height: 1.1em; color: rgb(51, 51, 51); margin-top: 10px; margin-bottom: 20px; font-size: 18px; text-align: center;">Ready To Wear:</h4><div class="title" style="line-height: 22.3999996185303px;"><hr /></div><div class="pf-detail" style="line-height: 22.3999996185303px;"><p style="text-align: justify;">The Ready to Wear Collections that Angela now designs and manufacturers reflects the attention to detail and the fit that has become distinctive of her label. The result is beautiful clothing that can be purchased off the rack and looks and feels like it has been custom made!</p></div>'),
-(9, 6, 'content', '<h5 style="text-align: justify;">FAVOURITE QUOTE:</h5><p style="line-height: 22.3999996185303px; text-align: justify;">â€œLorem ipsum dolor sit amet, consectetur adipiscing elit.â€ - Jane Doe</p><br style="line-height: 22.3999996185303px;" /><h5 style="text-align: justify;">THREE CHARACTERISTICS YOUâ€™RE BOUND TO LEARN QUICKLY:</h5><p style="line-height: 22.3999996185303px; text-align: justify;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br style="line-height: 22.3999996185303px;" /><h5 style="text-align: justify;">MY STORY:</h5><p style="line-height: 22.3999996185303px; text-align: justify;">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p><br style="line-height: 22.3999996185303px;" /><h5 style="text-align: justify;">I LOVE:</h5><p style="line-height: 22.3999996185303px; text-align: justify;">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>');
+(9, 6, 'content', '<h5 style="text-align: justify;">FAVOURITE QUOTE:</h5><p style="line-height: 22.3999996185303px; text-align: justify;">â€œLorem ipsum dolor sit amet, consectetur adipiscing elit.â€ - Jane Doe</p><br style="line-height: 22.3999996185303px;" /><h5 style="text-align: justify;">THREE CHARACTERISTICS YOUâ€™RE BOUND TO LEARN QUICKLY:</h5><p style="line-height: 22.3999996185303px; text-align: justify;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br style="line-height: 22.3999996185303px;" /><h5 style="text-align: justify;">MY STORY:</h5><p style="line-height: 22.3999996185303px; text-align: justify;">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p><br style="line-height: 22.3999996185303px;" /><h5 style="text-align: justify;">I LOVE:</h5><p style="line-height: 22.3999996185303px; text-align: justify;">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>'),
+(10, 7, 'content', '<div class="container" style="line-height: 22.3999996185303px; text-align: justify;"><div class="row"><div class="col-md-12 text-justify" style="width: 1160px;"><h4 class="text-center">Privacy Policy:</h4><div class="title" style="line-height: 22.3999996185303px; text-align: start;"><hr /></div><p style="text-align: justify;">Angela Mark Fashion Designs collects the following personal information from you when you use the feedback form on our web site:</p><span style="font-weight: 700;">-Your name;</span><br /><span style="font-weight: 700;">-Your email address;</span><br /><span style="font-weight: 700;">-And/or your telephone number.</span><p></p><br /><p style="text-align: justify;">We require this information in order to respond to your inquiry or comment. By completing our feedback form, you are giving your consent for Angela Mark Fashion Designs to use this information only for the purpose of contacting you.We will not use your personal information for any other purpose. We will not sell your personal information or share it with a third party unless required to do so by law.</p><p style="text-align: justify;">If you choose to be added to our mailing list, we will retain your email address on file so that we can send you periodic announcements of interest. You can request to be removed from our mailing list at any time. We respect and value your privacy. If you have any questions or concerns about our privacy policy or the way we use your personal information, please contact:</p></div></div></div><p style="line-height: 22.3999996185303px; text-align: justify;">&nbsp;</p><h5 style="text-align: center;">Privacy Officer</h5><h5 style="text-align: center;">Angela Mark Fashion Designs&nbsp;<br />Peterborough Office&nbsp;<br />231 King Street&nbsp;<br />Peterborough, ON K9J 2R8&nbsp;<br />Tel (705) 742-7315&nbsp;<br />Email: privacy@angelamark.com</h5>'),
+(11, 8, 'content2', '<div class="title" style="line-height: 22.3999996185303px;"><h4 class="text-center">How it works:</h4><hr /></div><ul class="lead list-unstyled pf-list"><li><span class="fa fa-arrow-circle-right pr-5"></span>&nbsp;<span style="font-weight: 700;">Consultation</span></li><li><span class="fa fa-arrow-circle-right pr-10"></span>&nbsp;<span style="font-weight: 700;">Selection of Fabric and Details</span></li><li><span class="fa fa-arrow-circle-right pr-10"></span>&nbsp;<span style="font-weight: 700;">Measurement</span></li><li><span class="fa fa-arrow-circle-right pr-10"></span>&nbsp;<span style="font-weight: 700;">Fitting</span></li></ul>'),
+(12, 9, 'content', '<h4>TELEPHONE</h4><p style="margin-bottom: 5px; padding: 0px;"><i class="icon-phone"></i>+1 705.742.7315</p><h4>Email</h4><p style="margin-bottom: 5px; padding: 0px;"><i class=""></i>showroom@angelamark.com</p><h4 class="title custom-font text-black">BUSINESS HOURS</h4><p style="margin-bottom: 5px; padding: 0px;">Monday - Saturday 9am to 4pm&nbsp;<br />Sunday- Closed&nbsp;</p>'),
+(13, 10, 'content', '<h4 class="title custom-font text-black">ADDRESS</h4><address>231 King Street,&nbsp;<br />Peterborough, CA&nbsp;<br />ON K9J 2R8</address><h4 class="title custom-font text-black">BUSINESS HOURS</h4><p style="margin-bottom: 5px; padding: 0px;">Monday - Friday 8am to 4pm&nbsp;<br />Saturday - 7am to 6pm&nbsp;<br />Sunday- Closed&nbsp;<br /></p><h4>TELEPHONE</h4><p style="margin-bottom: 5px; padding: 0px;"><i class="icon-phone"></i>+1 705-742-7315</p>'),
+(14, 11, 'link', 'http://projectblog.byethost12.com/wp/'),
+(15, 12, 'link', '<script type="text/javascript" src="//diem.simplybook.me/iframe/pm_loader_v2.php?width=800&url=//diem.simplybook.me&theme=clean_slide_pink&layout=cleanside&timeline=modern_week&mobile_redirect=1"></script>');
 
 -- --------------------------------------------------------
 
@@ -272,7 +304,7 @@ INSERT INTO `pagephotos` (`id`, `path`, `pageId`, `date`, `active`, `subtitle`, 
 CREATE TABLE IF NOT EXISTS `pages` (
   `id` int(4) NOT NULL,
   `name` varchar(80) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pages`
@@ -284,7 +316,13 @@ INSERT INTO `pages` (`id`, `name`) VALUES
 (3, 'testimonials'),
 (4, 'mateToMeasure'),
 (5, 'readyToWear'),
-(6, 'ourTeam');
+(6, 'ourTeam'),
+(7, 'privacy-policy'),
+(8, 'madeToMeasureHow'),
+(9, 'contactInfo'),
+(10, 'career'),
+(11, 'blog'),
+(12, 'booking');
 
 -- --------------------------------------------------------
 
@@ -315,7 +353,7 @@ INSERT INTO `roles` (`id`, `roleTitle`) VALUES
 CREATE TABLE IF NOT EXISTS `tags` (
   `id` int(10) unsigned NOT NULL,
   `name` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tags`
@@ -326,46 +364,6 @@ INSERT INTO `tags` (`id`, `name`) VALUES
 (4, 'spring'),
 (1, 'summer'),
 (2, 'winter');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(10) unsigned NOT NULL,
-  `username` varchar(20) DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `salt` varchar(255) NOT NULL,
-  `email` varchar(75) NOT NULL,
-  `firstName` varchar(50) NOT NULL,
-  `lastName` varchar(50) NOT NULL,
-  `address` varchar(50) DEFAULT NULL,
-  `postalCode` varchar(7) DEFAULT NULL,
-  `city` varchar(25) DEFAULT NULL,
-  `province` char(2) DEFAULT NULL,
-  `administratorID` int(10) unsigned NOT NULL DEFAULT '2',
-  `status` int(4) DEFAULT '3',
-  `picture` varchar(200) NOT NULL DEFAULT 'web/assets/images/profilepicture.jpg',
-  `timeCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `password`, `salt`, `email`, `firstName`, `lastName`, `address`, `postalCode`, `city`, `province`, `administratorID`, `status`, `picture`, `timeCreated`) VALUES
-(2, NULL, '$2y$07$VA1ZwZA5fZJGOFcELSZhBeuii0NdCP24Npg7QQS.XPDNG2ylUfA8C', 'T\rYÁ9}’F8W-&aùR¢Ÿ', 'thiago.evangelista@test.com', 'Thiago Lucas', 'Evangelista ', '836 Talwood Drive', 'K9J7G8', 'Peterborough', 'ON', 2, 2, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
-(3, NULL, '$2y$07$VA1ZwZA5fZJGOFcELSZhBeuii0NdCP24Npg7QQS.XPD...', 'T\r\nYÁ9}’F8W-&aùR¢Ÿ\r\nt', 'admin@admin.com', 'Thi', 'Evan', NULL, NULL, NULL, NULL, 1, 3, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
-(4, NULL, '$2y$07$2e4HSZdMZKLYt41TPPEjHOO0Ys1CAnbL5HU7YWBEFKd.soQgBCs6O', 'ÙîI—Ld¢Ø·S<ñ#–Š=†', 'admin2@admin.com', 'Admin     ', 'Testing     ', 'Testing Street', 'T1TT1T', 'Testing', 'ON', 1, 2, 'web/assets/img/profiles/4/perfil.jpg', '2015-08-10 11:36:49'),
-(5, NULL, '$2y$07$BcfLaap4VH2oXupTJmeb7.Eplx80YY6fHmLsPdA3Dr1RkOS0cEREG', 'ÇËiªxT}¨^êS&g›ìä3Ý…¢', 'ricardo.vcr2@gmail.com', 'Ricardo', 'Remedio', NULL, NULL, NULL, NULL, 2, 2, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
-(6, NULL, '$2y$07$MJnjgc/Ql.BbJW4XXJfbw.1C860KjlrOXlsC/CZIl/mM43Nu/sATO', '0™ãÏÐ—à[%n\\—ÛÃøIí‰^<', 'testing@staff.com', 'Testing Staff', 'Stylist', NULL, NULL, NULL, NULL, 3, 2, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
-(7, NULL, '$2y$07$LFnIbvmbSt.91vudgFIcpu6w3LOUYfbPFcndMHaRojc/SKTjaBnPm', ',YÈnù›Jß½Öû€R§0ß¸hÛá', 'test@staff.com', 'Test ', 'Staff ', 'Testing Street', 'K9K0C9', 'Testing', 'ON', 3, 2, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
-(8, NULL, '$2y$07$1Nmp/7.ek0z7fRYijsmA.elQI5tJ/KiOAM4pbWoivLuKs2s7MyQCO', 'ÔÙ©ÿ¿ž“Lû}"ŽÉ€ùþq#£ÅŸ', 'marcus_lucas12@outlook.com', 'Marcus Lucas', 'Falcao', 'Testing Street', 'T1QT2Q', 'Testing', 'ON', 2, 2, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
-(9, NULL, '$2y$07$wpaX3HTE14VmwKZYOhNpF.K5xBQ96WUxwfXyiQsusWF9MxhNQA19O', 'Â–—ÜtÄ×…fÀ¦X:i©¤Xÿœ‡', 'user@test.com', 'Test   sadasd  ', 'Testing     ', 'asdasda', '1h1g1h1', 'test', 'ON', 2, 2, 'web/assets/images/profilepicture.jpg', '2015-08-12 22:15:39'),
-(10, NULL, '$2y$07$DbCB8BuEbgCMfmZk0bo1H.OZ0SlmH2JcZKIEUVpJQNz4wF6i6VqiC', '\r°ð„n\0Œ~fdÑº5]Y°å1', 'notuser@test.com', 'not user ', 'n ', 'asdas ds', 'as dsa ', 'asds as das d', 'as', 2, 2, 'web/assets/images/profilepicture.jpg', '2015-08-12 22:38:25'),
-(12, NULL, '$2y$07$A/sSwsPN7sznl0tH567spOsa/Oxade.dTz/6dPqAPFVXjvk1jOML6', 'ûÂÃÍîÌç—KGç®ì¥&œ ¿', 'test2@staff.com', 'asd asdnals  ', 'asjd pajso pd ', 'sd a sda s', 'as das ', 'sad asd as', 'ON', 3, 2, 'web/assets/images/profilepicture.jpg', '2015-08-12 23:41:12');
 
 -- --------------------------------------------------------
 
@@ -389,6 +387,47 @@ INSERT INTO `user_roles` (`id`, `userID`, `roleID`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(10) unsigned NOT NULL,
+  `username` varchar(20) DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `salt` varchar(255) NOT NULL,
+  `email` varchar(75) NOT NULL,
+  `firstName` varchar(50) NOT NULL,
+  `lastName` varchar(50) NOT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  `postalCode` varchar(7) DEFAULT NULL,
+  `city` varchar(25) DEFAULT NULL,
+  `province` char(2) DEFAULT NULL,
+  `administratorID` int(10) unsigned NOT NULL DEFAULT '2',
+  `status` int(4) DEFAULT '3',
+  `picture` varchar(200) NOT NULL DEFAULT 'web/assets/images/profilepicture.jpg',
+  `timeCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `salt`, `email`, `firstName`, `lastName`, `address`, `postalCode`, `city`, `province`, `administratorID`, `status`, `picture`, `timeCreated`) VALUES
+(2, NULL, '$2y$07$VA1ZwZA5fZJGOFcELSZhBeuii0NdCP24Npg7QQS.XPDNG2ylUfA8C', 'T\rYÁ9}’F8W-&aùR¢Ÿ', 'thiago.evangelista@test.com', 'Thiago Lucas', 'Evangelista ', '836 Talwood Drive', 'K9J7G8', 'Peterborough', 'ON', 2, 2, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
+(3, NULL, '$2y$07$VA1ZwZA5fZJGOFcELSZhBeuii0NdCP24Npg7QQS.XPD...', 'T\r\nYÁ9}’F8W-&aùR¢Ÿ\r\nt', 'admin@admin.com', 'Thi', 'Evan', NULL, NULL, NULL, NULL, 1, 3, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
+(4, NULL, '$2y$07$2e4HSZdMZKLYt41TPPEjHOO0Ys1CAnbL5HU7YWBEFKd.soQgBCs6O', 'ÙîI—Ld¢Ø·S<ñ#–Š=†', 'admin2@admin.com', 'Admin     ', 'Testing     ', 'Testing Street', 'T1TT1T', 'Testing', 'ON', 1, 2, 'web/assets/img/profiles/4/perfil.jpg', '2015-08-10 11:36:49'),
+(5, NULL, '$2y$07$BcfLaap4VH2oXupTJmeb7.Eplx80YY6fHmLsPdA3Dr1RkOS0cEREG', 'ÇËiªxT}¨^êS&g›ìä3Ý…¢', 'ricardo.vcr2@gmail.com', 'Ricardo', 'Remedio', NULL, NULL, NULL, NULL, 2, 2, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
+(6, NULL, '$2y$07$MJnjgc/Ql.BbJW4XXJfbw.1C860KjlrOXlsC/CZIl/mM43Nu/sATO', '0™ãÏÐ—à[%n\\—ÛÃøIí‰^<', 'testing@staff.com', 'Testing Staff', 'Stylist', NULL, NULL, NULL, NULL, 3, 2, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
+(7, NULL, '$2y$07$LFnIbvmbSt.91vudgFIcpu6w3LOUYfbPFcndMHaRojc/SKTjaBnPm', ',YÈnù›Jß½Öû€R§0ß¸hÛá', 'test@staff.com', 'Test ', 'Staff ', 'Testing Street', 'K9K0C9', 'Testing', 'ON', 3, 2, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
+(8, NULL, '$2y$07$1Nmp/7.ek0z7fRYijsmA.elQI5tJ/KiOAM4pbWoivLuKs2s7MyQCO', 'ÔÙ©ÿ¿ž“Lû}"ŽÉ€ùþq#£ÅŸ', 'marcus_lucas12@outlook.com', 'Marcus Lucas', 'Falcao', 'Testing Street', 'T1QT2Q', 'Testing', 'ON', 2, 2, 'web/assets/images/profilepicture.jpg', '2015-08-10 11:36:49'),
+(9, NULL, '$2y$07$wpaX3HTE14VmwKZYOhNpF.K5xBQ96WUxwfXyiQsusWF9MxhNQA19O', 'Â–—ÜtÄ×…fÀ¦X:i©¤Xÿœ‡', 'user@test.com', 'Test   sadasd  ', 'Testing     ', 'asdasda', '1h1g1h1', 'test', 'ON', 2, 2, 'web/assets/images/profilepicture.jpg', '2015-08-12 22:15:39'),
+(10, NULL, '$2y$07$DbCB8BuEbgCMfmZk0bo1H.OZ0SlmH2JcZKIEUVpJQNz4wF6i6VqiC', '\r°ð„n\0Œ~fdÑº5]Y°å1', 'notuser@test.com', 'not user ', 'n ', 'asdas ds', 'as dsa ', 'asds as das d', 'as', 2, 1, 'web/assets/images/profilepicture.jpg', '2015-08-12 22:38:25'),
+(12, NULL, '$2y$07$A/sSwsPN7sznl0tH567spOsa/Oxade.dTz/6dPqAPFVXjvk1jOML6', 'ûÂÃÍîÌç—KGç®ì¥&œ ¿', 'test2@staff.com', 'asd asdnals  ', 'asjd pajso pd ', 'sd a sda s', 'as das ', 'sad asd as', 'ON', 3, 1, 'web/assets/images/profilepicture.jpg', '2015-08-12 23:41:12'),
+(14, NULL, '$2y$07$7THNWX1SDI8HfIXBI6QVyODuXAsJG7pkCJEKIYBh/CQ8MNEFSayxi', 'í1ÍY}R|…Á#¤É¸J\rm', 'firstlogin@test.com', 'first login ', 'test ', 'asoidj saj ', 'iasjd o', 'aisdj iajsp ', 'ON', 2, 2, 'web/assets/images/profilepicture.jpg', '2015-08-14 00:47:46');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `wardrobe`
 --
 
@@ -397,7 +436,7 @@ CREATE TABLE IF NOT EXISTS `wardrobe` (
   `userId` int(4) unsigned NOT NULL,
   `clothesId` int(4) unsigned NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `wardrobe`
@@ -406,7 +445,12 @@ CREATE TABLE IF NOT EXISTS `wardrobe` (
 INSERT INTO `wardrobe` (`id`, `userId`, `clothesId`, `date`) VALUES
 (1, 2, 2, '2015-08-07 17:57:42'),
 (4, 2, 3, '2015-08-13 15:24:52'),
-(5, 2, 4, '2015-08-13 15:24:52');
+(5, 2, 4, '2015-08-13 15:24:52'),
+(7, 2, 5, '2015-08-14 22:49:06'),
+(8, 2, 11, '2015-08-14 22:49:24'),
+(9, 2, 7, '2015-08-14 22:51:44'),
+(10, 7, 3, '2015-08-14 22:52:05'),
+(11, 7, 9, '2015-08-14 22:52:15');
 
 -- --------------------------------------------------------
 
@@ -429,30 +473,41 @@ CREATE TABLE IF NOT EXISTS `wishlists` (
 -- Indexes for table `clothing`
 --
 ALTER TABLE `clothing`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uc_clothing` (`code`), ADD KEY `typeId` (`typeId`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uc_clothing` (`code`),
+  ADD KEY `typeId` (`typeId`);
 
 --
 -- Indexes for table `clothinglookpieces`
 --
 ALTER TABLE `clothinglookpieces`
-  ADD PRIMARY KEY (`clothingLookID`,`clothingID`), ADD KEY `fk_clothingLookPieces_clothing` (`clothingID`);
+  ADD PRIMARY KEY (`clothingLookID`,`clothingID`),
+  ADD KEY `fk_clothingLookPieces_clothing` (`clothingID`);
 
 --
 -- Indexes for table `clothinglooks`
 --
 ALTER TABLE `clothinglooks`
-  ADD PRIMARY KEY (`id`), ADD KEY `userID` (`userID`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `userID` (`userID`);
 
 --
 -- Indexes for table `clothingtagged`
 --
 ALTER TABLE `clothingtagged`
-  ADD PRIMARY KEY (`tagID`,`clothingID`), ADD KEY `fk_clothingTagged_clothing` (`clothingID`);
+  ADD PRIMARY KEY (`tagID`,`clothingID`),
+  ADD KEY `fk_clothingTagged_clothing` (`clothingID`);
 
 --
 -- Indexes for table `clothingtype`
 --
 ALTER TABLE `clothingtype`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `emails`
+--
+ALTER TABLE `emails`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -471,19 +526,23 @@ ALTER TABLE `looks`
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
-  ADD PRIMARY KEY (`id`), ADD KEY `fk_messages_fromUsers` (`fromUserID`), ADD KEY `fk_messages_toUsers` (`toUserID`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_messages_fromUsers` (`fromUserID`),
+  ADD KEY `fk_messages_toUsers` (`toUserID`);
 
 --
 -- Indexes for table `pagecontent`
 --
 ALTER TABLE `pagecontent`
-  ADD PRIMARY KEY (`id`), ADD KEY `fk_pagecontent_pages` (`pageID`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_pagecontent_pages` (`pageID`);
 
 --
 -- Indexes for table `pagephotos`
 --
 ALTER TABLE `pagephotos`
-  ADD PRIMARY KEY (`id`), ADD KEY `pageId` (`pageId`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pageId` (`pageId`);
 
 --
 -- Indexes for table `pages`
@@ -501,19 +560,24 @@ ALTER TABLE `roles`
 -- Indexes for table `tags`
 --
 ALTER TABLE `tags`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uc_tags` (`name`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `uc_users` (`username`,`email`), ADD KEY `fk_administrators_users` (`administratorID`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uc_tags` (`name`);
 
 --
 -- Indexes for table `user_roles`
 --
 ALTER TABLE `user_roles`
-  ADD PRIMARY KEY (`id`), ADD KEY `fk_userRoles_users` (`userID`), ADD KEY `fk_userRoles_roles` (`roleID`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_userRoles_users` (`userID`),
+  ADD KEY `fk_userRoles_roles` (`roleID`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uc_users` (`username`,`email`),
+  ADD KEY `fk_administrators_users` (`administratorID`);
 
 --
 -- Indexes for table `wardrobe`
@@ -525,7 +589,9 @@ ALTER TABLE `wardrobe`
 -- Indexes for table `wishlists`
 --
 ALTER TABLE `wishlists`
-  ADD PRIMARY KEY (`id`), ADD KEY `fk_wishlist_costumers` (`costumerID`), ADD KEY `fk_wishlist_clothingLooks` (`clothingLookID`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_wishlist_costumers` (`costumerID`),
+  ADD KEY `fk_wishlist_clothingLooks` (`clothingLookID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -547,6 +613,11 @@ ALTER TABLE `clothinglooks`
 ALTER TABLE `clothingtype`
   MODIFY `id` int(4) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
+-- AUTO_INCREMENT for table `emails`
+--
+ALTER TABLE `emails`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `logos`
 --
 ALTER TABLE `logos`
@@ -555,17 +626,17 @@ ALTER TABLE `logos`
 -- AUTO_INCREMENT for table `looks`
 --
 ALTER TABLE `looks`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `pagecontent`
 --
 ALTER TABLE `pagecontent`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `pagephotos`
 --
@@ -575,7 +646,7 @@ ALTER TABLE `pagephotos`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `roles`
 --
@@ -585,22 +656,22 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `user_roles`
 --
 ALTER TABLE `user_roles`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+--
 -- AUTO_INCREMENT for table `wardrobe`
 --
 ALTER TABLE `wardrobe`
-  MODIFY `id` int(4) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(4) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `wishlists`
 --
@@ -614,58 +685,58 @@ ALTER TABLE `wishlists`
 -- Constraints for table `clothing`
 --
 ALTER TABLE `clothing`
-ADD CONSTRAINT `clothing_ibfk_1` FOREIGN KEY (`typeId`) REFERENCES `clothingtype` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `clothing_ibfk_1` FOREIGN KEY (`typeId`) REFERENCES `clothingtype` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `clothinglookpieces`
 --
 ALTER TABLE `clothinglookpieces`
-ADD CONSTRAINT `fk_clothingLookPieces_clothing` FOREIGN KEY (`clothingID`) REFERENCES `clothing` (`id`),
-ADD CONSTRAINT `fk_clothingLookPieces_clothingLooks` FOREIGN KEY (`clothingLookID`) REFERENCES `clothinglooks` (`id`);
+  ADD CONSTRAINT `fk_clothingLookPieces_clothing` FOREIGN KEY (`clothingID`) REFERENCES `clothing` (`id`),
+  ADD CONSTRAINT `fk_clothingLookPieces_clothingLooks` FOREIGN KEY (`clothingLookID`) REFERENCES `clothinglooks` (`id`);
 
 --
 -- Constraints for table `clothinglooks`
 --
 ALTER TABLE `clothinglooks`
-ADD CONSTRAINT `clothinglooks_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `clothinglooks_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `clothingtagged`
 --
 ALTER TABLE `clothingtagged`
-ADD CONSTRAINT `fk_clothingTagged_clothing` FOREIGN KEY (`clothingID`) REFERENCES `clothing` (`id`),
-ADD CONSTRAINT `fk_clothingTagged_tags` FOREIGN KEY (`tagID`) REFERENCES `tags` (`id`);
+  ADD CONSTRAINT `fk_clothingTagged_clothing` FOREIGN KEY (`clothingID`) REFERENCES `clothing` (`id`),
+  ADD CONSTRAINT `fk_clothingTagged_tags` FOREIGN KEY (`tagID`) REFERENCES `tags` (`id`);
 
 --
 -- Constraints for table `messages`
 --
 ALTER TABLE `messages`
-ADD CONSTRAINT `fk_messages_fromUsers` FOREIGN KEY (`fromUserID`) REFERENCES `users` (`id`),
-ADD CONSTRAINT `fk_messages_toUsers` FOREIGN KEY (`toUserID`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `fk_messages_fromUsers` FOREIGN KEY (`fromUserID`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `fk_messages_toUsers` FOREIGN KEY (`toUserID`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `pagecontent`
 --
 ALTER TABLE `pagecontent`
-ADD CONSTRAINT `fk_pagecontent_pages` FOREIGN KEY (`pageID`) REFERENCES `pages` (`id`);
+  ADD CONSTRAINT `fk_pagecontent_pages` FOREIGN KEY (`pageID`) REFERENCES `pages` (`id`);
 
 --
 -- Constraints for table `pagephotos`
 --
 ALTER TABLE `pagephotos`
-ADD CONSTRAINT `pagephotos_ibfk_1` FOREIGN KEY (`pageId`) REFERENCES `pages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `pagephotos_ibfk_1` FOREIGN KEY (`pageId`) REFERENCES `pages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`administratorID`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`administratorID`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `wishlists`
 --
 ALTER TABLE `wishlists`
-ADD CONSTRAINT `fk_wishlist_clothingLooks` FOREIGN KEY (`clothingLookID`) REFERENCES `clothinglooks` (`id`);
+  ADD CONSTRAINT `fk_wishlist_clothingLooks` FOREIGN KEY (`clothingLookID`) REFERENCES `clothinglooks` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

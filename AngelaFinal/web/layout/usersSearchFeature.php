@@ -1,11 +1,23 @@
- <?php
-	require_once (DIR_VIE.'userView.php');
+<?php 
+	require_once('../../src/config.php');
+	require_once('../../src/Session.php');
+	require_once DIR_MOD.'user.php';
+	require_once DIR_VIE.'userView.php';
+	$session = new Session();
 	$userView = new UserView();
-	$list = $userView->searchUsers('administratorID',$users_type,'2');
+
+	$info = isset($_GET['i']) ? $_GET['i'] : '';
+	$pageToReturn = isset($_GET['p']) ? $_GET['p'] : '';
+	$flag_button = isset($_GET['f']) ? $_GET['f'] : '';
+	$type = isset($_GET['t']) ? $_GET['t'] : '';
+
+
+	$list = $userView->searching($info);
 	$code ='';
 	$code2 = '';
 	$activate = '';
 	$activate_action = '';
+
 
 	foreach ($list as $row) {
 		$status = $row->getStatus();
@@ -18,7 +30,8 @@
 		$code2 = '<td>&nbsp;</td>';
 		$date = date("Y/m/d", strtotime($row->getTimeCreated()));
 		$act = 'Dea';
-		if ($status == 3 && $flag_button){
+		if ($row->getAdministratorID() != $type) continue;
+ 		if ($status == 3 && $flag_button){
 			$code2 = '<td class="text-center">
 			
 				<span class="label label-default">Pending</span>
@@ -91,6 +104,4 @@
 	}
 	echo $code;
 
- ?>
-
-                               
+?>

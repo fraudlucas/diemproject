@@ -67,14 +67,14 @@
 						<li role="presentation" class="active"><a href="../pages/staffWardrobe.php">Wardrobe</a></li>
 						<li role="presentation"><a href="../pages/staffCollections.php">Collections</a></li>
 						<li role="presentation"><a href="../pages/staffLooks.php">Create Looks</a></li>
-						<!-- <li role="presentation"><a href="#">My Wish List</a></li> -->
+						<li role="presentation"><a href="../pages/staffClients.php">Clients</a></li>
 						<li role="presentation"><a href="../pages/staffStylists.php">Stylists</a></li>
 						<li role="presentation"><a href="../pages/staffMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></span></a></li>
 					</ul>
 				</nav>
 			</div>	
 			<div class="row">
-				<div class="container">
+				<div class="container responsive">
 					<div class="col-xs-18 col-md-12">
 						<div class="row">
 							<div class="col-lg-12">
@@ -92,7 +92,8 @@
 					</div>
 				</div>
 			</div>
-		</div>		
+		</div>
+	</div>		
 	<?php include( DIR_LAY.'footerPages.php') ?>
 	<?php include( DIR_LAY.'jsIncludesPages.php') ?>
 </body>

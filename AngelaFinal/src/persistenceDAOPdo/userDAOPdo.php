@@ -148,7 +148,7 @@
 		public function searchUsers($param,$value,$type) {
 			$className = 'ConnectionDAOPdo';
 			$con = $className::getConnection();
-			$query = 'SELECT * FROM users Where '.$param.' = "'.$value.'"';
+			$query = 'SELECT * FROM users Where '.$param.' LIKE "'.$value.'"';
 			$stmt = $con->prepare($query);
 			$stmt->execute();
 			$result = $stmt->fetchAll();

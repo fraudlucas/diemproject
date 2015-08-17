@@ -62,19 +62,18 @@
 				<nav class="navbar-default"  role="navigation">
 					<ul class="nav nav-pills nav-stacked">
 					  <li>
-						<img src="../../<?php echo $user->getPicture(); ?>" class="img-responsive" width="300px" height="400px"> 
+						<img src="../../<?php echo $user->getPicture(); ?>" class="img-responsive" width="300px" height="400px"> </li>
 						<li role="presentation" ><a href="../pages/userHome.php">Profile</a></li>
 						<li role="presentation" class="active"><a href="../pages/userWardrobe.php">Wardrobe</a></li>
 						<li role="presentation"><a href="../pages/userCollections.php">Collections</a></li>
 						<li role="presentation"><a href="../pages/userLooks.php">Create Looks</a></li>
-						<!-- <li role="presentation"><a href="#">My Wish List</a></li> -->
 						<li role="presentation"><a href="../pages/userStylists.php">Stylists</a></li>
-						<li role="presentation"><a href="../pages/userMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></a></li>
+						<li role="presentation"><a href="../pages/userMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></span></a></li>
 					</ul>
 				</nav>
 			</div>	
 			<div class="row">
-				<div class="container">
+				<div class="container responsive">
 					<div class="col-xs-18 col-md-12">
 						<div class="row">
 							<div class="col-lg-12">
@@ -92,7 +91,8 @@
 					</div>
 				</div>
 			</div>
-		</div>		
+		</div>
+	</div>		
 	<?php include( DIR_LAY.'footerPages.php') ?>
 	<?php include( DIR_LAY.'jsIncludesPages.php') ?>
 </body>

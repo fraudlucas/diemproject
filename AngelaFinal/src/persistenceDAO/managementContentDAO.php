@@ -8,6 +8,8 @@ interface ManagementContentDAO {
 	public function searchColor();
 	public function updateLogo($logo);
 	public function searchLogo();
+	public function updateEmail($email, $emailID);
+	public function searchEmail($emailID);
 }
 
 ?>

@@ -77,17 +77,17 @@
 				</nav>
 			</div>		
 			<div class="row">
-				<div class="container">
+				<div class="container responsive">
 					<div class="col-xs-18 col-md-12">
 						<h4>Staff</h4>
-						<ul class="nav nav-tabs">
+						<ul class="nav nav-tabs responsive">
 							<li class="<?php echo $activeClass2; ?>"><a href="#list" data-toggle="tab"><i class="icon-briefcase"></i>Staff List</a></li>
 							<li class="<?php echo $activeClass3; ?>"><a href="#search" data-toggle="tab">Search</a></li>
 						</ul>
 
-						<div class="tab-content" >
+						<div class="tab-content responsive" >
 
-							<div class="tab-pane fade in <?php echo $activeClass2; ?>" id="list">
+							<div class="tab-pane responsive fade in <?php echo $activeClass2; ?>" id="list">
 								<a href="#" data-toggle="modal" data-target="#addStaffModal" data-value="test">
 									<span class="fa-stack">
 										<i class="fa fa-circle fa-stack-2x"></i>
@@ -110,8 +110,24 @@
 									</tbody>
 								</table>
 							</div>
-							<div class="tab-pane <?php echo $activeClass3; ?>" id="search">
-								
+							<div class="tab-pane responsive <?php echo $activeClass3; ?>" id="search">
+								<div class="row">
+									<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+								</div>
+								<table class="table user-list">
+									<thead>
+										<tr>
+										<th><span> Full name</span></th>
+										<th><span> Created</span></th>
+										<th class="text-center"><span>Status</span></th>
+										<th><span>Email</span></th>
+										<th>&nbsp;</th>
+										</tr>
+									</thead>
+									<tbody id="srch-tbody">
+										<?php include( DIR_LAY.'listUsers.php');?>
+									</tbody>
+								</table>
 							</div>							
 						</div>
 					</div>
@@ -119,6 +135,28 @@
 			</div>
 		</div>
 	</div>
+
+	<input type="hidden" id="fb" value="<?php echo $flag_button; ?>">
+	<input type="hidden" id="ptr" value="<?php echo $pageToReturn; ?>">
+	<input type="hidden" id="ut" value="<?php echo $users_type; ?>">
+
+	<script>
+	$(document).ready(function() {
+		$('#srch-term').keyup(function(event) {
+			/* Act on the event */
+			var input = $('#srch-term')
+			var info = input.val()
+			var ptr = $('#ptr').val()
+			var fb = $('#fb').val()
+			var ut = $('#ut').val()
+
+			$.get('../layout/usersSearchFeature.php', {i: info, f: fb, p: ptr, t: ut}, function(data) {
+				/*optional stuff to do after success */
+				$('#srch-tbody').html(data)
+			})
+		})
+	});
+	</script>
 
 	<?php include( DIR_LAY.'modalAddingStaff.php') ?>
 

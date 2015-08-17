@@ -69,25 +69,25 @@
 						<li role="presentation"><a href="../pages/staffWardrobe.php">Wardrobe</a></li>
 						<li role="presentation"><a href="../pages/staffCollections.php">Collections</a></li>
 						<li role="presentation"><a href="../pages/staffLooks.php">Create Looks</a></li>
-						<!-- <li role="presentation"><a href="#">My Wish List</a></li> -->
+						<li role="presentation"><a href="../pages/staffClients.php">Clients</a></li>
 						<li role="presentation"><a href="../pages/staffStylists.php">Stylists</a></li>
 						<li role="presentation" class="active"><a href="../pages/staffMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></span></a></li>
 					</ul>
 				</nav>
 			</div>		
 			<div class="row">
-				<div class="container">
+				<div class="container responsive">
 					<div class="col-xs-18 col-md-12">
-						<h4>Tab</h4>
-						<ul class="nav nav-tabs">
-							<li class="<?php echo $activeClass2; ?>"><a href="#inbox" data-toggle="tab">InBox <span class="badge"><?php echo $amountUnreadMessages; ?></a></li>
+						<h4>Messages</h4>
+						<ul class="nav nav-tabs responsive">
+							<li class="<?php echo $activeClass2; ?>"><a href="#inbox" data-toggle="tab">InBox <span class="badge"><?php echo $amountUnreadMessages; ?></span></a></li>
 							<li class="<?php echo $activeClass3; ?>"><a href="#outbox" data-toggle="tab">Outbox</a></li>
 						</ul>
-						<div class="tab-content">
-							<div class="tab-pane <?php echo $activeClass2; ?>" id="inbox">
+						<div class="tab-content responsive">
+							<div class="tab-pane responsive <?php echo $activeClass2; ?>" id="inbox">
 								<?php include( DIR_LAY.'inboxMessages.php');?>
 							</div>
-							<div class="tab-pane <?php echo $activeClass3; ?>" id="outbox">
+							<div class="tab-pane responsive <?php echo $activeClass3; ?>" id="outbox">
 								<?php include( DIR_LAY.'outboxMessages.php');?>
 							</div>
 						</div>

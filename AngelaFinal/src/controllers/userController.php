@@ -50,9 +50,19 @@ class UserController {
 		$activateUser = $this->persistenceUser->activateUser($id);
 		return $activateUser;
 	}
+	
 	public function recoveryPassword($user){
 		$result  = $this->persistenceUser->recoveryPassword($user);
 		return $result;
+	}
+
+	//SELECT * FROM `users` WHERE firstName OR lastName OR email LIKE '%ago%'
+	public function searching($info) {
+		$param = 'firstName OR lastName OR email';
+		$value = '%'.$info.'%';
+		$type = '2';
+		$usersList = $this->searchUsers($param,$value,$type);
+		return $usersList;
 	}
 
 }

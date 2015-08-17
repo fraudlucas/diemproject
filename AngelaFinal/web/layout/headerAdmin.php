@@ -1,9 +1,11 @@
 <?php 
-//require_once('../../src/config.php');
+require_once('src/config.php');
 require_once (DIR_VIE.'managementContentView.php');
 
 $layoutManagementContentView = new ManagementContentView();
 $logo = $layoutManagementContentView->searchLogo()->getLogo();
+
+$blog = $layoutManagementContentView->searchContent('pageId','11','1')->getContent();
 
 ?>
 	<!-- start header -->
@@ -25,7 +27,7 @@ $logo = $layoutManagementContentView->searchLogo()->getLogo();
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.php">Home</a></li>
 						<li><a href="./web/pages/adminHome.php">Profile</a></li>
-                        <li><a href="http://projectblog.byethost12.com/wp/" >Blog</a></li>
+                        <li><a href="<?php echo $blog; ?>" >Blog</a></li>
                         <li><a href="./web/pages/contact.php" >Contact</a></li>
 						<li>
 							<form class="navbar-form"  action="src/handlers/userHandler.php?a=logout" method="post">

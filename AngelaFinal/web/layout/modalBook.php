@@ -1,3 +1,12 @@
+
+<?php 
+require_once (DIR_VIE.'managementContentView.php');
+
+$bookModalManagementContentView = new ManagementContentView();
+$scriptBook = $bookModalManagementContentView->searchContent('pageId','12','1')->getContent();
+
+?>
+
 <!-- Modal -->
 <div class="modal fade" id="myBook" role="dialog">
   <div class="modal-dialog">
@@ -7,7 +16,7 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Appointment</h4>
       </div>
-      
+      <?php echo $scriptBook; ?>
       <!-- <script type="text/javascript" src="//diem.simplybook.me/iframe/pm_loader_v2.php?width=800&url=//diem.simplybook.me&theme=clean_slide_pink&layout=cleanside&timeline=modern_week&mobile_redirect=1"></script> -->
     </div>
   </div>

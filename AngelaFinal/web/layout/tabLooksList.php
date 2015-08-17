@@ -20,9 +20,13 @@
 		$clothes1 = $clothesView->searchClothes('id',$clothe1, '1'); 
 		$clothes2 = $clothesView->searchClothes('id',$clothe2, '1'); 
 	
-			$code .='<div>
-						<img src="../../'.$clothes1->getPicture().'" style="width:200px;height:140px;"id="'.$clothe1.'">
-						<img src="../../'.$clothes2->getPicture().'" style="width:200px;height:140px;"id="'.$clothe2.'">
+			$code .='<div div class="col-md-2">
+						<a href="#" class="thumbnail">
+							<img class="form-control" src="../../'.$clothes1->getPicture().'" style="width:150px;height:150px;" id="'.$clothe1.'">
+							<img class="form-control" src="../../'.$clothes2->getPicture().'" style="width:150px;height:150px;" id="'.$clothe2.'">
+
+						</a>
+						
 					</div>'
 			;
 		
@@ -32,4 +36,3 @@
 	
 
 ?>
-	

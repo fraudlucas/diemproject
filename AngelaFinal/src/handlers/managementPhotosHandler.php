@@ -4,7 +4,7 @@
 	require_once DIR_SRC.'htmLawed.php';
 	require_once DIR_MOD.'managementPhotos.php';
 	require_once DIR_VIE.'managementPhotosView.php';
-	error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE);
+	error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE & ~E_WARNING);
 
 	if (isset($_GET['a'])){
 		$action = $_GET['a'];

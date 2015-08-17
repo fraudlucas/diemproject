@@ -159,5 +159,43 @@ class ManagementContentDAOPdo implements ManagementContentDAO {
 			
 		return $management;
 	}
+
+	public function updateEmail($email, $emailID) {
+		$className = 'ConnectionDAOPdo';
+		
+		try {		
+			$con = $className::getConnection();
+			$stmt = $con->prepare("UPDATE emails SET 
+				email = :email 				
+				WHERE id = :id");
+			$stmt->bindParam(':email', $email);
+			$stmt->bindParam(':id', $emailID);
+	
+			$stmt->execute();    // Execute the prepared query.
+				
+			return true;
+		}
+		catch(PDOException $e){
+			// echo $e;
+			return false;
+		}
+	}
+
+	public function searchEmail($emailID) {
+		$className = 'ConnectionDAOPdo';
+
+		$con = $className::getConnection();
+		$query = 'SELECT * FROM emails Where id = ' . $emailID;
+		$stmt = $con->prepare($query);
+		$stmt->execute();
+		$result = $stmt->fetchAll();
+		$email = '';
+
+		foreach ($result as $row) {			
+			$email = $row['email'];
+		}
+			
+		return $email;
+	}
 }
 ?>

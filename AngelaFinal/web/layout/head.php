@@ -22,3 +22,4 @@
 		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 
+<?php require_once('src/config.php'); ?>

@@ -3,7 +3,7 @@
 	require_once('../Session.php');	
 	require_once DIR_MOD.'tags.php';
 	require_once DIR_VIE.'tagsView.php';
-	error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE);
+	error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE & ~E_WARNING);
 $action = $_GET['a'];
 $pageToReturn = $_GET['p'];
 

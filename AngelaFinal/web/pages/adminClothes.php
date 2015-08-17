@@ -84,17 +84,17 @@
 				</nav>
 			</div>		
 			<div class="row">
-				<div class="container">
+				<div class="container responsive">
 					<div class="col-xs-18 col-md-12">
 						<h4>Clothes</h4>
-						<ul class="nav nav-tabs">
-							<li class="<?php echo $activeClass1; ?>"><a href="#list" data-toggle="tab"><i class="icon-briefcase"></i>Clothes List</a></li>
-							<li class="<?php echo $activeClass2; ?>"><a href="#add" data-toggle="tab">Add Clothes</a></li>
-							<li class="<?php echo $activeClass3; ?>"><a href="#listTag" data-toggle="tab">List Tags</a></li>
-							<li class="<?php echo $activeClass4; ?>"><a href="#addTag" data-toggle="tab">Add Tags</a></li>
+						<ul class="nav nav-tabs responsive">
+							<li class="test-class <?php echo $activeClass1; ?>"><a href="#list" data-toggle="tab"><i class="icon-briefcase"></i>Clothes List</a></li>
+							<li class="test-class <?php echo $activeClass2; ?>"><a href="#add" data-toggle="tab">Add Clothes</a></li>
+							<li class="test-class <?php echo $activeClass3; ?>"><a href="#listTag" data-toggle="tab">List Tags</a></li>
+							<li class="test-class <?php echo $activeClass4; ?>"><a href="#addTag" data-toggle="tab">Add Tags</a></li>
 						</ul>
-						<div class="tab-content" >
-							<div class="tab-pane fade in <?php echo $activeClass1; ?>" id="list">
+						<div class="tab-content responsive" >
+							<div class="tab-pane responsive fade in <?php echo $activeClass1; ?>" id="list">
 								<div class="col-xs-18 col-md-12" style="height:100% overflow-y:auto">
 									<div class="row">
 										<select name="filter" id="filter" class="form-control pull-right">
@@ -108,7 +108,7 @@
 								</div>
 							</div>
 							
-							<div class="tab-pane <?php echo $activeClass2; ?>" id="add">
+							<div class="tab-pane responsive <?php echo $activeClass2; ?>" id="add">
 								<div class="row">
 									<div class="col-xs-18 col-md-12">
 										<form role="form" action="../../src/handlers/clothesHandler.php?a=clothesAdd&p=<?php echo $pageToReturn; ?>&param=t&t=2" method="post" enctype="multipart/form-data">
@@ -172,7 +172,7 @@
 									</div>
 								</div>
 							</div>	
-							<div class="tab-pane <?php echo $activeClass3; ?>" id="listTag">
+							<div class="tab-pane responsive <?php echo $activeClass3; ?>" id="listTag">
 								<table class="table user-list">
 									<thead>
 										<tr>
@@ -185,7 +185,7 @@
 									</tbody>
 								</table>
 							</div>
-							<div class="tab-pane <?php echo $activeClass4; ?>" id="addTag">
+							<div class="tab-pane responsive <?php echo $activeClass4; ?>" id="addTag">
 								<div class="row">
 									<div class="col-xs-18 col-md-12">
 										<form role="form" action="../../src/handlers/tagsHandler.php?a=tagsAdd&p=<?php echo $pageToReturn; ?>&param=t&t=4" method="post">
@@ -210,9 +210,15 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		(function($) {
+			fakewaffle.responsiveTabs(['xs', 'sm']);
+		})(jQuery);
+	</script>
 	<?php include( DIR_LAY.'footerPages.php') ?>
 	<?php include( DIR_LAY.'jsIncludesPages.php') ?>
 	<script src="../assets/js/editor.js"></script>
+	<script src="../assets/js/responsive-tabs.js"></script>
 </body>
 </html>
  

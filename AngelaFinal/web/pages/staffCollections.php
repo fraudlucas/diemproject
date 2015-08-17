@@ -78,21 +78,21 @@
 						<li role="presentation"><a href="../pages/staffWardrobe.php">Wardrobe</a></li>
 						<li role="presentation" class="active"><a href="../pages/staffCollections.php">Collections</a></li>
 						<li role="presentation"><a href="../pages/staffLooks.php">Create Looks</a></li>
-						<!-- <li role="presentation"><a href="#">My Wish List</a></li> -->
+						<li role="presentation"><a href="../pages/staffClients.php">Clients</a></li>
 						<li role="presentation"><a href="../pages/staffStylists.php">Stylists</a></li>
 						<li role="presentation"><a href="../pages/staffMessages.php">Messages <span class="badge"><?php echo $amountUnreadMessages; ?></span></a></li>
 					</ul>
 				</nav>
 			</div>		
 			<div class="row">
-				<div class="container">
+				<div class="container responsive">
 					<div class="col-xs-18 col-md-12">
 						<h4>Clothes</h4>
-						<ul class="nav nav-tabs">
+						<ul class="nav nav-tabs responsive">
 							<li class="<?php echo $activeClass1; ?>"><a href="#list" data-toggle="tab"><i class="icon-briefcase"></i>Clothes List</a></li>
 						</ul>
-						<div class="tab-content" >
-							<div class="tab-pane fade in <?php echo $activeClass1; ?>" id="list">
+						<div class="tab-content responsive" >
+							<div class="tab-pane responsive fade in <?php echo $activeClass1; ?>" id="list">
 								<div class="col-xs-18 col-md-12" style="height:100% overflow-y:auto">
 									<div class="row">
 										<select name="filter" id="filter" class="form-control pull-right">

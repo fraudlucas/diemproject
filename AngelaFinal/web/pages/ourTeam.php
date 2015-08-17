@@ -83,48 +83,32 @@ p.description_content{
 	
     <!--container start-->
 	<div class="container">
-      <div class="row">
-          <div class="col-xs-4 col-md-2">
-						<!-- wrapper div -->  
-						<div class="wrapper">  
-							<!-- image -->  
-							<img class="img-responsive" src="<?php echo '../../'.$managementPhotos->getPathPhoto();?>" style="width:46px;height:463px;"/>  
-							<!-- description div -->  
-							<div class="description">  
-								<!-- description content -->  
-								<center><p class="description_content">Angela Mark, CEO.</p></center>
-								<!-- end description content -->  
-							</div>  
-							<!-- end description div -->  
-						</div>  
-						<!-- end wrapper div 	-->
-					</div> 
-					<div class="col-xs-2 col-md-1">
-					</div>
-				<div class="row">
-					<div class="container">
-						<div class="col-xs-12 col-md-9" style="float:right;">
+    	<div class="row">
+        	<div class="col-xs-4 col-md-2">
+				<!-- wrapper div -->  
+				<div class="wrapper">  
+					<!-- image -->  
+					<img class="img-responsive" src="<?php echo '../../'.$managementPhotos->getPathPhoto();?>" style="width:350px;height:463px;"/>  
+					<!-- description div -->  
+					<div class="description">  
+						<!-- description content -->  
+						<center><p class="description_content">Angela Mark, CEO.</p></center>
+						<!-- end description content -->  
+					</div>  
+					<!-- end description div -->  
+				</div>  
+				<!-- end wrapper div 	-->
+			</div> 
+			<div class="col-xs-2 col-md-1">
+			</div>
+			<div class="row">
+				<div class="container">
+					<div class="col-xs-12 col-md-9" style="float:right;">
 						<?php echo $managementContent->getContent(); ?>
-
-<!-- Quotes, stories and data of 1st person -->
-          <!-- <h5 ALIGN="justify"><b>FAVOURITE QUOTE:</b></h5>
-			<p ALIGN="justify">“Lorem ipsum dolor sit amet, consectetur adipiscing elit.” - Jane Doe</p><br>
-			
-			<h5 ALIGN="justify"><b>THREE CHARACTERISTICS YOU’RE BOUND TO LEARN QUICKLY:</b></h5>
-			<p ALIGN="justify">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br>
-			
-				<h5 ALIGN="justify"><b>MY STORY:</b></h5>
-				<p ALIGN="justify">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p><br>
-
-					<h5 ALIGN="justify"><b>I LOVE:</b></h5>
-					<p ALIGN="justify">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p><br>
-				<ul class="list-unstyled"></ul> -->
-			<!-- End of quotes, stories and data of 1st person -->
-        </div> 
-      </div>
-      <!-- End container -->
-    </div>
-	</div>
+        			</div> 
+      			</div>
+    		</div>
+		</div>
 	</div>
 	
 
