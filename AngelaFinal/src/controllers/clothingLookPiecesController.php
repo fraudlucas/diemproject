@@ -28,7 +28,7 @@ class ClothingLookPiecesController {
 		
 		$clothingLookPiecesList = $this->persistenceClothes->listAll();
 
-		return $clothingLookPieces;
+		return $clothingLookPiecesList;
 	}
 	
 	public function search($param,$value,$type) {
