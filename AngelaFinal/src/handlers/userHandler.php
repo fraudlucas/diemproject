@@ -48,15 +48,19 @@ if (!empty($action)) {
 					break;
 				} else {
 
+					$msg  = 'An email was sent to your email account.';
+					$_SESSION['msgSuccess'] =  $msg;
+
 					$password = rand(100000,9999999);
 					$key = $password;
 					$options = ['cost' => 7,'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),];				
 					$password =  password_hash($password,PASSWORD_BCRYPT, $options);
 					$salt = $options['salt'];
-					$message = 'Your new password is'. $key ;
+					$message = 'Your new password is '. $key;
 					$from = $managementContentView->searchEmail(1);
 					$headers = "From: ". $from . "\r\n";
 					$test = mail($email, 'Password recovery', $message, $headers);
+					header('Location: ../../index.php');
 					
 					// if ($test) {
 					// 	echo 'funfou';
@@ -121,9 +125,12 @@ if (!empty($action)) {
 				* JOGAR NA SESSAO E SER CAPTURADA NA PAGINA. A MSG ABAIXO.
 				*/
 				if($result){
-					// echo 'You are now registered!';
+					
+					$msg  = 'You were successfully registered! Welcome!';
+					$_SESSION['msgSuccess'] =  $msg;
+
 					$subject = "Registration Agela Mark";
-					$message = "Hi " . $fname . "you were successfully registered";
+					$message = "Hi " . $fname . "! You were successfully registered! Welcome!";
 					$from = $managementContentView->searchEmail(1);
 					$headers = "From: ". $from . "\r\n";
 					mail($email, $subject, $message, $headers);
@@ -153,26 +160,31 @@ if (!empty($action)) {
 						$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 						if($check !== false) {
 							$msg = "File is an image - " . $check["mime"] . ".";
+							$_SESSION['msgUser'] =  $msg;
 							$uploadOk = 1;
 						} else {
 							$msg = "File is not an image.";
+							$_SESSION['msgUser'] =  $msg;
 							$uploadOk = 0;
 						}
 					}
 					// Check if file already exists
 					if (file_exists($target_file)) {
 						$msg = "Sorry, file already exists.";
+						$_SESSION['msgUser'] =  $msg;
 						$uploadOk = 0;
 					}
 					// Check file size
 					if ($_FILES["fileToUpload"]["size"] > 500000) {
-						$msg = "Sorry, your file is too large.";
+						$msg = "Sorry, your file is too large. The maximum size accepted is 500kb.";
+						$_SESSION['msgUser'] =  $msg;
 						$uploadOk = 0;
 					}
 					// Allow certain file formats
 					if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 					&& $imageFileType != "gif" ) {
 						$msg = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+						$_SESSION['msgUser'] =  $msg;
 						$uploadOk = 0;
 					}
 					// Check if $uploadOk is set to 0 by an error
@@ -184,6 +196,7 @@ if (!empty($action)) {
 							$msg = "The file ".$target_dir."". basename($_FILES["fileToUpload"]["name"]). " has been uploaded.";
 						} else {
 							$msg = "Sorry, there was an error uploading your file.";
+							$_SESSION['msgUser'] =  $msg;
 						}
 					}
 					

@@ -7,6 +7,12 @@ $logo = $layoutManagementContentView->searchLogo()->getLogo();
 
 $blog = $layoutManagementContentView->searchContent('pageId','11','1')->getContent();
 
+$msg =  "";
+if (!empty($action)) {
+  //  $msg = $action;
+    $msg = '<div class="alert alert-danger"><strong>'. $action .'</strong></div>  ';
+}
+
 ?>
 	<!-- start header -->
 	<header>
@@ -24,7 +30,7 @@ $blog = $layoutManagementContentView->searchContent('pageId','11','1')->getConte
                 </div>
                 <div class="navbar-collapse collapse " id="navbar-main">
 					<div>
-						<button class="btn btn-theme" Style=" transform: rotate(90deg); cursor: pointer; right:-57px; top:0px; margin-top:350px; z-index:999997; position:fixed;" data-direction='left' data-toggle="modal" data-target="#myModal">Book Appointment</button> 
+						<button class="btn btn-theme" Style=" transform: rotate(90deg); cursor: pointer; right:-57px; top:0px; margin-top:350px; z-index:999997; position:fixed;" data-direction='left' data-toggle="modal" data-target="#myBook">Book Appointment</button> 
 					</div>
 					
                     <ul class="nav navbar-nav">
@@ -60,6 +66,7 @@ $blog = $layoutManagementContentView->searchContent('pageId','11','1')->getConte
 						</li>
                     </ul>					
                 </div>
+                <?php echo $msg; $_SESSION['msgUser'] = ""; ?>
             </div>
         </div>
 	</header>

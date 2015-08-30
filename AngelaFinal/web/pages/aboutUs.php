@@ -86,26 +86,25 @@ p.description_content{
 		<div class="row" style="margin-top:30px; margin-bottom:30px;">
 			<div class="container">	
 			
-					<div class="col-xs-4 col-md-2">
+					<div class="col-xs-4 col-md-4">
 						<!-- wrapper div -->  
 						<div class="wrapper">  
 							<!-- image -->  
-							<img class="img-responsive" src="<?php echo '../../'.$managementPhotos->getPathPhoto();?>" style="width:400px;height:463px;"/>  
+							<img class="img-responsive" src="<?php echo '../../'.$managementPhotos->getPathPhoto();?>" style=""/>  
 							<!-- description div -->  
 							<div class="description">  
 								<!-- description content -->  
-								<center><p class="description_content">Angela Mark, CEO.</p></center>
+								<center><p class="description_content"><?php echo $managementPhotos->getSubtitle();?></p></center>
 								<!-- end description content -->  
 							</div>  
 							<!-- end description div -->  
 						</div>  
 						<!-- end wrapper div 	-->
 					</div> 
-					<div class="col-xs-2 col-md-1">
-					</div>
+					
 				<div class="row">
 					<div class="container">
-						<div class="col-xs-12 col-md-9" style="float:right;">
+						<div class="col-xs-12 col-md-8" style="float:right;">
 							<?php echo $managementContent->getContent();?>
 						</div>
 					</div>

@@ -14,11 +14,15 @@ $return = '<div class="row">
 			
 			<ul class="nav nav-tabs">
 				<li class="active"><a href="#profile" data-toggle="tab"><i class="icon-briefcase"></i>Profile</a></li>
-				<li><a href="#wardrobe" data-toggle="tab">Wardrobe</a></li>
 			
 			</ul>
 			<div class="tab-content" >
-				<div class="tab-pane fade in active" id="profile">						
+				<div class="tab-pane fade in active" id="profile">
+					<div class="row">
+						
+						<center><img class="img-responsive img-thumbnail" src="../../'.$user->getPicture().'" alt="Pulpit Rock" style="width:150px;height:150px"></center>
+						
+					</div>					
 					<div class="row">
 						<div class="col-xs-2 col-md-6">
 							<div class="form-group">

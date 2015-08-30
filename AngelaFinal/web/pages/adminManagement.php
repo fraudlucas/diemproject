@@ -87,7 +87,7 @@
 							<li class="<?php echo $array[5] ?>"><a href="#mdtomeasure" data-toggle="tab">Made To Measure</a></li>
 							<li class="<?php echo $array[8] ?>"><a href="#contact" data-toggle="tab">Contact</a></li>
 							<li class="<?php echo $array[9] ?>"><a href="#career" data-toggle="tab">Career</a></li>
-							<li class="<?php echo $array[6] ?>"><a href="#layout" data-toggle="tab">Layout</a></li>
+							<li class="<?php echo $array[6] ?>"><a href="#layout" data-toggle="tab">Layout & System</a></li>
 							
 						</ul>
 						<div class="tab-content responsive" >

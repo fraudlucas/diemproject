@@ -7,6 +7,12 @@ $logo = $layoutManagementContentView->searchLogo()->getLogo();
 $flag_header_action = true;
 
 $blog = $layoutManagementContentView->searchContent('pageId','11','1')->getContent();
+
+$msg =  "";
+if (!empty($action)) {
+  //  $msg = $action;
+    $msg = '<div class="alert alert-danger"><strong>'. $action .'</strong></div>  ';
+}
 ?>
 	<!-- start header -->
 	<header>
@@ -77,6 +83,7 @@ $blog = $layoutManagementContentView->searchContent('pageId','11','1')->getConte
                         </li>
                     </ul>					
                 </div>
+                <?php echo $msg; $_SESSION['msgUser'] = ""; ?>
             </div>
         </div>
 		</div>

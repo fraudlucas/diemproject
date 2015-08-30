@@ -36,6 +36,7 @@ p.description_content{
     margin:0px;  
 }  
 </style>
+<link href="<?php echo DIR_AST; ?>css/one-page-wonder.css" rel="stylesheet">
 </head>
 <body>
 <?php include( DIR_LAY.'modalBook.php');?>
@@ -80,36 +81,35 @@ p.description_content{
             </div>
         </div>
         <!--breadcrumbs end-->
-	
-    <!--container start-->
-	<div class="container">
-    	<div class="row">
-        	<div class="col-xs-4 col-md-2">
-				<!-- wrapper div -->  
-				<div class="wrapper">  
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="pf-img">
+                   <div class="wrapper">  
 					<!-- image -->  
-					<img class="img-responsive" src="<?php echo '../../'.$managementPhotos->getPathPhoto();?>" style="width:350px;height:463px;"/>  
+					<img class="img-responsive" src="<?php echo '../../'.$managementPhotos->getPathPhoto();?>" style=""/>  
 					<!-- description div -->  
 					<div class="description">  
 						<!-- description content -->  
-						<center><p class="description_content">Angela Mark, CEO.</p></center>
+						<center><p class="description_content"><?php echo $managementPhotos->getSubtitle(); ?></p></center>
 						<!-- end description content -->  
 					</div>  
 					<!-- end description div -->  
-				</div>  
-				<!-- end wrapper div 	-->
-			</div> 
-			<div class="col-xs-2 col-md-1">
-			</div>
-			<div class="row">
-				<div class="container">
-					<div class="col-xs-12 col-md-9" style="float:right;">
-						<?php echo $managementContent->getContent(); ?>
-        			</div> 
-      			</div>
-    		</div>
-		</div>
-	</div>
+				</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--container start-->
+    <div class="container">
+        <div class="row">
+            <!--portfolio-single start-->
+            <div class="col-lg-10 ">
+                <?php echo $managementContent->getContent(); ?>
+            </div>
+        </div>
+    </div>
 	
 
     <!--container end-->

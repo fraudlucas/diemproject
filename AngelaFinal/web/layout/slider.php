@@ -15,7 +15,8 @@
 			$code .='<li>
 						<img src="'.$path.'"  alt="" />
 						<div class="flex-caption">							
-							<p>'.$subtitle.'</p> 							
+							<p><strong>'.$subtitle.'</strong></p> 
+							<p>'.$description.'</p> 							
 						</div>
 					  </li>';
 		}

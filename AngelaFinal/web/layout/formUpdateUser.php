@@ -41,10 +41,10 @@
 				<input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo  $user->getLastName();?>"  required="TRUE">
 				
 				<label for="address">Email:</label>
-				<input type="email" class="form-control" id="email" name="email" value="<?php echo  $user->getEmail();?>" onkeydown="checkPass();" required="TRUE">
+				<input type="email" class="form-control" id="email" name="email" disabled value="<?php echo  $user->getEmail();?>" onkeydown="checkPass();" required="TRUE">
 
-				<label for="address">Confirm Email:</label>
-				<input type="email" class="form-control" id="email2" name="email2" placeholder="Confirm Email" onkeyup="checkPass(); return false;" value="" required="TRUE">
+				<label for="address">Confirm Email: </label><span style="color:red"> You must confirm your email to update</span>
+				<input type="email" class="form-control" id="email2" name="email2" placeholder="You must confirm your email to update" onkeyup="checkPass(); return false;" value="" required="TRUE">
 				<span id="confirmMessage" class="confirmMessage"></span>
 
 				<label for="password">New Password:</label>

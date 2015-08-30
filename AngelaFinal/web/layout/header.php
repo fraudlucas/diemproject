@@ -12,6 +12,13 @@ if (!empty($action)) {
     $msg = '<div class="alert alert-danger"><strong>'. $action .'</strong></div>  ';
 }
 
+$action = isset($_SESSION['msgSuccess']) ? $_SESSION['msgSuccess'] : '';
+$msgSuccess =  "";
+if (!empty($action)) {
+  //  $msg = $action;
+    $msg = '<div class="alert alert-info"><strong>'. $action .'</strong></div>  ';
+}
+
 $layoutManagementContentView = new ManagementContentView();
 $logo = $layoutManagementContentView->searchLogo()->getLogo();
 $flag_header_action = false;
@@ -92,6 +99,7 @@ $blog = $layoutManagementContentView->searchContent('pageId','11','1')->getConte
                     </ul>           
                 </div>
                   <?php echo $msg; $_SESSION['msgUser'] = ""; ?>
+                  <?php echo $msgSuccess; $_SESSION['msgSuccess'] = ""; ?>
             </div>
         </div>
 		</div>

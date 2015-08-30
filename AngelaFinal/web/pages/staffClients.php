@@ -193,7 +193,7 @@
 				var button = $(event.relatedTarget) // Button that triggered the modal
 				var value = button.data('value')
 
-				$.get('../layout/staffContentUserView.php', {a: value}, function(data) {
+				$.get('../layout/adminContentUserView.php', {a: value}, function(data) {
 					$('#modalBodyUserView').html(data)
 				})
 			})

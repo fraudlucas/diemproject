@@ -5,6 +5,7 @@ require_once DIR_MOD.'user.php';
 require_once DIR_VIE.'userView.php';
 require_once DIR_MOD.'message.php';
 require_once DIR_VIE.'messageView.php';
+require_once DIR_VIE.'managementContentView.php';
 error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE & ~E_WARNING);
 
 $session = new Session();
@@ -20,6 +21,7 @@ if (!empty($action)) {
 	$userView = new UserView();
 	$messageView = new MessageView();
 	$message = new Message();
+	$managementContentView = new ManagementContentView();
 
     switch ($action) {
 		case 'send':
@@ -41,6 +43,12 @@ if (!empty($action)) {
 			// // var_dump($message);
 
 			$test = $messageView->send($message);
+
+			$subject = "New message on Agela Mark website";
+			$message = "Hi " . $toUser->getFirstName() . "! You have received a new message on Angela Mark website! Check that!";
+			$from = $managementContentView->searchEmail(1);
+			$headers = "From: ". $from . "\r\n";
+			mail($toUser->getEmail(), $subject, $message, $headers);
 
 			// echo $test;
 
