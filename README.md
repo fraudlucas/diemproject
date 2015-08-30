@@ -2,7 +2,7 @@
 
 This is a personal stylist website and management system developed using the MVC architecture, where the 'src' folder contains all of the system's backend part and the 'web' folder contains all of the system's frontend part (The whole system is located inside the 'AngelaFinal' directory).
 
-This dynamic website and system was developed using the following technologies:
+This interactive and dynamic website and system was developed using the following technologies:
 - PHP 5.5;
 - Javascript & JQuery;
 - AJAX;
