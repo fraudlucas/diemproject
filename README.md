@@ -9,6 +9,7 @@ This dynamic website and system was developed using the following technologies:
 - HTML5 & CSS3;
 - MySQL.
 
+Delivered in August 2015 to the sponsor Angela Mark Fashion Designs.
 
 # Hosting the system:
 
