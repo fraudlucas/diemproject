@@ -14,7 +14,7 @@ This dynamic website and system was developed using the following technologies:
 
 1. The files which you must upload in your hosting website or localhost application server are inside the 'AngelaFinal' directory;
 2. There is a script in the 'database' folder, including the whole database schema. Before import the database script, you shall create a database in your MySQL SGBD;
-After importing the database script, you must change the database connection class 'src/persistenceDAOPdo/connectionDAOPdo.php'. You are going to change the following variables:
+3. After importing the database script, you must change the database connection class 'src/persistenceDAOPdo/connectionDAOPdo.php'. You are going to change the following variables:
 
 - $dbname = "your_databse";
 - $dbusername = "your_database_username";
